@@ -16,14 +16,6 @@ python experiments/04_leakage_splits.py
 # ... through experiments/15_write_paper.py
 ```
 
-Or regenerate the manuscript only:
-
-```bash
-python experiments/15_write_paper.py
-```
-
-Output: `PrecisionPhage_Frontiers_manuscript.docx` (repo root) and `data/results_v2/PrecisionPhage_Frontiers_manuscript.docx`.
-
 ## Repository layout
 
 | Path | Purpose |
