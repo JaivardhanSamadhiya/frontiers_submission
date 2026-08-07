@@ -1,0 +1,73 @@
+paths:
+  vhi_csv: "data/raw/VirusHostInter.csv"
+  phage_fasta_dir: "data/phages"
+  inphared_dir: "data/raw/inphared"
+  host_fasta_dir: "data/fastas/hosts"
+  raw_dir: "data/raw"
+  results_dir: "data/results"
+  plots_dir: "data/plots"
+  features_dir: "data/features"
+  phagesdb_cache: "data/raw/phagesdb_records_cache.json"
+  saureus_experimental: "data/raw/saureus_experimental_interactions.csv"
+  saureus_phage: "data/raw/saureus_phage_interactions.csv"
+
+fallback_paths:
+  phage_fasta_dirs:
+    - "data/phages"
+  host_fasta_dirs:
+    - "data/fastas/hosts"
+  inphared_dirs:
+    - "data/raw/inphared"
+  phagesdb_cache_candidates:
+    - "data/raw/phagesdb_records_cache.json"
+
+fetch:
+  ncbi_email: "jaisamadhiya@gmail.com"
+
+reproducibility:
+  seed: 42
+  dataset_version: "1.0.0"
+
+data:
+  min_species_rows: 5
+  max_species_rows: 99999
+  min_positive_per_species: 3
+  min_negative_per_species: 3
+  neg_ratio_within_genus: 1
+  neg_ratio_cross_genus: 2
+  # Audit fix: restrict to pairs where BOTH phage and host have a real genome,
+  # so sequence-derived features are genuine (not zero-imputed). Avoids a
+  # name-embedding-driven model over entities lacking genomes (Finding D).
+  require_both_sequences: true
+  # Genuinely external validation hosts to exclude from training (Finding A).
+  # Empty by default; the S. aureus set is same-provenance unless populated.
+  holdout_hosts: []
+
+features:
+  svd_dim: 128
+  char_ngram_max: 5500
+  tet_pca_dim: 32
+  cub_pca_dim: 18
+  n_feature_workers: 4
+
+models:
+  hidden_dim: 256
+  out_dim: 128
+  dropout: 0.25
+  learning_rate: 0.0008
+  weight_decay: 0.0001
+  epochs: 100
+  patience: 12
+  gat_heads: 4
+  gat_layers: 4
+  edge_keep_frac: 0.9
+  batch_size: 4096
+
+evaluation:
+  n_mc_rounds: 12
+  unseen_frac: 0.30
+  k_cocktail: 3
+  bootstrap_n: 10000
+  bootstrap_ci: 0.95
+
+thorough_mode: false

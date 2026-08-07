@@ -25,7 +25,7 @@ TPL = ROOT / "Frontiers_Word_Templates" / "Frontiers_Template.docx"
 RD = ROOT / "data" / "results_v2"
 OUT = ROOT / "PrecisionPhage_Frontiers_manuscript.docx"
 OUT_COPY = RD / "PrecisionPhage_Frontiers_manuscript.docx"
-REPO_URL = "https://github.com/jaisamadhiya/PrecisionPhage"
+REPO_URL = "https://github.com/JaivardhanSamadhiya/frontiers_submission"
 
 
 def _load_coldstart_folds(rd: Path) -> dict:

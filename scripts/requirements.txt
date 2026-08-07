@@ -1,0 +1,17 @@
+numpy>=1.24,<2.0
+pandas>=2.0
+scikit-learn>=1.3
+scipy>=1.11
+matplotlib>=3.7
+seaborn>=0.12
+xgboost>=2.0
+pyyaml>=6.0
+umap-learn>=0.5
+tqdm>=4.65
+
+# Phage FASTA download via NCBI Entrez (fetch_data.py)
+biopython>=1.81
+
+# Optional GNN support (CPU build — install manually before running):
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
+# pip install torch-geometric
