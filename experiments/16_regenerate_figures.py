@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Regenerate the five manuscript figures into data/results_v2/.
+"""Regenerate the five primary result figures into data/results_v2/.
 
 Uses saved result artifacts (no model retraining) except when optional inputs
 exist (phist_pooled_preds.npz for ROC overlays). Safe to run after any pipeline
 step that produced the CSV/JSON tables.
 
-Outputs (embedded by experiments/15_write_paper.py):
+Outputs:
   figure_main.png
   fig_feature_importance.png
   fig_phist_compare.png

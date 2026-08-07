@@ -32,8 +32,16 @@ data/interim_v2/*.npy
 external/PHIST/**/build/
 external/phist_run/work/
 
-# Manuscript PDF export (optional; regenerate from .docx)
+# Manuscript (local only — not published in this repository)
+PrecisionPhage_Frontiers_manuscript.docx
+data/results_v2/PrecisionPhage_Frontiers_manuscript.docx
+Frontiers_Word_Templates/
+experiments/15_write_paper.py
 *.docx.pdf
+
+# Internal audit / chat exports (not for public repo)
+AUDIT_REPORT.md
+cursor_precisionphage_repository_audit.md
 
 # Secrets
 .env
