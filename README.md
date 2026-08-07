@@ -67,21 +67,3 @@ python experiments/fetch_host_genomes.py
 ```
 
 This writes `data/fastas/hosts/*.fasta` and `data/raw/host_genome_manifest.json`.
-
-## GitHub push checklist
-
-1. Set `fetch.ncbi_email` locally; do **not** commit secrets.
-2. Run `python experiments/16_regenerate_manuscript_figures.py` and confirm five PNGs in `data/results_v2/`.
-3. Commit: `src/`, `experiments/`, `configs/`, `data/results_v2/` (tables + figures), `README.md`, `DATA.md`, `environment.yml`, `pyproject.toml`.
-4. Exclude (via `.gitignore`): `data/phages/`, `data/fastas/hosts/`, `.venv/`.
-5. Push to `https://github.com/JaivardhanSamadhiya/frontiers_submission` and verify figures render on GitHub.
-
-## Environment
-
-See `environment.yml` or install from `pyproject.toml`:
-
-```bash
-pip install -e ".[extras]"
-```
-
-Python ≥ 3.10; PyTorch and PyTorch Geometric required for GNN experiments.
