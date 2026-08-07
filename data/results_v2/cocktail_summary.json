@@ -1,0 +1,51 @@
+{
+  "threshold": 0.4,
+  "n_phages": 1418,
+  "n_hosts": 323,
+  "n_targets": 230,
+  "greedy_min_size": 180,
+  "ilp_min_size": 180,
+  "ilp_oracle_min_size": 188,
+  "robustness": [
+    {
+      "k": 1,
+      "cocktail_size": 180,
+      "true_cover_>=1": 0.909,
+      "true_cover_>=k": 0.909
+    },
+    {
+      "k": 2,
+      "cocktail_size": 291,
+      "true_cover_>=1": 0.952,
+      "true_cover_>=k": 0.47
+    },
+    {
+      "k": 3,
+      "cocktail_size": 372,
+      "true_cover_>=1": 0.978,
+      "true_cover_>=k": 0.335
+    }
+  ],
+  "budget": [
+    {
+      "budget": 5,
+      "ilp_true_coverage": 0.13,
+      "greedy_true_coverage": 0.13
+    },
+    {
+      "budget": 10,
+      "ilp_true_coverage": 0.165,
+      "greedy_true_coverage": 0.191
+    },
+    {
+      "budget": 20,
+      "ilp_true_coverage": 0.235,
+      "greedy_true_coverage": 0.243
+    },
+    {
+      "budget": 30,
+      "ilp_true_coverage": 0.278,
+      "greedy_true_coverage": 0.287
+    }
+  ]
+}

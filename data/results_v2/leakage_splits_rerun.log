@@ -1,0 +1,40 @@
+2026-06-21 00:27:42,603 [INFO] precisionphage.data.load - [load] kept 8849/8849 rows from studies ['NCBI_HR', 'NahantCollection', 'StaphStudy']
+2026-06-21 00:27:42,695 [INFO] precisionphage.data.load - [load] canonical pairs=8849 pos=2770 neg=6079 phages=2331 hosts=387 species=380 genera=122 conflicts=0
+2026-06-21 00:27:43,900 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-21 00:27:44,224 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-21 00:27:44,493 [INFO] precisionphage.features.assembly - [assembly] covered subset: 1947 pairs (pos=1488 neg=459) over 1418 phages, 323 hosts
+2026-06-21 00:28:00,053 [INFO] precisionphage.features.genomic - [features] node matrix (1418, 212); genomes present for 1418/1418 entities (8 workers)
+2026-06-21 00:30:20,206 [INFO] precisionphage.features.genomic - [features] node matrix (323, 212); genomes present for 323/323 entities (8 workers)
+2026-06-21 00:30:20,375 [INFO] precisionphage.features.assembly - [assembly] merged seq pair features (16 cols) from cache
+2026-06-21 00:30:20,375 [INFO] precisionphage.features.assembly - [assembly] edge dim=24 (['cos_dist', 'l1', 'pearson', 'jaccard', 'k3dist', 'k6dist', 'GCdiff', 'Homology', 'hom16_frac_kmers', 'hom16_cov_frac', 'hom16_log_shared', 'hom16_longest_frac', 'hom20_frac_kmers', 'hom20_cov_frac', 'hom20_log_shared', 'hom20_longest_frac', 'crispr_n_spacers', 'crispr_n_hits', 'crispr_best_frac', 'crispr_has_hit', 'prot_frac_kmers', 'prot_cov_frac', 'prot_log_shared', 'prot_longest_frac'])
+2026-06-21 00:30:20,380 [INFO] leakage - Sketching genomes (k=21, num=256) ...
+2026-06-21 00:30:39,299 [INFO] precisionphage.splits.cluster - [cluster] sketched 1418 entities (k=21, num=256); 1418 with genomes
+2026-06-21 00:33:38,055 [INFO] precisionphage.splits.cluster - [cluster] sketched 323 entities (k=21, num=256); 323 with genomes
+2026-06-21 00:33:38,055 [INFO] leakage - Clustering phages ...
+2026-06-21 00:35:52,934 [INFO] precisionphage.splits.cluster - [cluster] 1418 entities -> 934 clusters at Mash d<=0.050 (Jaccard>=0.212, 1003426 comparisons)
+2026-06-21 00:35:52,934 [INFO] leakage - Clustering hosts ...
+2026-06-21 00:35:59,964 [INFO] precisionphage.splits.cluster - [cluster] 323 entities -> 297 clusters at Mash d<=0.050 (Jaccard>=0.212, 51968 comparisons)
+2026-06-21 00:35:59,976 [INFO] leakage - LEAKAGE AUDIT (taxonomic splits vs genome clusters):
+2026-06-21 00:35:59,976 [INFO] leakage -   host_species_vs_genome_cluster: 12/297 clusters span >1 group; 419 rows (21.5%) and 38/323 hosts (11.8%) are homology-leaky under that split
+2026-06-21 00:35:59,976 [INFO] leakage -   host_genus_vs_genome_cluster: 5/297 clusters span >1 group; 293 rows (15.0%) and 12/323 hosts (3.7%) are homology-leaky under that split
+2026-06-21 00:36:00,030 [INFO] leakage - [loso_species] 28 evaluable folds
+2026-06-21 00:37:31,447 [INFO] leakage - [loso_species/GBM] meanAUC=0.9038 (CI 0.7530-0.9842) pooledAUC=0.9598 pooledPR=0.9849 folds=28/28 ECE=0.024
+2026-06-21 00:37:31,447 [INFO] leakage - [logo_genus] 28 evaluable folds
+2026-06-21 00:38:51,568 [INFO] leakage - [logo_genus/GBM] meanAUC=0.8886 (CI 0.8365-0.9347) pooledAUC=0.9192 pooledPR=0.9599 folds=28/28 ECE=0.053
+2026-06-21 00:38:51,569 [INFO] leakage - [host_cluster] 26 evaluable folds
+2026-06-21 00:38:51,610 [INFO] leakage -   [leak-check] OK: 26 folds, no train/test overlap on ['host_cluster']
+2026-06-21 00:40:28,632 [INFO] leakage - [host_cluster/GBM] meanAUC=0.9009 (CI 0.7962-0.9788) pooledAUC=0.9536 pooledPR=0.9820 folds=26/26 ECE=0.047
+2026-06-21 00:40:28,632 [INFO] leakage - [phage_cluster] 22 evaluable folds
+2026-06-21 00:40:28,664 [INFO] leakage -   [leak-check] OK: 22 folds, no train/test overlap on ['phage_cluster']
+2026-06-21 00:41:44,923 [INFO] leakage - [phage_cluster/GBM] meanAUC=0.8689 (CI 0.7988-0.9315) pooledAUC=0.8531 pooledPR=0.7530 folds=22/22 ECE=0.424
+2026-06-21 00:41:44,923 [INFO] leakage - [combined_unseen] 5 evaluable folds
+2026-06-21 00:41:44,936 [INFO] leakage -   [leak-check] OK: 5 folds, no train/test overlap on ['phage_cluster', 'host_cluster']
+2026-06-21 00:42:18,019 [INFO] leakage - [combined_unseen/GBM] meanAUC=0.7997 (CI 0.7382-0.8627) pooledAUC=0.7804 pooledPR=0.9030 folds=5/5 ECE=0.166
+2026-06-21 00:42:18,036 [INFO] leakage - 
+         regime model  mean_auc  ci_lo  ci_hi  pooled_auc  pooled_pr    ece  folds_used
+   loso_species   GBM    0.9038 0.7530 0.9842      0.9598     0.9849 0.0241          28
+     logo_genus   GBM    0.8886 0.8365 0.9347      0.9192     0.9599 0.0534          28
+   host_cluster   GBM    0.9009 0.7962 0.9788      0.9536     0.9820 0.0470          26
+  phage_cluster   GBM    0.8689 0.7988 0.9315      0.8531     0.7530 0.4237          22
+combined_unseen   GBM    0.7997 0.7382 0.8627      0.7804     0.9030 0.1661           5
+2026-06-21 00:42:18,036 [INFO] leakage - Wrote leakage_splits_results.json / leakage_splits_summary.csv

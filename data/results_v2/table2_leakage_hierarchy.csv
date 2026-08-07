@@ -1,0 +1,6 @@
+regime,mean_auc,ci_lo,ci_hi,pooled_auc,ece,folds_used
+loso_species,0.9038,0.753,0.9842,0.9598,0.0241,28
+logo_genus,0.8886,0.8365,0.9347,0.9192,0.0534,28
+host_cluster,0.9009,0.7962,0.9788,0.9536,0.047,26
+phage_cluster,0.8689,0.7988,0.9315,0.8531,0.4237,22
+combined_unseen,0.7997,0.7382,0.8627,0.7804,0.1661,5

@@ -1,0 +1,49 @@
+{
+  "threshold": 0.4,
+  "panel_strains": [
+    "escherichia coli",
+    "pseudomonas aeruginosa",
+    "staphylococcus aureus",
+    "propionibacterium acnes",
+    "salmonella enterica"
+  ],
+  "panel_size": 5,
+  "outcomes": [
+    {
+      "strategy": "control",
+      "n_phages": 0,
+      "end_load": 1000000000.0,
+      "nadir": 5000000.0,
+      "log10_drop": 0.0,
+      "resistant_frac_end": 0.0,
+      "rebound": false
+    },
+    {
+      "strategy": "monophage",
+      "n_phages": 1,
+      "end_load": 999999943.96825,
+      "nadir": 5000000.0,
+      "log10_drop": 0.0,
+      "resistant_frac_end": 0.0,
+      "rebound": false
+    },
+    {
+      "strategy": "cocktail_k1",
+      "n_phages": 4,
+      "end_load": 999999992.6300071,
+      "nadir": 29116.60920039103,
+      "log10_drop": 2.23,
+      "resistant_frac_end": 1.0,
+      "rebound": true
+    },
+    {
+      "strategy": "robust_k2",
+      "n_phages": 8,
+      "end_load": 602396.779770745,
+      "nadir": 7472.422920246604,
+      "log10_drop": 2.83,
+      "resistant_frac_end": 0.0,
+      "rebound": true
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+2026-06-14 01:22:45,937 [INFO] precisionphage.data.load - [load] kept 8849/8849 rows from studies ['NCBI_HR', 'NahantCollection', 'StaphStudy']
+2026-06-14 01:22:46,002 [INFO] precisionphage.data.load - [load] canonical pairs=8849 pos=2770 neg=6079 phages=2331 hosts=387 species=380 genera=122 conflicts=0
+2026-06-14 01:22:46,879 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:47,015 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:47,282 [INFO] seq_features - Computing pair features for 1947 covered pairs
+2026-06-14 01:22:47,311 [INFO] precisionphage.features.seqmatch - [seqmatch] computing pair features for 323 hosts / 1947 pairs (ks=[16, 20], match_k=20, repeat_k=23, protein={'k': 7, 'min_pep': 90}, 10 workers)
+2026-06-14 01:22:51,962 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:51,969 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,024 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,033 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,096 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,104 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,114 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,129 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,160 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,166 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,175 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:52,177 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:53,044 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:53,058 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:53,895 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:53,913 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:53,915 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:53,959 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:22:54,197 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-14 01:22:54,209 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-14 01:27:52,898 [INFO] precisionphage.features.seqmatch - [seqmatch] done: 1947 pair rows; crispr hit rate=0.015, homology(k=16)>0 rate=0.999
+2026-06-14 01:27:52,987 [INFO] seq_features - Parquet unavailable (Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.
+ - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.); wrote /remote/amscae5/amscae18/Orion/himanshu/CursorProjects/Phage/full_pipeline/data/interim_v2/seq_pair_features.csv
+2026-06-14 01:27:52,996 [INFO] seq_features -   hom16_frac_kmers   mean(pos)=0.0555 mean(neg)=0.0061
+2026-06-14 01:27:52,997 [INFO] seq_features -   hom16_cov_frac     mean(pos)=0.1528 mean(neg)=0.0598
+2026-06-14 01:27:52,998 [INFO] seq_features -   hom16_log_shared   mean(pos)=6.4857 mean(neg)=5.6058
+2026-06-14 01:27:52,999 [INFO] seq_features -   hom16_longest_frac mean(pos)=0.0063 mean(neg)=0.0004
+2026-06-14 01:27:53,000 [INFO] seq_features -   hom20_frac_kmers   mean(pos)=0.0406 mean(neg)=0.0001
+2026-06-14 01:27:53,001 [INFO] seq_features -   hom20_cov_frac     mean(pos)=0.0550 mean(neg)=0.0010
+2026-06-14 01:27:53,002 [INFO] seq_features -   hom20_log_shared   mean(pos)=3.3137 mean(neg)=1.4050
+2026-06-14 01:27:53,003 [INFO] seq_features -   hom20_longest_frac mean(pos)=0.0061 mean(neg)=0.0003
+2026-06-14 01:27:53,004 [INFO] seq_features -   crispr_n_spacers   mean(pos)=264.7124 mean(neg)=216.7102
+2026-06-14 01:27:53,004 [INFO] seq_features -   crispr_n_hits      mean(pos)=0.2258 mean(neg)=0.0915
+2026-06-14 01:27:53,005 [INFO] seq_features -   crispr_best_frac   mean(pos)=0.0221 mean(neg)=0.0018
+2026-06-14 01:27:53,006 [INFO] seq_features -   crispr_has_hit     mean(pos)=0.0195 mean(neg)=0.0022
+2026-06-14 01:27:53,007 [INFO] seq_features -   prot_frac_kmers    mean(pos)=0.0804 mean(neg)=0.0119
+2026-06-14 01:27:53,008 [INFO] seq_features -   prot_cov_frac      mean(pos)=0.1621 mean(neg)=0.0552
+2026-06-14 01:27:53,009 [INFO] seq_features -   prot_log_shared    mean(pos)=6.2773 mean(neg)=5.2896
+2026-06-14 01:27:53,010 [INFO] seq_features -   prot_longest_frac  mean(pos)=0.0053 mean(neg)=0.0007
