@@ -11,11 +11,17 @@ import yaml
 
 
 def load_config(path: str | Path) -> dict:
-    """Load YAML config and resolve all paths relative to paths.root."""
-    path = Path(path)
+    """Load YAML config and resolve paths relative to the config file.
+
+    Resolving ``paths.root`` against the process working directory made an
+    otherwise identical command select different data when launched elsewhere.
+    """
+    path = Path(path).resolve()
     with open(path, encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
-    root = Path(cfg["paths"]["root"]).resolve()
+    configured_root = Path(cfg["paths"]["root"])
+    root = (configured_root if configured_root.is_absolute()
+            else path.parent / configured_root).resolve()
     cfg["paths"]["root"] = root
     for key, val in cfg["paths"].items():
         if key == "root":

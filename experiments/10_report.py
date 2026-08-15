@@ -169,7 +169,7 @@ def main() -> None:
     ax[2].legend(loc="lower left", fontsize=9); ax[2].grid(axis="y", alpha=0.3)
 
     fig.tight_layout()
-    fig.savefig(rd / "figure_main.png", dpi=200)
+    fig.savefig(rd / "figure_main.png", dpi=300)
     log.info("Wrote %s", rd / "figure_main.png")
 
     # ---------------- REPORT.md ----------------
@@ -185,32 +185,40 @@ def main() -> None:
               f"{ls.auc:.3f}** {_ci(ls.auc_lo, ls.auc_hi)}, ECE {ls.ece:.3f}.")
     md.append(f"- Hardest regime (both phage and host clusters unseen \u2014 true "
               f"cold start): **AUROC {cu.auc:.3f}** {_ci(cu.auc_lo, cu.auc_hi)}.")
-    md.append(f"- The feature-based GBM significantly beats the GNN in every "
-              f"regime (DeLong FDR q < 1e-6) and is well calibrated where the GNN "
-              f"is not.\n")
+    md.append("- The feature-based GBM has higher row-pooled AUROC than the GNN "
+              "in every saved regime. Independent-row tests are exploratory "
+              "because pairs share phage and host entities.\n")
     md.append("### Table 1. Main results (GBM vs GNN per leakage regime)\n")
     md.append(_md(t1))
     md.append("\n## 2. Leakage hierarchy\n")
-    md.append("AUC declines monotonically as more leakage is removed, confirming "
-              "the splits are doing real work (no shortcut signal).\n")
+    md.append("AUC generally declines under stricter sequence-cluster holdouts. "
+              "Taxonomic and sequence-cluster regimes are different axes and "
+              "should not be treated as a strictly ordered scale.\n")
     md.append(_md(t2.round(3)))
     md.append("\n## 3. Graph message-passing ablation\n")
-    md.append("Disabling message passing (GNN \u2192 MLP) does **not** hurt and even "
-              "*helps* in phage-cluster cold start, so the relational signal is "
-              "already captured by pairwise features. The GBM remains the headline "
-              "model. See `figure_main.png` panel c.\n")
+    graph_stats = pd.read_csv(rd / "gnn_ablation_cmp.csv").set_index("regime")
+    cold_gain = graph_stats.loc["combined_unseen", "graph_gain"]
+    cold_q = graph_stats.loc["combined_unseen", "graph_q_bh"]
+    md.append("Message passing produced positive row-pooled AUROC differences in all "
+              "four regimes; only the dual cold-start gain remained below the "
+              f"exploratory BH threshold (Δ={cold_gain:+.3f}, q={cold_q:.3g}). "
+              "The GBM nevertheless remained the strongest headline model. "
+              "These row-wise tests are not entity-independent. See "
+              "`figure_main.png` panel c.\n")
     md.append("## 4. Cocktail optimisation\n")
-    md.append(f"- Minimum cocktail (exact ILP) to cover all coverable targets: "
+    md.append(f"- Minimum cocktail (exact ILP) over targets with predicted coverage: "
               f"**{ck['ilp_min_size']} phages** (greedy {ck['greedy_min_size']}, "
               f"oracle minimum {ck['ilp_oracle_min_size']}).")
-    md.append("- Model-driven greedy tracks the truth-oracle and massively beats "
+    md.append("- Model-driven greedy is compared with a truth-informed greedy reference and "
               "random selection (see `cocktail_coverage.png`).\n")
     md.append("### Table 3. k-robust cocktails\n")
     md.append(_md(rob))
     md.append("\n## 5. Eco-evolutionary therapy simulation\n")
-    md.append("On a simulated multi-strain infection, only a redundant (k\u22652) "
-              "cocktail both suppresses load and prevents resistance; monophage "
-              "fails and a non-redundant cocktail relapses via resistance "
+    robust = temp[temp["strategy"] == "robust_k2"].iloc[0]
+    md.append("In the assumption-driven sensitivity model, the redundant "
+              "strategy also rebounds and does not prevent resistant takeover; "
+              f"its end resistant fraction is {robust['resistant_frac_end']:.3f}. "
+              "This is not independent biological validation "
               "(see `temporal_dynamics.png`).\n")
     md.append("### Table 4. Therapy outcomes\n")
     md.append(_md(temp_disp))

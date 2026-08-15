@@ -18,9 +18,9 @@ from .naming import clean_name, genus_of, species_of
 
 log = get_logger(__name__)
 
-# Precomputed pairwise features present in VirusHostInter.csv. Kept for reference
-# and as a baseline; the production edge features are recomputed from genomes so
-# they are uniformly defined for every candidate pair (see features module).
+# Precomputed pairwise features supplied by VirusHostInter.csv. They are used by
+# the full-table baseline and included in the saved 24-feature sequence model;
+# this repository does not regenerate these four columns.
 _VHI_PAIR_FEATS = ["k3dist", "k6dist", "GCdiff", "Homology"]
 
 
@@ -79,16 +79,24 @@ def load_interactions(cfg: dict) -> InteractionDataset:
                              f"columns were {list(raw.columns)}")
 
     pos_tokens = set(t.lower() for t in cfg["data"]["positive_tokens"])
+    neg_tokens = set(t.lower() for t in cfg["data"]["negative_tokens"])
     keep_studies = set(cfg["data"]["studies"])
 
+    phage_raw = raw[cols["phage"]].where(raw[cols["phage"]].notna(), "")
+    host_raw = raw[cols["host"]].where(raw[cols["host"]].notna(), "")
+    infection = (raw[cols["infection"]].where(raw[cols["infection"]].notna(), "")
+                 .astype(str).str.strip().str.lower())
+    unknown = sorted(set(infection) - pos_tokens - neg_tokens)
+    if unknown:
+        raise ValueError(f"Unrecognized infection labels: {unknown[:10]}")
+
     out = pd.DataFrame({
-        "phage": raw[cols["phage"]].astype(str).map(clean_name),
-        "host": raw[cols["host"]].astype(str).map(clean_name),
+        "phage": phage_raw.astype(str).map(clean_name),
+        "host": host_raw.astype(str).map(clean_name),
         "study": (raw[cols["study"]].astype(str) if cols["study"]
                   else "unknown"),
     })
-    out["label"] = (raw[cols["infection"]].astype(str).str.lower()
-                    .isin(pos_tokens)).astype(int)
+    out["label"] = infection.isin(pos_tokens).astype(int)
     for c in _VHI_PAIR_FEATS:
         if c in raw.columns:
             out[c] = pd.to_numeric(raw[c], errors="coerce")

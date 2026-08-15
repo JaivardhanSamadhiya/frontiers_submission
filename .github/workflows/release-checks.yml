@@ -1,0 +1,25 @@
+name: release-checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install lightweight audit dependencies
+        run: >-
+          python -m pip install
+          numpy==1.26.4 pandas==2.2.2 scipy==1.13.1
+          scikit-learn==1.4.2 PyYAML==6.0.2 biopython==1.83
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Frozen release audit
+        run: python experiments/00_validate_release.py --allow-missing-genomes

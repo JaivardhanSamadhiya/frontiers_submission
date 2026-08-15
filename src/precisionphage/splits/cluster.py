@@ -37,7 +37,7 @@ def _mix64(x: np.ndarray) -> np.ndarray:
 
 
 def minhash_sketch(seq: str, k: int = 21, num: int = 256) -> np.ndarray:
-    """Bottom-`num` MinHash sketch of a genome's canonical-free k-mers.
+    """Bottom-`num` MinHash sketch of a genome's forward-strand k-mers.
 
     Returns a sorted uint64 array (length <= num). N-containing windows are
     skipped. k <= 31 so the k-mer code fits in int64."""
@@ -129,11 +129,12 @@ class _UnionFind:
 
 def build_clusters(names, sketches: dict, max_distance: float = 0.05,
                    k: int = 21, num: int = 256) -> dict:
-    """Single-linkage clustering at a Mash-distance threshold.
+    """Single-linkage clustering at a Mash-form distance threshold.
 
-    Entities within `max_distance` Mash distance (~ (1-ANI)) are merged, so each
-    cluster is a set of sequence-similar genomes. Entities without a sketch get
-    their own singleton cluster. Returns name -> integer cluster id."""
+    The distance transforms the in-house bottom-k Jaccard estimate using Mash's
+    formula; this function does not invoke Mash, and the cutoff is not a direct
+    ANI measurement. Entities without a sketch get singleton clusters. Returns
+    name -> integer cluster id."""
     names = list(names)
     n = len(names)
     sk = [sketches.get(nm, np.empty(0, np.uint64)) for nm in names]
@@ -171,8 +172,9 @@ def combined_unseen_folds(df: pd.DataFrame, phage_cluster_col: str,
                           seed: int = 42, min_pos: int = 3, min_neg: int = 3):
     """Block cross-validation holding out BOTH axes by genome cluster.
 
-    Phage clusters and host clusters are each partitioned into n_splits balanced
-    bins. For fold i: test = pairs whose phage-cluster AND host-cluster are both
+    Phage clusters and host clusters are each seeded, permuted, and assigned to
+    `n_splits` bins round-robin (the bins are not pair/label balanced). For fold
+    i: test = pairs whose phage-cluster AND host-cluster are both
     in bin i; train = pairs whose phage-cluster AND host-cluster are both NOT in
     bin i. Pairs with exactly one held-out side are DISCARDED as a leakage
     buffer. Guarantees: no test phage (or sequence-similar phage) and no test

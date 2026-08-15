@@ -2,8 +2,9 @@
 """Step 8: phage cocktail optimisation on the predicted susceptibility matrix.
 
 Pipeline:
-  1. Leakage-free out-of-fold GBM predictions for every covered (phage, host)
-     pair via StratifiedGroupKFold grouped by host genome-cluster.
+  1. Host-cluster-grouped outer-OOF GBM predictions for every covered pair.
+     A fold-specific F1 threshold is selected using only group-aware inner-OOF
+     predictions from that outer fold's training partition.
   2. Build predicted coverage A (pred >= operating threshold) and TRUE coverage
      T (observed label == 1) over tested pairs only.
   3. Optimise cocktails (greedy + exact ILP) and score them on TRUE coverage:
@@ -32,17 +33,14 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from sklearn.metrics import f1_score  # noqa: E402
-from sklearn.model_selection import StratifiedGroupKFold  # noqa: E402
-from sklearn.preprocessing import StandardScaler  # noqa: E402
-
 from precisionphage.cocktail import (  # noqa: E402
     greedy_cover, ilp_max_cover, ilp_min_cover, true_coverage,
     true_coverage_curve,
 )
+from precisionphage.eval import nested_group_oof_decisions  # noqa: E402
 from precisionphage.features.assembly import build_covered_dataset  # noqa: E402
 from precisionphage.models import fit_predict_gbm  # noqa: E402
-from precisionphage.splits import build_clusters, sketch_entities  # noqa: E402
+from precisionphage.splits import load_or_build_clusters  # noqa: E402
 from precisionphage.utils import (  # noqa: E402
     ensure_dirs, get_logger, limit_threads, load_config, set_determinism,
 )
@@ -51,28 +49,7 @@ log = get_logger("cocktail")
 
 
 def _assign_host_clusters(cfg, data):
-    sp = cfg["splits"]
-    cache = (cfg["paths"]["cache_dir"]
-             / f"clusters_k{sp['mash_k']}_d{sp['mash_max_distance']}.json")
-    if cache.exists():
-        obj = json.loads(cache.read_text())
-        if len(obj.get("host", {})) == len(data.hosts):
-            return obj["host"]
-    h_sk = sketch_entities(data.hosts, data.host_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    return build_clusters(data.hosts, h_sk, sp["mash_max_distance"],
-                          sp["mash_k"], sp["minhash_num"])
-
-
-def _oof_predictions(X, y, groups, seed, n_splits=5):
-    oof = np.full(len(y), np.nan, dtype=np.float32)
-    sgkf = StratifiedGroupKFold(n_splits=n_splits, shuffle=True, random_state=seed)
-    for tr, te in sgkf.split(X, y, groups):
-        sc = StandardScaler().fit(X[tr])
-        Xtr = np.nan_to_num(sc.transform(X[tr])).astype(np.float32)
-        Xte = np.nan_to_num(sc.transform(X[te])).astype(np.float32)
-        oof[te] = fit_predict_gbm(Xtr, y[tr], Xte, seed)
-    return oof
+    return load_or_build_clusters(cfg, data)[1]
 
 
 def main() -> None:
@@ -90,15 +67,18 @@ def main() -> None:
     hc = _assign_host_clusters(cfg, data)
     groups = cov["host"].map(hc).to_numpy()
 
-    log.info("Generating leakage-free OOF GBM predictions (grouped by host cluster)")
-    oof = _oof_predictions(X, y, groups, seed)
-    oof = np.nan_to_num(oof, nan=0.0)
-
-    # operating threshold = F1-optimal on OOF
-    grid = np.round(np.arange(0.10, 0.91, 0.02), 3)
-    f1s = [f1_score(y, (oof >= t).astype(int), zero_division=0) for t in grid]
-    thr = float(grid[int(np.argmax(f1s))])
-    log.info("OOF F1-optimal threshold = %.3f (F1=%.3f)", thr, max(f1s))
+    log.info("Generating nested-threshold, host-cluster-grouped OOF predictions")
+    oof, oof_decision, fold_thresholds = nested_group_oof_decisions(
+        X, y, groups, fit_predict_gbm, seed)
+    log.info("Fold-specific inner-OOF F1 thresholds: %s", fold_thresholds)
+    np.savez(
+        rd / "cocktail_oof_predictions.npz",
+        probabilities=oof.astype(np.float32),
+        decisions=oof_decision.astype(np.uint8),
+        thresholds=np.asarray(fold_thresholds, dtype=np.float32),
+        pair_keys=(cov["phage"].astype(str) + "\t" + cov["host"].astype(str)).to_numpy(
+            dtype=str),
+    )
 
     # build phage x host coverage matrices over TESTED pairs only
     phages = sorted(cov["phage"].unique())
@@ -111,14 +91,16 @@ def main() -> None:
     for r in range(len(cov)):
         pi = pix[cov.at[r, "phage"]]
         hi = hix[cov.at[r, "host"]]
-        if oof[r] >= thr:
+        if oof_decision[r]:
             A[pi, hi] = True
         if y[r] == 1:
             T[pi, hi] = True
 
     targets = np.where(T.sum(0) >= 1)[0]            # coverable target hosts
+    predicted_targets = targets[A[:, targets].any(axis=0)]
     log.info("panel: %d phages x %d hosts; coverable targets=%d", n_p, n_h,
              len(targets))
+    log.info("targets with >=1 predicted covering phage=%d", len(predicted_targets))
 
     # --- coverage-vs-size curves ---
     g_order = greedy_cover(A, targets, k=1)
@@ -196,8 +178,12 @@ def main() -> None:
     rob.to_csv(rd / "cocktail_robustness.csv", index=False)
     budget.to_csv(rd / "cocktail_budget.csv", index=False)
     (rd / "cocktail_summary.json").write_text(json.dumps({
-        "threshold": thr, "n_phages": n_p, "n_hosts": n_h,
+        "threshold_method": "fold-specific F1 on group-aware inner-OOF training predictions",
+        "fold_thresholds": fold_thresholds,
+        "threshold_median": float(np.median(fold_thresholds)),
+        "n_phages": n_p, "n_hosts": n_h,
         "n_targets": int(len(targets)),
+        "n_predicted_targets": int(len(predicted_targets)),
         "greedy_min_size": len(g_full),
         "ilp_min_size": int(len(ilp_full)) if ilp_full is not None else None,
         "ilp_oracle_min_size": int(len(ilp_oracle)) if ilp_oracle is not None else None,
@@ -228,7 +214,7 @@ def main() -> None:
     except Exception as e:
         log.warning("figure skipped (%s)", e)
 
-    log.info("Wrote cocktail_curve.csv + cocktail_*.csv + cocktail_summary.json")
+    log.info("Wrote cocktail OOF predictions, curves, summaries, and figure")
 
 
 if __name__ == "__main__":

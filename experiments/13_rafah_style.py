@@ -6,7 +6,7 @@ be run in this environment: it requires an R runtime (its random forest is an R
 'ranger' model) which is absent here, and its pretrained model/HMM database is
 hosted on figshare, which is network-blocked (HTTP 403) from this cluster.
 
-Instead we faithfully reimplement RaFAH's *methodology* for a like-for-like
+Instead we implement a RaFAH-inspired proxy for a limited methodological
 comparison: predict the bacterial host TAXON (genus) from a phage's PROTEIN
 content using a Random Forest. Proteins are obtained by six-frame ORF translation
 (min ORF 60 aa); each phage is encoded as a presence vector of feature-hashed
@@ -47,9 +47,10 @@ from precisionphage.eval import (  # noqa: E402
     permutation_auc_test,
 )
 from precisionphage.features.assembly import build_covered_dataset  # noqa: E402
+from precisionphage.data import genome_set_digest  # noqa: E402
 from precisionphage.features.proteins import protein_kmer_set  # noqa: E402
 from precisionphage.splits import (  # noqa: E402
-    build_clusters, combined_unseen_folds, leave_one_group_out, sketch_entities,
+    combined_unseen_folds, leave_one_group_out, load_or_build_clusters,
 )
 from precisionphage.utils import (  # noqa: E402
     ensure_dirs, get_logger, limit_threads, load_config, set_determinism,
@@ -67,31 +68,20 @@ RLAB = {"loso_species": "Unseen species (LOSO)",
 
 
 def _assign_clusters(cfg, data):
-    sp = cfg["splits"]
-    cache = (cfg["paths"]["cache_dir"]
-             / f"clusters_k{sp['mash_k']}_d{sp['mash_max_distance']}.json")
-    if cache.exists():
-        obj = json.loads(cache.read_text())
-        if (len(obj.get("phage", {})) == len(data.phages)
-                and len(obj.get("host", {})) == len(data.hosts)):
-            return obj["phage"], obj["host"]
-    p_sk = sketch_entities(data.phages, data.phage_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    h_sk = sketch_entities(data.hosts, data.host_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    pc = build_clusters(data.phages, p_sk, sp["mash_max_distance"], sp["mash_k"],
-                        sp["minhash_num"])
-    hc = build_clusters(data.hosts, h_sk, sp["mash_max_distance"], sp["mash_k"],
-                        sp["minhash_num"])
-    cache.write_text(json.dumps({"phage": pc, "host": hc}))
-    return pc, hc
+    return load_or_build_clusters(cfg, data)
 
 
 def _phage_fingerprints(data, cfg):
     """Binary feature-hashed AA-kmer presence vector per phage (RaFAH-style
     protein-content features). Cached to interim_dir."""
     cache = cfg["paths"]["interim_dir"] / f"phage_protein_fp_d{FP_DIM}_k{PROT_K}.npy"
-    if cache.exists():
+    meta_path = cache.with_suffix(".json")
+    source_sha256 = genome_set_digest(data.phages, data.phage_index)
+    expected_meta = {"source_sha256": source_sha256, "n_phages": len(data.phages),
+                     "fp_dim": FP_DIM, "protein_k": PROT_K, "min_pep": MIN_PEP}
+    cached_meta = (json.loads(meta_path.read_text(encoding="utf-8"))
+                   if meta_path.exists() else None)
+    if cache.exists() and cached_meta == expected_meta:
         fp = np.load(cache)
         if fp.shape == (len(data.phages), FP_DIM):
             log.info("[rafah] loaded cached phage fingerprints %s", fp.shape)
@@ -108,6 +98,7 @@ def _phage_fingerprints(data, cfg):
         if (i + 1) % 300 == 0:
             log.info("[rafah] fingerprinted %d/%d phages", i + 1, len(data.phages))
     np.save(cache, fp)
+    meta_path.write_text(json.dumps(expected_meta, indent=2), encoding="utf-8")
     log.info("[rafah] computed phage fingerprints %s (mean density %.3f)",
              fp.shape, float(fp.mean()))
     return fp

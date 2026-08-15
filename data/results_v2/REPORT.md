@@ -4,51 +4,51 @@ Leakage-controlled phage–host interaction prediction, cocktail design, and eco
 
 ## 1. Headline performance
 
-- Easiest realistic regime (unseen species, LOSO): **AUROC 0.960** (0.946–0.974), ECE 0.024.
-- Hardest regime (both phage and host clusters unseen — true cold start): **AUROC 0.780** (0.729–0.832).
-- The feature-based GBM significantly beats the GNN in every regime (DeLong FDR q < 1e-6) and is well calibrated where the GNN is not.
+- Easiest realistic regime (unseen species, LOSO): **AUROC 0.959** (0.944–0.973), ECE 0.021.
+- Hardest regime (both phage and host clusters unseen — true cold start): **AUROC 0.785** (0.736–0.835).
+- The feature-based GBM has higher row-pooled AUROC than the GNN in every saved regime. Independent-row tests are exploratory because pairs share phage and host entities.
 
 ### Table 1. Main results (GBM vs GNN per leakage regime)
 
 | Regime | GBM AUC | GBM ECE | GBM > chance (q) | GNN AUC | GBM−GNN ΔAUC | DeLong q |
 | --- | --- | --- | --- | --- | --- | --- |
-| Unseen species (LOSO) | 0.960 (0.946–0.974) | 0.024 | 1.0e-03 | 0.879 (0.851–0.907) | +0.080 (0.057–0.104) | 6.0e-11 |
-| Unseen host cluster | 0.954 (0.938–0.969) | 0.047 | 1.0e-03 | 0.878 (0.850–0.905) | +0.076 (0.053–0.100) | 2.3e-10 |
-| Unseen phage cluster | 0.853 (0.815–0.891) | 0.424 | 1.0e-03 | 0.605 (0.546–0.663) | +0.249 (0.195–0.302) | 9.8e-19 |
-| Both unseen (cold start) | 0.780 (0.729–0.832) | 0.166 | 1.0e-03 | 0.621 (0.555–0.686) | +0.160 (0.100–0.220) | 2.7e-07 |
+| Unseen species (LOSO) | 0.959 (0.944–0.973) | 0.021 | 1.0e-03 | 0.869 (0.839–0.899) | +0.090 (0.064–0.116) | 1.9e-11 |
+| Unseen host cluster | 0.950 (0.934–0.966) | 0.055 | 1.0e-03 | 0.853 (0.822–0.885) | +0.097 (0.071–0.124) | 4.6e-12 |
+| Unseen phage cluster | 0.847 (0.808–0.886) | 0.427 | 1.0e-03 | 0.752 (0.702–0.801) | +0.095 (0.047–0.144) | 1.8e-04 |
+| Both unseen (cold start) | 0.785 (0.736–0.835) | 0.163 | 1.0e-03 | 0.672 (0.613–0.732) | +0.113 (0.048–0.176) | 5.4e-04 |
 
 ## 2. Leakage hierarchy
 
-AUC declines monotonically as more leakage is removed, confirming the splits are doing real work (no shortcut signal).
+AUC generally declines under stricter sequence-cluster holdouts. Taxonomic and sequence-cluster regimes are different axes and should not be treated as a strictly ordered scale.
 
 | regime | mean_auc | ci_lo | ci_hi | pooled_auc | ece | folds_used |
 | --- | --- | --- | --- | --- | --- | --- |
-| loso_species | 0.904 | 0.753 | 0.984 | 0.96 | 0.024 | 28 |
-| logo_genus | 0.889 | 0.836 | 0.935 | 0.919 | 0.053 | 28 |
-| host_cluster | 0.901 | 0.796 | 0.979 | 0.954 | 0.047 | 26 |
-| phage_cluster | 0.869 | 0.799 | 0.932 | 0.853 | 0.424 | 22 |
-| combined_unseen | 0.8 | 0.738 | 0.863 | 0.78 | 0.166 | 5 |
+| loso_species | 0.903 | 0.751 | 0.982 | 0.959 | 0.021 | 28 |
+| logo_genus | 0.884 | 0.833 | 0.929 | 0.92 | 0.057 | 28 |
+| host_cluster | 0.899 | 0.795 | 0.976 | 0.95 | 0.055 | 26 |
+| phage_cluster | 0.858 | 0.793 | 0.918 | 0.847 | 0.427 | 22 |
+| combined_unseen | 0.799 | 0.752 | 0.854 | 0.785 | 0.163 | 5 |
 
 ## 3. Graph message-passing ablation
 
-Disabling message passing (GNN → MLP) does **not** hurt and even *helps* in phage-cluster cold start, so the relational signal is already captured by pairwise features. The GBM remains the headline model. See `figure_main.png` panel c.
+Message passing produced positive row-pooled AUROC differences in all four regimes; only the dual cold-start gain remained below the exploratory BH threshold (Δ=+0.097, q=0.0116). The GBM nevertheless remained the strongest headline model. These row-wise tests are not entity-independent. See `figure_main.png` panel c.
 
 ## 4. Cocktail optimisation
 
-- Minimum cocktail (exact ILP) to cover all coverable targets: **180 phages** (greedy 180, oracle minimum 188).
-- Model-driven greedy tracks the truth-oracle and massively beats random selection (see `cocktail_coverage.png`).
+- Minimum cocktail (exact ILP) over targets with predicted coverage: **176 phages** (greedy 176, oracle minimum 188).
+- Model-driven greedy is compared with a truth-informed greedy reference and random selection (see `cocktail_coverage.png`).
 
 ### Table 3. k-robust cocktails
 
 | k | cocktail_size | true_cover_>=1 | true_cover_>=k |
 | --- | --- | --- | --- |
-| 1 | 180 | 0.909 | 0.909 |
-| 2 | 291 | 0.952 | 0.47 |
-| 3 | 372 | 0.978 | 0.335 |
+| 1 | 176 | 0.896 | 0.896 |
+| 2 | 282 | 0.93 | 0.452 |
+| 3 | 358 | 0.97 | 0.313 |
 
 ## 5. Eco-evolutionary therapy simulation
 
-On a simulated multi-strain infection, only a redundant (k≥2) cocktail both suppresses load and prevents resistance; monophage fails and a non-redundant cocktail relapses via resistance (see `temporal_dynamics.png`).
+In the assumption-driven sensitivity model, the redundant strategy also rebounds and does not prevent resistant takeover; its end resistant fraction is 1.000. This is not independent biological validation (see `temporal_dynamics.png`).
 
 ### Table 4. Therapy outcomes
 
@@ -56,8 +56,8 @@ On a simulated multi-strain infection, only a redundant (k≥2) cocktail both su
 | --- | --- | --- | --- | --- | --- | --- |
 | control | 0 | 1.00e+09 | 5.00e+06 | 0.0 | 0.0 | False |
 | monophage | 1 | 1.00e+09 | 5.00e+06 | 0.0 | 0.0 | False |
-| cocktail_k1 | 4 | 1.00e+09 | 2.91e+04 | 2.23 | 1.0 | True |
-| robust_k2 | 8 | 6.02e+05 | 7.47e+03 | 2.83 | 0.0 | True |
+| cocktail_k1 | 3 | 1.00e+09 | 1.69e+04 | 2.47 | 1.0 | True |
+| robust_k2 | 6 | 1.00e+09 | 3.98e+04 | 2.1 | 1.0 | True |
 
 ## Figures
 

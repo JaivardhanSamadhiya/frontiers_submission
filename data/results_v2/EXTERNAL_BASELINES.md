@@ -5,7 +5,7 @@ tools, evaluated on **identical leakage-controlled test pairs** (the same
 homology-aware splits used throughout this project) and compared with **DeLong's
 paired AUROC test** with Benjamini-Hochberg FDR correction.
 
-## What was run, and how faithfully
+## What was run
 
 * **PHIST (Zielezinski et al., 2021) - the real, published tool.** Built from
   source (kmer-db v1.2.1) and run on our covered genomes. PHIST is alignment-free
@@ -19,8 +19,8 @@ paired AUROC test** with Benjamini-Hochberg FDR correction.
   *published, pretrained* RaFAH could **not** be executed in this environment:
   (i) its random forest is an R `ranger` model and **no R runtime is available**
   here, and (ii) its pretrained model and HMM database are hosted on **figshare,
-  which is network-blocked (HTTP 403)** from this cluster. We therefore faithfully
-  reimplement RaFAH's *approach* - predict the bacterial host **genus** from a
+  which was network-blocked (HTTP 403)** in the original run. We therefore use
+  a RaFAH-inspired proxy - predict the bacterial host **genus** from a
   phage's **protein content** with a Random Forest - using six-frame ORF
   translation and feature-hashed amino-acid 6-mer presence vectors (a proxy for
   RaFAH's protein-cluster/HMM features), trained on the known phage->host-genus
@@ -36,28 +36,28 @@ zero score, which is the core reason alignment-only methods lose recall.
 
 | Regime | n_pairs | Our AUROC | PHIST AUROC | RaFAH-style AUROC |
 | --- | --- | --- | --- | --- |
-| Unseen species (LOSO) | 1057 | 0.960 (0.946-0.974) | 0.684 (0.662-0.706) | 0.601 (0.560-0.642) |
-| Unseen host cluster | 1082 | 0.954 (0.938-0.969) | 0.681 (0.659-0.703) | 0.575 (0.536-0.615) |
-| Unseen phage (RaFAH's task) | 384 | 0.853 (0.815-0.891) | 0.653 (0.607-0.700) | 0.780 (0.729-0.830) |
-| Both unseen (cold start) | 398 | 0.780 (0.729-0.832) | 0.681 (0.646-0.717) | 0.431 (0.369-0.492) |
+| Unseen species (LOSO) | 1057 | 0.959 (0.944-0.973) | 0.684 (0.662-0.706) | 0.620 (0.579-0.660) |
+| Unseen host cluster | 1082 | 0.950 (0.934-0.966) | 0.681 (0.659-0.703) | 0.577 (0.538-0.616) |
+| Unseen phage (RaFAH's task) | 384 | 0.847 (0.808-0.886) | 0.653 (0.607-0.700) | 0.745 (0.691-0.799) |
+| Both unseen (cold start) | 398 | 0.785 (0.736-0.835) | 0.681 (0.646-0.717) | 0.414 (0.353-0.475) |
 
 AUPRC (positive = interaction):
 
 | Regime | Our AUPRC | PHIST AUPRC | RaFAH-style AUPRC |
 | --- | --- | --- | --- |
-| Unseen species (LOSO) | 0.985 | 0.861 | 0.774 |
-| Unseen host cluster | 0.982 | 0.861 | 0.769 |
-| Unseen phage (RaFAH's task) | 0.753 | 0.587 | 0.633 |
-| Both unseen (cold start) | 0.903 | 0.844 | 0.713 |
+| Unseen species (LOSO) | 0.984 | 0.861 | 0.782 |
+| Unseen host cluster | 0.981 | 0.861 | 0.770 |
+| Unseen phage (RaFAH's task) | 0.736 | 0.587 | 0.638 |
+| Both unseen (cold start) | 0.908 | 0.844 | 0.703 |
 
 Paired DeLong tests (gain of our model, FDR-corrected):
 
 | Regime | vs PHIST dAUC | q(PHIST) | vs RaFAH dAUC | q(RaFAH) |
 | --- | --- | --- | --- | --- |
-| Unseen species (LOSO) | +0.276 | 1.5e-110 | +0.359 | 6.9e-73 |
-| Unseen host cluster | +0.273 | 3.5e-96 | +0.378 | 6.2e-93 |
-| Unseen phage (RaFAH's task) | +0.200 | 4.3e-18 | +0.073 | 2.3e-02 |
-| Both unseen (cold start) | +0.099 | 8.6e-04 | +0.350 | 7.0e-20 |
+| Unseen species (LOSO) | +0.275 | 1.3e-107 | +0.339 | 5.0e-67 |
+| Unseen host cluster | +0.270 | 6.5e-92 | +0.373 | 2.5e-93 |
+| Unseen phage (RaFAH's task) | +0.194 | 1.7e-16 | +0.102 | 3.3e-03 |
+| Both unseen (cold start) | +0.104 | 3.3e-04 | +0.371 | 4.9e-24 |
 
 ## Where our model is better
 
@@ -69,7 +69,7 @@ Paired DeLong tests (gain of our model, FDR-corrected):
   we remain ahead (+0.10, q=9e-4).
 * **Against RaFAH-style: better in every regime (all FDR q < 0.05),** by a very
   large margin in the species and host-cluster regimes (+0.36 and +0.38), because
-  genus-level taxonomic prediction is too coarse for strain/species-resolution
+  genus-level taxonomic prediction is too coarse for species-resolution
   pairwise calls, and in cold-start where the host taxon is unseen the RaFAH-style
   model drops to chance (AUROC 0.43, not above chance: permutation q=0.99).
 
@@ -89,10 +89,10 @@ Paired DeLong tests (gain of our model, FDR-corrected):
 
 ## Bottom line
 
-On a strict, leakage-controlled, strain-resolution benchmark, PrecisionPhage
-**significantly outperforms both the real PHIST tool and a faithful RaFAH-style
-host-taxonomy model across all generalisation regimes** (DeLong FDR q < 0.05
-throughout). The only place a baseline approaches us is novel-phage host
+On this leakage-controlled, taxon-labeled benchmark, the saved row-wise
+comparisons favor PrecisionPhage over PHIST and the RaFAH-inspired proxy. These
+p-values are exploratory because pairs share phage and host entities. The only
+place a baseline approaches us is novel-phage host
 assignment - RaFAH's design goal - which points directly to protein-level features
 as the next improvement.
 

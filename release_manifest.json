@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-08-15",
+  "description": "SHA-256 manifest for the verified PrecisionPhage computational release.",
+  "sha256": {
+    "data/raw/VirusHostInter.csv": "1b9f48c88b1598cf39d5b48802f594fa8c47b68a6fa6cc4c807a5d57914348ec",
+    "data/interim_v2/interactions_modelable.csv": "9358fbbcbecca4c7d83a1b34c6c9c3e5310ec3535653a58ce1e361d82e25063b",
+    "data/interim_v2/seq_pair_features.csv": "c01571edb2fe8fc3a58f7abec344e18e0a179133bf678324c09ea38423bb966b",
+    "data/interim_v2/seq_pair_features.meta.json": "a57c8ece16855716ba1bd2369bd5badb0a42650d1f111c2c2f802b30af3d7168",
+    "data/cache_v2/clusters_k21_d0.05.json": "c65728eb02716f9413dac5b4a736944d721b827c1c4fedf91bda410d8ed40bc1",
+    "external/phist_run/phage_map.json": "dd403068863e56a0c22bbeeda5b70e78412de52d8acb9a9526d601baab070d96",
+    "external/phist_run/host_map.json": "40383cc00bfb2d33ebc534c8c0604ac272512a7085905b33e4ad90a9bbfe6b44",
+    "data/results_v2/leakage_splits_results.json": "fed659a0c653144ae00f406c441bd23334ba0db6b2f114ea99742f85530cefe3",
+    "data/results_v2/significance_results.json": "895c24524b1da1137bdad668b14d56ef8ff552aecdbee4c8236a893c78688677",
+    "data/results_v2/gnn_ablation.json": "2b7e7d14dac2190a227defe1783a568639c13eeeef1957c023df7181f7aff128",
+    "data/results_v2/cocktail_summary.json": "c74376e4e2a07587e93d799559ebdfe499243811a1f65c1e711e8102d75b2064",
+    "data/results_v2/cocktail_oof_predictions.npz": "291104abe2f0a5711f7260e53fcd69b9988ca34ad5cb81f368d8abd247e5422a",
+    "data/results_v2/temporal_summary.json": "bf7ac5b12a4bf2c3e9ada4a258ae2cea275d0979a969b92c19cc793ce8752b20",
+    "data/results_v2/temporal_trajectory.npz": "09019d061739e67b19272e58a33d95ffb0fb8b385e571a5537eb5306e2b95fb4",
+    "data/results_v2/phist_compare.json": "3d2b177cf13d6e303d5496309889663a38d807134ea3a4a096581ff416b7bf1b",
+    "data/results_v2/rafah_compare.json": "fdb4990efc1dc5fa8c2fc91d515a1e058c86aea9054157f811cd041ff2835e58"
+  }
+}

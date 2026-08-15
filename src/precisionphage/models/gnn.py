@@ -10,8 +10,9 @@ Design (see DESIGN.md §4):
     always sees genomic pairwise edge features, predictions are informative even
     for graph-isolated nodes; the graph *adds* relational signal.
 
-Leakage guarantees: PCA, edge scaling, and the graph are all derived from the
-training fold only.
+Leakage guarantees: PCA, edge scaling, and the early-stopping graph are derived
+from the inner-training partition only, so inner-validation rows do not enter
+preprocessing or message passing.
 """
 from __future__ import annotations
 
@@ -21,6 +22,7 @@ from copy import deepcopy
 import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 from ..eval.metrics import aggregate_folds, binary_metrics
@@ -82,12 +84,18 @@ def _fit_fold(P_raw, H_raw, E_raw, pidx, hidx, y, tr, te, n_p, cfg, seed,
     SAGEConv keeps only its self-transform (W_root x) -> a pure MLP on
     node+edge features. This isolates the contribution of message passing."""
     torch.manual_seed(seed)
-    rng = np.random.default_rng(seed)
     mcfg = cfg["model"]
 
-    # PCA on node features, fit on TRAIN nodes only
-    train_phages = np.unique(pidx[tr])
-    train_hosts = np.unique(hidx[tr])
+    # Split before fitting any preprocessing or graph construction so the
+    # inner validation rows are genuinely held out for early stopping and
+    # calibration. Stratification prevents accidental single-class validation.
+    ti, vi = train_test_split(
+        np.asarray(tr), test_size=mcfg["val_frac"], random_state=seed,
+        stratify=y[tr])
+
+    # PCA on node features, fit on INNER-TRAIN nodes only
+    train_phages = np.unique(pidx[ti])
+    train_hosts = np.unique(hidx[ti])
     pdim = min(cfg["features"]["pca_phage_dim"],
                P_raw.shape[1], max(2, len(train_phages) - 1))
     hdim = min(cfg["features"]["pca_host_dim"],
@@ -105,19 +113,9 @@ def _fit_fold(P_raw, H_raw, E_raw, pidx, hidx, y, tr, te, n_p, cfg, seed,
     P = np.nan_to_num(p_scaler.transform(P)).astype(np.float32)
     H = np.nan_to_num(h_scaler.transform(H)).astype(np.float32)
 
-    # edge feature scaling on train rows only
-    e_scaler = StandardScaler().fit(E_raw[tr])
+    # edge feature scaling on inner-training rows only
+    e_scaler = StandardScaler().fit(E_raw[ti])
     E = np.nan_to_num(e_scaler.transform(E_raw)).astype(np.float32)
-
-    # graph = train positive edges, both directions (empty for the ablation)
-    if use_graph:
-        pos_tr = tr[y[tr] == 1]
-        src = pidx[pos_tr]
-        dst = hidx[pos_tr] + n_p
-        ei = np.vstack([np.concatenate([src, dst]), np.concatenate([dst, src])])
-        edge_index = torch.tensor(ei, dtype=torch.long)
-    else:
-        edge_index = torch.zeros((2, 0), dtype=torch.long)
 
     x_p = torch.tensor(P)
     x_h = torch.tensor(H)
@@ -126,14 +124,21 @@ def _fit_fold(P_raw, H_raw, E_raw, pidx, hidx, y, tr, te, n_p, cfg, seed,
     e_all = torch.tensor(E)
     y_all = torch.tensor(y.astype(np.float32))
 
-    # inner validation split from train
-    tr_perm = rng.permutation(tr)
-    n_val = max(1, int(len(tr_perm) * mcfg["val_frac"]))
-    vi = tr_perm[:n_val]
-    ti = tr_perm[n_val:]
     ti_t = torch.tensor(ti, dtype=torch.long)
     vi_t = torch.tensor(vi, dtype=torch.long)
     te_t = torch.tensor(te, dtype=torch.long)
+
+    # Early-stopping graph = INNER-TRAIN positive edges only. Building this
+    # from all outer-training positives would expose inner-validation labels to
+    # the encoder and invalidate early stopping and isotonic calibration.
+    if use_graph:
+        pos_ti = ti[y[ti] == 1]
+        src = pidx[pos_ti]
+        dst = hidx[pos_ti] + n_p
+        ei = np.vstack([np.concatenate([src, dst]), np.concatenate([dst, src])])
+        edge_index = torch.tensor(ei, dtype=torch.long)
+    else:
+        edge_index = torch.zeros((2, 0), dtype=torch.long)
 
     model = BipartiteSAGE(in_dim=in_dim, edge_dim=E.shape[1],
                           hidden=mcfg["hidden_dim"], embed=mcfg["embed_dim"],

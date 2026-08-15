@@ -110,7 +110,7 @@ def fig_significance(cmp, rd):
                 f"q={q:.1e}", va="center", fontsize=9)
     ax.set_yticks(y); ax.set_yticklabels([RLAB[r] for r in REGIMES])
     ax.set_xlabel("AUROC gap (GBM \u2212 GNN), 95% DeLong CI")
-    ax.set_title("GBM significantly outperforms GNN in every regime")
+    ax.set_title("Row-pooled AUROC difference: GBM minus GNN")
     ax.set_xlim(-0.02, 0.40); ax.grid(axis="x", alpha=0.3)
     fig.tight_layout(); fig.savefig(rd / "fig_significance.png", dpi=180); plt.close(fig)
     log.info("wrote fig_significance.png")

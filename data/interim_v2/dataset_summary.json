@@ -16,13 +16,13 @@
   },
   "phage_coverage": {
     "n": 2331,
-    "resolved": 1709,
-    "fraction": 0.7331617331617332
+    "resolved": 1418,
+    "fraction": 0.6083226083226083
   },
   "host_coverage": {
     "n": 387,
-    "resolved": 368,
-    "fraction": 0.9509043927648578
+    "resolved": 323,
+    "fraction": 0.834625322997416
   },
   "n_modelable": 1947
 }

@@ -1,0 +1,3 @@
+[submodule "external/PHIST"]
+	path = external/PHIST
+	url = https://github.com/refresh-bio/PHIST.git

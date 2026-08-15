@@ -7,6 +7,8 @@ A resolution map is cached so linking is deterministic and auditable.
 from __future__ import annotations
 
 import json
+import hashlib
+import re
 from pathlib import Path
 
 from ..utils import get_logger
@@ -16,6 +18,27 @@ log = get_logger(__name__)
 
 _VALID = set("ACGTN")
 _FASTA_EXT = (".fasta", ".fa", ".fna", ".fasta.gz", ".fna.gz")
+
+
+def genome_set_digest(names, genome_index) -> str:
+    """SHA-256 over ordered entity names and exact resolved FASTA bytes."""
+    key = tuple(str(name) for name in names)
+    cache = getattr(genome_index, "_content_digest_cache", {})
+    if key in cache:
+        return cache[key]
+    digest = hashlib.sha256()
+    for name in key:
+        path = genome_index.resolve(name)
+        if path is None:
+            raise FileNotFoundError(f"missing genome while hashing input: {name}")
+        digest.update(str(name).encode("utf-8"))
+        with path.open("rb") as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(chunk)
+    value = digest.hexdigest()
+    cache[key] = value
+    genome_index._content_digest_cache = cache
+    return value
 
 
 def _read_fasta(path: Path) -> str | None:
@@ -53,23 +76,31 @@ class GenomeIndex:
                         if stem.lower().endswith(ext):
                             stem = stem[: -len(ext)]
                             break
-                    self._slug_to_path.setdefault(slugify(stem), p)
+                    file_slug = slugify(stem)
+                    self._slug_to_path.setdefault(file_slug, p)
+                    # NCBI accessions in the interaction table omit sequence
+                    # versions (for example ``nc 000866``), while FASTA names
+                    # retain them (``NC_000866.4``). Add this deterministic
+                    # accession alias instead of falling back to fuzzy matching.
+                    match = re.fullmatch(r"(n[cmrtwz]_\d+)_\d+", file_slug)
+                    if match:
+                        self._slug_to_path.setdefault(match.group(1), p)
         log.info("[genomes] indexed %d FASTA files across %d dir(s)",
                  len(self._slug_to_path), len(self.fasta_dirs))
 
     def resolve(self, name: str) -> Path | None:
-        """Return the FASTA path for a name, or None. Exact slug, then substring."""
+        """Return the FASTA path for a name, or ``None``.
+
+        Resolution uses only exact normalized names and explicit accession
+        aliases created while indexing. Substring matching is intentionally not
+        used because it can silently associate the wrong genome.
+        """
         slug = slugify(name)
         if not slug:
             return None
         if slug in self._slug_to_path:
             self._resolution[name] = str(self._slug_to_path[slug])
             return self._slug_to_path[slug]
-        # substring match (name contained in file slug or vice versa)
-        for fslug, path in self._slug_to_path.items():
-            if slug in fslug or fslug in slug:
-                self._resolution[name] = str(path)
-                return path
         return None
 
     def coverage(self, names: list[str]) -> dict:
@@ -86,7 +117,17 @@ class GenomeIndex:
     def save_resolution(self) -> None:
         if self.cache_path is not None:
             self.cache_path.parent.mkdir(parents=True, exist_ok=True)
-            self.cache_path.write_text(json.dumps(self._resolution, indent=2),
+            portable = {}
+            # cache files live at <root>/data/cache_v2/*.json
+            project_root = self.cache_path.resolve().parents[2]
+            for name, raw_path in self._resolution.items():
+                path = Path(raw_path)
+                try:
+                    portable[name] = path.resolve().relative_to(
+                        project_root).as_posix()
+                except ValueError:
+                    portable[name] = path.as_posix()
+            self.cache_path.write_text(json.dumps(portable, indent=2),
                                        encoding="utf-8")
             log.info("[genomes] wrote resolution map (%d entries) -> %s",
                      len(self._resolution), self.cache_path.name)

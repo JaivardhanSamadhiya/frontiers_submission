@@ -1,13 +1,33 @@
 {
-  "threshold": 0.4,
-  "panel_strains": [
+  "threshold_method": "fold-specific F1 on group-aware inner-OOF training predictions",
+  "fold_thresholds": [
+    0.14000000059604645,
+    0.41999998688697815,
+    0.23999999463558197,
+    0.2199999988079071,
+    0.23999999463558197
+  ],
+  "threshold_median": 0.23999999463558197,
+  "panel_taxa": [
     "escherichia coli",
     "pseudomonas aeruginosa",
     "staphylococcus aureus",
-    "propionibacterium acnes",
-    "salmonella enterica"
+    "salmonella enterica",
+    "propionibacterium acnes"
   ],
   "panel_size": 5,
+  "parameters": {
+    "mutation_rate": 1e-07,
+    "resistance_cost": 0.05,
+    "burst_size": 50,
+    "adsorption_rate": 1e-09,
+    "horizon_hours": 96,
+    "dt_hours": 0.5,
+    "n_steps": 193,
+    "dose_per_phage": 100000000.0,
+    "resistance_assumption": "independent across targeting phages"
+  },
+  "panel_selection": "five eligible taxa with the most predicted candidate phages",
   "outcomes": [
     {
       "strategy": "control",
@@ -21,7 +41,7 @@
     {
       "strategy": "monophage",
       "n_phages": 1,
-      "end_load": 999999943.96825,
+      "end_load": 999997256.5061868,
       "nadir": 5000000.0,
       "log10_drop": 0.0,
       "resistant_frac_end": 0.0,
@@ -29,20 +49,20 @@
     },
     {
       "strategy": "cocktail_k1",
-      "n_phages": 4,
-      "end_load": 999999992.6300071,
-      "nadir": 29116.60920039103,
-      "log10_drop": 2.23,
+      "n_phages": 3,
+      "end_load": 1000000002.8204194,
+      "nadir": 16897.11386347706,
+      "log10_drop": 2.47,
       "resistant_frac_end": 1.0,
       "rebound": true
     },
     {
       "strategy": "robust_k2",
-      "n_phages": 8,
-      "end_load": 602396.779770745,
-      "nadir": 7472.422920246604,
-      "log10_drop": 2.83,
-      "resistant_frac_end": 0.0,
+      "n_phages": 6,
+      "end_load": 1000000001.4403596,
+      "nadir": 39828.70870192039,
+      "log10_drop": 2.1,
+      "resistant_frac_end": 1.0,
       "rebound": true
     }
   ]

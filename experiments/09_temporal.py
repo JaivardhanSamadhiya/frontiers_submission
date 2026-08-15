@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Step 9: eco-evolutionary temporal simulation of phage therapy strategies.
 
-Using leakage-free OOF GBM susceptibility predictions, we pick a multi-strain
-"infection" panel (the host genome-cluster with the most coverable strains) and
+Using host-cluster-grouped OOF GBM susceptibility predictions, we pick a
+multi-species illustrative panel and
 simulate four strategies forward in time with resistance evolution:
   * no phage (control),
   * best single phage (monophage),
   * model-designed cocktail (greedy, k=1),
   * robust cocktail (greedy, k=2 redundancy).
 
-Resistance to the cocktail requires independent resistance to every targeting
-phage (mu_eff = mu ** n_targeting), so cocktails suppress resistance emergence.
+The sensitivity analysis assumes independent resistance to every targeting
+phage (mu_eff = mu ** n_targeting). This is a structural modeling assumption,
+not an experimentally validated cross-resistance estimate.
 Outputs trajectories, a summary metrics table, and a figure.
 
 Run (from /tmp, then cd in):
@@ -34,14 +35,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from sklearn.metrics import f1_score  # noqa: E402
-from sklearn.model_selection import StratifiedGroupKFold  # noqa: E402
-from sklearn.preprocessing import StandardScaler  # noqa: E402
-
 from precisionphage.cocktail import greedy_cover  # noqa: E402
+from precisionphage.eval import nested_group_oof_decisions  # noqa: E402
 from precisionphage.features.assembly import build_covered_dataset  # noqa: E402
 from precisionphage.models import fit_predict_gbm  # noqa: E402
-from precisionphage.splits import build_clusters, sketch_entities  # noqa: E402
+from precisionphage.splits import load_or_build_clusters  # noqa: E402
 from precisionphage.temporal import TherapyParams, simulate, therapy_metrics  # noqa: E402
 from precisionphage.utils import (  # noqa: E402
     ensure_dirs, get_logger, limit_threads, load_config, set_determinism,
@@ -51,28 +49,7 @@ log = get_logger("temporal")
 
 
 def _host_clusters(cfg, data):
-    sp = cfg["splits"]
-    cache = (cfg["paths"]["cache_dir"]
-             / f"clusters_k{sp['mash_k']}_d{sp['mash_max_distance']}.json")
-    if cache.exists():
-        obj = json.loads(cache.read_text())
-        if len(obj.get("host", {})) == len(data.hosts):
-            return obj["host"]
-    h_sk = sketch_entities(data.hosts, data.host_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    return build_clusters(data.hosts, h_sk, sp["mash_max_distance"],
-                          sp["mash_k"], sp["minhash_num"])
-
-
-def _oof(X, y, groups, seed, n_splits=5):
-    oof = np.full(len(y), np.nan, dtype=np.float32)
-    sgkf = StratifiedGroupKFold(n_splits=n_splits, shuffle=True, random_state=seed)
-    for tr, te in sgkf.split(X, y, groups):
-        sc = StandardScaler().fit(X[tr])
-        Xtr = np.nan_to_num(sc.transform(X[tr])).astype(np.float32)
-        Xte = np.nan_to_num(sc.transform(X[te])).astype(np.float32)
-        oof[te] = fit_predict_gbm(Xtr, y[tr], Xte, seed)
-    return np.nan_to_num(oof, nan=0.0)
+    return load_or_build_clusters(cfg, data)[1]
 
 
 def main() -> None:
@@ -89,11 +66,22 @@ def main() -> None:
     y = cov["label"].to_numpy().astype(int)
     hc = _host_clusters(cfg, data)
     groups = cov["host"].map(hc).to_numpy()
-    oof = _oof(X, y, groups, seed)
-
-    grid = np.round(np.arange(0.10, 0.91, 0.02), 3)
-    thr = float(grid[int(np.argmax([f1_score(y, (oof >= t).astype(int),
-                                              zero_division=0) for t in grid]))])
+    oof_cache = rd / "cocktail_oof_predictions.npz"
+    pair_keys = (cov["phage"].astype(str) + "\t" + cov["host"].astype(str)).to_numpy(
+        dtype=str)
+    if oof_cache.exists():
+        cached = np.load(oof_cache)
+        cached_keys = cached["pair_keys"].astype(str)
+        if np.array_equal(cached_keys, pair_keys):
+            oof = cached["probabilities"].astype(np.float32)
+            oof_decision = cached["decisions"].astype(bool)
+            fold_thresholds = cached["thresholds"].astype(float).tolist()
+            log.info("Loaded nested-threshold OOF predictions from %s", oof_cache.name)
+        else:
+            raise AssertionError("cocktail OOF cache pair order does not match dataset")
+    else:
+        oof, oof_decision, fold_thresholds = nested_group_oof_decisions(
+            X, y, groups, fit_predict_gbm, seed)
 
     phages = sorted(cov["phage"].unique())
     hosts = sorted(cov["host"].unique())
@@ -107,9 +95,12 @@ def main() -> None:
         Aprob[pi, hi] = max(Aprob[pi, hi], float(oof[r]))
         if y[r] == 1:
             T[pi, hi] = True
-    A = Aprob >= thr
+    A = np.zeros((n_p, n_h), dtype=bool)
+    for r in range(len(cov)):
+        pi, hi = pix[cov.at[r, "phage"]], hix[cov.at[r, "host"]]
+        A[pi, hi] = A[pi, hi] or bool(oof_decision[r])
 
-    # infection panel = the best-covered host strains (each with multiple
+    # infection panel = the best-covered host taxa (each with multiple
     # candidate phages) so cocktails can provide per-host redundancy and the
     # resistance-prevention benefit of k>1 cocktails is observable.
     coverable = T.sum(0) >= 1
@@ -118,7 +109,7 @@ def main() -> None:
     if len(elig) == 0:                                 # fallback: most-covered
         elig = np.where(coverable)[0]
     panel = elig[np.argsort(cand_count[elig])[::-1][:5]]
-    log.info("infection panel: %d strains (candidate phages/strain=%s): %s",
+    log.info("infection panel: %d taxa (candidate phages/taxon=%s): %s",
              len(panel), cand_count[panel].tolist(),
              [hosts[i][:24] for i in panel])
 
@@ -143,8 +134,20 @@ def main() -> None:
 
     S0 = np.full(len(panel), 1e6)
     rows, traj = [], {}
+    temporal_cfg = cfg["temporal"]
+    horizon = float(temporal_cfg["horizon_hours"])
+    dt = float(temporal_cfg["dt_hours"])
+    n_steps = int(round(horizon / dt)) + 1
     for name, A_sel in strategies.items():
-        pp = TherapyParams(dose=0.0 if name == "control" else 1e8)
+        pp = TherapyParams(
+            dose=0.0 if name == "control" else 1e8,
+            mu=float(temporal_cfg["mutation_rate"]),
+            cost=float(temporal_cfg["resistance_cost"]),
+            burst=float(temporal_cfg["burst_size"]),
+            beta=float(temporal_cfg["adsorption_rate"]),
+            t_max=horizon,
+            n_steps=n_steps,
+        )
         out = simulate(A_sel, S0, pp)
         m = therapy_metrics(out, S0.sum())
         traj[name] = {"t": out["t"], "total": out["total"],
@@ -160,8 +163,16 @@ def main() -> None:
 
     tbl.to_csv(rd / "temporal_outcomes.csv", index=False)
     (rd / "temporal_summary.json").write_text(json.dumps(
-        {"threshold": thr, "panel_strains": [hosts[i] for i in panel],
-         "panel_size": int(len(panel)), "outcomes": rows}, indent=2, default=float))
+        {"threshold_method": "fold-specific F1 on group-aware inner-OOF training predictions",
+         "fold_thresholds": fold_thresholds,
+         "threshold_median": float(np.median(fold_thresholds)),
+         "panel_taxa": [hosts[i] for i in panel],
+         "panel_size": int(len(panel)),
+         "parameters": {**temporal_cfg, "n_steps": n_steps,
+                        "dose_per_phage": 1e8,
+                        "resistance_assumption": "independent across targeting phages"},
+         "panel_selection": "five eligible taxa with the most predicted candidate phages",
+         "outcomes": rows}, indent=2, default=float))
 
     # Persist trajectories so figures can be regenerated without rerunning simulation
     traj_save = {k: v for k, v in traj.items()}
@@ -184,9 +195,9 @@ def main() -> None:
                            (ax[1], "Resistant subpopulation", "CFU/mL (resistant)")):
             a.set_yscale("log"); a.set_xlabel("time (h)"); a.set_ylabel(yl)
             a.set_title(ttl); a.grid(alpha=0.3); a.legend(loc="lower right")
-        fig.suptitle("Eco-evolutionary phage therapy simulation")
+        fig.suptitle("Assumption-driven resistance sensitivity simulation")
         fig.tight_layout()
-        fig.savefig(rd / "temporal_dynamics.png", dpi=150)
+        fig.savefig(rd / "temporal_dynamics.png", dpi=300)
         log.info("Wrote figure %s", rd / "temporal_dynamics.png")
     except Exception as e:
         log.warning("figure skipped (%s)", e)

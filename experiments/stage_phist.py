@@ -21,10 +21,18 @@ def main() -> None:
     data = build_covered_dataset(cfg)
     out = ROOT / "external" / "phist_run"
     pdir, hdir = out / "phages", out / "hosts"
+    source_dirs = (cfg["paths"]["phage_fasta_dir"].resolve(),
+                   cfg["paths"]["host_fasta_dir"].resolve())
+    target_dirs = (pdir.resolve(), hdir.resolve())
+    in_place = source_dirs == target_dirs
     for d in (pdir, hdir):
         d.mkdir(parents=True, exist_ok=True)
+        if in_place:
+            continue
+        # Only links created by this staging script are disposable. Never
+        # unlink regular FASTAs, which may be frozen analysis inputs.
         for f in d.iterdir():
-            if f.is_symlink() or f.is_file():
+            if f.is_symlink():
                 f.unlink()
 
     phage_map, host_map = {}, {}     # fasta filename -> entity name
@@ -33,7 +41,7 @@ def main() -> None:
         if p is None:
             continue
         link = pdir / p.name
-        if not link.exists():
+        if not link.exists() and not in_place:
             link.symlink_to(p.resolve())
         phage_map[p.name] = name
     for name in data.hosts:
@@ -41,7 +49,7 @@ def main() -> None:
         if p is None:
             continue
         link = hdir / p.name
-        if not link.exists():
+        if not link.exists() and not in_place:
             link.symlink_to(p.resolve())
         host_map.setdefault(p.name, []).append(name)
 

@@ -70,7 +70,7 @@ def figure_feature_importance() -> None:
     ax[1].grid(axis="x", alpha=0.3)
     fig.suptitle("GBM feature importances (leakage-safe design matrix)", fontsize=13)
     fig.tight_layout()
-    fig.savefig(RD / "fig_feature_importance.png", dpi=180)
+    fig.savefig(RD / "fig_feature_importance.png", dpi=300)
     plt.close(fig)
     print("wrote fig_feature_importance.png")
 
@@ -138,7 +138,7 @@ def figure_phist_compare() -> None:
     fig.suptitle("External baseline comparison (leakage-controlled evaluation)",
                  fontsize=13)
     fig.tight_layout()
-    fig.savefig(RD / "fig_phist_compare.png", dpi=180)
+    fig.savefig(RD / "fig_phist_compare.png", dpi=300)
     plt.close(fig)
     print("wrote fig_phist_compare.png")
 
@@ -163,7 +163,7 @@ def figure_cocktail_coverage() -> None:
     ax.legend(loc="lower right")
     ax.grid(alpha=0.3)
     fig.tight_layout()
-    fig.savefig(RD / "cocktail_coverage.png", dpi=150)
+    fig.savefig(RD / "cocktail_coverage.png", dpi=300)
     plt.close(fig)
     print("wrote cocktail_coverage.png")
 
@@ -194,9 +194,9 @@ def figure_temporal_dynamics() -> None:
         a.set_title(ttl)
         a.grid(alpha=0.3)
         a.legend(loc="lower right", fontsize=8)
-    fig.suptitle("Eco-evolutionary phage therapy simulation")
+    fig.suptitle("Assumption-driven resistance sensitivity simulation")
     fig.tight_layout()
-    fig.savefig(RD / "temporal_dynamics.png", dpi=150)
+    fig.savefig(RD / "temporal_dynamics.png", dpi=300)
     plt.close(fig)
     print("wrote temporal_dynamics.png")
 

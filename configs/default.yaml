@@ -5,10 +5,14 @@ seed: 42
 dataset_version: "2.0.0"
 
 paths:
-  root: "."
+  root: ".."  # resolved relative to this configuration file
   vhi_csv: "data/raw/VirusHostInter.csv"
-  phage_fasta_dir: "data/phages"
-  host_fasta_dir: "data/fastas/hosts"
+  # Frozen FASTAs used for the reported sequence-based analysis. These are
+  # staged by accession/entity under external/phist_run and are versioned with
+  # the project; fetch scripts may populate data/phages and data/fastas/hosts
+  # as separate, replaceable source caches.
+  phage_fasta_dir: "external/phist_run/phages"
+  host_fasta_dir: "external/phist_run/hosts"
   raw_dir: "data/raw"
   interim_dir: "data/interim_v2"      # canonical cleaned artifacts
   results_dir: "data/results_v2"
@@ -19,6 +23,7 @@ data:
   # Only real experimentally-labeled studies are used for headline modeling.
   studies: ["NahantCollection", "NCBI_HR", "StaphStudy"]
   positive_tokens: ["inf", "infection", "1", "true", "infects", "yes", "positive"]
+  negative_tokens: ["noinf", "no infection", "0", "false", "does not infect", "no", "negative"]
   # A pair enters the sequence-based model only if BOTH genomes resolve.
   require_both_genomes: true
   min_pos_per_group: 3      # for a group (species/genus) to be a valid eval fold
@@ -30,6 +35,8 @@ features:
   use_dinuc: true
   pca_phage_dim: 64         # fit INSIDE each training fold
   pca_host_dim: 64
+  # Four genome-derived pair features are recomputed locally. The frozen VHIP
+  # input additionally supplies k3dist, k6dist, GCdiff, and Homology; see DATA.md.
   edge_features: ["kmer_dist", "gc_diff", "onf_corr", "homology"]
   n_workers: 8
   homology_ks: [16, 20]     # multi-scale exact word sizes (sensitive + specific)
@@ -41,9 +48,9 @@ features:
   use_seq_pair_features: true  # include homology+CRISPR pair features if cached
 
 splits:
-  mash_k: 21                   # k-mer size for MinHash/Mash sketching
+  mash_k: 21                   # k-mer size for the in-house bottom-k sketch
   minhash_num: 256             # bottom-k sketch size
-  mash_max_distance: 0.05      # single-linkage threshold (~95% ANI = species-ish)
+  mash_max_distance: 0.05      # Mash-form distance cutoff; not an ANI estimate
   n_combined_splits: 5         # blocks for combined unseen-phage+host CV
   regimes: ["loso", "logo", "phage_cluster", "host_cluster", "combined", "cross_study"]
 
@@ -71,7 +78,7 @@ eval:
   permutation_n: 1000
 
 cocktail:
-  prob_threshold: 0.5       # replaced by calibrated threshold at runtime
+  prob_threshold: 0.5       # fallback; reported run uses nested fold thresholds
   max_size: 5
   solver: "greedy"          # or "ilp"
 
@@ -82,6 +89,9 @@ temporal:
   adsorption_rate: 1.0e-9
   horizon_hours: 96
   dt_hours: 0.5
+  # This deterministic sensitivity analysis assumes independent resistance
+  # across targeting phages. It is illustrative, not an experimentally fitted
+  # cross-resistance model.
 
 fetch:
   ncbi_email: "research@example.com"   # set to your email for NCBI Entrez

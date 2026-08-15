@@ -1,151 +1,119 @@
-# PrecisionPhage v2 — Architecture & Design Decisions
+# PrecisionPhage v2: implemented analysis design
 
-A ground-up, reproducibility-first, leakage-free phage–host interaction framework built around
-**real experimental cross-infection data**, a leakage-safe bipartite GNN + Edge-MLP decoder,
-rigorous generalization testing, cocktail optimization, and temporal resistance modeling.
+This document describes the code that exists in this repository. It does not
+list planned components as though they were completed.
 
-This document records, for each component, the candidate approaches considered and the one
-chosen, with rationale grounded in the data we actually have and the current literature
-(CHERRY, HostG, PHPGAT, iPHoP; strain-level review PMC12936788; ViroBench temporal-split
-findings). Each implemented module is reviewed against this document.
+## Data layers
 
----
+The full VHIP table contains 8,849 assayed pairs from three study labels. A
+four-feature baseline evaluates LOSO, LOGO, and leave-one-study-out transfer on
+that table. The sequence-covered subset contains 1,947 NCBI_HR pairs only; it is
+used by all genome, GNN, external-baseline, cocktail, and temporal analyses.
 
-## 0. The decisive reframe — use the real labels
+Genome resolution is exact after normalization, with deterministic aliases for
+NCBI accession version suffixes. Unresolved pairs are excluded from sequence
+models rather than zero-imputed.
 
-`data/raw/VirusHostInter.csv` contains **8,849 experimentally assayed pairs with true labels**:
+## Features
 
-| Study | Rows | Nature |
-|---|---|---|
-| NahantCollection | 5,208 | Vibrio dense cross-infection matrix (Kauffman et al., *Nature* 2018) |
-| NCBI_HR | 2,588 | NCBI curated host-range |
-| StaphStudy | 1,053 | *Staphylococcus* infection matrix |
+Node features comprise canonical 4-mer composition, dinucleotide composition,
+codon composition, GC fraction, and genome length. PCA and scaling are fitted
+inside each outer training fold.
 
-Totals: **2,770 Inf / 6,079 NoInf**, 2,331 phages, 392 hosts; precomputed pairwise features
-(k3dist, k6dist, GCdiff, Homology) present for **both** classes.
+The 24 saved edge features combine:
 
-**Decision:** the supervised model is trained and evaluated **only on real experimentally-labeled
-pairs**. Constructed negatives are abandoned as the primary signal (they caused the v1 collapse:
-hard-negative AUC 0.24, i.e. anti-predictive, because within-genus "negatives" were
-false-negative-contaminated). This single decision removes the project's biggest leakage/validity
-threat. Constructed negatives may appear later *only* as an explicitly-labeled robustness ablation
-under PU-learning assumptions, never in headline metrics.
+- four pair features recomputed from the two frozen genomes;
+- four columns supplied by the VHIP input (`k3dist`, `k6dist`, `GCdiff`, and
+  `Homology`); and
+- sixteen cached sequence-pair features, including multiscale exact-word,
+  CRISPR-like, and translated-protein proxies.
 
----
+Because four inputs are source-supplied rather than regenerated here, the
+headline feature vector is not yet a fully portable predictor for arbitrary new
+pairs. A future release should reproduce or remove those four columns.
 
-## 1. Data layer
+## Splits
 
-- **Considered:** (a) re-merge all 5 heterogeneous sources as in v1; (b) center on the dense
-  experimental matrices; (c) supplement with iPHoP/VHDB.
-- **Chosen: (b)** with optional (c) as external transfer test. Dense matrices give real negatives,
-  enable strain-level prediction, and are exactly what cocktail optimization needs (a phage×host
-  coverage matrix). The three studies are kept as a `study` column so we can do
-  **cross-study (cross-laboratory) transfer** — the strongest generalization test per the
-  literature.
-- **Genome linking:** each phage/host name is resolved to a FASTA via an explicit, cached
-  name→accession map (no fuzzy slug guessing in the hot path). Pairs lacking a resolvable genome
-  for *either* partner are excluded from sequence-based models and reported, not zero-imputed.
+Taxonomic LOSO/LOGO folds require at least three positives and three negatives,
+so the reported taxonomic pooled estimates cover eligible groups rather than all
+323 sequence-covered host taxa.
 
-## 2. Leakage-safe splitting (the core scientific contribution)
+Sequence-aware grouping uses an in-house forward-strand bottom-k MinHash sketch,
+a Mash-form distance transformation, and single-linkage clustering at 0.05. It
+must not be described as the Mash program or as a direct 95% ANI calculation.
 
-Every reviewer concern in the field is about homology leakage. We implement **grouped, similarity-aware
-splits** and fit *all* preprocessing inside the training fold.
+The dual cold-start routine assigns phage and host clusters to five seeded bins.
+Fold `i` tests pairs whose phage and host bins both equal `i`, trains pairs whose
+two bins both differ from `i`, and discards one-axis-overlap pairs as a leakage
+buffer. Assertions verify that strict test entity clusters do not occur in the
+corresponding training set.
 
-- **Similarity clustering:** cluster phages by genome similarity (MinHash/MASH-style sketch +
-  greedy single-linkage at a configurable ANI/Jaccard threshold) and hosts likewise. `sourmash`/
-  Mash-style sketching in pure-Python/Bio if no external binary.
-- **Evaluation regimes (all reported):**
-  1. **LOSO** — leave-one-host-species-out (host-species generalization).
-  2. **LOGO** — leave-one-host-genus-out.
-  3. **Leave-one-phage-cluster-out** — unseen phage (the test v1 lacked).
-  4. **Combined unseen-phage × unseen-host** — hardest; the headline novelty claim.
-  5. **Cross-study transfer** — train on two studies, test on the third (domain shift).
-- **Invariant:** the message-passing graph, scalers, PCA, and k-mer vocabularies are built from
-  **training rows only**, enforced by a single `Fold` object that exposes train indices and a
-  `fit_transform`/`transform` contract. A unit test asserts no test node/edge influences training
-  tensors.
+## Models
 
-## 3. Genomic features
+The headline flat baseline is a fixed XGBoost classifier. Nested tuning and
+isotonic calibration exist as an ablation but were not used for saved headline
+GBM estimates.
 
-- **Phage/host node features:** k-mer spectra (k=4 canonical, the CHERRY-proven representation),
-  codon usage, GC, genome length, dinucleotide bias. Reduced by **fold-internal** PCA.
-- **Edge (pairwise) features → Edge-MLP:** features computable for *any* candidate pair so they
-  never leak: k-mer distance (d2*-style), GC difference, oligonucleotide-frequency correlation,
-  and alignment homology (BLASTN coverage/identity if `blastn` available, else k-mer proxy).
-  These feed the **decoder MLP**, which is the user-requested "Edge MLP" integration point.
-- **No name embeddings** in the headline model (v1 showed they were net noise and a leakage risk).
+The neural model is an inductive GraphSAGE encoder plus an edge-feature decoder.
+PCA, scaling, and the message-passing graph are fitted on the inner-training
+partition. The graph contains inner-training positives only; inner-validation
+rows do not enter preprocessing or message passing. Isotonic calibration is
+fitted on that inner validation split.
 
-## 4. Model — bipartite GNN encoder + Edge-MLP decoder
+Saved `significance_*` and `gnn_ablation_*` artifacts came from separate neural
+runs and must not be silently combined. New manuscript tables should name the
+artifact family used or rerun both after code changes.
 
-- **Considered:** GCN (transductive, CHERRY/HostG), GAT, **inductive GraphSAGE**, plain MLP.
-- **Chosen: inductive GraphSAGE encoder + Edge-MLP decoder.**
-  - Encoder message-passes over **training-positive** phage–host edges to produce node embeddings;
-    inductive so that an unseen host/phage (no training edges) still gets an embedding from its
-    node features. This directly fixes v1's failure mode (in LOSO the held-out node was isolated,
-    `alpha` froze at 0.5, the graph added nothing).
-  - **Decoder:** `MLP([z_phage ‖ z_host ‖ edge_features]) → P(infection)`. Because the decoder
-    always sees genomic pairwise features, predictions are informative even for graph-isolated
-    nodes — the graph *adds* relational signal rather than being a single point of failure.
-  - **Baselines for honest attribution (all run):** (i) Edge-MLP on features only (no graph),
-    (ii) GraphSAGE embeddings only (no edge features), (iii) full hybrid, plus gradient-boosting
-    (XGBoost/HistGB) on the flat feature vector. The graph's value = hybrid − features-only,
-    measured under every split regime.
-- **Determinism:** fixed seeds, `torch.use_deterministic_algorithms(True)`, capped threads,
-  pinned versions.
+## Evaluation and uncertainty
 
-## 5. Negatives
+Reported discrimination metrics include AUROC, AUPRC, and ECE. Saved DeLong,
+McNemar, row-permutation, and row-bootstrap tests assume independent rows, an
+assumption violated because pairs share phages and hosts. They are retained as
+exploratory diagnostics, not definitive inferential evidence. Fold-level
+variation and future two-way entity-aware resampling are more defensible.
 
-- **Primary:** real experimental `NoInf`.
-- **Robustness ablation only:** PU-learning (elkan-noto style) and phylogeny-distance negatives,
-  reported separately with explicit assumptions; never mixed into the headline number.
+## External comparisons
 
-## 6. Evaluation & statistics
+PHIST is the genuine published software applied to staged genomes. Only 35.3%
+of evaluated pairs receive a nonzero shared-25-mer score.
 
-- Metrics with bootstrap CIs (genus-clustered), **calibration (reliability curve + ECE)**,
-  DeLong, permutation tests, McNemar. No silent 0.5 substitution — degenerate folds are recorded
-  and excluded transparently. Per-regime tables + a single results manifest with SHA-256.
+The `RaFAH_style` method is an in-house random-forest proxy built from six-frame
+translation and feature-hashed amino-acid 6-mers. It does not use the published
+RaFAH pretrained weights or HMM protein clusters and is labeled
+“RaFAH-inspired proxy” in submission text.
 
-## 7. Cocktail optimization
+## Cocktail analysis
 
-- Input: predicted P(infection) matrix over a target bacterial population (strains).
-- **Algorithm:** weighted maximum-coverage / set-cover — greedy (with 1−1/e guarantee) and exact
-  ILP (PuLP/CBC) for small instances; objective = strains covered above a calibrated probability
-  threshold, with diversity/breadth regularization.
-- Output: minimal robust cocktail + coverage curve, validated against held-out infection matrices.
+Host-cluster-grouped outer-OOF GBM probabilities are converted to binary
+decisions using fold-specific thresholds selected on group-aware inner-OOF
+predictions from the corresponding outer training partition. Outer test labels
+do not select their thresholds. Set cover is optimized on the predicted binary
+matrix and evaluated on observed labels. Cells without an assay are unavailable,
+not validated negatives. The exact optimizer is SciPy `milp`/HiGHS, not PuLP/CBC.
 
-## 8. Temporal resistance modeling (the *Nature* differentiator)
+The verified nested-threshold k=1 solution contains 176 phages and covers 89.6%
+of eligible taxa on observed labels. k=2 and k=3 solutions improve at-least-one
+coverage but achieve only 45.2% and 31.3% observed k-fold coverage. The analysis
+is exploratory and does not propose a clinically practical 176-phage formulation.
 
-- **Considered:** static breadth only; pure ODE eco-evolution; GNN-coupled eco-evolution.
-- **Chosen: GNN-coupled eco-evolutionary simulation.**
-  - Population dynamics ODE/stochastic model: susceptible + resistant bacterial subpopulations and
-    phage populations (resistance-cost, mutation-rate, burst-size parameters from literature).
-  - The GNN predicts cross-resistance structure: when a strain evolves resistance to phage A, which
-    other phages still infect it (orthogonal receptors ⇒ low predicted cross-resistance).
-  - Deliverables: **time-to-resistance curves**, and a **resistance-robust cocktail design** that
-    optimizes long-horizon coverage, not just day-0 breadth. This converts a static predictor into
-    a therapeutic-design tool — the headline application novelty.
+## Temporal sensitivity model
 
-## 9. Repository / reproducibility
+The deterministic ODE couples sensitive and resistant host populations to free
+phage. The five taxa are selected because they have the most predicted candidate
+phages among eligible taxa. The model assumes independent resistance across
+targeting phages, making the effective resistance rate `mu ** n_targeting`.
+This assumption structurally favors redundant cocktails and is not learned by
+the GNN or supported by cross-resistance measurements. Despite that favorable
+assumption, neither verified cocktail strategy prevented rebound or modeled
+resistant takeover.
 
-```
-full_pipeline/
-  pyproject.toml            # pinned deps, console entrypoints
-  configs/default.yaml      # all knobs; no logic in config
-  src/precisionphage/
-    data/  features/  splits/  models/  eval/  cocktail/  temporal/  viz/  utils/
-  experiments/              # thin runnable drivers
-  tests/                    # unit + leakage invariants
-  DESIGN.md  (this file)
-```
+All temporal parameters now come from `configs/default.yaml`. The analysis is a
+mechanistic sensitivity illustration, not biological validation.
 
-- Deterministic, seeded, version-pinned; frozen dataset + SHA-256; every figure regenerable from
-  one command; leakage invariants enforced by tests in CI.
+## Reproducibility invariants
 
----
-
-## Self-review checkpoints (performed after each module)
-1. Does any test-fold information touch training tensors? (must be: no)
-2. Is every reported feature computable at prediction time for an unseen pair? (must be: yes)
-3. Are negatives real or clearly-labeled assumptions? (must be: real for headline)
-4. Does the graph's contribution survive the features-only baseline under the hardest split?
-5. Is the result reproducible from a clean checkout with one command?
+1. Test labels never enter training tensors or training-positive graphs.
+2. Strict split training and test sets share no held-out entity clusters.
+3. Missing genomes exclude a pair; they do not become zero features.
+4. Every result claim names its data layer and saved artifact family.
+5. A clean release passes `experiments/00_validate_release.py` and unit tests.

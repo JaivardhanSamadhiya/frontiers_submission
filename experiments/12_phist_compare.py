@@ -40,7 +40,7 @@ from precisionphage.eval import (  # noqa: E402
 from precisionphage.features.assembly import build_covered_dataset  # noqa: E402
 from precisionphage.models import fit_predict_gbm, run_grouped_cv  # noqa: E402
 from precisionphage.splits import (  # noqa: E402
-    build_clusters, combined_unseen_folds, leave_one_group_out, sketch_entities,
+    combined_unseen_folds, leave_one_group_out, load_or_build_clusters,
 )
 from precisionphage.utils import (  # noqa: E402
     ensure_dirs, get_logger, limit_threads, load_config, set_determinism,
@@ -78,24 +78,7 @@ def parse_phist_common(path: Path) -> dict:
 
 
 def _assign_clusters(cfg, data):
-    sp = cfg["splits"]
-    cache = (cfg["paths"]["cache_dir"]
-             / f"clusters_k{sp['mash_k']}_d{sp['mash_max_distance']}.json")
-    if cache.exists():
-        obj = json.loads(cache.read_text())
-        if (len(obj.get("phage", {})) == len(data.phages)
-                and len(obj.get("host", {})) == len(data.hosts)):
-            return obj["phage"], obj["host"]
-    p_sk = sketch_entities(data.phages, data.phage_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    h_sk = sketch_entities(data.hosts, data.host_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    pc = build_clusters(data.phages, p_sk, sp["mash_max_distance"], sp["mash_k"],
-                        sp["minhash_num"])
-    hc = build_clusters(data.hosts, h_sk, sp["mash_max_distance"], sp["mash_k"],
-                        sp["minhash_num"])
-    cache.write_text(json.dumps({"phage": pc, "host": hc}))
-    return pc, hc
+    return load_or_build_clusters(cfg, data)
 
 
 def main() -> None:

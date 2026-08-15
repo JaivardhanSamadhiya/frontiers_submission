@@ -34,8 +34,8 @@ from precisionphage.eval import bootstrap_ci, calibration_curve_ece  # noqa: E40
 from precisionphage.features.assembly import build_covered_dataset  # noqa: E402
 from precisionphage.models import fit_predict_gbm, run_grouped_cv  # noqa: E402
 from precisionphage.splits import (  # noqa: E402
-    audit_taxonomic_leakage, build_clusters, combined_unseen_folds,
-    cross_study_folds, leave_one_group_out, sketch_entities,
+    audit_taxonomic_leakage, combined_unseen_folds, cross_study_folds,
+    leave_one_group_out, load_or_build_clusters,
 )
 from precisionphage.utils import (  # noqa: E402
     ensure_dirs, get_logger, limit_threads, load_config, set_determinism,
@@ -83,17 +83,7 @@ def main() -> None:
 
     # ---- genome-similarity clustering on BOTH axes ----
     sp = cfg["splits"]
-    log.info("Sketching genomes (k=%d, num=%d) ...", sp["mash_k"], sp["minhash_num"])
-    p_sk = sketch_entities(data.phages, data.phage_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    h_sk = sketch_entities(data.hosts, data.host_index, sp["mash_k"],
-                           sp["minhash_num"], cfg["features"]["n_workers"])
-    log.info("Clustering phages ...")
-    p_clusters = build_clusters(data.phages, p_sk, sp["mash_max_distance"],
-                                sp["mash_k"], sp["minhash_num"])
-    log.info("Clustering hosts ...")
-    h_clusters = build_clusters(data.hosts, h_sk, sp["mash_max_distance"],
-                                sp["mash_k"], sp["minhash_num"])
+    p_clusters, h_clusters = load_or_build_clusters(cfg, data)
     cov["phage_cluster"] = cov["phage"].map(p_clusters).astype(int)
     cov["host_cluster"] = cov["host"].map(h_clusters).astype(int)
 

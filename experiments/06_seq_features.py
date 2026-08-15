@@ -18,6 +18,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
     os.environ.setdefault(_v, "1")
 
 import sys
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -27,6 +28,7 @@ from precisionphage.data import GenomeIndex, load_interactions  # noqa: E402
 from precisionphage.features.seqmatch import (  # noqa: E402
     compute_pair_features, pair_feature_cols,
 )
+from precisionphage.features.cache import pair_feature_cache_metadata  # noqa: E402
 from precisionphage.utils import (  # noqa: E402
     ensure_dirs, get_logger, limit_threads, load_config, set_determinism,
 )
@@ -60,6 +62,10 @@ def main() -> None:
         out = cfg["paths"]["interim_dir"] / "seq_pair_features.csv"
         pf.to_csv(out, index=False)
         log.info("Parquet unavailable (%s); wrote %s", e, out)
+    meta = pair_feature_cache_metadata(cov, cfg, pidx, hidx)
+    meta_path = cfg["paths"]["interim_dir"] / "seq_pair_features.meta.json"
+    meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    log.info("Wrote content-addressed cache metadata %s", meta_path)
 
     # quick descriptive: how informative are these features vs label?
     lab = cov.merge(pf, on=["phage", "host"], how="left")

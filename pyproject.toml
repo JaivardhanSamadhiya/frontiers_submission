@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-extras = ["shap", "pulp", "umap-learn"]
+extras = ["shap", "umap-learn"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

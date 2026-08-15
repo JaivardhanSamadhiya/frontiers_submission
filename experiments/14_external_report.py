@@ -130,7 +130,7 @@ tools, evaluated on **identical leakage-controlled test pairs** (the same
 homology-aware splits used throughout this project) and compared with **DeLong's
 paired AUROC test** with Benjamini-Hochberg FDR correction.
 
-## What was run, and how faithfully
+## What was run
 
 * **PHIST (Zielezinski et al., 2021) - the real, published tool.** Built from
   source (kmer-db v1.2.1) and run on our covered genomes. PHIST is alignment-free
@@ -144,8 +144,8 @@ paired AUROC test** with Benjamini-Hochberg FDR correction.
   *published, pretrained* RaFAH could **not** be executed in this environment:
   (i) its random forest is an R `ranger` model and **no R runtime is available**
   here, and (ii) its pretrained model and HMM database are hosted on **figshare,
-  which is network-blocked (HTTP 403)** from this cluster. We therefore faithfully
-  reimplement RaFAH's *approach* - predict the bacterial host **genus** from a
+  which was network-blocked (HTTP 403)** in the original run. We therefore use
+  a RaFAH-inspired proxy - predict the bacterial host **genus** from a
   phage's **protein content** with a Random Forest - using six-frame ORF
   translation and feature-hashed amino-acid 6-mer presence vectors (a proxy for
   RaFAH's protein-cluster/HMM features), trained on the known phage->host-genus
@@ -179,7 +179,7 @@ Paired DeLong tests (gain of our model, FDR-corrected):
   we remain ahead (+0.10, q=9e-4).
 * **Against RaFAH-style: better in every regime (all FDR q < 0.05),** by a very
   large margin in the species and host-cluster regimes (+0.36 and +0.38), because
-  genus-level taxonomic prediction is too coarse for strain/species-resolution
+  genus-level taxonomic prediction is too coarse for species-resolution
   pairwise calls, and in cold-start where the host taxon is unseen the RaFAH-style
   model drops to chance (AUROC 0.43, not above chance: permutation q=0.99).
 
@@ -199,10 +199,10 @@ Paired DeLong tests (gain of our model, FDR-corrected):
 
 ## Bottom line
 
-On a strict, leakage-controlled, strain-resolution benchmark, PrecisionPhage
-**significantly outperforms both the real PHIST tool and a faithful RaFAH-style
-host-taxonomy model across all generalisation regimes** (DeLong FDR q < 0.05
-throughout). The only place a baseline approaches us is novel-phage host
+On this leakage-controlled, taxon-labeled benchmark, the saved row-wise
+comparisons favor PrecisionPhage over PHIST and the RaFAH-inspired proxy. These
+p-values are exploratory because pairs share phage and host entities. The only
+place a baseline approaches us is novel-phage host
 assignment - RaFAH's design goal - which points directly to protein-level features
 as the next improvement.
 

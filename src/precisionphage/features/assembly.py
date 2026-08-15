@@ -10,9 +10,10 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from ..data import GenomeIndex, load_interactions
+from ..data import GenomeIndex, genome_set_digest, load_interactions
 from ..utils import get_logger
 from .genomic import build_node_features, edge_features_from_spectra, kmer_spectrum
+from .cache import pair_feature_cache_metadata
 
 log = get_logger(__name__)
 
@@ -62,14 +63,42 @@ def build_covered_dataset(cfg: dict) -> CoveredDataset:
     cov["pidx"] = cov["phage"].map(p2i).astype(int)
     cov["hidx"] = cov["host"].map(h2i).astype(int)
 
-    P_raw, _ = build_node_features(phages, pidx_g, k=k,
-                                   use_codon=cfg["features"]["use_codon"],
-                                   use_dinuc=cfg["features"]["use_dinuc"],
-                                   n_workers=cfg["features"]["n_workers"])
-    H_raw, _ = build_node_features(hosts, hidx_g, k=k,
-                                   use_codon=cfg["features"]["use_codon"],
-                                   use_dinuc=cfg["features"]["use_dinuc"],
-                                   n_workers=cfg["features"]["n_workers"])
+    import hashlib
+    import json
+    names_hash = hashlib.sha256(
+        ("\n".join(phages) + "\n--HOSTS--\n" + "\n".join(hosts)).encode("utf-8")
+    ).hexdigest()
+    node_meta = {
+        "schema": 1,
+        "names_sha256": names_hash,
+        "phage_source_sha256": genome_set_digest(phages, pidx_g),
+        "host_source_sha256": genome_set_digest(hosts, hidx_g),
+        "kmer_k": int(k),
+        "use_codon": bool(cfg["features"]["use_codon"]),
+        "use_dinuc": bool(cfg["features"]["use_dinuc"]),
+    }
+    node_cache = cfg["paths"]["cache_dir"] / "node_features.npz"
+    node_meta_path = cfg["paths"]["cache_dir"] / "node_features.meta.json"
+    cached_meta = (json.loads(node_meta_path.read_text(encoding="utf-8"))
+                   if node_meta_path.exists() else None)
+    if node_cache.exists() and cached_meta == node_meta:
+        cached = np.load(node_cache)
+        P_raw, H_raw = cached["phage"], cached["host"]
+        if P_raw.shape[0] != len(phages) or H_raw.shape[0] != len(hosts):
+            raise RuntimeError("node feature cache shape does not match entity order")
+        log.info("[assembly] loaded content-matched node feature cache")
+    else:
+        P_raw, _ = build_node_features(phages, pidx_g, k=k,
+                                       use_codon=cfg["features"]["use_codon"],
+                                       use_dinuc=cfg["features"]["use_dinuc"],
+                                       n_workers=cfg["features"]["n_workers"])
+        H_raw, _ = build_node_features(hosts, hidx_g, k=k,
+                                       use_codon=cfg["features"]["use_codon"],
+                                       use_dinuc=cfg["features"]["use_dinuc"],
+                                       n_workers=cfg["features"]["n_workers"])
+        np.savez_compressed(node_cache, phage=P_raw, host=H_raw)
+        node_meta_path.write_text(json.dumps(node_meta, indent=2), encoding="utf-8")
+        log.info("[assembly] wrote content-addressed node feature cache")
 
     kdim = int(kmer_spectrum("ACGT" * k, k).shape[0])
     P_spec, H_spec = P_raw[:, :kdim], H_raw[:, :kdim]
@@ -87,12 +116,23 @@ def build_covered_dataset(cfg: dict) -> CoveredDataset:
     if cfg["features"].get("use_seq_pair_features", False):
         cache = cfg["paths"]["interim_dir"] / "seq_pair_features.parquet"
         cache_csv = cfg["paths"]["interim_dir"] / "seq_pair_features.csv"
+        meta_path = cfg["paths"]["interim_dir"] / "seq_pair_features.meta.json"
         pf = None
         if cache.exists():
             pf = pd.read_parquet(cache)
         elif cache_csv.exists():
             pf = pd.read_csv(cache_csv)
         if pf is not None:
+            if not meta_path.exists():
+                raise RuntimeError(
+                    "pair-feature cache has no provenance metadata; rerun "
+                    "experiments/06_seq_features.py")
+            observed_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            expected_meta = pair_feature_cache_metadata(cov, cfg, pidx_g, hidx_g)
+            if observed_meta != expected_meta:
+                raise RuntimeError(
+                    "pair-feature cache does not match the frozen FASTAs/config; "
+                    "rerun experiments/06_seq_features.py")
             feat_cols = [c for c in pf.columns if c not in ("phage", "host")]
             merged = cov[["phage", "host"]].merge(pf, on=["phage", "host"],
                                                   how="left")
