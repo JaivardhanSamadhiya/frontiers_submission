@@ -1,10 +1,10 @@
-"""Eco-evolutionary temporal model of phage therapy with resistance evolution.
+"""Deterministic resistance scenario model for predicted phage selections.
 
 A deterministic ODE system couples bacterial host populations (each split into a
 phage-sensitive and a phage-resistant subpopulation) with a phage cocktail.
-Infection rates are seeded by the GBM-predicted susceptibility probabilities, so
-a *designed* cocktail can be simulated forward in time and scored on how well it
-suppresses the total bacterial load while resistance emerges.
+Infection rates are seeded by GBM-predicted susceptibility probabilities. The
+system is an assumption stress test: its parameters are not fitted to biological
+time courses, and its output is not mechanistic or efficacy validation.
 
 State (per host species h):
     S_h  - phage-sensitive bacteria
@@ -15,13 +15,14 @@ Per phage p:
 Dynamics (logistic growth with a shared carrying capacity, mass-action infection,
 phage decay + burst, and mutation S->R):
 
-  dS_h/dt = r_h S_h (1 - N/K) - S_h * sum_p beta * A[p,h] V_p - mu r_h S_h
-  dR_h/dt = r_h (1 - cost) R_h (1 - N/K) + mu r_h S_h
+  dS_h/dt = r_h S_h (1 - N/K) - S_h * sum_p beta * A[p,h] V_p - mu_h r_h S_h
+  dR_h/dt = r_h (1 - cost) R_h (1 - N/K) + mu_h r_h S_h
   dV_p/dt = burst * S_h-weighted infections - delta V_p - adsorption loss
 
 where A[p,h] in [0,1] is the predicted infection probability (susceptibility),
-N = sum_h (S_h + R_h) is total bacterial load, mu is the per-capita rate of
-acquiring resistance, and `cost` is the fitness cost of resistance.
+N = sum_h (S_h + R_h) is total bacterial load. For n targeting phages,
+mu_h = mu ** (1 + alpha * (n - 1)); alpha spans complete cross-resistance
+(0) to independent resistance (1). `cost` is the assumed fitness cost.
 
 Pure NumPy + scipy.integrate; no external services.
 """
@@ -41,6 +42,9 @@ class TherapyParams:
     delta: float = 0.1        # phage decay rate (1/h)
     mu: float = 1e-7          # per-division resistance rate PER phage
     cost: float = 0.1         # fitness cost of resistance (0..1)
+    resistance_independence: float = 1.0
+    # 0 = complete cross-resistance; 1 = independent resistance; intermediate
+    # values interpolate the exponent 1 + alpha * (n_targeting - 1).
     eff_thr: float = 0.5      # susceptibility above which a phage "targets" a host
     floor: float = 1.0        # extinction threshold (cells below this can't regrow)
     t_max: float = 72.0       # hours
@@ -65,11 +69,16 @@ def simulate(A_sel: np.ndarray, S0: np.ndarray, p: TherapyParams,
     V0 = np.full(n_v, p.dose)
     y0 = np.concatenate([S0, R0, V0])
 
-    # per-host effective resistance rate: escaping the cocktail needs independent
-    # resistance to every targeting phage, so mu_eff = mu ** n_targeting.
+    # Per-host effective resistance rate. alpha=1 recovers the original
+    # independent-resistance assumption (mu ** n_targeting); alpha=0 represents
+    # complete cross-resistance (mu for any targeted host).
+    if not 0.0 <= p.resistance_independence <= 1.0:
+        raise ValueError("resistance_independence must be between 0 and 1")
     n_targeting = (A_sel >= p.eff_thr).sum(0)          # [n_host]
+    resistance_exponent = 1.0 + p.resistance_independence * np.maximum(
+        n_targeting - 1, 0)
     mu_vec = np.where(n_targeting >= 1,
-                      p.mu ** np.maximum(n_targeting, 1), 0.0)
+                      p.mu ** resistance_exponent, 0.0)
 
     def rhs(t, y):
         S = np.clip(y[:n_h], 0, None)

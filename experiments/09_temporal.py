@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Step 9: eco-evolutionary temporal simulation of phage therapy strategies.
+"""Step 9: deterministic resistance scenario analysis.
 
 Using host-cluster-grouped OOF GBM susceptibility predictions, we pick a
 multi-species illustrative panel and
@@ -7,12 +7,12 @@ simulate four strategies forward in time with resistance evolution:
   * no phage (control),
   * best single phage (monophage),
   * model-designed cocktail (greedy, k=1),
-  * robust cocktail (greedy, k=2 redundancy).
+  * redundancy-constrained cocktail (greedy, k=2).
 
-The sensitivity analysis assumes independent resistance to every targeting
-phage (mu_eff = mu ** n_targeting). This is a structural modeling assumption,
-not an experimentally validated cross-resistance estimate.
-Outputs trajectories, a summary metrics table, and a figure.
+The primary scenario assumes independent resistance to every targeting phage.
+A factorial sensitivity grid also spans complete cross-resistance, an
+intermediate dependence assumption, mutation rate, and fitness cost. This is
+an assumption stress test, not a fitted mechanistic or efficacy model.
 
 Run (from /tmp, then cd in):
   env -u PYTHONHOME -u PYTHONPATH .venv/bin/python -u experiments/09_temporal.py
@@ -147,6 +147,7 @@ def main() -> None:
             beta=float(temporal_cfg["adsorption_rate"]),
             t_max=horizon,
             n_steps=n_steps,
+            resistance_independence=1.0,
         )
         out = simulate(A_sel, S0, pp)
         m = therapy_metrics(out, S0.sum())
@@ -162,6 +163,72 @@ def main() -> None:
              tbl.to_string(index=False))
 
     tbl.to_csv(rd / "temporal_outcomes.csv", index=False)
+
+    # Stress-test the assumption that resistance to multiple targeting phages
+    # must be acquired independently. alpha=0 gives complete cross-resistance
+    # (mu_eff=mu), alpha=1 gives independence (mu_eff=mu**n), and alpha=0.5 is
+    # an explicitly phenomenological intermediate. This grid does not estimate
+    # any of these quantities from experimental data.
+    alpha_values = [0.0, 0.5, 1.0]
+    mutation_values = [1e-8, 1e-7, 1e-6]
+    cost_values = [0.0, 0.05, 0.10]
+    alpha_labels = {
+        0.0: "complete_cross_resistance",
+        0.5: "partial_dependence",
+        1.0: "independent_resistance",
+    }
+    sensitivity_rows = []
+    for name in ("cocktail_k1", "robust_k2"):
+        for alpha in alpha_values:
+            for mutation_rate in mutation_values:
+                for resistance_cost in cost_values:
+                    pp = TherapyParams(
+                        dose=1e8,
+                        mu=mutation_rate,
+                        cost=resistance_cost,
+                        resistance_independence=alpha,
+                        burst=float(temporal_cfg["burst_size"]),
+                        beta=float(temporal_cfg["adsorption_rate"]),
+                        t_max=horizon,
+                        n_steps=n_steps,
+                    )
+                    out = simulate(strategies[name], S0, pp)
+                    m = therapy_metrics(out, S0.sum())
+                    sensitivity_rows.append({
+                        "strategy": name,
+                        "n_phages": sizes[name],
+                        "resistance_independence": alpha,
+                        "resistance_structure": alpha_labels[alpha],
+                        "mutation_rate": mutation_rate,
+                        "resistance_cost": resistance_cost,
+                        "end_load": m["end_load"],
+                        "nadir": m["nadir"],
+                        "log10_drop": m["log10_drop"],
+                        "resistant_fraction_end": m["resistant_fraction_end"],
+                        "resistant_takeover": bool(m["resistant_fraction_end"] >= 0.5),
+                        "rebound": m["rebound"],
+                        "time_to_99pct_suppression_h": m["time_to_99pct_suppression_h"],
+                    })
+    sensitivity = pd.DataFrame(sensitivity_rows)
+    sensitivity.to_csv(rd / "temporal_resistance_sensitivity.csv", index=False)
+    sensitivity_summary = []
+    for (name, alpha, label), group in sensitivity.groupby(
+            ["strategy", "resistance_independence", "resistance_structure"], sort=True):
+        sensitivity_summary.append({
+            "strategy": name,
+            "n_phages": int(group["n_phages"].iloc[0]),
+            "resistance_independence": float(alpha),
+            "resistance_structure": label,
+            "n_scenarios": int(len(group)),
+            "rebound_scenarios": int(group["rebound"].sum()),
+            "resistant_takeover_scenarios": int(group["resistant_takeover"].sum()),
+            "nadir_min": float(group["nadir"].min()),
+            "nadir_max": float(group["nadir"].max()),
+            "end_load_min": float(group["end_load"].min()),
+            "end_load_max": float(group["end_load"].max()),
+            "log10_drop_min": float(group["log10_drop"].min()),
+            "log10_drop_max": float(group["log10_drop"].max()),
+        })
     (rd / "temporal_summary.json").write_text(json.dumps(
         {"threshold_method": "fold-specific F1 on group-aware inner-OOF training predictions",
          "fold_thresholds": fold_thresholds,
@@ -170,9 +237,19 @@ def main() -> None:
          "panel_size": int(len(panel)),
          "parameters": {**temporal_cfg, "n_steps": n_steps,
                         "dose_per_phage": 1e8,
+                        "resistance_independence": 1.0,
                         "resistance_assumption": "independent across targeting phages"},
          "panel_selection": "five eligible taxa with the most predicted candidate phages",
-         "outcomes": rows}, indent=2, default=float))
+         "outcomes": rows,
+         "resistance_sensitivity": {
+             "interpretation": "assumption stress test; not fitted mechanistic or efficacy validation",
+             "formula": "mu_eff = mu ** (1 + alpha * (n_targeting - 1))",
+             "alpha_values": alpha_values,
+             "mutation_rates": mutation_values,
+             "resistance_costs": cost_values,
+             "n_runs": int(len(sensitivity)),
+             "summary": sensitivity_summary,
+         }}, indent=2, default=float))
 
     # Persist trajectories so figures can be regenerated without rerunning simulation
     traj_save = {k: v for k, v in traj.items()}
@@ -195,14 +272,14 @@ def main() -> None:
                            (ax[1], "Resistant subpopulation", "CFU/mL (resistant)")):
             a.set_yscale("log"); a.set_xlabel("time (h)"); a.set_ylabel(yl)
             a.set_title(ttl); a.grid(alpha=0.3); a.legend(loc="lower right")
-        fig.suptitle("Assumption-driven resistance sensitivity simulation")
+        fig.suptitle("Illustrative unfitted-parameter trajectories (not biological prediction)")
         fig.tight_layout()
         fig.savefig(rd / "temporal_dynamics.png", dpi=300)
         log.info("Wrote figure %s", rd / "temporal_dynamics.png")
     except Exception as e:
         log.warning("figure skipped (%s)", e)
 
-    log.info("Wrote temporal_outcomes.csv + temporal_summary.json")
+    log.info("Wrote temporal outcomes, resistance-sensitivity grid, and summary")
 
 
 if __name__ == "__main__":

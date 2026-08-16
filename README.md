@@ -11,16 +11,23 @@ v1 scripts and archived v1 outputs are not part of the reported analysis.
   and 6,079 negative, across 2,331 phages and 387 host identifiers.
 - A sequence-covered subset of 1,947 NCBI_HR pairs: 1,488 positive and 459
   negative, with 1,418 phage and 323 host reference genomes.
+- A locked, retraining-free test of the full sequence pipeline on all 1,053
+  sequence-covered StaphStudy pairs (333 positive and 720 negative).
 - Taxonomic, in-house sequence-cluster, and dual cold-start evaluations.
 - XGBoost, GraphSAGE/edge-decoder, PHIST, and a RaFAH-inspired proxy.
 - Host-cluster-grouped out-of-fold predictions for exploratory set cover.
 - A deterministic ODE sensitivity analysis. It is not wet-lab validation and
   does not estimate clinical efficacy.
 
-The three studies are present in the full four-feature baseline. Because frozen
-sequence coverage currently exists only for NCBI_HR, the headline 24-feature,
-GNN, cocktail, and temporal analyses are **single-source**, not cross-database
-validation. See `DATA.md`.
+The three studies are present in the full four-feature baseline. The frozen
+24-feature GBM was subsequently trained on NCBI_HR and applied without
+retraining to StaphStudy: AUROC 0.637 (two-way sequence-cluster bootstrap 95%
+CI 0.498-0.739), AUPRC 0.391, and ECE 0.499. This is source-held-out sequence
+validation, but it is not a prospectively blinded or independently collected
+cohort because StaphStudy was already represented in VHIP and in the earlier
+four-feature audit. GNN, comparator, cocktail, and temporal analyses remain
+single-source. See `EXTERNAL_VALIDATION_PROTOCOL.md`,
+`data/results_v2/external_staph_validation_summary.csv`, and `DATA.md`.
 
 ## Reproducible setup
 
@@ -54,10 +61,11 @@ excluded from this repository because of their size. The compact staging maps
 remain in `external/phist_run/phage_map.json` and `host_map.json`.
 
 The existing fetch scripts obtain optional Virus-Host DB, PhagesDB, Nahant, and
-host caches, but they do **not** automatically recreate the exact frozen FASTA
-bundle. A fresh NCBI download should be treated as a new dataset version and
-recorded with accession versions, download dates, and new checksums. See
-`DATA.md` for the full provenance and limitations.
+host caches. `experiments/fetch_staph_validation_sources.py` stages the pinned
+upstream VHIP repositories that contain the StaphStudy example genomes and
+identifier crosswalk; experiment 26 then creates the 39 analysis aliases. The
+script does **not** recreate the separate NCBI_HR training FASTA bundle. A fresh
+NCBI download should be treated as a new dataset version and checksummed.
 
 For a code-only clone without the genome bundle, run:
 
@@ -77,6 +85,9 @@ python experiments/01_build_dataset.py
 python experiments/02_baseline.py
 # continue through experiments/14_external_report.py
 python experiments/16_regenerate_figures.py
+python experiments/fetch_staph_validation_sources.py
+python experiments/25_external_sequence_overlap_audit.py
+python experiments/26_frozen_cross_source_validation.py
 ```
 
 The manuscript source and submission package are intentionally not published in
@@ -106,9 +117,14 @@ they are included for auditability but are not part of the code-only CI run.
   evaluated separately and was not used for the saved headline estimates.
 - Row-wise DeLong, McNemar, permutation, and bootstrap results are exploratory
   because observations share phage and host entities.
+- The locked NCBI_HR-to-StaphStudy test supports modest but uncertain
+  cross-source ranking, not portable calibration or prospective validation.
 - The RaFAH-style result is an in-house protein-feature proxy, not the published
   pretrained RaFAH model.
-- The temporal model assumes independent resistance across targeting phages.
+- The temporal model uses unfitted parameters to illustrate complete
+  cross-resistance, partial dependence, and independent resistance. Its grid
+  outputs are conditional equation behavior, not biological prediction or
+  efficacy validation.
 
 ## Layout
 

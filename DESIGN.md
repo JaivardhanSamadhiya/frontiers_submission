@@ -7,8 +7,10 @@ list planned components as though they were completed.
 
 The full VHIP table contains 8,849 assayed pairs from three study labels. A
 four-feature baseline evaluates LOSO, LOGO, and leave-one-study-out transfer on
-that table. The sequence-covered subset contains 1,947 NCBI_HR pairs only; it is
-used by all genome, GNN, external-baseline, cocktail, and temporal analyses.
+that table. The training sequence subset contains 1,947 NCBI_HR pairs. A locked
+test then applies the unchanged full sequence GBM to all 1,053 StaphStudy pairs
+without retraining. GNN, external-baseline, cocktail, and temporal analyses
+remain NCBI_HR-only.
 
 Genome resolution is exact after normalization, with deterministic aliases for
 NCBI accession version suffixes. Unresolved pairs are excluded from sequence
@@ -29,8 +31,10 @@ The 24 saved edge features combine:
   CRISPR-like, and translated-protein proxies.
 
 Because four inputs are source-supplied rather than regenerated here, the
-headline feature vector is not yet a fully portable predictor for arbitrary new
-pairs. A future release should reproduce or remove those four columns.
+headline feature vector is not a fully portable predictor for arbitrary new
+pairs. The frozen StaphStudy test therefore includes a prespecified
+sequence-only sensitivity model excluding those columns; its AUROC (0.639) was
+similar to the full model (0.637).
 
 ## Splits
 
@@ -70,7 +74,18 @@ Reported discrimination metrics include AUROC, AUPRC, and ECE. Saved DeLong,
 McNemar, row-permutation, and row-bootstrap tests assume independent rows, an
 assumption violated because pairs share phages and hosts. They are retained as
 exploratory diagnostics, not definitive inferential evidence. Fold-level
-variation and future two-way entity-aware resampling are more defensible.
+variation is emphasized. The frozen StaphStudy test uses 2,000 valid two-way
+phage- and host-sequence-cluster bootstrap replicates.
+
+## Frozen cross-source sequence test
+
+The protocol was locked before held-out prediction. The StandardScaler and
+fixed 400-tree XGBoost model were fitted only on NCBI_HR, then applied once to
+StaphStudy. Neither labels nor test-derived thresholds entered fitting,
+selection, calibration, or exclusion. The primary AUROC was 0.637 (95% CI
+0.498-0.739), with poor probability transport (ECE 0.499). Exact sequence
+overlap was zero. This is a source-held-out evaluation, not a prospectively
+blinded or independently collected external cohort.
 
 ## External comparisons
 
@@ -100,12 +115,10 @@ is exploratory and does not propose a clinically practical 176-phage formulation
 
 The deterministic ODE couples sensitive and resistant host populations to free
 phage. The five taxa are selected because they have the most predicted candidate
-phages among eligible taxa. The model assumes independent resistance across
-targeting phages, making the effective resistance rate `mu ** n_targeting`.
-This assumption structurally favors redundant cocktails and is not learned by
-the GNN or supported by cross-resistance measurements. Despite that favorable
-assumption, neither verified cocktail strategy prevented rebound or modeled
-resistant takeover.
+phages among eligible taxa. A prespecified grid spans complete cross-resistance,
+an intermediate dependence, and independent resistance using
+`mu ** (1 + alpha * (n_targeting - 1))` for `alpha` in 0, 0.5, and 1. These
+structures and all kinetic parameters are assumed rather than fitted.
 
 All temporal parameters now come from `configs/default.yaml`. The analysis is a
 mechanistic sensitivity illustration, not biological validation.

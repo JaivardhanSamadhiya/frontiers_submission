@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys
 import tempfile
 import unittest
+import json
 from pathlib import Path
 
 import numpy as np
@@ -14,7 +15,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from precisionphage.data.genomes import GenomeIndex  # noqa: E402
 from precisionphage.eval import nested_group_oof_decisions  # noqa: E402
 from precisionphage.splits import combined_unseen_folds  # noqa: E402
-from precisionphage.temporal import TherapyParams  # noqa: E402
+from precisionphage.temporal import TherapyParams, simulate  # noqa: E402
 from precisionphage.utils import load_config  # noqa: E402
 
 
@@ -27,6 +28,17 @@ class FrozenDataTests(unittest.TestCase):
         self.assertEqual(len(self.df), 1947)
         self.assertEqual(int(self.df["label"].sum()), 1488)
         self.assertEqual(set(self.df["study"]), {"NCBI_HR"})
+
+    def test_cross_source_detail_matches_current_baseline(self):
+        detail = pd.read_csv(ROOT / "data/results_v2/cross_study_detail.csv")
+        baseline = json.loads((ROOT / "data/results_v2/baseline_results.json").read_text())
+        self.assertEqual(set(detail["held_out_source"]),
+                         {"NCBI_HR", "NahantCollection", "StaphStudy"})
+        self.assertEqual(set(detail["model"]), {"GBM", "EdgeMLP"})
+        for model in ("GBM", "EdgeMLP"):
+            observed = detail.loc[detail["model"] == model, "auroc"].mean()
+            expected = baseline["cross_study"][model]["mean_roc_auc"]
+            self.assertAlmostEqual(observed, expected, places=10)
 
     def test_exact_genome_resolution(self):
         with tempfile.TemporaryDirectory() as td:
@@ -107,6 +119,17 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(params.t_max, 96)
         self.assertEqual(params.n_steps, 193)
         self.assertEqual(params.cost, 0.05)
+
+    def test_resistance_dependence_endpoints_are_supported(self):
+        matrix = np.array([[1.0], [1.0]])
+        initial = np.array([1e6])
+        cross = simulate(matrix, initial, TherapyParams(
+            resistance_independence=0.0, t_max=1.0, n_steps=3))
+        independent = simulate(matrix, initial, TherapyParams(
+            resistance_independence=1.0, t_max=1.0, n_steps=3))
+        self.assertTrue(cross["success"])
+        self.assertTrue(independent["success"])
+        self.assertGreater(cross["R"][0, -1], independent["R"][0, -1])
 
 
 if __name__ == "__main__":

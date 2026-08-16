@@ -83,12 +83,31 @@ def main() -> None:
         "data/results_v2/leakage_splits_results.json",
         "data/results_v2/gnn_ablation.json",
         "data/results_v2/significance_results.json",
+        "data/results_v2/cross_study_detail.csv",
+        "data/results_v2/cross_study_detail.json",
         "data/results_v2/cocktail_summary.json",
         "data/results_v2/temporal_summary.json",
         "data/results_v2/temporal_trajectory.npz",
+        "data/results_v2/temporal_resistance_sensitivity.csv",
+        "data/results_v2/external_staph_predictions.csv",
+        "data/results_v2/external_staph_validation.json",
+        "data/results_v2/external_staph_validation_summary.csv",
     ]
     for rel in required:
         require((ROOT / rel).is_file(), f"missing required artifact: {rel}")
+
+    external = json.loads(
+        (ROOT / "data/results_v2/external_staph_validation.json")
+        .read_text(encoding="utf-8"))
+    require(external["dataset"]["n_test"] == 1053,
+            "external test row count changed")
+    require(external["dataset"]["n_test_positive"] == 333,
+            "external test positive count changed")
+    exact = external["overlap_audit"]["exact_sequence_overlap"]
+    require(exact["phage"] == 0,
+            "external phage exact-sequence overlap changed")
+    require(exact["host"] == 0,
+            "external host exact-sequence overlap changed")
     coverage = "exact genome coverage" if genomes_present else "genome check skipped"
     print(f"PASS: frozen inputs, {coverage}, checksums, and required artifacts")
 

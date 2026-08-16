@@ -8,12 +8,12 @@ from pathlib import Path
 from docx import Document
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCX = ROOT / "submission/PrecisionPhage_Frontiers_Original_Research_revised.docx"
+DOCX = ROOT / "submission/PrecisionPhage_Frontiers_Original_Research_frozen_external_validated.docx"
 REPORT = ROOT / "submission/REFERENCE_AUDIT.md"
 
 CITATION_RE = re.compile(
     r"([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÿ'’\-]+)"
-    r"(?: et al\.| and [A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÿ'’\-]+)?,\s*"
+    r"(?: et al\.| and [A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÿ'’\-]+)?(?:,\s*|\s*\()"
     r"((?:19|20)\d{2})"
 )
 REFERENCE_RE = re.compile(

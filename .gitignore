@@ -24,6 +24,9 @@ data/archive_results_v1/
 data/archive_plots_v1/
 external/phist_run/phages/
 external/phist_run/hosts/
+data/external_validation/
+external/upstream_vhip/
+external/upstream_vhip_tool/
 
 # Optional/raw source caches not needed for the frozen analysis
 data/raw/virushostdb_raw.tsv

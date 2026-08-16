@@ -81,6 +81,20 @@ def replace_embedded_figures(docx_path: Path) -> None:
          "nonredundant cocktail, and redundant cocktail strategies; both cocktail strategies "
          "rebound to carrying capacity with resistant takeover."),
     ]
+    # Set accessibility metadata through python-docx so Word's namespace and
+    # compatibility declarations are preserved. Re-serializing document.xml
+    # with xml.etree can leave a package that permissive readers accept but
+    # Microsoft Word correctly reports as corrupted.
+    doc = Document(docx_path)
+    properties = [shape._inline.docPr for shape in doc.inline_shapes]
+    if len(properties) != len(alt_texts):
+        raise AssertionError(
+            f"expected {len(alt_texts)} figure descriptions, found {len(properties)}")
+    for prop, (title, description) in zip(properties, alt_texts):
+        prop.set("title", title)
+        prop.set("descr", description)
+    doc.save(docx_path)
+
     with tempfile.TemporaryDirectory() as td:
         staged = Path(td) / docx_path.name
         with zipfile.ZipFile(docx_path, "r") as zin, zipfile.ZipFile(
@@ -88,17 +102,6 @@ def replace_embedded_figures(docx_path: Path) -> None:
             for item in zin.infolist():
                 data = (replacements[item.filename].read_bytes()
                         if item.filename in replacements else zin.read(item.filename))
-                if item.filename == "word/document.xml":
-                    root = ET.fromstring(data)
-                    ns = "http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-                    properties = root.findall(f".//{{{ns}}}docPr")
-                    if len(properties) != len(alt_texts):
-                        raise AssertionError(
-                            f"expected {len(alt_texts)} figure descriptions, found {len(properties)}")
-                    for prop, (title, description) in zip(properties, alt_texts):
-                        prop.set("title", title)
-                        prop.set("descr", description)
-                    data = ET.tostring(root, encoding="utf-8", xml_declaration=True)
                 zout.writestr(item, data)
         shutil.copy2(staged, docx_path)
 

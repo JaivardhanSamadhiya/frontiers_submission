@@ -13,11 +13,22 @@
     "data/results_v2/leakage_splits_results.json": "fed659a0c653144ae00f406c441bd23334ba0db6b2f114ea99742f85530cefe3",
     "data/results_v2/significance_results.json": "895c24524b1da1137bdad668b14d56ef8ff552aecdbee4c8236a893c78688677",
     "data/results_v2/gnn_ablation.json": "2b7e7d14dac2190a227defe1783a568639c13eeeef1957c023df7181f7aff128",
+    "data/results_v2/cross_study_detail.csv": "d1ecc49285c5f5b04a4ac1141f4f7c680b8c924dca161f65dbf12df962abce71",
+    "data/results_v2/cross_study_detail.json": "78e3b1e19fef332110ce8da32dc931f65d56a8e9e41231aaa51f17e705c242dc",
     "data/results_v2/cocktail_summary.json": "c74376e4e2a07587e93d799559ebdfe499243811a1f65c1e711e8102d75b2064",
     "data/results_v2/cocktail_oof_predictions.npz": "291104abe2f0a5711f7260e53fcd69b9988ca34ad5cb81f368d8abd247e5422a",
-    "data/results_v2/temporal_summary.json": "bf7ac5b12a4bf2c3e9ada4a258ae2cea275d0979a969b92c19cc793ce8752b20",
+    "data/results_v2/temporal_summary.json": "370d8221870f1ed452a1598d038621bffd403175a0d8dc9c047b5743977288b3",
     "data/results_v2/temporal_trajectory.npz": "09019d061739e67b19272e58a33d95ffb0fb8b385e571a5537eb5306e2b95fb4",
+    "data/results_v2/temporal_resistance_sensitivity.csv": "c285226b9d7e0e0299299042e9080e8b6d68aee77e84c984a7a3d32128b07aa8",
     "data/results_v2/phist_compare.json": "3d2b177cf13d6e303d5496309889663a38d807134ea3a4a096581ff416b7bf1b",
-    "data/results_v2/rafah_compare.json": "fdb4990efc1dc5fa8c2fc91d515a1e058c86aea9054157f811cd041ff2835e58"
+    "data/results_v2/rafah_compare.json": "fdb4990efc1dc5fa8c2fc91d515a1e058c86aea9054157f811cd041ff2835e58",
+    "data/interim_v2/external_staph_seq_pair_features.csv": "288e1e52dcca21ae1bb2ac0892f3aff40641892f749405e0a7a22a45d3508746",
+    "data/interim_v2/external_staph_seq_pair_features.meta.json": "9caa7786685e93438a026fd43c2519c4695e2e6b3d687213b16099325652fcdb",
+    "data/results_v2/external_staph_predictions.csv": "6d4813842d2ef3328649e6f27e13602fcf18ab13f21f303d43ebc4a6e48ebee7",
+    "data/results_v2/external_staph_validation.json": "6abf168ae3c9498adc68216d90534b477972f4fac901a1dce1344fed305fda44",
+    "data/results_v2/external_staph_validation_summary.csv": "ae5230dbada29017b4ca98312f55c1f2735ef7a5222a8c8fc45b75643e74b0d3",
+    "data/results_v2/external_validation_models/full.joblib": "81390efac6cde25cb69764d5fafd106da4221baec9c35699c1727a786648adce",
+    "data/results_v2/external_validation_models/sequence_only.joblib": "8cc2549613eb734a1d14839b4e4731f1311e682769322b4f6bb19f3e1a31cefa",
+    "data/results_v2/external_validation_models/vhip_four_feature.joblib": "29a91ec02ec490bbe6467e0c301c74c399ebf0ab1475dfa8eb8c0ea2ab47d5b0"
   }
 }

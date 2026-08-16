@@ -194,7 +194,7 @@ def figure_temporal_dynamics() -> None:
         a.set_title(ttl)
         a.grid(alpha=0.3)
         a.legend(loc="lower right", fontsize=8)
-    fig.suptitle("Assumption-driven resistance sensitivity simulation")
+    fig.suptitle("Illustrative unfitted-parameter trajectories (not biological prediction)")
     fig.tight_layout()
     fig.savefig(RD / "temporal_dynamics.png", dpi=300)
     plt.close(fig)
