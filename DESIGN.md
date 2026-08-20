@@ -5,12 +5,15 @@ list planned components as though they were completed.
 
 ## Data layers
 
-The full VHIP table contains 8,849 assayed pairs from three study labels. A
+The full VHRnet table distributed with the VHIP publication contains 8,849
+assayed pairs from three study labels. A
 four-feature baseline evaluates LOSO, LOGO, and leave-one-study-out transfer on
 that table. The training sequence subset contains 1,947 NCBI_HR pairs. A locked
 test then applies the unchanged full sequence GBM to all 1,053 StaphStudy pairs
-without retraining. GNN, external-baseline, cocktail, and temporal analyses
-remain NCBI_HR-only.
+without retraining. A separate fixed-bank analysis trains on the dense Picard
+Escherichia matrix and scores published, experimentally tested cocktails for
+100 unseen ColoColi hosts. GNN, external-baseline, NCBI_HR set-cover, and
+temporal analyses remain NCBI_HR-only.
 
 Genome resolution is exact after normalization, with deterministic aliases for
 NCBI accession version suffixes. Unresolved pairs are excluded from sequence
@@ -83,9 +86,10 @@ The protocol was locked before held-out prediction. The StandardScaler and
 fixed 400-tree XGBoost model were fitted only on NCBI_HR, then applied once to
 StaphStudy. Neither labels nor test-derived thresholds entered fitting,
 selection, calibration, or exclusion. The primary AUROC was 0.637 (95% CI
-0.498-0.739), with poor probability transport (ECE 0.499). Exact sequence
-overlap was zero. This is a source-held-out evaluation, not a prospectively
-blinded or independently collected external cohort.
+0.498-0.739), so cluster-aware uncertainty includes chance and cross-source
+discrimination remains inconclusive. Probability transport was poor (ECE
+0.499), and exact sequence overlap was zero. This is a source-held-out
+evaluation, not a prospectively blinded or independently collected cohort.
 
 ## External comparisons
 
@@ -110,6 +114,31 @@ The verified nested-threshold k=1 solution contains 176 phages and covers 89.6%
 of eligible taxa on observed labels. k=2 and k=3 solutions improve at-least-one
 coverage but achieve only 45.2% and 31.3% observed k-fold coverage. The analysis
 is exploratory and does not propose a clinically practical 176-phage formulation.
+
+## Locked fixed-bank cocktail scoring
+
+The Picard-to-ColoColi protocol is separate from the VHIP/NCBI_HR pipeline.
+For each of 96 known phages, it combines a regularized categorical host model
+with a core-genome-distance nearest-neighbour model. Hyperparameters are chosen
+globally by host-grouped Picard cross-validation. Per-phage scores are
+rank-normalized across the 100 test hosts and averaged. A cocktail receives the
+prespecified ranking score `1 - product(1 - p_i)`; this formula is a scoring
+rule and not a claim that resistance or infection events are biologically
+independent.
+
+Predictions and checksums are written before the held-out outcome files are
+opened. The primary result is AUROC 0.807 (95% host-cluster bootstrap CI
+0.693-0.906) for productive activity of 100 tested cocktails. Because the
+published external study selected those cocktail compositions, the supported
+claim is fixed-bank cocktail scoring/prioritization on unseen hosts, not de novo
+external cocktail design.
+
+Experiment 31 documents why the same rank-normalized scores cannot be reused
+unchanged to select among phages: they discard between-phage breadth and
+underperform a generalist baseline. Experiment 32 is explicitly
+development-only and shows that raw cross-phage-comparable nearest-neighbour or
+logistic estimates repair this selector error in grouped Picard folds. These
+development results are not promoted to locked external efficacy evidence.
 
 ## Temporal sensitivity model
 

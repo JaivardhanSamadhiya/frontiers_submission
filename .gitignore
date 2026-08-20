@@ -27,6 +27,7 @@ external/phist_run/hosts/
 data/external_validation/
 external/upstream_vhip/
 external/upstream_vhip_tool/
+external/gaborieau_coli_phage_interactions_2023/
 
 # Optional/raw source caches not needed for the frozen analysis
 data/raw/virushostdb_raw.tsv
@@ -59,6 +60,7 @@ AUDIT_REPORT.md
 cursor_precisionphage_repository_audit.md
 SUBMISSION_READINESS.md
 tmp/
+tmp_doc_text.txt
 run_*.out
 data/results_v2/*.log
 

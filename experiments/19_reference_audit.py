@@ -2,13 +2,14 @@
 """Audit author-year citations against the revised DOCX reference list."""
 from __future__ import annotations
 
+import argparse
 import re
 from pathlib import Path
 
 from docx import Document
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCX = ROOT / "submission/PrecisionPhage_Frontiers_Original_Research_frozen_external_validated.docx"
+DEFAULT_DOCX = ROOT / "submission/PrecisionPhage_Frontiers_Original_Research_external_cocktail_validated.docx"
 REPORT = ROOT / "submission/REFERENCE_AUDIT.md"
 
 CITATION_RE = re.compile(
@@ -23,7 +24,11 @@ DOI_RE = re.compile(r"doi:\s*(10\.\d{4,9}/\S+)$", re.IGNORECASE)
 
 
 def main() -> None:
-    doc = Document(DOCX)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("docx", nargs="?", type=Path, default=DEFAULT_DOCX)
+    args = parser.parse_args()
+    docx = args.docx.resolve()
+    doc = Document(docx)
     paragraphs = doc.paragraphs
     ref_heading = next(i for i, p in enumerate(paragraphs) if p.text == "References")
     table_heading = next(i for i, p in enumerate(paragraphs) if p.text == "Tables")
@@ -55,7 +60,7 @@ def main() -> None:
     lines = [
         "# Reference and citation audit",
         "",
-        f"Audited file: `{DOCX.name}`",
+        f"Audited file: `{docx.name}`",
         "",
         f"- Unique author–year citations in text: {len(citations)}",
         f"- Reference entries: {len(references)}",

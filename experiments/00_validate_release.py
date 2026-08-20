@@ -92,6 +92,11 @@ def main() -> None:
         "data/results_v2/external_staph_predictions.csv",
         "data/results_v2/external_staph_validation.json",
         "data/results_v2/external_staph_validation_summary.csv",
+        "data/results_v2/external_cocktail_validation/frozen_pair_predictions.csv",
+        "data/results_v2/external_cocktail_validation/frozen_prediction_manifest.json",
+        "data/results_v2/external_cocktail_validation/external_cocktail_validation_summary.json",
+        "data/results_v2/external_cocktail_validation/heldout_cocktail_predictions_and_outcomes.csv",
+        "data/results_v2/external_cocktail_validation/heldout_selected_pair_predictions_and_outcomes.csv",
     ]
     for rel in required:
         require((ROOT / rel).is_file(), f"missing required artifact: {rel}")
@@ -108,6 +113,18 @@ def main() -> None:
             "external phage exact-sequence overlap changed")
     require(exact["host"] == 0,
             "external host exact-sequence overlap changed")
+    cocktail = json.loads(
+        (ROOT / "data/results_v2/external_cocktail_validation/"
+         "external_cocktail_validation_summary.json").read_text(encoding="utf-8"))
+    primary = cocktail["primary_cocktail"]["score_independence"]
+    require(primary["n"] == 100,
+            "external cocktail test row count changed")
+    require(primary["positive"] == 82,
+            "external cocktail positive count changed")
+    require(abs(primary["roc_auc"] - 0.8069105691056909) < 1e-12,
+            "external cocktail AUROC changed")
+    require(abs(primary["average_precision"] - 0.9510445249242861) < 1e-12,
+            "external cocktail average precision changed")
     coverage = "exact genome coverage" if genomes_present else "genome check skipped"
     print(f"PASS: frozen inputs, {coverage}, checksums, and required artifacts")
 

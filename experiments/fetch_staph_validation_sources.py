@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stage the pinned public source repositories for StaphStudy validation."""
+"""Stage pinned public repositories used by the external validations."""
 from __future__ import annotations
 
 import subprocess
@@ -15,6 +15,10 @@ SOURCES = {
     ROOT / "external/upstream_vhip": (
         "https://github.com/DuhaimeLab/VHIP_analyses_Bastien_et_al_2023.git",
         "5c87aaf7164f78c11f598e0bb56681932ce8bbad",
+    ),
+    ROOT / "external/gaborieau_coli_phage_interactions_2023": (
+        "https://github.com/mdmparis/coli_phage_interactions_2023.git",
+        "99656d8c020fcd1dbbc30a02ee10274a07655562",
     ),
 }
 
@@ -41,7 +45,7 @@ def main() -> None:
                 f"{path} is at {observed}; expected pinned commit {commit}. "
                 "Move or remove the directory before restaging."
             )
-    print("PASS: pinned StaphStudy validation sources are staged")
+    print("PASS: pinned external-validation sources are staged")
 
 
 if __name__ == "__main__":

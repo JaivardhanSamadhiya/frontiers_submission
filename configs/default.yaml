@@ -94,4 +94,4 @@ temporal:
   # cross-resistance model.
 
 fetch:
-  ncbi_email: "research@example.com"   # set to your email for NCBI Entrez
+  ncbi_email: "jsamadhi@mywvm.wvm.edu"  # NCBI Entrez contact for reproducible fetches

@@ -58,16 +58,39 @@ Consequently:
   prevalences are in `data/results_v2/cross_study_detail.csv`.
 - The full sequence GBM has one source-held-out evaluation: AUROC 0.637 (95% CI
   0.498-0.739), AUPRC 0.391, Brier score 0.466, and ECE 0.499. The interval uses
-  two-way phage- and host-sequence-cluster bootstrap, not row resampling.
+  two-way phage- and host-sequence-cluster bootstrap, not row resampling. Since
+  it includes 0.5, the primary evidence for cross-source discrimination is
+  inconclusive.
 - Exact genome overlap was zero on both axes. Four StaphStudy phages and four
   hosts were within the prespecified 0.05 Mash-form distance; excluding every
   pair with either close entity left 805 pairs (AUROC 0.644; AUPRC 0.427).
 - This test is source-held-out but not prospectively blinded or independently
-  collected: StaphStudy was already included in VHIP and in the four-feature
-  audit. The GNN, PHIST/RaFAH-style comparison, cocktail, and temporal results
-  remain NCBI_HR-only.
-- A new independently assembled matrix remains the next transportability test,
-  not a prerequisite for reporting this explicitly limited computational study.
+  collected: StaphStudy was already included in VHRnet and in the four-feature
+  audit. The GNN, PHIST/RaFAH-style comparison, NCBI_HR set cover, and temporal
+  results remain NCBI_HR-only.
+
+## Independent fixed-bank cocktail validation
+
+The pinned Gaborieau et al. repository (commit
+`99656d8c020fcd1dbbc30a02ee10274a07655562`) supplies a separate dense
+Escherichia resource: 402 Picard hosts by 96 Guelin phages (38,531 observed of
+38,688 possible pairs) and experimentally tested cocktails for 100 unseen
+ColoColi hosts. It is staged by
+`experiments/fetch_staph_validation_sources.py` and excluded from Git because
+the checkout is approximately 136 MB.
+
+`EXTERNAL_COCKTAIL_VALIDATION_PROTOCOL.md` was locked before the four held-out
+cocktail outcome/composition tables were read. Experiment 29 trained only on
+Picard labels and froze 9,600 test pair scores. Experiment 30 then evaluated
+the published, experimentally tested cocktail compositions. The primary
+cocktail score yielded AUROC 0.807 (host-cluster bootstrap 95% CI
+0.693-0.906) and average precision 0.951 (0.904-0.983) across 100 hosts.
+
+The tested cocktails were selected by Gaborieau et al. PrecisionPhage scored
+them but did not choose them, so this is independent fixed-bank validation of
+cocktail prioritization, not external efficacy validation of de novo
+PrecisionPhage selections. Experiments 31 and 32 retain a failed rank-only
+selector and a corrected development-only selector audit, respectively.
 
 ## Generated and frozen artifacts
 
@@ -79,6 +102,8 @@ Consequently:
 - `data/results_v2/external_staph_validation.json`: locked metrics, overlap
   audit, strict subsets, and two-way cluster-bootstrap intervals.
 - `data/results_v2/external_staph_predictions.csv`: held-out predictions.
+- `data/results_v2/external_cocktail_validation`: frozen Picard-to-ColoColi
+  scores, manifests, held-out evaluation, and selector audit artifacts.
 - `data/archive_results_v1`: deprecated development output; never cite it.
 
 `experiments/00_validate_release.py` checks the expected counts, frozen FASTA
@@ -99,16 +124,16 @@ download dates before treating a rerun as a new frozen dataset version.
 - `virushostdb_raw.tsv` and `phagesdb_records_cache.json` are host-association
   resources without a matched dense experimentally tested negative matrix.
 - `saureus_experimental_interactions.csv` is a small derivative of rows already
-  represented in the VHIP table and contains two malformed rows; it is not an
+  represented in the VHRnet table and contains two malformed rows; it is not an
   independent external test.
 - `saureus_phage_interactions.csv` is a positive host-association/split table
   from the older v1 workflow, not a phage-by-strain infection/non-infection
   matrix.
 
-These files must not be counted as additional independent databases. A future
-independently assembled validation set needs pair-level
-positive and negative assays, compatible phage and host genome accessions, and a
-predeclared evaluation protocol.
+These files must not be counted as additional independent databases. The
+Gaborieau matrix above is the separate dense external resource. Any further
+external test needs pair-level positive and negative assays, compatible phage
+and host genome information, and a predeclared evaluation protocol.
 
 ## Label and matrix limitations
 

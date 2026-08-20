@@ -7,12 +7,16 @@ v1 scripts and archived v1 outputs are not part of the reported analysis.
 
 ## What the frozen analysis contains
 
-- 8,849 experimentally assayed pairs from the VHIP input table: 2,770 positive
+- 8,849 experimentally assayed pairs from the VHRnet table distributed with
+  the VHIP publication: 2,770 positive
   and 6,079 negative, across 2,331 phages and 387 host identifiers.
 - A sequence-covered subset of 1,947 NCBI_HR pairs: 1,488 positive and 459
   negative, with 1,418 phage and 323 host reference genomes.
 - A locked, retraining-free test of the full sequence pipeline on all 1,053
   sequence-covered StaphStudy pairs (333 positive and 720 negative).
+- A second, protocol-locked fixed-bank validation trained on the dense Picard
+  matrix (402 hosts by 96 phages) and evaluated on 100 unseen ColoColi hosts
+  with experimentally measured cocktail outcomes.
 - Taxonomic, in-house sequence-cluster, and dual cold-start evaluations.
 - XGBoost, GraphSAGE/edge-decoder, PHIST, and a RaFAH-inspired proxy.
 - Host-cluster-grouped out-of-fold predictions for exploratory set cover.
@@ -22,12 +26,23 @@ v1 scripts and archived v1 outputs are not part of the reported analysis.
 The three studies are present in the full four-feature baseline. The frozen
 24-feature GBM was subsequently trained on NCBI_HR and applied without
 retraining to StaphStudy: AUROC 0.637 (two-way sequence-cluster bootstrap 95%
-CI 0.498-0.739), AUPRC 0.391, and ECE 0.499. This is source-held-out sequence
-validation, but it is not a prospectively blinded or independently collected
-cohort because StaphStudy was already represented in VHIP and in the earlier
-four-feature audit. GNN, comparator, cocktail, and temporal analyses remain
-single-source. See `EXTERNAL_VALIDATION_PROTOCOL.md`,
+CI 0.498-0.739), AUPRC 0.391, and ECE 0.499. Because the primary AUROC interval
+includes 0.5, cross-source discrimination remains inconclusive. This is
+source-held-out sequence evaluation, but it is not a prospectively blinded or
+independently collected cohort because StaphStudy was already represented in
+VHRnet and in the earlier four-feature audit. GNN, comparator, NCBI_HR set-cover,
+and temporal analyses remain single-source. See `EXTERNAL_VALIDATION_PROTOCOL.md`,
 `data/results_v2/external_staph_validation_summary.csv`, and `DATA.md`.
+
+The independent fixed-bank analysis addresses a different and more learnable
+question. Predictions were frozen before the ColoColi outcome files were read.
+For the 100 experimentally tested cocktails, the prespecified cocktail ranking
+score achieved AUROC 0.807 (host-cluster bootstrap 95% CI 0.693-0.906) and
+average precision 0.951 (0.904-0.983). The tested compositions were selected by
+Gaborieau et al., not by PrecisionPhage, so this validates cocktail
+**scoring/prioritization** on unseen hosts rather than external wet-lab testing
+of PrecisionPhage-designed cocktails. See `EXTERNAL_COCKTAIL_VALIDATION_PROTOCOL.md`
+and `GENERALIZATION_AUDIT.md`.
 
 ## Reproducible setup
 
@@ -61,11 +76,13 @@ excluded from this repository because of their size. The compact staging maps
 remain in `external/phist_run/phage_map.json` and `host_map.json`.
 
 The existing fetch scripts obtain optional Virus-Host DB, PhagesDB, Nahant, and
-host caches. `experiments/fetch_staph_validation_sources.py` stages the pinned
-upstream VHIP repositories that contain the StaphStudy example genomes and
-identifier crosswalk; experiment 26 then creates the 39 analysis aliases. The
-script does **not** recreate the separate NCBI_HR training FASTA bundle. A fresh
-NCBI download should be treated as a new dataset version and checksummed.
+host caches. `experiments/fetch_staph_validation_sources.py` stages pinned VHIP
+repositories containing the StaphStudy example genomes and identifier
+crosswalk, plus the pinned Gaborieau et al. repository containing the Picard and
+ColoColi validation data. Experiment 26 creates the 39 StaphStudy analysis
+aliases. The script does **not** recreate the separate NCBI_HR training FASTA
+bundle. A fresh NCBI download should be treated as a new dataset version and
+checksummed.
 
 For a code-only clone without the genome bundle, run:
 
@@ -88,7 +105,14 @@ python experiments/16_regenerate_figures.py
 python experiments/fetch_staph_validation_sources.py
 python experiments/25_external_sequence_overlap_audit.py
 python experiments/26_frozen_cross_source_validation.py
+python experiments/29_freeze_external_cocktail_predictions.py
+python experiments/30_evaluate_external_cocktails.py
 ```
+
+Experiment 29 is the outcome-blind freezing stage. Do not rerun it after
+opening the ColoColi outcome tables and present the result as newly blinded.
+Experiments 31 and 32 retain, respectively, the failed rank-only selector and a
+development-only selector audit; neither is an external efficacy test.
 
 The manuscript source and submission package are intentionally not published in
 this code repository. The frozen result files live under `data/results_v2`. Do
@@ -100,10 +124,15 @@ and submission-format figures with:
 ```bash
 python experiments/17_revise_manuscript.py
 python experiments/18_package_submission.py
+python experiments/33_integrate_external_cocktail_validation.py
+python experiments/19_reference_audit.py
 ```
 
 These manuscript utilities require the author's local, gitignored source DOCX;
 they are included for auditability but are not part of the code-only CI run.
+Experiment 33 creates the current external-cocktail-validated submission copy;
+experiment 19 verifies bidirectional author-year citation coverage and DOI-string
+uniqueness in that final DOCX.
 
 ## Important interpretation limits
 
@@ -117,8 +146,13 @@ they are included for auditability but are not part of the code-only CI run.
   evaluated separately and was not used for the saved headline estimates.
 - Row-wise DeLong, McNemar, permutation, and bootstrap results are exploratory
   because observations share phage and host entities.
-- The locked NCBI_HR-to-StaphStudy test supports modest but uncertain
-  cross-source ranking, not portable calibration or prospective validation.
+- The locked NCBI_HR-to-StaphStudy test has an above-chance point estimate but
+  an interval spanning chance; it does not establish cross-source ranking,
+  portable calibration, or prospective validation.
+- The locked Picard-to-ColoColi result establishes ranking of already proposed,
+  experimentally tested cocktails for unseen Escherichia hosts in a fixed
+  phage bank. It does not establish unseen-phage transfer, Staphylococcus
+  transfer, or wet-lab validation of cocktails selected by this repository.
 - The RaFAH-style result is an in-house protein-feature proxy, not the published
   pretrained RaFAH model.
 - The temporal model uses unfitted parameters to illustrate complete
@@ -135,6 +169,8 @@ they are included for auditability but are not part of the code-only CI run.
 | `experiments/` | Numbered analysis drivers |
 | `tests/` | Release and leakage-invariant tests |
 | `external/phist_run/` | Compact PHIST staging maps; large FASTAs are local-only |
+| `EXTERNAL_COCKTAIL_VALIDATION_PROTOCOL.md` | Outcome-blind fixed-bank protocol |
+| `GENERALIZATION_AUDIT.md` | Failure diagnosis, claim boundary, and validation summary |
 | `data/interim_v2/` | Canonical cleaned data and feature caches |
 | `data/results_v2/` | Saved tables, compact predictions, and figures |
 

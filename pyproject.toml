@@ -28,6 +28,9 @@ extras = ["shap", "umap-learn"]
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
 [tool.precisionphage]
 # Reproducibility note: the canonical runtime is the project .venv
 # (Python 3.11, torch 2.12 CPU, PyG 2.8). See configs/default.yaml for all knobs.
