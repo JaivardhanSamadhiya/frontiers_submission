@@ -8,9 +8,10 @@ paths:
   root: ".."  # resolved relative to this configuration file
   vhi_csv: "data/raw/VirusHostInter.csv"
   # Frozen FASTAs used for the reported sequence-based analysis. These are
-  # staged by accession/entity under external/phist_run and are versioned with
-  # the project; fetch scripts may populate data/phages and data/fastas/hosts
-  # as separate, replaceable source caches.
+  # staged by accession/entity under external/phist_run for the reported run.
+  # The large FASTAs are intentionally gitignored; compact resolution maps,
+  # derived feature caches, and checksums are versioned with the project. See
+  # DATA.md before attempting a refreshed download.
   phage_fasta_dir: "external/phist_run/phages"
   host_fasta_dir: "external/phist_run/hosts"
   raw_dir: "data/raw"

@@ -5,7 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "precisionphage"
 version = "2.0.0"
-description = "Leakage-free phage-host interaction prediction, cocktail optimization, and temporal resistance modeling."
+description = "Leakage-controlled phage-host interaction prediction and fixed-bank cocktail prioritization."
+readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = [
     "numpy>=1.26",
@@ -25,6 +27,10 @@ dependencies = [
 [project.optional-dependencies]
 extras = ["shap", "umap-learn"]
 
+[project.urls]
+Repository = "https://github.com/JaivardhanSamadhiya/frontiers_submission"
+Documentation = "https://github.com/JaivardhanSamadhiya/frontiers_submission#readme"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
@@ -32,5 +38,5 @@ where = ["src"]
 testpaths = ["tests"]
 
 [tool.precisionphage]
-# Reproducibility note: the canonical runtime is the project .venv
-# (Python 3.11, torch 2.12 CPU, PyG 2.8). See configs/default.yaml for all knobs.
+# Reproducibility note: the canonical Python 3.11 CPU environment is pinned in
+# requirements-lock.txt. See configs/default.yaml for analysis parameters.

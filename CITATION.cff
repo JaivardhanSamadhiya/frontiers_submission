@@ -6,8 +6,9 @@ authors:
   - family-names: "Samadhiya"
     given-names: "Jaivardhan"
 version: 2.0.0
-date-released: 2026-08-15
+date-released: 2026-08-23
 repository-code: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
+license: MIT
 keywords:
   - bacteriophage
   - phage-host interaction

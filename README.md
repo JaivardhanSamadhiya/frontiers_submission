@@ -49,8 +49,8 @@ and `GENERALIZATION_AUDIT.md`.
 Clone with the PHIST submodule and install the locked environment:
 
 ```bash
-git clone --recurse-submodules <repository-url>
-cd full_pipeline
+git clone --recurse-submodules https://github.com/JaivardhanSamadhiya/frontiers_submission.git
+cd frontiers_submission
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
@@ -117,6 +117,13 @@ development-only selector audit; neither is an external efficacy test.
 The manuscript source and submission package are intentionally not published in
 this code repository. The frozen result files live under `data/results_v2`. Do
 not combine them with `data/archive_results_v1`.
+
+## License and citation
+
+The source code is released under the MIT License; see `LICENSE`. The datasets
+and third-party tools retain their original licenses and citation requirements.
+Use `CITATION.cff` to cite this software release, and cite the associated article
+once its bibliographic record is available.
 
 After rerunning the audited analyses, maintainers can create the revised DOCX
 and submission-format figures with:
