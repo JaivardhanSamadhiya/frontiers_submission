@@ -13,8 +13,6 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from precisionphage.data.genomes import GenomeIndex  # noqa: E402
-
 
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -57,6 +55,11 @@ def main() -> None:
                        and any(phage_dir.glob("*.fasta"))
                        and any(host_dir.glob("*.fasta")))
     if genomes_present:
+        # Import the sequence index only for the strict local audit. Keeping
+        # this import out of code-only mode avoids loading the full analysis
+        # stack when the public clone contains no large FASTA bundle.
+        from precisionphage.data.genomes import GenomeIndex
+
         phage_index = GenomeIndex([phage_dir])
         host_index = GenomeIndex([host_dir])
         phage_cov = phage_index.coverage(sorted(modelable["phage"].unique()))
