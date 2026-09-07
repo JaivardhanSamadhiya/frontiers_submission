@@ -1,66 +1,73 @@
 # PrecisionPhage: results summary
 
-Leakage-controlled phage–host interaction prediction, cocktail design, and eco-evolutionary therapy simulation. All numbers below are read directly from the pipeline's result artifacts.
+Leakage-controlled phage–host interaction prediction and bounded fixed-bank cocktail prioritization. All values below are read from the frozen result artifacts in `data/results_v2`.
 
-## 1. Headline performance
+## 1. Within-source leakage hierarchy
 
-- Easiest realistic regime (unseen species, LOSO): **AUROC 0.959** (0.944–0.973), ECE 0.021.
-- Hardest regime (both phage and host clusters unseen — true cold start): **AUROC 0.785** (0.736–0.835).
-- The feature-based GBM has higher row-pooled AUROC than the GNN in every saved regime. Independent-row tests are exploratory because pairs share phage and host entities.
+Within the sequence-covered NCBI_HR subset, pooled AUROC declined as biological separation between training and test entities increased:
 
-### Table 1. Main results (GBM vs GNN per leakage regime)
+| Evaluation regime | Pooled GBM AUROC | Mean fold AUROC | Folds |
+|---|---:|---:|---:|
+| Eligible unseen host species | 0.959 | 0.903 | 28 |
+| Unseen host sequence cluster | 0.950 | 0.899 | 26 |
+| Unseen phage sequence cluster | 0.847 | 0.858 | 22 |
+| Dual cold start | 0.785 | 0.799 | 5 |
 
-| Regime | GBM AUC | GBM ECE | GBM > chance (q) | GNN AUC | GBM−GNN ΔAUC | DeLong q |
-| --- | --- | --- | --- | --- | --- | --- |
-| Unseen species (LOSO) | 0.959 (0.944–0.973) | 0.021 | 1.0e-03 | 0.869 (0.839–0.899) | +0.090 (0.064–0.116) | 1.9e-11 |
-| Unseen host cluster | 0.950 (0.934–0.966) | 0.055 | 1.0e-03 | 0.853 (0.822–0.885) | +0.097 (0.071–0.124) | 4.6e-12 |
-| Unseen phage cluster | 0.847 (0.808–0.886) | 0.427 | 1.0e-03 | 0.752 (0.702–0.801) | +0.095 (0.047–0.144) | 1.8e-04 |
-| Both unseen (cold start) | 0.785 (0.736–0.835) | 0.163 | 1.0e-03 | 0.672 (0.613–0.732) | +0.113 (0.048–0.176) | 5.4e-04 |
+Taxonomic and sequence-cluster holdouts measure different forms of novelty and should not be interpreted as one perfectly ordered scale. The pooled differences are descriptive. Because observations share phages and hosts, legacy row-wise DeLong, McNemar, bootstrap, and permutation p-values are not used for confirmatory claims. Fold-level variation and entity-aware uncertainty are emphasized in the manuscript.
 
-## 2. Leakage hierarchy
+## 2. Frozen cross-source sequence evaluation
 
-AUC generally declines under stricter sequence-cluster holdouts. Taxonomic and sequence-cluster regimes are different axes and should not be treated as a strictly ordered scale.
+The fixed 24-feature GBM was trained on 1,947 NCBI_HR pairs and applied without retraining or threshold optimization to all 1,053 sequence-covered StaphStudy pairs.
 
-| regime | mean_auc | ci_lo | ci_hi | pooled_auc | ece | folds_used |
-| --- | --- | --- | --- | --- | --- | --- |
-| loso_species | 0.903 | 0.751 | 0.982 | 0.959 | 0.021 | 28 |
-| logo_genus | 0.884 | 0.833 | 0.929 | 0.92 | 0.057 | 28 |
-| host_cluster | 0.899 | 0.795 | 0.976 | 0.95 | 0.055 | 26 |
-| phage_cluster | 0.858 | 0.793 | 0.918 | 0.847 | 0.427 | 22 |
-| combined_unseen | 0.799 | 0.752 | 0.854 | 0.785 | 0.163 | 5 |
+| Metric | Estimate |
+|---|---:|
+| AUROC | 0.637 |
+| Two-way sequence-cluster bootstrap 95% CI | 0.498–0.739 |
+| AUPRC | 0.391 |
+| Brier score | 0.466 |
+| Expected calibration error | 0.499 |
 
-## 3. Graph message-passing ablation
+Because the primary AUROC interval includes 0.5 and calibration is poor, this result does not establish cross-source discrimination, portable calibrated probabilities, or transferable decision thresholds. The test is source-held-out but not prospectively blinded or independently collected because StaphStudy was already represented in VHRnet and the earlier four-feature audit.
 
-Message passing produced positive row-pooled AUROC differences in all four regimes; only the dual cold-start gain remained below the exploratory BH threshold (Δ=+0.097, q=0.0116). The GBM nevertheless remained the strongest headline model. These row-wise tests are not entity-independent. See `figure_main.png` panel c.
+## 3. Graph model comparison
 
-## 4. Cocktail optimisation
+Within NCBI_HR, the fixed feature-based GBM had higher pooled AUROC than the evaluated GraphSAGE model in every saved holdout regime. Message passing improved the otherwise identical no-graph neural model in descriptive row-pooled comparisons, including a +0.097 difference in dual cold start. These comparisons remain within-source and are not evidence of external model-class transfer.
 
-- Minimum cocktail (exact ILP) over targets with predicted coverage: **176 phages** (greedy 176, oracle minimum 188).
-- Model-driven greedy is compared with a truth-informed greedy reference and random selection (see `cocktail_coverage.png`).
+## 4. Locked external fixed-bank cocktail validation
 
-### Table 3. k-robust cocktails
+A separate protocol was locked before the ColoColi outcome and composition tables were examined. Models trained on the dense 402-host by 96-phage Picard matrix produced frozen scores for 100 unseen ColoColi hosts.
 
-| k | cocktail_size | true_cover_>=1 | true_cover_>=k |
-| --- | --- | --- | --- |
-| 1 | 176 | 0.896 | 0.896 |
-| 2 | 282 | 0.93 | 0.452 |
-| 3 | 358 | 0.97 | 0.313 |
+| Metric | Estimate |
+|---|---:|
+| Cocktail AUROC | 0.807 |
+| Host-cluster bootstrap 95% CI | 0.693–0.906 |
+| Average precision | 0.951 |
+| Host-cluster bootstrap 95% CI | 0.904–0.983 |
+| Brier score | 0.127 |
+| Expected calibration error | 0.079 |
 
-## 5. Eco-evolutionary therapy simulation
+This result supports ranking externally selected, experimentally tested candidate cocktails for unseen hosts within one fixed *Escherichia* phage bank. Gaborieau et al., not PrecisionPhage, selected the tested compositions. It therefore does not validate de novo cocktail selection, unseen-phage transfer, another organism or bank, resistance suppression, or therapeutic efficacy.
 
-In the assumption-driven sensitivity model, the redundant strategy also rebounds and does not prevent resistant takeover; its end resistant fraction is 1.000. This is not independent biological validation (see `temporal_dynamics.png`).
+## 5. Exploratory within-source set cover
 
-### Table 4. Therapy outcomes
+The NCBI_HR set-cover analysis uses host-cluster-grouped out-of-fold scores. Its selected sets are transformations of sparse within-source predictions, not experimentally validated cocktail designs. Missing matrix cells are unobserved and are not treated as confirmed negatives.
 
-| strategy | n_phages | end_load | nadir | log10_drop | resistant_frac_end | rebound |
-| --- | --- | --- | --- | --- | --- | --- |
-| control | 0 | 1.00e+09 | 5.00e+06 | 0.0 | 0.0 | False |
-| monophage | 1 | 1.00e+09 | 5.00e+06 | 0.0 | 0.0 | False |
-| cocktail_k1 | 3 | 1.00e+09 | 1.69e+04 | 2.47 | 1.0 | True |
-| robust_k2 | 6 | 1.00e+09 | 3.98e+04 | 2.1 | 1.0 | True |
+## 6. Deterministic resistance sensitivity analysis
+
+The temporal equations use assumed, unfitted mutation, fitness-cost, adsorption, and cross-resistance parameters. Across the sampled grid, modeled resistant rebound occurs under the evaluated phage strategies. This is conditional behavior of the imposed equations, not a fitted biological prediction, resistance-suppression validation, or efficacy result.
+
+## Primary frozen artifacts
+
+- `leakage_splits_results.json` — within-source leakage-controlled evaluations
+- `coldstart_fold_aucs.json` — dual cold-start fold values
+- `external_staph_validation.json` — frozen cross-source results and cluster-aware intervals
+- `external_cocktail_validation/external_cocktail_validation_summary.json` — fixed-bank cocktail evaluation
+- `release_manifest.json` — SHA-256 checksums for the frozen release artifacts
+- `EXTERNAL_VALIDATION_PROTOCOL.md` and `EXTERNAL_COCKTAIL_VALIDATION_PROTOCOL.md` — dated analysis protocols
 
 ## Figures
 
-- `figure_main.png` — generalisation, leakage hierarchy, GNN ablation
-- `cocktail_coverage.png` — cocktail coverage vs size
-- `temporal_dynamics.png` — therapy dynamics with resistance
+- `figure_main.png` — within-source leakage hierarchy and model comparisons
+- `fig_external_baselines.png` — external baseline results
+- `cocktail_coverage.png` — exploratory within-source set-cover behavior
+- `temporal_dynamics.png` — illustrative unfitted-parameter trajectories
