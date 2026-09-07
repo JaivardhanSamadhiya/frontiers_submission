@@ -1,9 +1,10 @@
 # PrecisionPhage
 
-PrecisionPhage is a computational study of phage-host interaction prediction,
-phage-cocktail set cover, and an illustrative resistance sensitivity model. The
-active implementation is the v2 package under `src/precisionphage`; top-level
-v1 scripts and archived v1 outputs are not part of the reported analysis.
+PrecisionPhage is a computational study of leakage-controlled phage-host
+interaction prediction and bounded fixed-bank cocktail prioritization, with an
+exploratory set-cover analysis and an illustrative resistance sensitivity model.
+The active implementation is the v2 package under `src/precisionphage`;
+top-level v1 scripts and archived v1 outputs are not part of the reported analysis.
 
 ## What the frozen analysis contains
 
@@ -122,8 +123,9 @@ not combine them with `data/archive_results_v1`.
 
 The source code is released under the MIT License; see `LICENSE`. The datasets
 and third-party tools retain their original licenses and citation requirements.
-Use `CITATION.cff` to cite this software release, and cite the associated article
-once its bibliographic record is available.
+The publication-facing snapshot is version `v2.0.1`. Use `CITATION.cff` to cite
+this software release, and cite the associated article once its bibliographic
+record is available.
 
 After rerunning the audited analyses, maintainers can create the revised DOCX
 and submission-format figures with:
