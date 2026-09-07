@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: "Samadhiya"
     given-names: "Jaivardhan"
-version: 2.0.0
-date-released: 2026-08-23
+version: 2.0.1
+date-released: 2026-09-06
 repository-code: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
 license: MIT
 keywords:
