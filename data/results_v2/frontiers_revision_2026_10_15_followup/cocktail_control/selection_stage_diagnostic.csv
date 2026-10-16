@@ -1,0 +1,14 @@
+selection_step_pattern,records,positive,mean_training_score,compositions,observed_activity_fraction
+0_same_as_host|0_same_as_host|0_same_as_host,38,37,0.45984766824102347,8,0.9736842105263158
+0_same_as_host|0_same_as_host|4_rescue,1,1,0.3916749792186201,1,1.0
+0_same_as_host|1_neighbours|1_neighbours,1,1,0.4891089027017861,1,1.0
+0_same_as_host|1_neighbours|3_misc,2,0,0.5574653126718858,2,0.0
+0_same_as_host|1_neighbours|4_rescue,1,1,0.3816157575604137,1,1.0
+0_same_as_host|3_misc|3_misc,19,14,0.5696972328713871,1,0.7368421052631579
+0_same_as_host|3_misc|4_rescue,5,5,0.6048696666294463,2,1.0
+0_same_as_host|4_rescue|4_rescue,1,1,0.5697344532532682,1,1.0
+1_neighbours|1_neighbours|1_neighbours,2,2,0.5846598263875965,1,1.0
+3_misc|3_misc|3_misc,2,2,0.5949595331736992,1,1.0
+3_misc|3_misc|4_rescue,1,1,0.5846598263875965,1,1.0
+3_misc|4_rescue|4_rescue,24,15,0.5846598263875965,1,0.625
+4_rescue|4_rescue|4_rescue,3,2,0.5846598263875965,1,0.6666666666666666

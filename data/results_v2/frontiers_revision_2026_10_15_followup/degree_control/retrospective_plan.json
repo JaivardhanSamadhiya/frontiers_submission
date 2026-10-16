@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-10-16T06:43:52.723205+00:00",
+  "status": "Retrospective diagnostic prompted by review; original outcomes already known.",
+  "no_fitting_or_tuning": true,
+  "regimes": [
+    "loso_species",
+    "logo_genus",
+    "host_cluster",
+    "phage_cluster",
+    "combined_unseen"
+  ],
+  "legacy_methods": "Phage, host and equally weighted maximum-normalised positive training counts; unknown zero.",
+  "added_controls": "Phage, host and equally weighted positive training fractions: positive count / all observed training pairs per exact entity; unseen entity falls back to global training prevalence.",
+  "diagnostics": "Fold training prior alone, and additive fraction minus that prior, separate pooled-prior shifts from within-fold rankings. Neither is selected as a winner.",
+  "metrics": "AUROC/AP/prevalence pooled; AUROC/AP by fold; macro fold AUROC and pair-count weighted within-fold AUROC. Score distributions and seen/unseen status by outcome are diagnostic, not additional predictors.",
+  "within_fold_weight": "n_positive * n_negative; pooling only comparable positive-negative pairs from the same fold removes cross-fold ranking pairs.",
+  "independence": "No independent-row p-values, confidence intervals or causal-mechanism claims.",
+  "test_labels": "Used for reporting only; score_controls does not inspect them.",
+  "inputs": {
+    "data\\interim_v2\\interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data\\cache_v2\\clusters_k21_d0.05.json": "b1fcc5ad4090dea344acfbe9abfc417e2cab606e1d1fa83eb6b609cb54404e1c",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\reporting_audit\\degree_predictions.csv": "b8d53d8d6ca4c96856c176630b9c825bfa6d430aba572548e025cb52f4274b33",
+    "data\\results_v2\\significance_pooled_preds.npz": "9a9e249e6e67eead4795e654b2da37d856cd947e6231036402792f1e33c6b75e"
+  }
+}

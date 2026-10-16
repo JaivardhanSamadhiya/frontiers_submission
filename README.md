@@ -4,7 +4,7 @@ Scientific code and compact data for leakage-controlled phage–host prediction
 and retrospective scoring of published, fixed-bank *Escherichia* cocktail
 assays. This is a research audit, **not a clinical recommender**.
 
-The dated scientific snapshot is `v2026.10.15.1`. It extends the existing public
+The dated scientific snapshot is `v2026.10.15.2`. It extends the existing public
 v2.0.1 history without replacing historical frozen predictions. Source code,
 saved predictions, analysis protocols, accession provenance and verification
 helpers are included. Manuscripts, private peer review, submission materials,
@@ -42,6 +42,25 @@ faithfully runnable all-100 predictor. Missing scores were not invented. See
 `data/results_v2/frontiers_revision_2026_10_15/official_gaborieau/` for the public
 feasibility record.
 
+The denominator-aware entity control is important to interpreting the
+within-source results. The historical additive positive-count score has AUROC
+0.043/0.047 in species/host-cluster holdouts because training exposure is
+strongly associated with the held-out label; this reversal persists within
+folds. A new training-only positive-fraction control divides positive counts by
+all assayed training pairs and gives unseen identifiers the training prevalence.
+Its additive pooled AUROC is **0.890/0.890/0.588** for species/host-cluster/phage-
+cluster holdouts. Under dual exclusion it is constant within every fold, with
+AUROC **0.500**. Its raw pooled AUROC 0.422 compares different fold-prior constants
+and is not within-fold discrimination. The old weak count control therefore
+does not rule out entity-level shortcuts; all original scores are preserved.
+
+The source-training phage-susceptibility cocktail control has AUROC 0.327
+(crossed interval 0.112–0.571). Inactive cocktails have higher mean scores in
+this selected cohort, but the control has one value per composition and no
+host-specific term. Its interval includes chance. Source documentation records
+a generalist rescue step, not a demonstrated causal explanation for this
+inverse association or evidence that particular hosts were intrinsically harder.
+
 ## Quick start: audit supplied predictions
 
 Use Python 3.11. The historical `requirements-lock.txt` is distinct from the
@@ -53,7 +72,7 @@ accession-table preparation. The `audit` package extra also records sourmash.
 ```powershell
 git clone https://github.com/JaivardhanSamadhiya/frontiers_submission.git
 cd frontiers_submission
-git checkout v2026.10.15.1
+git checkout v2026.10.15.2
 python -m venv .venv-audit
 .venv-audit\Scripts\Activate.ps1
 python -m pip install -r reproducibility/requirements-revision-audit.txt
@@ -68,7 +87,7 @@ python reproducibility/verify_saved_predictions.py
 Linux/macOS users activate `.venv-audit/bin/activate` and run the separate
 screening function tests with
 `PYTHONPATH=src python -m pytest tests/test_screening_diagnostics.py -q`.
-The suites cover 38 unittest cases plus four screening function tests.
+The suites cover **45 unittest cases plus four screening function tests**.
 No GPU or paid service is needed for the saved-score checks. The tests do not replace scientific
 review or certify biological usefulness. The legacy release validator checks
 historical artifacts; the public snapshot inventory checks this dated payload.
@@ -84,6 +103,8 @@ python scripts/frontiers_revision/cocktail_reporting.py --self-test-only
 python scripts/frontiers_revision/cocktail_reporting.py
 python scripts/frontiers_revision/crossed_cocktail_uncertainty.py
 python scripts/frontiers_revision/crossed_two_options.py
+python scripts/frontiers_revision/degree_control_followup.py
+python scripts/frontiers_revision/cocktail_control_followup.py
 ```
 
 Reruns regenerate outputs in their named analysis directories. Run them in a
@@ -121,6 +142,9 @@ drafts, personal commit metadata and private machine-path details.
   target-label recalibration and genome provenance.
 - `data/results_v2/frontiers_revision_2026_10_15/`: crossed-dependence checks and
   official-source comparator recovery attempt.
+- `data/results_v2/frontiers_revision_2026_10_15_followup/`: positive-fraction
+  degree controls, per-fold exposure/pooling diagnostics, and the below-chance
+  cocktail-control audit. These do not replace the original saved scores.
 - `reproducibility/`: source notices, pinned input retrieval, actual audit
   environment, saved-prediction checks and the public-payload checksum inventory.
 - `DATA.md` and `DESIGN.md`: source provenance and analysis definitions, with
@@ -173,6 +197,10 @@ archive metadata but **does not itself create a deposit or DOI**. No unissued
 archival identifier is claimed. Scientific snapshot version and historical
 dataset/model version are distinct.
 
-Patch `v2026.10.15.1` corrects archive portability of the checksum verifier by
+Patch `v2026.10.15.1` corrected archive portability of the checksum verifier by
 recording exact staged Git-blob hashes alongside working-tree hashes. It does
 not change scientific inputs, predictions or results; `v2026.10.15` is retained.
+Patch `v2026.10.15.2` adds the explicitly retrospective controls above and seven
+unit tests, retaining schema-2 exact Git-blob inventories and every historical
+prediction. The source README used to verify the rescue recipe is the exact
+public document at the recorded upstream commit, not private correspondence.

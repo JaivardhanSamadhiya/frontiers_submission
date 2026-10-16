@@ -1,4 +1,28 @@
-# Scientific snapshot v2026.10.15.1
+# Scientific snapshot v2026.10.15.2
+
+## Denominator-aware control followup
+
+This patch preserves the previous tags and original frozen predictions. It adds
+training-only positive-fraction controls with all assayed training pairs in the
+denominator, exact entity-exposure summaries and per-fold score metrics. The
+historical raw-count control's AUROC 0.043/0.047 in species/host-cluster holdout
+is anti-predictive within folds, not only after pooling. It confounds training
+exposure with susceptibility. The added fraction control gives AUROC
+0.890/0.890/0.588 for species/host-cluster/phage-cluster holdouts. Under dual
+exclusion every fold is constant (AUROC 0.500); pooled AUROC 0.422 reflects
+different fold-prior constants, not within-fold discrimination.
+
+The patch also audits the source-training phage-susceptibility cocktail score.
+Its AUROC 0.327 has crossed interval 0.112–0.571. The observed inverse association
+is reported without attributing a causal host-selection mechanism or reversing
+the score after inspecting outcomes. The exact pinned public source README is
+included for its documented generalist rescue recipe.
+
+Seven additional unit tests bring the supplied study suite to **45 unittest
+cases**, plus **four separately collected screening function tests**. The local
+development suite's ten unfinished GenoPHI tests are not part of this public
+study payload. Schema-2 inventories retain exact working-tree and staged Git-blob
+hashes. Metadata files do not create an archival DOI or deposit.
 
 ## Archive-portability patch
 

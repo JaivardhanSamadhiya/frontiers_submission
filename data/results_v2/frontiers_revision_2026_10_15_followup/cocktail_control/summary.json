@@ -1,0 +1,124 @@
+{
+  "status": "completed retrospective diagnostic; no model fitted",
+  "score_definition": "Arithmetic mean over the three chosen phages of each phage's positive fraction among non-missing individual Picard assays; zero source cocktail outcomes or target-host outcomes are used to calculate this score.",
+  "source_only_score_verified": true,
+  "records": 100,
+  "positive": 82,
+  "compositions": 18,
+  "composition_constant_score_verified": true,
+  "negative_bearing_compositions": 5,
+  "only_negative_compositions": 2,
+  "auroc": 0.32689701897018975,
+  "auroc_crossed_ci_low": 0.1116488846200439,
+  "auroc_crossed_ci_high": 0.5707481144631761,
+  "average_precision": 0.7801403948396727,
+  "prevalence": 0.82,
+  "ap_minus_prevalence": -0.03985960516032727,
+  "score_reversal_not_used": "The control direction was fixed as greater source susceptibility = greater predicted activity. It is not flipped after seeing the target result.",
+  "interpretation": "In this selected cohort, inactive cocktails have higher mean training susceptibility than active cocktails. The control has only one value per composition and no host-specific term. Its crossed interval includes chance; a robust inverse relation is not established.",
+  "causal_limit": "The released records describe selection stages and repeated compositions, but do not identify the causal reason for the inverse association. They do not establish that broadly active phages were deliberately assigned to harder hosts.",
+  "documented_selection_recipe": "The upstream README section 2.6 states that the rescue step fills unfilled slots using generalist phages with high overall lytic coverage after earlier stages recommend fewer than three phages. This is documentary evidence of the selection recipe, not evidence that the target hosts were intrinsically harder or that the recipe caused the observed inverse score association.",
+  "any_rescue_observed_summary": [
+    {
+      "any_rescue": false,
+      "records": 64,
+      "positive": 56,
+      "mean_training_score": 0.5040896416388031,
+      "observed_activity_fraction": 0.875
+    },
+    {
+      "any_rescue": true,
+      "records": 36,
+      "positive": 26,
+      "mean_training_score": 0.5760513517231176,
+      "observed_activity_fraction": 0.7222222222222222
+    }
+  ],
+  "orphan_genus_row": {
+    "purpose": "Additional eligible-genus count audit generated in submission_audit.py, not a performance regime with saved predictions.",
+    "recommendation": "Remove this row from main Table 1 to match Methods, Table 2 and Figure 1A; preserve count audit in Data S1.",
+    "counts": [
+      {
+        "regime": "logo_genus",
+        "folds": 28,
+        "pairs": 1495,
+        "positive": 1092,
+        "prevalence": 0.7304347826086957,
+        "phages": 1033,
+        "host_identifiers": 189,
+        "host_species_identifiers": 189,
+        "phage_cluster_count": 657,
+        "host_cluster_count": 168,
+        "not_tested_pairs": 452
+      }
+    ]
+  },
+  "zero_auroc_folds": [
+    {
+      "regime": "loso_species",
+      "fold": "leuconostoc pseudomesenteroides",
+      "n": 9,
+      "positive": 5,
+      "auroc": 0.0,
+      "average_precision": 0.4034920634920634,
+      "negative": 4,
+      "n_positive_negative_pairs": 20
+    },
+    {
+      "regime": "host_cluster",
+      "fold": "130",
+      "n": 9,
+      "positive": 5,
+      "auroc": 0.0,
+      "average_precision": 0.4034920634920634,
+      "negative": 4,
+      "n_positive_negative_pairs": 20
+    }
+  ],
+  "zero_fold_explanation": "The LOSO and host-cluster zero-AUROC folds each contain the same nine Leuconostoc pseudomesenteroides rows (5 positive, 4 negative); all 20 positive-negative score comparisons are reversed. Small eligible folds permit extreme AUROC values; eligibility requires only three observations of each class. This is not a missing-class calculation.",
+  "input_hashes_unchanged": true,
+  "input_hashes": {
+    "host_scores": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_reporting\\host_scores.csv",
+      "sha256": "8b8a1f46d84d0b4de36959ab4d805e3d430c20f6eedba37346503e278597cc7b"
+    },
+    "selected_pair_scores": {
+      "path": "data\\results_v2\\external_cocktail_validation\\heldout_selected_pair_predictions_and_outcomes.csv",
+      "sha256": "bf71dc934933667d0abde3db2bffac27736b8e4e43cb57459158fdd75e25f51d"
+    },
+    "training_matrix": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\data\\interactions\\interaction_matrix.csv",
+      "sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829"
+    },
+    "source_selection_steps": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cocktails_step.csv",
+      "sha256": "f955115f11ee770a596c8ef929fffcdc9abda76dfb6ff542adea8855103e7bdf"
+    },
+    "source_selection_documentation": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\README.md",
+      "sha256": "d2fa64b960cb9425493bb44eef6e13ae742fb63eb20723cfacdc175d28358e24"
+    },
+    "crossed_metrics": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_15\\crossed_cocktail\\crossed_metrics.csv",
+      "sha256": "11678e189be3d0bc8862e692679944227d7b3d449fa8c44f13144a01ccd2a47e"
+    },
+    "gbm_folds": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_14\\reporting_audit\\verified_gbm_fold_metrics.csv",
+      "sha256": "82093c24330d210cd33269f5e5ffc9562e47be5a42c88b404bd0ac211e69c9a9"
+    },
+    "fold_rows": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_14\\reporting_audit\\degree_predictions.csv",
+      "sha256": "b8d53d8d6ca4c96856c176630b9c825bfa6d430aba572548e025cb52f4274b33"
+    },
+    "cohorts": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_14\\reporting_audit\\evaluation_cohorts.csv",
+      "sha256": "fdce2d8fd1e251fc6a7b60597d4a174a1f9704c7e4d3eb73f60d0a7f2298d4e8"
+    }
+  },
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "scikit_learn": "1.4.2"
+  }
+}

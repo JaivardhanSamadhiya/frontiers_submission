@@ -1,0 +1,3 @@
+regime,fold,n,positive,auroc,average_precision,negative,n_positive_negative_pairs
+loso_species,leuconostoc pseudomesenteroides,9,5,0.0,0.4034920634920634,4,20
+host_cluster,130,9,5,0.0,0.4034920634920634,4,20

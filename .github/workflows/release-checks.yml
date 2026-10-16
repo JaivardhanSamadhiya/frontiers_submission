@@ -16,9 +16,9 @@ jobs:
           python-version: "3.11"
       - name: Install revision audit dependencies
         run: python -m pip install -r reproducibility/requirements-revision-audit.txt
-      - name: Unit tests
+      - name: Unit tests (45 supplied study cases)
         run: python -m unittest discover -s tests -v
-      - name: Screening diagnostic function tests
+      - name: Screening diagnostic function tests (4 cases)
         env:
           PYTHONPATH: src
         run: python -m pytest tests/test_screening_diagnostics.py -q

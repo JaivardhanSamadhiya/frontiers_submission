@@ -6,7 +6,7 @@ authors:
   - family-names: "Samadhiya"
     given-names: "Jaivardhan"
     affiliation: "West Valley College"
-version: "2026.10.15.1"
+version: "2026.10.15.2"
 date-released: 2026-10-15
 repository-code: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
 url: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
@@ -16,7 +16,8 @@ abstract: >-
   frozen source-transfer tests, and retrospective scoring of published
   fixed-bank Escherichia cocktail assays. Original frozen results are preserved
   alongside explicitly retrospective controls, feature ablations and crossed
-  host-cluster/composition uncertainty sensitivities. This research snapshot
+  host-cluster/composition uncertainty sensitivities, including denominator-aware
+  training-only entity controls and fold-pooling diagnostics. This research snapshot
   does not establish clinical efficacy or de novo cocktail-selection benefit.
 keywords:
   - bacteriophage

@@ -169,6 +169,16 @@ and host genome information, and a predeclared evaluation protocol.
 
 ## Label and matrix limitations
 
+The October 15 followup control audit retains all original inputs and adds
+`data/results_v2/frontiers_revision_2026_10_15_followup/degree_control/` and
+`cocktail_control/`. The first contains training-positive and all-assayed entity
+counts, exact-ID presence, row scores, per-fold metrics, and prior-pooling
+diagnostics. The second independently checks the source-only phage marginal
+score and records selected-composition and documented rescue-stage summaries.
+The public upstream `external/gaborieau_coli_phage_interactions_2023/README.md`
+is supplied at the existing source pin so this documentary check reruns without
+network access. It is not private author correspondence.
+
 Positive and negative labels reflect the source assays. Untested phage-host
 pairs are unknown; the cocktail code stores them as unavailable cells and does
 not treat them as observed negatives when scoring. The evaluated target set is

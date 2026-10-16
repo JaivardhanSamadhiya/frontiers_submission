@@ -1,0 +1,14 @@
+{
+  "generated_utc": "2026-10-16T06:46:42.241856+00:00",
+  "legacy_rows_reproduced": 13248,
+  "script_sha256": "c3ed48eee2b4abdb549857fdd505f58e303d137aefe50a1482507d20d352be35",
+  "files": {
+    "predictions.csv": "fd59e2102b8b093d4e8f593e04740f3a1a96e61216c956e0098eca3076733ed1",
+    "fold_metrics.csv": "5819ca5bba5acf7e712620b354c40122d72070f92d79bbb42f333cfbddf4f970",
+    "summary.csv": "b28ba60d62ff807fd68f4cdd14955c35a0f2379e9771528c9cdad8edb5c5767a",
+    "row_training_degrees.csv": "335f1601996eda77a6bd13a4103f353ec1920bc6930fcbdf52f3e3b68c949821",
+    "entity_train_test_counts.csv": "75d5f7192695c3c6c62a6649a1ffb9af4355a12e1961f81d7cd286186728be26",
+    "seen_status_by_outcome.csv": "43294971f5f13e73e82c60c8fff829d93fd025ffcda62583cb32b6a1f3b0cc46",
+    "fold_score_distributions.csv": "a1341d699e008d075c5c44d219073f20c82c9c5cb513b8cb8276701546c34268"
+  }
+}

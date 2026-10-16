@@ -182,6 +182,24 @@ mechanistic sensitivity illustration, not biological validation.
 
 ## Reproducibility invariants
 
+### October 15 followup: entity-control interpretation
+
+The original positive-count degree baseline is preserved but does not rule out
+entity-level shortcuts: training exposure is label-associated and its species/
+host-cluster anti-ranking remains inside folds. The additional training-only
+positive-fraction score divides each entity's positive assays by all its
+observed training assays; unseen identifiers receive that fold's training
+prevalence. The phage/host average gives pooled AUROC 0.890/0.890/0.588 in the
+species/host-cluster/phage-cluster holdouts. Under dual exclusion it is constant
+within each fold (AUROC 0.500). Its pooled 0.422 is an artifact of different
+fallback priors, not evidence of within-fold prediction. New scores and
+per-fold/exposure diagnostics are separate from the saved model predictions.
+
+The training-phage-susceptibility cocktail control is constant within each
+selected composition and has no host-specific term. Its AUROC 0.327 has crossed
+interval 0.112–0.571. The generalist rescue recipe is documented by the source,
+but its causal role in this inverse association is not established.
+
 1. Test labels never enter training tensors or training-positive graphs.
 2. Strict split training and test sets share no held-out entity clusters.
 3. Missing genomes exclude a pair; they do not become zero features.

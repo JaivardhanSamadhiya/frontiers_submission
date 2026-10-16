@@ -11,6 +11,8 @@ not relicense third-party datasets or software.
   4.0 (https://creativecommons.org/licenses/by/4.0/); checked through the primary
   record API during packaging. Derived PrecisionPhage analyses are identified
   separately by their paths. No article PDF is redistributed.
+  The exact pinned public README is additionally included for the documented
+  cocktail selection recipe; no private correspondence is included.
 - VHIP: Bastien et al. (2024), DOI https://doi.org/10.1371/journal.pcbi.1011649.
   Upstream analysis commit 5c87aaf7164f78c11f598e0bb56681932ce8bbad and tool
   commit b62a7b6ba08a056b6e04b25ef4dd3a355ebd179d. The tool's MIT license is
