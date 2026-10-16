@@ -1,0 +1,24 @@
+{
+  "title": "PrecisionPhage: leakage-controlled phage-host prediction and fixed-bank cocktail scoring",
+  "version": "2026.10.15",
+  "upload_type": "software",
+  "publication_date": "2026-10-15",
+  "creators": [
+    {
+      "name": "Samadhiya, Jaivardhan",
+      "affiliation": "West Valley College"
+    }
+  ],
+  "description": "Scientific code and compact data for leakage-controlled phage-host prediction, frozen source-transfer tests, and retrospective scoring of published fixed-bank Escherichia cocktail assays. The snapshot preserves original frozen predictions and adds explicitly retrospective controls, feature ablations, calibration diagnostics, genome provenance, and crossed host-cluster/composition uncertainty sensitivities. Broad transfer, portable calibrated probabilities, de novo cocktail-selection benefit, and clinical efficacy are not established. Original-source scores remain incomplete for the full 100-host comparison. Manuscripts and private submission or peer-review materials are excluded. Code is MIT licensed; third-party data and software retain their source-specific terms described in SOURCE_NOTICES.md.",
+  "access_right": "open",
+  "license": "mit",
+  "language": "eng",
+  "keywords": [
+    "bacteriophage",
+    "phage-host interaction",
+    "machine learning",
+    "data leakage",
+    "external validation",
+    "reproducibility"
+  ]
+}

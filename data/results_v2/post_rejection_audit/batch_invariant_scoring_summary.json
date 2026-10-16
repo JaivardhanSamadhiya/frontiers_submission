@@ -1,0 +1,25 @@
+{
+  "status": "retrospective diagnostic; outcomes already inspected",
+  "parameters": {
+    "logistic_C": 1.0,
+    "knn_k": 20
+  },
+  "reference": "10-fold host-grouped Picard OOF raw scores",
+  "reference_hyperparameters": "selected earlier using all Picard CV; not a nested unbiased CV estimate",
+  "singleton_batch_consistency": "all 100 hosts passed exact equality",
+  "scores_are_probabilities": false,
+  "results": {
+    "score_independence": {
+      "auroc": 0.8069105691056909,
+      "average_precision": 0.9510445249242861
+    },
+    "development_reference_score": {
+      "auroc": 0.7960704607046071,
+      "average_precision": 0.9488643484990122
+    },
+    "raw_mean_score": {
+      "auroc": 0.7574525745257452,
+      "average_precision": 0.9333458435751201
+    }
+  }
+}

@@ -8,8 +8,8 @@ we solve two classic problems:
   * maximum coverage under a budget B: choose <= B phages covering the most
     targets -- greedy (1-1/e guarantee) and exact ILP.
 
-k>1 yields cocktails that stay effective if a host evolves resistance to some
-phages (redundancy = robustness).
+k>1 supplies mathematical coverage redundancy. Resistance robustness requires
+separate biological evidence and is not established by this optimisation.
 
 Evaluation is always done against the TRUE (experimentally observed) coverage
 matrix, so cocktails selected from model predictions are scored on real coverage.

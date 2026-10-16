@@ -1,0 +1,54 @@
+{
+  "locked_utc": "2026-10-06T06:45:45.252763+00:00",
+  "model": "previously saved sequence_only.joblib",
+  "fit_operations": 0,
+  "outcomes_read": false,
+  "pairs": 1240,
+  "overlap": {
+    "phage": {
+      "entities": 52,
+      "training_entities": 1418,
+      "sequence_clusters": 31,
+      "at_or_below_0_05": 31,
+      "exact_contig_set_matches": 0
+    },
+    "host": {
+      "entities": 25,
+      "training_entities": 323,
+      "sequence_clusters": 1,
+      "at_or_below_0_05": 25,
+      "exact_contig_set_matches": 0
+    }
+  },
+  "regression_check": {
+    "previously_evaluated_pairs": 3,
+    "maximum_absolute_difference": 2.5727081354176562e-08,
+    "note": "Regression check used the existing pair-feature cache and recomputed node/composition features."
+  },
+  "bootstrap": "2000 two-way canonical sequence-cluster replicates, k21/2048 hashes, threshold 0.05",
+  "limitations": [
+    "The full 448-input model cannot be evaluated without four unavailable VHIP columns.",
+    "The 444-input sequence-only model was selected by input compatibility before this evaluation.",
+    "Historic frozen features concatenate contigs; no feature definition was changed for this test.",
+    "Public data; staged prediction lock is not independent certification of historical blindness.",
+    "Binary individual phage-host assay labels, not cocktail efficacy or clinical outcomes."
+  ],
+  "sha256": {
+    "data\\results_v2\\external_validation_models\\sequence_only.joblib": "8cc2549613eb734a1d14839b4e4731f1311e682769322b4f6bb19f3e1a31cefa",
+    "data\\results_v2\\basel_ecor_validation\\frozen_predictions.csv": "00419d9dac76d4013ea203fd30880395445641baea20e2ecfccb984d700e4901",
+    "data\\results_v2\\basel_ecor_validation\\frozen_input_matrix.npz": "b983f539417796581924db108510527176cae0c8e2c9507cb7589712628e56c3",
+    "data\\results_v2\\basel_ecor_validation\\pair_features.csv": "e60ca880706823c5bf10c9dafe4a5899a95635022b92a7321c84cc2e03e0f654",
+    "data\\results_v2\\basel_ecor_validation\\sequence_overlap.csv": "ae9ceb0836834c9e83f7593d6f1002dd7109c3d87b5db5890fc8521005ef02ca",
+    "data\\results_v2\\basel_ecor_validation\\genome_download_manifest.json": "ce68ed530764b0f78ff09ef3867ba56349725a420099503670dbf1b84d4d8a87",
+    "data\\results_v2\\basel_ecor_validation\\identifier_manifest.json": "abd0d2b5508eaeb8f6616afaaacb59f0f30217736e54aea614ef795d486d1596",
+    "data\\results_v2\\basel_ecor_validation\\eligible_input_identifiers.csv": "69096ff0a93ae6496790551a4e1f348fc6d6d396f85a38f7a44af70ef9549b63",
+    "configs\\default.yaml": "a90241d5179f5bed975c2b19b94cb8617897d800df8fa28ba14863e525b04b13",
+    "experiments\\46_frozen_basel_ecor.py": "b3af7b819650a953ff8036b44116f1e12b70c65df53af0d2c73ce913d7dd0be8",
+    "NEXT_STAGE_VALIDATION_PROTOCOL_2026_10_05.md": "7190b6c1c1affb1b82f706c7cb08d59806081e3684dfc4d388483acb1955eb95",
+    "src\\precisionphage\\features\\genomic.py": "0968251721cc0ede23567a18c40670ebba7a372563dd424175eb022c7d69627c",
+    "src\\precisionphage\\features\\seqmatch.py": "73cc5a90f7167056b03ee3c7c70418a692f562de57147eb90a20b5f84a1f3a31",
+    "src\\precisionphage\\features\\proteins.py": "ef7952fec7165412033d4a8647fbb2e9f460793035fce08c46de0a2317ec2c24",
+    "src\\precisionphage\\data\\genomes.py": "ea60448ec1028c586882ccbe75c079205cd8f9eb86747be12ae4ba7558bc4d10",
+    "src\\precisionphage\\splits\\canonical.py": "83ed9b23439e7d5ccebd2ffe25fd3df5a0cc8c6a2bc2a0b63747f2b84419f287"
+  }
+}

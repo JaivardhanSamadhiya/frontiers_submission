@@ -1,0 +1,10 @@
+# Preserve checksum-sensitive scientific release additions byte-for-byte.
+scripts/frontiers_revision/*.py -text
+data/results_v2/frontiers_revision_2026_10_14/** -text
+data/results_v2/frontiers_revision_2026_10_15/** -text
+data/results_v2/canonical_sensitivity/** -text
+data/results_v2/basel_ecor_validation/** -text
+data/external_validation/basel_ecor_2026/** -text
+external/gaborieau_coli_phage_interactions_2023/** -text
+data/cache_v2/node_features.npz -text
+data/cache_v2/node_features.meta.json -text

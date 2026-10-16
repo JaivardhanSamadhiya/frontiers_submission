@@ -1,5 +1,10 @@
 # PrecisionPhage v2: implemented analysis design
 
+The current dated scientific snapshot is 2026.10.15. Historical outputs remain
+preserved, but retained code does not make all older analyses current evidence.
+Set-cover/resistance illustrations and the RaFAH-inspired proxy are excluded
+from current comparative claims. New controls and repairs are retrospective.
+
 This document describes the code that exists in this repository. It does not
 list planned components as though they were completed.
 
@@ -57,9 +62,14 @@ corresponding training set.
 
 ## Models
 
-The headline flat baseline is a fixed XGBoost classifier. Nested tuning and
-isotonic calibration exist as an ablation but were not used for saved headline
-GBM estimates.
+The reference flat baseline is a fixed XGBoost classifier with 400 trees,
+depth 5, learning rate 0.05, row/column sampling 0.8 and seed 42. The inherited
+settings predate the staged source test, but the original selection rationale
+cannot be fully reconstructed. The two June tuning logs use 20 pair inputs,
+not the final 24, and lack exact selected per-fold configurations; they do not
+justify superiority of this final fixed reference. Better four-feature MLP
+source-audit performance is retained. A full-input frozen MLP/GNN source test
+is not claimed.
 
 The neural model is an inductive GraphSAGE encoder plus an edge-feature decoder.
 PCA, scaling, and the message-passing graph are fitted on the inner-training
@@ -96,10 +106,11 @@ evaluation, not a prospectively blinded or independently collected cohort.
 PHIST is the genuine published software applied to staged genomes. Only 35.3%
 of evaluated pairs receive a nonzero shared-25-mer score.
 
-The `RaFAH_style` method is an in-house random-forest proxy built from six-frame
-translation and feature-hashed amino-acid 6-mers. It does not use the published
-RaFAH pretrained weights or HMM protein clusters and is labeled
-“RaFAH-inspired proxy” in submission text.
+The retained `RaFAH_style` method is an in-house random-forest proxy built from
+six-frame translation and feature-hashed amino-acid 6-mers. It does not use
+published RaFAH weights or HMM protein clusters and is excluded from the current
+comparative evidence. No released-tool superiority to unrun RaFAH or CHERRY is
+inferred.
 
 ## Cocktail analysis
 
@@ -128,10 +139,27 @@ independent.
 
 Predictions and checksums are written before the held-out outcome files are
 opened. The primary result is AUROC 0.807 (95% host-cluster bootstrap CI
-0.693-0.906) for productive activity of 100 tested cocktails. Because the
-published external study selected those cocktail compositions, the supported
-claim is fixed-bank cocktail scoring/prioritization on unseen hosts, not de novo
-external cocktail design.
+0.693-0.906) for observed lytic activity of 100 tested host-triplet records,
+against 0.820 prevalence. Because the published study selected the compositions,
+this is bounded fixed-bank scoring, not de novo external cocktail design. The
+historical normalization needs a cohort: singleton ranks are all 0.5, producing
+the same triplet score 0.875. The later development-reference repair is
+batch-invariant, but its external evaluation is retrospective.
+
+The 18 repeated selected compositions receive an additional crossed
+host-cluster × composition bootstrap sensitivity (2,000 valid draws), which
+gives AUROC 0.807 with interval 0.543–0.965. Shared phages across distinct menus
+remain outside that grouping model. The 1,000 whole-triplet shuffles preserve
+the frequency of all 18 menus but are only a diagnostic, not a formal
+exchangeability-based permutation significance test.
+
+The measured paired comparison evaluates two observed triplets per host,
+conditional on one fixed baseline composition. Only 17 hosts have discordant
+binary outcomes. Historical policy gain 0.050 has crossed interval
+−0.039–0.194; meaningful selection improvement is unresolved. The proposed
+laboratory use is to order already specified host-cocktail assays under limited
+screening capacity, not choose new constituents or prescribe treatment. No
+prospective assay-allocation trial or validated laboratory-cost saving occurred.
 
 Experiment 31 documents why the same rank-normalized scores cannot be reused
 unchanged to select among phages: they discard between-phage breadth and

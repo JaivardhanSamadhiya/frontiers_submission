@@ -1,0 +1,38 @@
+{
+  "analysis": "Retrospective amendment: two-measured-options crossed dependence sensitivity",
+  "specified_utc_before_computation": "2026-10-16T00:54:40.356909+00:00",
+  "status": "Post hoc; original external outcomes and earlier analyses already inspected",
+  "script_sha256": "71ac65b4e6bbd761321f6c1f19a61e2c80a25884a0fc015b4212fd210e80ddc1",
+  "input_sha256": "c219841ad572b480878e8747f5cc3bd667a6feaf1da116bdbfaafde6c5fd2b5b",
+  "historical_summary_sha256": "07c1a1857e503a9ed47c6f789974afbb3ea5f70c664053602eec18012625fc35",
+  "base_seed": 2026101505,
+  "cohorts": [
+    "historical_100",
+    "exclude_AN03_99"
+  ],
+  "valid_replicates_per_cohort": 2000,
+  "algorithm": "Independently sample H host-cluster labels H times and C selected-composition labels C times with replacement. Original host record weight is product of its two multiplicities. Preserve both measured outcomes and scores within each host. Baseline composition is fixed, identical for every host and not sampled as an identifiable population. Retain first 2000 draws with positive total weight and positive binary/ordinal-discordant weight. No outcome balance or result-based selection. All methods/metrics/contrasts share the same retained weights. Report attempts and exclusions. Percentile intervals at 2.5/97.5.",
+  "tie_rule": "Choice weight is 1 if selected score exceeds baseline, 0 if below and 0.5 if exactly equal. Chosen binary activity for a tie is the actual mean of the two observed outcomes, not unconditional activity 0.5. Discordant binary/ordinal preference ties receive half credit.",
+  "metrics": [
+    "binary_discordant_preference_accuracy",
+    "policy_observed_lytic_fraction",
+    "always_selected_lytic_fraction",
+    "fixed_baseline_lytic_fraction",
+    "uniform_random_lytic_fraction",
+    "oracle_lytic_fraction",
+    "policy_minus_always_selected",
+    "policy_minus_fixed_baseline",
+    "policy_minus_uniform_random",
+    "policy_minus_oracle",
+    "ordinal_discordant_preference_accuracy"
+  ],
+  "methods": [
+    "pp_historical_product",
+    "pp_development_reference_product",
+    "pp_logistic_raw_product",
+    "pp_knn_raw_product",
+    "bank_phage_prevalence_product",
+    "training_phylogroup_susceptibility"
+  ],
+  "interpretation": "Sensitivity to repeated selected menus, conditional on the existing fixed baseline menu, fixed predictions and observed paired assay records. Not a new frozen validation, prospective laboratory policy, selection-mechanism test or composition-population confidence guarantee. Only 17 hosts have discordant binary outcomes. Sparse crossed cells, 18 non-random selected menus and phages shared across distinct menus limit inference. No confirmatory p-value, multiplicity-adjusted superiority claim or therapeutic interpretation."
+}

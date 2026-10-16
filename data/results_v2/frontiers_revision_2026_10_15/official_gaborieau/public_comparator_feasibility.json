@@ -1,0 +1,110 @@
+{
+  "status": "faithful all-100 official predictor rerun not executable from released resources",
+  "created_utc": "2026-10-16T00:49:57.691725+00:00",
+  "source_commit_pinned": "99656d8c020fcd1dbbc30a02ee10274a07655562",
+  "source_current_main": "99656d8c020fcd1dbbc30a02ee10274a07655562",
+  "source_current_equals_pinned": true,
+  "remote_tree_entries": 822,
+  "fitted_classifier_files_found": [],
+  "score_coverage": {
+    "selected_constituents": 300,
+    "numeric": 233,
+    "missing": 67,
+    "complete_hosts": 64,
+    "hosts_with_missing": 36,
+    "missing_stage": "4_rescue",
+    "stages": [
+      {
+        "chosen_at_step": "0_same_as_host",
+        "rows": 145,
+        "numeric_scores": 145
+      },
+      {
+        "chosen_at_step": "1_neighbours",
+        "rows": 11,
+        "numeric_scores": 11
+      },
+      {
+        "chosen_at_step": "3_misc",
+        "rows": 77,
+        "numeric_scores": 77
+      },
+      {
+        "chosen_at_step": "4_rescue",
+        "rows": 67,
+        "numeric_scores": 0
+      }
+    ]
+  },
+  "external_input_coverage": {
+    "hosts": 100,
+    "target_feature_columns": [
+      "bacteria",
+      "Gembase",
+      "Clermont_Phylo",
+      "ST_Warwick",
+      "LPS_type",
+      "O-type",
+      "H-type"
+    ],
+    "missing_required_capsule_columns": [
+      "Klebs_capsule_type",
+      "ABC_serotype"
+    ],
+    "published_training_umap_hosts": 404,
+    "target_names_overlapping_published_umap": [
+      "AN03"
+    ],
+    "target_names_overlapping_picard": [
+      "AN03"
+    ],
+    "AN03_is_identifier_collision_not_valid_external_feature_match": true
+  },
+  "prediction_archive": {
+    "members_checked": 96,
+    "total_rows": 1918900,
+    "unique_development_host_names": 402,
+    "target_name_overlap": [
+      "AN03"
+    ],
+    "authentic_external_host_predictions_recovered": 0
+  },
+  "blocking_resources": [
+    "No released fitted pointwise classifier, preprocessing object, or executable four-stage cocktail recommender.",
+    "The official pointwise CV script references missing private Windows inputs and the README explicitly says the original CV cluster file is unavailable.",
+    "The complete external capsule feature table and external eight-dimensional UMAP transform/coordinates are not released.",
+    "All 67 unavailable values are rescue selections. The source README defines rescue by generalist coverage, not a numeric host-specific predicted probability.",
+    "The released prediction RAR contains development cross-validation outputs, not the 100 external-host outputs."
+  ],
+  "interpretation": "Do not fill missing rescue values or call a newly reconstructed classifier the official frozen comparator. Keep the exact 64-complete-host common comparison and ask authors whether an all-100 continuous score exists.",
+  "new_outcome_evaluation_performed": false,
+  "external_cocktail_outcome_files_read": false,
+  "models_fitted": 0,
+  "gpu_used": false,
+  "emails_or_issues_sent": false,
+  "source_files_unchanged": true,
+  "software": {
+    "python": "3.11.9",
+    "pandas": "2.2.2"
+  },
+  "public_sources": {
+    "repository": "https://github.com/mdmparis/coli_phage_interactions_2023/tree/99656d8c020fcd1dbbc30a02ee10274a07655562",
+    "article": "https://doi.org/10.1038/s41564-024-01832-5",
+    "contact_verification": "https://pubmed.ncbi.nlm.nih.gov/39482383/"
+  },
+  "official_script_safe_preflight": {
+    "exception": "FileNotFoundError",
+    "requested_unavailable_input_basenames": [
+      "ADSORPTION_MATRIX_370+host_vs_96_less_stringent.csv"
+    ],
+    "fitting_started": false,
+    "source_executed_unmodified": true,
+    "side_effect_interception": "os.mkdir suppressed; pandas.read_csv stopped before read"
+  },
+  "public_copy_redactions": [
+    "private original machine paths",
+    "personal upstream commit metadata",
+    "contact/request drafts",
+    "upstream issue bodies and commenter metadata"
+  ]
+}

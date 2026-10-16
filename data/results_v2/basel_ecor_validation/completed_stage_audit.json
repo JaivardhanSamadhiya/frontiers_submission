@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "verified_utc": "2026-10-06T06:58:15.989041+00:00",
+  "frozen_model_reloaded": true,
+  "maximum_prediction_roundtrip_difference": 2.9779052779232984e-08,
+  "genomes_hash_verified": 77,
+  "pairs": 1240,
+  "independent_rank_sum_auroc": 0.46953677685366924,
+  "screening_rows_independently_verified": 8772,
+  "biology_confusion_counts": {
+    "tp": 113,
+    "tn": 70,
+    "fp": 60,
+    "fn": 54
+  },
+  "training_resolution": {
+    "training_pairs": 1947,
+    "training_positive": 1488,
+    "escherichia_pairs": 222,
+    "escherichia_positive": 196,
+    "escherichia_host_identifiers": [
+      "escherichia coli"
+    ],
+    "new_test_positive_fraction": 0.2435483870967742,
+    "new_test_mean_score": 0.987553022733871,
+    "interpretation": "Coarse host-reference resolution and prevalence differ; not a proven causal decomposition."
+  },
+  "pending": "Full-budget official GenoPHI comparator is separately audited only after all five folds.",
+  "verifier_sha256": "5b642a10f9d8172a1efce815f5244ebd1763e31818fa2386c697e63de2a0947a",
+  "output_sha256": {
+    "data\\results_v2\\basel_ecor_validation\\identifier_manifest.json": "abd0d2b5508eaeb8f6616afaaacb59f0f30217736e54aea614ef795d486d1596",
+    "data\\results_v2\\basel_ecor_validation\\eligible_input_identifiers.csv": "69096ff0a93ae6496790551a4e1f348fc6d6d396f85a38f7a44af70ef9549b63",
+    "data\\results_v2\\basel_ecor_validation\\genome_accession_mapping.json": "6d3709606b685f0100de0a81088ebfbfcc22d1edf8daf5fe865b17ec3ff7cb6e",
+    "data\\results_v2\\basel_ecor_validation\\genome_download_manifest.json": "ce68ed530764b0f78ff09ef3867ba56349725a420099503670dbf1b84d4d8a87",
+    "data\\results_v2\\basel_ecor_validation\\sequence_overlap.csv": "ae9ceb0836834c9e83f7593d6f1002dd7109c3d87b5db5890fc8521005ef02ca",
+    "data\\results_v2\\basel_ecor_validation\\secondary_host_clusters.csv": "70ee731223296084369b82f41157c4a4130a159174f011093c28a8ae1b456207",
+    "data\\results_v2\\basel_ecor_validation\\uncertainty_definition_lock.json": "a9d0b99ea8f918e51c2ef3402a7f4cf8ba5e281021a52bc28120e6ccf99a3a82",
+    "data\\results_v2\\basel_ecor_validation\\pair_features.csv": "e60ca880706823c5bf10c9dafe4a5899a95635022b92a7321c84cc2e03e0f654",
+    "data\\results_v2\\basel_ecor_validation\\frozen_predictions.csv": "00419d9dac76d4013ea203fd30880395445641baea20e2ecfccb984d700e4901",
+    "data\\results_v2\\basel_ecor_validation\\prediction_lock.json": "753aa44cd5b38f478f98d2caea03aec03c99f8d94dba984d4e674cd8036bd430",
+    "data\\results_v2\\basel_ecor_validation\\evaluated_predictions.csv": "17e5ab717db7365bc2b7d8c797448772e5c2a153f5394c9b7e5643f6097e6cde",
+    "data\\results_v2\\basel_ecor_validation\\evaluation.json": "acdf464c8b7d088bf8a5c0494f08f627f885a356ce5d3301e03f59ebde922193",
+    "data\\results_v2\\basel_ecor_validation\\secondary_uncertainty.json": "c65e905428bcff28cec82caa91b28d44f10f79df4c67ad28f53200b749b06e89",
+    "data\\results_v2\\basel_ecor_validation\\training_resolution_diagnostic.json": "25034f9fd7992320e1c54fc7149fdf6f3de30a60d3904fc55b2c7048ab8bb160",
+    "data\\results_v2\\screening_domain_biology\\screening_host_metrics.csv": "ec20f74b1bf0f6afe7254fddccd73c09f135fd398e914fb8694862602f761b99",
+    "data\\results_v2\\screening_domain_biology\\screening_summary.csv": "c9d2241b44f9ed0a288988581f5fc9e17047b37b5b8a467abbbef1a46e75535c",
+    "data\\results_v2\\screening_domain_biology\\distance_strata.csv": "cde5e1eaa6a4ad4941f406eac8c2dcff207d9018f36fbe7650b513da096223e1",
+    "data\\results_v2\\screening_domain_biology\\distance_error_associations.csv": "a524072215c05c3d040dc1c202ef0e87d3baa89e581e7ae0d4ee38104819a5a3",
+    "data\\results_v2\\screening_domain_biology\\distance_selective_screening.csv": "81baed9a809bd0b9b7314e4a15770aa0b25ab935cb0ff92491b13e18e0ca8c23",
+    "data\\results_v2\\screening_domain_biology\\biology_excluded_ambiguous_AN03.csv": "0e1f6cc1b5486b46161f386793c9ae921bd9525760a499c56478fb30944df3a8",
+    "data\\results_v2\\screening_domain_biology\\biology_pair_annotations.csv": "48b58f12a3aa72e3fd6e51f4c5953a3892a37e061e5f6be96f2465d5e2fe202a",
+    "data\\results_v2\\screening_domain_biology\\biology_subgroup_errors.csv": "9865990dd13d973e322241a9db66c7b0dd2d17748d6fff9dcdb88061c8e02345",
+    "data\\results_v2\\screening_domain_biology\\manifest.json": "b76bb5c491c743867c143256033239a614445a79a386b07e9a0628cd902adc5f"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-10-06T06:43:43.765674+00:00",
+  "biology": {
+    "pairs": 297,
+    "hosts": 99,
+    "phages": 25,
+    "excluded_ambiguous_pairs": 3,
+    "tp": 113,
+    "tn": 70,
+    "fp": 60,
+    "fn": 54
+  },
+  "sha256": {
+    "data\\results_v2\\additional_banks\\pair_predictions.csv": "2dc3c6f9c3ca1a6620c3d9bdb69603bc6c71270f056c3855b113da50343ca2db",
+    "data\\results_v2\\additional_banks\\host_selections.csv": "c6e026dbec01f20d0fe7071ccd9aa6e0e825ac3dee18fb334b1a05cc2f58ea06",
+    "data\\results_v2\\external_cocktail_validation\\heldout_selected_pair_predictions_and_outcomes.csv": "bf71dc934933667d0abde3db2bffac27736b8e4e43cb57459158fdd75e25f51d",
+    "data\\results_v2\\post_rejection_audit\\external_host_distance_diagnostic.csv": "3c73edbbf39644ecb39e42aae9f968d9109f778c350004a9fe6eb7e3746c7355",
+    "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\test_collection.csv": "fe2cae9992f6932906cd41ef80164c959153722ac098e01a983abcc78198e3b5",
+    "external\\gaborieau_coli_phage_interactions_2023\\data\\genomics\\phages\\guelin_collection.csv": "c21c2672452609f749b9a6eba3135d1bb814abd8e69e9293971f759711b4f276",
+    "NEXT_STAGE_VALIDATION_PROTOCOL_2026_10_05.md": "7190b6c1c1affb1b82f706c7cb08d59806081e3684dfc4d388483acb1955eb95",
+    "experiments\\45_screening_domain_biology.py": "c826ef4eb62b52d8191ec52ce0c362ab938ff0faed96e182ca9b3190ccd0d2dc",
+    "src\\precisionphage\\benchmarks\\screening.py": "084f8e435a7ee3410901539b282184472295e87741259468353d14675ddea59c"
+  },
+  "limitations": [
+    "Exploratory retrospective diagnostics; no model refitting or external outcome tuning.",
+    "Additional banks were trained separately. This is not frozen cross-bank transfer.",
+    "Hit means at least one active individual phage; it does not measure cocktail efficacy.",
+    "Bootstrap conditions on saved predictions and does not include training uncertainty.",
+    "Bank uncertainty resamples held-out host groups; biology resamples hosts, not independent pairs.",
+    "Shared phages and genetically related external hosts may leave additional dependence.",
+    "Distance bins are source-specific patristic units, not universally equivalent genomic distances.",
+    "Single-phage scores are not calibrated probabilities; 0.5 is a descriptive fixed threshold.",
+    "Biology pairs were selected by external experimenters; subgroup differences do not establish mechanisms.",
+    "No correction or significance claim across exploratory subgroups; small groups are retained and flagged."
+  ]
+}

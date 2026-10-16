@@ -1,0 +1,28 @@
+{
+  "audit_date": "2026-10-14",
+  "analysis": "Exact-identifier feasibility of a second-source sequence hierarchy",
+  "source": "data/interim_v2/interactions.csv: study=NahantCollection",
+  "pairs": 5208,
+  "positive": 318,
+  "negative": 4890,
+  "phages": 248,
+  "host_identifiers": 21,
+  "resolved_phages": 0,
+  "resolved_host_identifiers": 5,
+  "pairs_with_resolved_host_only": 1240,
+  "positive_with_resolved_host_only": 50,
+  "negative_with_resolved_host_only": 1190,
+  "pairs_with_both_genomes": 0,
+  "checked_live_directories": [
+    "external/phist_run/phages",
+    "external/phist_run/hosts",
+    "data/phages",
+    "data/hosts"
+  ],
+  "checked_maps": [
+    "data/cache_v2/phage_resolution.json",
+    "data/cache_v2/host_resolution.json"
+  ],
+  "matching": "Existing exact normalized resolver; no new ambiguous aliases or substring matching",
+  "interpretation": "No locally evaluable sequence cohort. This does not establish that genomes do not exist in public repositories, and broad host taxon labels are not strain-resolved genome evidence. No new genomes downloaded or substituted."
+}

@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-10-15T04:29:08.561164+00:00",
+  "status": "read-only original genome header inventory",
+  "script_sha256": "7ac2a6bb55dd82b38c9c1067fa132905a7dd3b7735d76e19140b93eeb5368bec",
+  "summaries": [
+    {
+      "axis": "phage",
+      "entity_identifiers": 1418,
+      "distinct_fasta_paths": 1418,
+      "entities_with_any_versioned_record_accession": 1418,
+      "entities_with_all_records_versioned": 1418,
+      "entities_without_any_versioned_record_accession": 0,
+      "contig_records": 1418,
+      "records_with_versioned_leading_accession": 1418,
+      "whole_file_checksums_matching_frozen": 1418
+    },
+    {
+      "axis": "host",
+      "entity_identifiers": 323,
+      "distinct_fasta_paths": 323,
+      "entities_with_any_versioned_record_accession": 323,
+      "entities_with_all_records_versioned": 323,
+      "entities_without_any_versioned_record_accession": 0,
+      "contig_records": 666,
+      "records_with_versioned_leading_accession": 666,
+      "whole_file_checksums_matching_frozen": 323
+    }
+  ],
+  "input_sha256": {
+    "data/interim_v2/interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data\\cache_v2\\host_resolution.json": "0b0e47c40d93d1e0e171f45932bcc6b0bf1bb3d2da54b9224e5fccfbd65aa5a6",
+    "data\\cache_v2\\phage_resolution.json": "442e8a9b3e8ff891a7eefd3e188795e36f6313b56f194bc609f70c5f665e7f4e",
+    "data\\results_v2\\canonical_sensitivity\\host_fasta_checksums.json": "05949136157f46d84ffae5170f3b306cf82833c79074f5a36c022251c44a3d19",
+    "data\\results_v2\\canonical_sensitivity\\phage_fasta_checksums.json": "ecc160d061684e511d7abb37b0c9a0b1da1a50c69879a2fea1e4f57df56c2649"
+  },
+  "whole_file_checksums_all_match_frozen": true,
+  "definitions": {
+    "versioned_record_accession": "Syntactically recognized versioned nucleotide accession in the original FASTA header, not a fresh registry verification",
+    "record_order": "record_index is one-based original order within the mapped FASTA",
+    "sequence_sha256_uppercase": "Each sequence is uppercased with layout whitespace removed; its bases are never exported",
+    "concatenated_sequence_sha256_uppercase": "Original record order; no separator between uppercased sequences; corresponds to the historical feature extractor's concatenation convention",
+    "ordered_contig_sequence_digest": "SHA-256 of newline-separated individual uppercase sequence SHA-256 strings, preserving contig boundaries and order",
+    "file_sha256": "Exact original bytes, including headers, line wrapping, order and line endings; recomputed and compared with frozen canonical-source checksums"
+  },
+  "limitations": [
+    "No genomes were downloaded or modified, and no sequence bodies are included in the inventory.",
+    "An accession-shaped header is not proof that an online record currently resolves or is byte-identical to this file.",
+    "Versioned accessions and per-contig sequence digests permit better retrieval checking; FASTA header text, wrapping, contig order, case, and line endings can still differ between services.",
+    "The original file SHA-256 remains the criterion for exact raw-byte recovery. Sequence hashes are separate checks and must not silently replace that criterion.",
+    "Only the 1418 phage/323 host training subset is inventoried here; independent external sources have their own accession manifests."
+  ]
+}

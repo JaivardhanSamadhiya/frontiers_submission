@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-10-15T16:28:28.694747+00:00",
+  "collection_scope": "Additional post-run provenance: current bytes and audit-interpreter environment, not a claim of pre-run capture or proof of the training-process environment.",
+  "original_mode_script_sha256": {
+    "cutoffs": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+    "ablations": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+    "recalibration": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b"
+  },
+  "current_remaining_checks_script_sha256": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+  "original_mode_manifests_preserved": true,
+  "mode_manifest_sha256": {
+    "cutoffs": "22eccacda8234cf376078533351bc7ec3b2fd384800b757bd0511d8990c7040e",
+    "ablations": "8ec50f72950a329a923686b4ef5f84915d350bf07d6cf09cd0c9a3f0bbf663a6",
+    "recalibration": "a0c4ef54b23082c9eebb3eaa4616eabe7212d61578c3289d194d550df3edf725"
+  },
+  "common_input_helper_plan_sha256": {
+    "scripts\\frontiers_revision\\remaining_checks.py": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+    "experiments\\35_matched_cohort_leakage_audit.py": "e1bd577ebba35f58d061f6fdec89b315b46210a1ac3f55e93190a5619d631470",
+    "experiments\\40_canonical_cluster_sensitivity.py": "a0894f284eeb21219ce443c949a35b7e93374a1203ed94c14a27e1c9794162b1",
+    "data\\cache_v2\\node_features.npz": "d47bdccb01b5b6219d213275c1a20a0640acc16b111e5f64f7fe0bad9efd1f00",
+    "data\\cache_v2\\node_features.meta.json": "3036b248cdba6e49e06cc2b904badadcb6c71a977ac66fc30395dc9ce4e65ca6",
+    "data\\cache_v2\\clusters_k21_d0.05.json": "b1fcc5ad4090dea344acfbe9abfc417e2cab606e1d1fa83eb6b609cb54404e1c",
+    "data\\interim_v2\\interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data\\interim_v2\\seq_pair_features.csv": "86684fb0f753dd1a2bf54de413598554ef328c8242d29990c768167f886f7ab3",
+    "data\\interim_v2\\seq_pair_features.meta.json": "aa3a2bd23c545dfc5a82bb469fe6daf28f0e2f4b92fbc238ff07cb40c314277f",
+    "data\\results_v2\\canonical_sensitivity\\host_distances_2048.npz": "d5d675ca08e69aa03c28879682351e6ae182b09106ee770943f4fc4d8cd41a0d",
+    "data\\results_v2\\canonical_sensitivity\\phage_distances_2048.npz": "f74d8c7d23c0aa93120032c7677ec604233f7675614ec9eb2d13c3419a7f8998",
+    "data\\results_v2\\canonical_sensitivity\\predictions.csv": "0a0a76307ed9374e402424f88c916411f8f6d9fcf79cf35a55f99d26c1a2dc7c",
+    "data\\results_v2\\canonical_sensitivity\\manifest.json": "5574d1b7424aab96ef3812ee0ad5ea14264a6baad066aa1fd9f7c407beb6cb37",
+    "data\\results_v2\\external_staph_predictions.csv": "0d74efd0d314c4dd6057b0922ba2af51525949b71777d2c4b4170d2fd99207cd",
+    "output\\frontiers_revision_2026_10_14\\ADDITIONAL_REVIEW_ANALYSIS_PLAN.md": "f172e95e0f8302458169348007342b0fed566b269422c4260e27a6ce168cb691",
+    "requirements-lock.txt": "6e053dec915d8b7972a493a011c2102a3512c9e2fa8ba3d86a00311f8e97dab6"
+  },
+  "new_csv_sha256": {
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\recalibration_predictions.csv": "b6cb35914c70200c20cc082e4e4732d4760e91d7b9995878ce9ccc35e101d2f8",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\recalibration_summary.csv": "c3cf72da58ce19792b2841ac398ca3cfe00732f12cacd6e24273fd25eb3ca3fb",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\recalibration_label_budgets.csv": "df2bac7d8b2fa86aa6bfe37241293b9ac8a64bc8f9e405b049dc1daefeb8a633",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\cutoff_predictions.csv": "8fd3debd5707f9430036c07dfce3c3e217e8aebb8a14be3527ad4959bf68332e",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\cutoff_summary.csv": "653c5096e4cee31cf9fa3b04cce3755593fc5491ada39d5ab8da5e9018de28bb",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\cutoff_cluster_counts.csv": "5d39388bddf693417daecbbcec7095c06fc89cb0cf9c1178c06a64c5d3fec969",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\cutoff_training_counts.csv": "150e06b00220cbfa7c5c6f9d957cc814fbe16efc2d7f71bef560920240ace786",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\ablation_predictions.csv": "e45da07f668f4eb15964f3d94a7e83b944479e6be609976e195885f160c248ca",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\ablation_folds.csv": "e4631da559c3061f4d724c156aa0474313d69c0a7db1363462116fd1706e2a85",
+    "data\\results_v2\\frontiers_revision_2026_10_14\\remaining_checks\\ablation_summary.csv": "c2cb226de35337a5449e78755a17f053ff6aa5c44333f1536f9870b8f040eef7"
+  },
+  "audit_python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "audit_python_executable": "C:\\Users\\jaisa\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python.exe",
+  "audit_platform": "Windows-10-10.0.26300-SP0",
+  "audit_machine": "AMD64",
+  "audit_package_versions": {
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.4.2",
+    "xgboost": "2.0.3",
+    "matplotlib": "3.8.4",
+    "sourmash": "4.9.3",
+    "python-docx": "1.2.0"
+  },
+  "final_checks_script_sha256": "ccf278d7b7302106df12d9d84d6a2b49007a28918c17c7950e5cb5d2372d70e3"
+}

@@ -1,0 +1,31 @@
+{
+  "status": "Completed retrospective saved-score dependence sensitivity",
+  "completed_utc": "2026-10-16T00:47:04.239302+00:00",
+  "analysis_plan_sha256": "1e10995a76bd7fb3f252e294d65ebd86667c8eaef86883af6f96176d8f68c654",
+  "script_sha256": "09129cdd749e9679e282194934557bc337cb79cdcc82776acdda15be54a6a907",
+  "input_score_sha256": "88f261c8f86637b2eaed84c2f54e744b234682db69073a9fefe28476f3658e26",
+  "historical_files_modified": false,
+  "original_shuffle_verified": true,
+  "metric_rows": 38,
+  "paired_contrast_rows": 162,
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "sklearn": "1.4.2"
+  },
+  "cautions": "Additional post hoc dependence sensitivity, not a replacement for or original prespecified historical CI. Crossed resampling may be conservative/unstable with sparse, non-randomly selected cells and 18 compositions. It does not establish generalization to new banks, phages, selection procedures or composition populations. Shared phages across distinct compositions remain outside this grouping model. No multiplicity-adjusted confirmatory superiority test.",
+  "outputs": {
+    "analysis_plan.json": "1e10995a76bd7fb3f252e294d65ebd86667c8eaef86883af6f96176d8f68c654",
+    "composition_groups.csv": "165e034994c6adee9bfe82e038940889c9c7c5e93e76e5650585f5cfa1a72547",
+    "bootstrap_historical_100.npz": "c46b0ec535ffbf2b04bc4d348fbd333bcb06a7e36421bf73e335044f42929887",
+    "bootstrap_exclude_AN03_99.npz": "a503f5638063563c8a07a04fb158ee0ea1842749ed7ac71abcfaa3941c5e17fc",
+    "bootstrap_source_complete_64.npz": "47bda0ecd3e759804eb148cd06e167e0599284c9222912b08192d85738990f0e",
+    "bootstrap_source_complete_exclude_AN03_63.npz": "987653e624c06e20604f50a00077d6772cc7aa3235b22d1c7617948205cf029a",
+    "crossed_metrics.csv": "11678e189be3d0bc8862e692679944227d7b3d449fa8c44f13144a01ccd2a47e",
+    "crossed_paired_differences.csv": "2701f0c29d40dd13e4ea219ed9d364b1522908c3529d716dd84fcfcfabaee537",
+    "original_shuffle_verified.npz": "5bc7e976e82a5a09310d244a50dadb382d10e84d4ef8af46b629dca3b48acde1",
+    "original_shuffle_audit.json": "6bbaf521d43748f8f3f6de3db04cb92e406e3ddcf896584fba2c2fbcb66af6ba",
+    "REPORT.md": "c0fdba70454af10d122238b8da918df3cf0eb4845f65912facf4a27450f6272e"
+  }
+}

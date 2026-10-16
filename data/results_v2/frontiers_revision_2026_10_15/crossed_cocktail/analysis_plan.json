@@ -1,0 +1,30 @@
+{
+  "analysis": "Post-review crossed host-cluster and composition uncertainty sensitivity",
+  "created_utc": "2026-10-16T00:47:02.676668+00:00",
+  "status": "Retrospective; external labels already inspected before this plan",
+  "seed": 2026101501,
+  "valid_replicates_per_cohort": 2000,
+  "input_score_sha256": "88f261c8f86637b2eaed84c2f54e744b234682db69073a9fefe28476f3658e26",
+  "script_sha256": "09129cdd749e9679e282194934557bc337cb79cdcc82776acdda15be54a6a907",
+  "algorithm": "Independently resample H historical host-cluster labels H times and C canonical composition labels C times with replacement; original observed row weight is product of its two counts. No Cartesian completion or unobserved assay creation. Reject draws with zero positive or zero negative total weight. Shared weights pair every method contrast. Percentile 2.5/97.5 intervals; AP minus reweighted prevalence within each draw.",
+  "cohorts": [
+    "historical_100",
+    "exclude_AN03_99",
+    "source_complete_64",
+    "source_complete_exclude_AN03_63"
+  ],
+  "methods": [
+    "pp_historical_product",
+    "pp_development_reference_product",
+    "pp_historical_max",
+    "pp_historical_mean",
+    "pp_logistic_raw_product",
+    "pp_knn_raw_product",
+    "bank_phage_prevalence_mean",
+    "bank_phage_prevalence_product",
+    "training_phylogroup_susceptibility",
+    "source_released_product on complete cases only"
+  ],
+  "shuffle_audit": "Reconstruct the original 20261005 RNG state after its 2000 valid host-only bootstrap draws; permute complete saved composition rows 1000 times. Verify each permutation preserves every composition multiplicity and reproduces the saved diagnostic metrics. Do not create a new formal permutation null or p-value.",
+  "interpretation": "Additional post hoc dependence sensitivity, not a replacement for or original prespecified historical CI. Crossed resampling may be conservative/unstable with sparse, non-randomly selected cells and 18 compositions. It does not establish generalization to new banks, phages, selection procedures or composition populations. Shared phages across distinct compositions remain outside this grouping model. No multiplicity-adjusted confirmatory superiority test."
+}

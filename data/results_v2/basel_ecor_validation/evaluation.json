@@ -1,0 +1,103 @@
+{
+  "evaluated_utc": "2026-10-06T06:46:42.941914+00:00",
+  "prediction_locked_utc": "2026-10-06T06:45:45.252763+00:00",
+  "prediction_lock_sha256": "753aa44cd5b38f478f98d2caea03aec03c99f8d94dba984d4e674cd8036bd430",
+  "metrics": {
+    "roc_auc": 0.4695367768536692,
+    "pr_auc": 0.22167937525930384,
+    "f1": 0.39169909208819714,
+    "mcc": 0.0,
+    "brier": 0.738053043800643,
+    "n": 1240,
+    "n_pos": 302,
+    "n_neg": 938
+  },
+  "ci95": {
+    "unavailable": "Fewer than two sequence clusters on an entity axis"
+  },
+  "calibration": {
+    "ece": 0.7440046356370967,
+    "points": [
+      {
+        "bin": 5,
+        "confidence": 0.59332454,
+        "accuracy": 0.0,
+        "count": 1
+      },
+      {
+        "bin": 6,
+        "confidence": 0.633774766,
+        "accuracy": 0.2,
+        "count": 5
+      },
+      {
+        "bin": 7,
+        "confidence": 0.7724866560000001,
+        "accuracy": 0.0,
+        "count": 5
+      },
+      {
+        "bin": 8,
+        "confidence": 0.8174514671428571,
+        "accuracy": 0.0,
+        "count": 14
+      },
+      {
+        "bin": 9,
+        "confidence": 0.9921784329218106,
+        "accuracy": 0.24773662551440329,
+        "count": 1215
+      }
+    ]
+  },
+  "overlap": {
+    "phage": {
+      "entities": 52,
+      "training_entities": 1418,
+      "sequence_clusters": 31,
+      "at_or_below_0_05": 31,
+      "exact_contig_set_matches": 0
+    },
+    "host": {
+      "entities": 25,
+      "training_entities": 323,
+      "sequence_clusters": 1,
+      "at_or_below_0_05": 25,
+      "exact_contig_set_matches": 0
+    }
+  },
+  "distance_subsets": {
+    "host_beyond_0_05": {
+      "pairs": 0,
+      "positive": 0,
+      "metrics": null
+    },
+    "phage_beyond_0_05": {
+      "pairs": 513,
+      "positive": 48,
+      "metrics": {
+        "roc_auc": 0.5086021505376345,
+        "pr_auc": 0.12334642124177377,
+        "f1": 0.1711229946524064,
+        "mcc": 0.0,
+        "brier": 0.8740807257844673,
+        "n": 513,
+        "n_pos": 48,
+        "n_neg": 465
+      }
+    },
+    "both_axes_beyond_0_05": {
+      "pairs": 0,
+      "positive": 0,
+      "metrics": null
+    }
+  },
+  "limitations": [
+    "The full 448-input model cannot be evaluated without four unavailable VHIP columns.",
+    "The 444-input sequence-only model was selected by input compatibility before this evaluation.",
+    "Historic frozen features concatenate contigs; no feature definition was changed for this test.",
+    "Public data; staged prediction lock is not independent certification of historical blindness.",
+    "Binary individual phage-host assay labels, not cocktail efficacy or clinical outcomes."
+  ],
+  "uncertainty_note": "Cluster bootstrap conditional on saved model, with only 25 candidate host entities; intervals may be unstable."
+}

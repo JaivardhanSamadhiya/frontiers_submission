@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-15T03:43:05.072959+00:00",
+  "status": "retrospective reviewer sensitivity; not independently frozen validation",
+  "mode": "recalibration",
+  "script_sha256": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+  "input_sha256": {
+    "data\\results_v2\\external_staph_predictions.csv": "0d74efd0d314c4dd6057b0922ba2af51525949b71777d2c4b4170d2fd99207cd"
+  },
+  "seeds": [
+    20261014,
+    20261015,
+    20261016,
+    20261017,
+    20261018
+  ],
+  "fractions": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "outer_splits": 5,
+  "grouping": "27 exact target host reference identifiers, not sequence clusters",
+  "target": "label-assisted target-source adaptation on hosts disjoint from calibration; phages may recur",
+  "single_class_rule": "constant observed calibration prior",
+  "limitation": "target labels now train calibrators; not retraining-free transfer, clinical probability validation, or an independent frozen test; no setting chosen from these results"
+}

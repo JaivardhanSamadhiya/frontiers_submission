@@ -1,0 +1,104 @@
+[
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/data/genomics/bacteria/picard_collection.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/data/genomics/bacteria/picard_collection.csv",
+    "sha256": "e880b60cdc3df6f000b2f0e74985415bd11737d474ab68dd35d0085940cf5b13",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "722d71e3ae3c05232391824f62a1b4f97c080ba576918fef2ab861d1394dd5c1"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/data/genomics/phages/guelin_collection.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/data/genomics/phages/guelin_collection.csv",
+    "sha256": "c21c2672452609f749b9a6eba3135d1bb814abd8e69e9293971f759711b4f276",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "4fdafefaf70eab22b71b2a4631f19e2a7cc4faac82693c30b13bcd5e618750a1"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/data/interactions/interaction_matrix.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/data/interactions/interaction_matrix.csv",
+    "sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "2ace605448a428fa267ae539f0111fd55ce92f4a9480d972595aa9f40f6717c6"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/cml_cocktails.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/cml_cocktails.csv",
+    "sha256": "81f916e0daa84c00aa464e48f80a352973fd8d12de5c6347f8946de3647393f5",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "d3c757bf8915dc90c85e4fac6ed90e42304fff0e44afd09e65c7915bba50dcff"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/cocktails.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/cocktails.csv",
+    "sha256": "755d52d758e30f33031019dee3358621aed6f48f3a843fbb26a1c99da3c0dbf9",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "cfcd55df7f54e2a8ea37af9d5738a9855cabca49b7a6af0df9c93e1c3d739f69"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/cocktails_composition.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/cocktails_composition.csv",
+    "sha256": "eab44b18fe4caece347795bc205a6882ec8a369f9199dfef13c68e5a36bbbc3d",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "8746347815e8272b42a86b1010204ca571325b029b5cb8b040e5e88c8af59994"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/cocktails_step.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/cocktails_step.csv",
+    "sha256": "f955115f11ee770a596c8ef929fffcdc9abda76dfb6ff542adea8855103e7bdf",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "5ab25cf0bf3085cec3008647ec96c4231c1dbcc14b2a43effb77566d0be4859f"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/picard+test_collection_phylogenetic_distances.tsv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/picard+test_collection_phylogenetic_distances.tsv",
+    "sha256": "37ba758a5bb6b2806604652cff1f064b997675322bd707f9937329c46d360e3b",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "5997355f62a2eafe53b05467ef895df3c35e3d507f93129ee6d7ec78b0229064"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/picard+test_collections.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/picard+test_collections.csv",
+    "sha256": "f195921452deb9d51ec4b0ef8f0a321c0a34c0bd724cc9e47445ff600260da26",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "6bb45f4ad307c3616128b4a9f86e79d75c34469072ce682dba941b728ba0286c"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/test_collection.csv",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/test_collection.csv",
+    "sha256": "fe2cae9992f6932906cd41ef80164c959153722ac098e01a983abcc78198e3b5",
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "286b1cdf1998570674b5eeba264fa596e6a527f00b591f83ebc61430356afe62"
+  },
+  {
+    "path": "external/gaborieau_coli_phage_interactions_2023/data/genomics/phages/FNA/55989_P2.fna",
+    "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/data/genomics/phages/FNA/55989_P2.fna",
+    "sha256": "b52eb97325afa428b2e4beeff647ce2698e7c4254c6fc1ecc0ebde74c79c6267",
+    "optional": false,
+    "checkout_line_endings": "CRLF",
+    "source_text_lf_sha256": "3ed46ff6a5f017c70a2fe03a39c285aef26c7c80f932a0f95b1edd3f08bc1e77"
+  },
+  {
+    "path": "data/results_v2/frontiers_revision_2026_10_14/cocktail_controls/ENA_OZ035781_1.fasta",
+    "url": "https://www.ebi.ac.uk/ena/browser/api/fasta/OZ035781.1?download=false",
+    "sha256": "fd0113d2ee22be4cd00f5a697667f5596902b956a32712ae15a9cfc34631d4ea",
+    "optional": false
+  },
+  {
+    "path": "data/external_validation/basel_ecor_2026/SEALED_BASEL_ECOR_interaction_matrix.csv",
+    "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/data/experimental_validation/BASEL_ECOR_interaction_matrix.csv",
+    "sha256": "bc0426a80b392281815ab24066e97cdc445399a62d67bb4f8e56511088947ba5",
+    "optional": false
+  },
+  {
+    "path": "data/external_validation/genophi_2026/processed_data.zip",
+    "url": "https://zenodo.org/api/records/21696332/files/GenoPHI_processed_data.zip/content",
+    "sha256": "1d98c77fc4068315246a4eb56aa185fc769c06bf70fd20e5090856b25f94a00d",
+    "optional": true
+  },
+  {
+    "path": "data/external_validation/genophi_2026/published_phylogenies.zip",
+    "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41564-026-02482-5/MediaObjects/41564_2026_2482_MOESM4_ESM.zip",
+    "sha256": "166864bcf2f2931f8becb7286ef1db1f3efc7a8ebe23480b1a624b9f795f9cd2",
+    "optional": true
+  }
+]

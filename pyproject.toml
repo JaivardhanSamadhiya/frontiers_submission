@@ -26,6 +26,7 @@ dependencies = [
 
 [project.optional-dependencies]
 extras = ["shap", "umap-learn"]
+audit = ["sourmash==4.9.3"]
 
 [project.urls]
 Repository = "https://github.com/JaivardhanSamadhiya/frontiers_submission"

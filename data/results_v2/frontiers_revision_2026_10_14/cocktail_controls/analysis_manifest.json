@@ -1,0 +1,233 @@
+{
+  "status": "completed retrospective saved-score analysis",
+  "utc_created": "2026-10-14T22:00:34.000205+00:00",
+  "seed": 20261014,
+  "bootstrap_replicates": 2000,
+  "source_commit": "99656d8c020fcd1dbbc30a02ee10274a07655562",
+  "source_citation": "Gaborieau et al. (2024), Nature Microbiology 9:2847-2861",
+  "source_doi": "https://doi.org/10.1038/s41564-024-01832-5",
+  "source_accepted_manuscript": "https://hal.science/hal-04781608v1/file/Gaborieau_et_al_Accepted%20Manuscript.pdf",
+  "baseline_identity_evidence": {
+    "unordered_phages": [
+      "CLB_P2",
+      "LF73_P1",
+      "LF82_P8"
+    ],
+    "source": "Assembling phages in cocktails, source accepted manuscript Methods",
+    "bank_identifiers": [
+      "55989_P2",
+      "LF73_P1",
+      "LF82_P8"
+    ],
+    "exact_genome_alias_verification": {
+      "published_name": "CLB_P2",
+      "bank_identifier": "55989_P2",
+      "primary_accession": "OZ035781.1",
+      "primary_registry_url": "https://www.ebi.ac.uk/ena/browser/api/fasta/OZ035781.1?download=false",
+      "published_base_pairs": 171787,
+      "local_base_pairs": 171847,
+      "exact_whole_sequence_identity": false,
+      "complete_accession_sequence_identical": true,
+      "local_terminal_duplicate_of_accession_prefix_bp": 60,
+      "accession_sequence_sha256": "e6b82b74fabf5a9d001c24d608fdac908f2df93d1a3ed2120358a528695180c0",
+      "local_sequence_sha256": "932350ab7d2a11a8bf62db42bec24242988a86845b03789e2577562d04515ca5",
+      "downloaded_record_sha256": "fd0113d2ee22be4cd00f5a697667f5596902b956a32712ae15a9cfc34631d4ea",
+      "local_fasta_sha256": "b52eb97325afa428b2e4beeff647ce2698e7c4254c6fc1ecc0ebde74c79c6267",
+      "downloaded_record_path": "D:\\full_pipeline\\data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_controls\\ENA_OZ035781_1.fasta",
+      "local_fasta_path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\data\\genomics\\phages\\FNA\\55989_P2.fna"
+    },
+    "verification": "Primary manuscript text retrieved in indexed search; it names LF82_P8, CLB_P2, LF73_P1 and confirms triplet, pair and single assays. Direct HAL download was access-controlled; no bypass attempted.",
+    "baseline_assay_column": "b1+b2+b3",
+    "individual_b_columns_assigned": false
+  },
+  "aliases": {
+    "BCH857": "BCH857-72"
+  },
+  "phage_aliases": {
+    "CLB_P2": "55989_P2"
+  },
+  "source_score_coverage": {
+    "constituent_rows": 300,
+    "available": 233,
+    "missing": 67,
+    "complete_hosts": 64,
+    "complete_host_positives": 56,
+    "complete_host_negatives": 8,
+    "missing_scores_by_stage": {
+      "4_rescue": 67
+    },
+    "all_stage_counts": {
+      "0_same_as_host": 145,
+      "3_misc": 77,
+      "4_rescue": 67,
+      "1_neighbours": 11
+    }
+  },
+  "source_full_cohort_identification_bounds": [
+    {
+      "cohort": "historical_100",
+      "case": "worst",
+      "hosts": 100,
+      "positive": 82,
+      "auroc": 0.1731029810298103,
+      "average_precision": 0.6815757933493737,
+      "prevalence": 0.82,
+      "ap_minus_prevalence": -0.13842420665062627,
+      "interpretation": "outcome-informed identification bound; not a model prediction or confidence interval"
+    },
+    {
+      "cohort": "historical_100",
+      "case": "best",
+      "hosts": 100,
+      "positive": 82,
+      "auroc": 0.8594173441734417,
+      "average_precision": 0.9606143933318763,
+      "prevalence": 0.82,
+      "ap_minus_prevalence": 0.1406143933318763,
+      "interpretation": "outcome-informed identification bound; not a model prediction or confidence interval"
+    },
+    {
+      "cohort": "exclude_AN03_99",
+      "case": "worst",
+      "hosts": 99,
+      "positive": 81,
+      "auroc": 0.16632373113854598,
+      "average_precision": 0.6774237362583125,
+      "prevalence": 0.8181818181818182,
+      "ap_minus_prevalence": -0.1407580819235057,
+      "interpretation": "outcome-informed identification bound; not a model prediction or confidence interval"
+    },
+    {
+      "cohort": "exclude_AN03_99",
+      "case": "best",
+      "hosts": 99,
+      "positive": 81,
+      "auroc": 0.857681755829904,
+      "average_precision": 0.9594682975176951,
+      "prevalence": 0.8181818181818182,
+      "ap_minus_prevalence": 0.1412864793358769,
+      "interpretation": "outcome-informed identification bound; not a model prediction or confidence interval"
+    }
+  ],
+  "assay_composition_counts": {
+    "selected_hosts": 100,
+    "selected_distinct_compositions": 18,
+    "baseline_distinct_compositions": 1,
+    "host_composition_records_after_deduplication": 200,
+    "distinct_compositions_overall": 19,
+    "exact_duplicate_host_composition_rows_removed": 0
+  },
+  "historical_groups": {
+    "groups": 81,
+    "rule": "connected components of published core-genome distances <= 1e-4; missing records singleton",
+    "reconstructed_from_frozen_source": true,
+    "historical_group_count_verified": true
+  },
+  "verification": {
+    "weighted_tied_score_checks_against_sklearn": 200,
+    "constant_score_and_single_class_checks": "passed",
+    "repaired_singleton_batch_equal_hosts": 100,
+    "random_feasible_imputation_checks_inside_identification_bounds": 400,
+    "all_source_hashes_unchanged_after_analysis": true,
+    "historical_and_repaired_scores_match_saved_artifacts": true
+  },
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "scipy": "1.13.1",
+    "scikit_learn": "1.4.2"
+  },
+  "sources": {
+    "source_step_scores": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cocktails_step.csv",
+      "sha256": "f955115f11ee770a596c8ef929fffcdc9abda76dfb6ff542adea8855103e7bdf"
+    },
+    "source_composition": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cocktails_composition.csv",
+      "sha256": "eab44b18fe4caece347795bc205a6882ec8a369f9199dfef13c68e5a36bbbc3d"
+    },
+    "source_outcomes": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cml_cocktails.csv",
+      "sha256": "81f916e0daa84c00aa464e48f80a352973fd8d12de5c6347f8946de3647393f5"
+    },
+    "source_combined_selected_table": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cocktails.csv",
+      "sha256": "755d52d758e30f33031019dee3358621aed6f48f3a843fbb26a1c99da3c0dbf9"
+    },
+    "source_distances": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\picard+test_collection_phylogenetic_distances.tsv",
+      "sha256": "37ba758a5bb6b2806604652cff1f064b997675322bd707f9937329c46d360e3b"
+    },
+    "source_train_metadata": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\data\\genomics\\bacteria\\picard_collection.csv",
+      "sha256": "e880b60cdc3df6f000b2f0e74985415bd11737d474ab68dd35d0085940cf5b13"
+    },
+    "source_test_metadata": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\test_collection.csv",
+      "sha256": "fe2cae9992f6932906cd41ef80164c959153722ac098e01a983abcc78198e3b5"
+    },
+    "source_interactions": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\data\\interactions\\interaction_matrix.csv",
+      "sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829"
+    },
+    "frozen_pair_predictions": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\external_cocktail_validation\\frozen_pair_predictions.csv",
+      "sha256": "876c97d91b64158b9bda4a6df15cd510f2b1753da80c031a261570247932ef6d"
+    },
+    "frozen_cocktail_predictions": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\external_cocktail_validation\\heldout_cocktail_predictions_and_outcomes.csv",
+      "sha256": "596b57d9bfa11a42d13efcf20d4f9c054eed32f92e91b10d7bce12cde35bd575"
+    },
+    "frozen_manifest": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\external_cocktail_validation\\frozen_prediction_manifest.json",
+      "sha256": "fd09c155420b4e9303eb121e6e0aa6a0dfdd6473d07c920e6f72e23b3587ac9a"
+    },
+    "historical_evaluation": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\external_cocktail_validation\\external_cocktail_validation_summary.json",
+      "sha256": "3cab566e00f3cc78e46b21ec920582a4fce8738a8d58b12f25b253e925b11bb9"
+    },
+    "development_reference": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\post_rejection_audit\\development_rank_reference.npz",
+      "sha256": "3c09dcfaef434bfc20f2cf5643d9c86b6cb3e12f05aacdf7be4794b6196fa094"
+    },
+    "repaired_scores": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\post_rejection_audit\\batch_invariant_cocktail_diagnostic.csv",
+      "sha256": "05122b5ea447ab51742ae5e3df0c6955466dc18e2af6808fd8e8bfa0bbd908aa"
+    },
+    "previous_controls": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\post_rejection_audit\\cocktail_evidence_audit.json",
+      "sha256": "7b76e2c9fd8cd582894b3f64bb8254e42e6aa6ca686635e861af0cce1020efbf"
+    },
+    "baseline_alias_published_genome": {
+      "path": "D:\\full_pipeline\\data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_controls\\ENA_OZ035781_1.fasta",
+      "sha256": "fd0113d2ee22be4cd00f5a697667f5596902b956a32712ae15a9cfc34631d4ea"
+    },
+    "baseline_alias_local_genome": {
+      "path": "D:\\full_pipeline\\external\\gaborieau_coli_phage_interactions_2023\\data\\genomics\\phages\\FNA\\55989_P2.fna",
+      "sha256": "b52eb97325afa428b2e4beeff647ce2698e7c4254c6fc1ecc0ebde74c79c6267"
+    },
+    "analysis_script": {
+      "path": "D:\\full_pipeline\\scripts\\frontiers_revision\\cocktail_source_comparison.py",
+      "sha256": "34c0a6011fce6a397270dbc5c13874e1fa37bf3ac4f7676d61ac7ea601ee9723"
+    }
+  },
+  "limitations": [
+    "Every analysis is retrospective; external outcomes were known before these controls were defined.",
+    "No predictor was refitted. None of these comparisons is a new independent frozen validation.",
+    "The original source records 233 of 300 selected constituent decision scores; 67 rescue scores are missing, on 36 hosts.",
+    "The 64 complete hosts are enriched for selections made before rescue. Complete-case source comparison may not represent all 100 hosts.",
+    "Source y_pred_proba comes from several recommender stages. Its product aggregation is imposed here for comparison and is not a published end-to-end cocktail probability.",
+    "Per-host lower/upper source-score columns bound missing constituent scores. Full-cohort identification bounds set unknown scores to outcome-dependent extremes solely to bound AUROC/AP. These bounds are not model predictions, confidence intervals, or substitutes for missing released scores.",
+    "Historical PrecisionPhage percentiles depend on the external query cohort; the later development-reference repair is reported separately.",
+    "Intervals resample entire historical host sequence groups, conditional on existing predictions and the fixed bank/composition menu. They do not generalize over new phages, banks, or selection procedures.",
+    "AN03 labels refer to different development/external genome identifiers, while the published distance table has one AN03. The 99-host and 63-complete-host sensitivity excludes that ambiguity; it does not silently replace historical estimates.",
+    "Only 17 hosts have discordant binary outcomes between the two measured triplets. Within-host binary preference accuracy is estimated on those hosts with ties worth one half.",
+    "Repeated compositions across different hosts are legitimate distinct assays and are retained. Canonicalization removes ordering differences; only exact duplicate host/composition records are deduplicated.",
+    "MLC > 0 is observed lytic activity; high-titre clearing does not establish productive phage replication, synergy, clinical benefit, or resistance suppression.",
+    "Only the unordered fixed-baseline triplet is assigned. Published CLB_P2 maps to bank 55989_P2 by exact identity of the complete ENA OZ035781.1 sequence plus a 60-base terminal duplication of its prefix in the local assembly. No identity is inferred for b1/b2/b3 individual phages or two-phage baseline mixtures.",
+    "AP-minus-prevalence intervals recompute the prevalence baseline in each identical bootstrap replicate. A finite-sample permutation AP reference can differ from prevalence.",
+    "No permutation significance test, exchangeability claim, or confirmatory p-value is supplied.",
+    "The ordinal MLC preference diagnostic treats the source scale as ordered, not equally spaced biological efficacy."
+  ]
+}

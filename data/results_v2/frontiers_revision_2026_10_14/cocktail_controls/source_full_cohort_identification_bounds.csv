@@ -1,0 +1,5 @@
+cohort,case,hosts,positive,auroc,average_precision,prevalence,ap_minus_prevalence,interpretation
+historical_100,worst,100,82,0.1731029810298103,0.6815757933493737,0.82,-0.13842420665062627,outcome-informed identification bound; not a model prediction or confidence interval
+historical_100,best,100,82,0.8594173441734417,0.9606143933318763,0.82,0.1406143933318763,outcome-informed identification bound; not a model prediction or confidence interval
+exclude_AN03_99,worst,99,81,0.16632373113854598,0.6774237362583125,0.8181818181818182,-0.1407580819235057,outcome-informed identification bound; not a model prediction or confidence interval
+exclude_AN03_99,best,99,81,0.857681755829904,0.9594682975176951,0.8181818181818182,0.1412864793358769,outcome-informed identification bound; not a model prediction or confidence interval

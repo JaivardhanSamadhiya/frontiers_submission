@@ -1,0 +1,9 @@
+historical_log,regime,auroc_as_logged,ece_as_logged,pair_descriptors_as_logged,scope
+sig_tuned.log,loso_species,0.9596,0.0421,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned.log,host_cluster,0.9479,0.0673,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned.log,phage_cluster,0.8249,0.3972,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned.log,combined_unseen,0.7859,0.1181,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned2.log,loso_species,0.9529,0.0205,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned2.log,host_cluster,0.9405,0.0379,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned2.log,phage_cluster,0.8143,0.2594,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."
+sig_tuned2.log,combined_unseen,0.7472,0.1615,20,"Historical exploratory run, 424 node +20 pair descriptors; not the final 448-column run. Exact selected code/settings not recoverable from log alone."

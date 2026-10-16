@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-10-14T22:03:06.061337+00:00",
+  "status": "retrospective audit; no new model fitting",
+  "ncbi_coverage": {
+    "full": {
+      "pairs": 2588,
+      "positive": 2119,
+      "prevalence": 0.8187789799072643,
+      "phages": 2044,
+      "host_identifiers": 354,
+      "host_species_identifiers": 354
+    },
+    "covered": {
+      "pairs": 1947,
+      "positive": 1488,
+      "prevalence": 0.7642526964560863,
+      "phages": 1418,
+      "host_identifiers": 323,
+      "host_species_identifiers": 323,
+      "phage_cluster_count": 934,
+      "host_cluster_count": 297
+    },
+    "uncovered": {
+      "pairs": 641,
+      "positive": 631,
+      "prevalence": 0.984399375975039,
+      "phages": 637,
+      "host_identifiers": 93,
+      "host_species_identifiers": 93
+    }
+  },
+  "genome_bundle_scope": "Coverage describes the preserved analysis bundle, not genome availability in all public databases.",
+  "degree_definition": "Training-only positive row counts for exact phage/host IDs; unknown IDs score zero; additive combines each count divided by its training maximum with equal weights.",
+  "degree_limitations": "No sequence similarity or tuning; descriptive control. Failure to match a sequence model does not rule out homology/base-rate shortcuts.",
+  "uncertainty": "No independent-row p-values or fold confidence intervals calculated.",
+  "fold_metric_correction": "The old coldstart_fold_aucs.json does not reproduce the saved pooled predictions. The revision derives every primary fold AUROC from significance_pooled_preds.npz and the verified fold order.",
+  "sha256": {
+    "scripts\\frontiers_revision\\submission_audit.py": "965c85ab909a35d9eb0497bdff8f11b4dcd9fac1ab2e1c50cc428d3933effba8",
+    "data\\interim_v2\\interactions.csv": "29ad9cd398892a8bb80fe5f16be75cbe0cdb241bb826e32216cbabc2af1822ce",
+    "data\\interim_v2\\interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data\\cache_v2\\clusters_k21_d0.05.json": "b1fcc5ad4090dea344acfbe9abfc417e2cab606e1d1fa83eb6b609cb54404e1c",
+    "data\\results_v2\\significance_pooled_preds.npz": "9a9e249e6e67eead4795e654b2da37d856cd947e6231036402792f1e33c6b75e",
+    "data\\results_v2\\sig_tuned.log": "913833fb8dcf3f4ed5594ca99d986c6f01a48a04296a9d95c917ce078b039e5b",
+    "data\\results_v2\\sig_tuned2.log": "11ecef7363329df99680f595cc9d68a88c3e9567017aedd912507a460038b977"
+  }
+}

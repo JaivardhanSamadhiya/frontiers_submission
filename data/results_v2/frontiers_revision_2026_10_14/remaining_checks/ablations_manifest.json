@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-15T04:12:56.223034+00:00",
+  "status": "retrospective reviewer sensitivity; not independently frozen validation",
+  "mode": "ablations",
+  "script_sha256": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+  "input_sha256": {
+    "data\\cache_v2\\node_features.npz": "d47bdccb01b5b6219d213275c1a20a0640acc16b111e5f64f7fe0bad9efd1f00",
+    "data\\cache_v2\\node_features.meta.json": "3036b248cdba6e49e06cc2b904badadcb6c71a977ac66fc30395dc9ce4e65ca6",
+    "data\\interim_v2\\interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data\\interim_v2\\seq_pair_features.csv": "86684fb0f753dd1a2bf54de413598554ef328c8242d29990c768167f886f7ab3",
+    "data\\cache_v2\\clusters_k21_d0.05.json": "b1fcc5ad4090dea344acfbe9abfc417e2cab606e1d1fa83eb6b609cb54404e1c"
+  },
+  "features": {
+    "full": 448,
+    "phage_only": 212,
+    "host_only": 212,
+    "pair_only": 24
+  },
+  "settings": "fixed XGBoost400,depth5,lr.05,subsample/colsample.8,seed42; same rows/splits/scaler fitting",
+  "limitation": "new full control refitted alongside ablations; not a replacement for saved historical model, no causal attribution or independent-row inference"
+}

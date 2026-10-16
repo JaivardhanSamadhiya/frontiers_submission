@@ -1,0 +1,708 @@
+{
+  "recorded_utc": "2026-10-06T06:27:49.027058+00:00",
+  "genophi_host_provenance": "https://www.nature.com/articles/s41564-026-02482-5",
+  "genophi_host_provenance_detail": "PRJNA230969, QOWX00000000-QOXX00000000; Supplementary Table 9",
+  "phages": {
+    "Bas01": {
+      "identifier": "Bas01",
+      "accession": "MZ501051",
+      "expected_length": 50126,
+      "genus": "Rtpvirus",
+      "published_name": "Escherichia phage AugustePiccard",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 8
+    },
+    "Bas02": {
+      "identifier": "Bas02",
+      "accession": "MZ501080",
+      "expected_length": 47149,
+      "genus": "Guelphvirus",
+      "published_name": "Escherichia phage JeanPiccard",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 9
+    },
+    "Bas03": {
+      "identifier": "Bas03",
+      "accession": "MZ501087",
+      "expected_length": 47731,
+      "genus": "Guelphvirus",
+      "published_name": "Escherichia phage JulesPiccard",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 10
+    },
+    "Bas04": {
+      "identifier": "Bas04",
+      "accession": "MZ501069",
+      "expected_length": 51777,
+      "genus": "Warwickvirus",
+      "published_name": "Escherichia phage FritzSarasin",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 11
+    },
+    "Bas05": {
+      "identifier": "Bas05",
+      "accession": "MZ501101",
+      "expected_length": 47775,
+      "genus": "Warwickvirus",
+      "published_name": "Escherichia phage PeterMerian",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 12
+    },
+    "Bas06": {
+      "identifier": "Bas06",
+      "accession": "MZ501090",
+      "expected_length": 51474,
+      "genus": "Hanrivervirus",
+      "published_name": "Escherichia phage KarlJaspers",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 13
+    },
+    "Bas07": {
+      "identifier": "Bas07",
+      "accession": "MZ501079",
+      "expected_length": 51129,
+      "genus": "Hanrivervirus",
+      "published_name": "Escherichia phage JakobBernoulli",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 14
+    },
+    "Bas08": {
+      "identifier": "Bas08",
+      "accession": "MZ501059",
+      "expected_length": 50731,
+      "genus": "Tlsvirus",
+      "published_name": "Escherichia phage DanielBernoulli",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 15
+    },
+    "Bas09": {
+      "identifier": "Bas09",
+      "accession": "MZ501099",
+      "expected_length": 51285,
+      "genus": "Changchunvirus",
+      "published_name": "Escherichia phage PaulSarasin",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 16
+    },
+    "Bas10": {
+      "identifier": "Bas10",
+      "accession": "MZ501077",
+      "expected_length": 49911,
+      "genus": "unclassified",
+      "published_name": "Escherichia phage IsaakIselin",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 17
+    },
+    "Bas12": {
+      "identifier": "Bas12",
+      "accession": "MZ501053",
+      "expected_length": 49298,
+      "genus": "Sertoctavirus",
+      "published_name": "Escherichia phage BrunoManser",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 19
+    },
+    "Bas13": {
+      "identifier": "Bas13",
+      "accession": "MZ501092",
+      "expected_length": 50192,
+      "genus": "Tunavirus",
+      "published_name": "Escherichia phage LeonhardEuler",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 20
+    },
+    "Bas14": {
+      "identifier": "Bas14",
+      "accession": "MZ501107",
+      "expected_length": 43627,
+      "genus": "Dhillonvirus",
+      "published_name": "Escherichia phage TheodorHerzl",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 21
+    },
+    "Bas15": {
+      "identifier": "Bas15",
+      "accession": "MZ501097",
+      "expected_length": 44550,
+      "genus": "Dhillonvirus",
+      "published_name": "Escherichia phage PaulFeyerabend",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 22
+    },
+    "Bas16": {
+      "identifier": "Bas16",
+      "accession": "MZ501070",
+      "expected_length": 44295,
+      "genus": "Dhillonvirus",
+      "published_name": "Escherichia phage GeorgBuechner",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 23
+    },
+    "Bas17": {
+      "identifier": "Bas17",
+      "accession": "MZ501088",
+      "expected_length": 43104,
+      "genus": "Dhillonvirus",
+      "published_name": "Escherichia phage KarlBarth",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 24
+    },
+    "Bas19": {
+      "identifier": "Bas19",
+      "accession": "MZ501057",
+      "expected_length": 58073,
+      "genus": "Nonagvirus",
+      "published_name": "Escherichia phage ChristophMerian",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 26
+    },
+    "Bas20": {
+      "identifier": "Bas20",
+      "accession": "MZ501068",
+      "expected_length": 59834,
+      "genus": "Nonagvirus",
+      "published_name": "Escherichia phage FritzHoffmann",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 27
+    },
+    "Bas21": {
+      "identifier": "Bas21",
+      "accession": "MZ501071",
+      "expected_length": 56589,
+      "genus": "Seuratvirus",
+      "published_name": "Escherichia phage GottfriedDienst",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 28
+    },
+    "Bas22": {
+      "identifier": "Bas22",
+      "accession": "MZ501091",
+      "expected_length": 58567,
+      "genus": "Seuratvirus",
+      "published_name": "Escherichia phage KurtStettler",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 29
+    },
+    "Bas25": {
+      "identifier": "Bas25",
+      "accession": "MZ501110",
+      "expected_length": 58342,
+      "genus": "Seuratvirus",
+      "published_name": "Escherichia phage VogelGryff",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 32
+    },
+    "Bas27": {
+      "identifier": "Bas27",
+      "accession": "MZ501108",
+      "expected_length": 114179,
+      "genus": "Epseptimavirus",
+      "published_name": "Escherichia phage TrudiGerster",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 34
+    },
+    "Bas28": {
+      "identifier": "Bas28",
+      "accession": "MZ501076",
+      "expected_length": 115446,
+      "genus": "Epseptimavirus",
+      "published_name": "Escherichia phage IrmaTschudi",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 35
+    },
+    "Bas29": {
+      "identifier": "Bas29",
+      "accession": "MZ501105",
+      "expected_length": 110821,
+      "genus": "Epseptimavirus",
+      "published_name": "Escherichia phage SuperGirl",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 36
+    },
+    "Bas31": {
+      "identifier": "Bas31",
+      "accession": "MZ501058",
+      "expected_length": 113532,
+      "genus": "Tequintavirus",
+      "published_name": "Escherichia phage DaisyDussoix",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 38
+    },
+    "Bas33": {
+      "identifier": "Bas33",
+      "accession": "MZ501074",
+      "expected_length": 111607,
+      "genus": "Tequintavirus",
+      "published_name": "Escherichia phage HildyBeyeler",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 40
+    },
+    "Bas34": {
+      "identifier": "Bas34",
+      "accession": "MZ501103",
+      "expected_length": 107080,
+      "genus": "Tequintavirus",
+      "published_name": "Escherichia phage SelmaRatti",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 41
+    },
+    "Bas35": {
+      "identifier": "Bas35",
+      "accession": "MZ501113",
+      "expected_length": 166861,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage WilhelmHis",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 42
+    },
+    "Bas36": {
+      "identifier": "Bas36",
+      "accession": "MZ501096",
+      "expected_length": 167732,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage Paracelsus",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 43
+    },
+    "Bas37": {
+      "identifier": "Bas37",
+      "accession": "MZ501089",
+      "expected_length": 167832,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage KarlGJung",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 44
+    },
+    "Bas39": {
+      "identifier": "Bas39",
+      "accession": "MZ501066",
+      "expected_length": 169509,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage FriedrichMiescher",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 46
+    },
+    "Bas41": {
+      "identifier": "Bas41",
+      "accession": "MZ501067",
+      "expected_length": 165574,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage FriedrichZschokke",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 48
+    },
+    "Bas42": {
+      "identifier": "Bas42",
+      "accession": "MZ501050",
+      "expected_length": 168255,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage AndreasVesalius",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 49
+    },
+    "Bas43": {
+      "identifier": "Bas43",
+      "accession": "MZ501106",
+      "expected_length": 166115,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage TadeuszReichstein",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 50
+    },
+    "Bas45": {
+      "identifier": "Bas45",
+      "accession": "MZ501098",
+      "expected_length": 170053,
+      "genus": "Tequatrovirus",
+      "published_name": "Escherichia phage PaulHMueller",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 52
+    },
+    "Bas47": {
+      "identifier": "Bas47",
+      "accession": "MZ501047",
+      "expected_length": 168968,
+      "genus": "Mosigvirus",
+      "published_name": "Escherichia phage AlbertHofmann",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 54
+    },
+    "Bas49": {
+      "identifier": "Bas49",
+      "accession": "MZ501062",
+      "expected_length": 139980,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage EmilHeitz",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 56
+    },
+    "Bas51": {
+      "identifier": "Bas51",
+      "accession": "MZ501111",
+      "expected_length": 140659,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage WalterGehring",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 58
+    },
+    "Bas52": {
+      "identifier": "Bas52",
+      "accession": "MZ501102",
+      "expected_length": 137380,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage RudolfGeigy",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 59
+    },
+    "Bas54": {
+      "identifier": "Bas54",
+      "accession": "MZ501093",
+      "expected_length": 136346,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage MaxBurger",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 61
+    },
+    "Bas56": {
+      "identifier": "Bas56",
+      "accession": "MZ501048",
+      "expected_length": 135345,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage AlexBoehm",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 63
+    },
+    "Bas57": {
+      "identifier": "Bas57",
+      "accession": "MZ501094",
+      "expected_length": 135061,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage MaxTheCat",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 64
+    },
+    "Bas58": {
+      "identifier": "Bas58",
+      "accession": "MZ501073",
+      "expected_length": 136906,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage HeinrichReichert",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 65
+    },
+    "Bas59": {
+      "identifier": "Bas59",
+      "accession": "MZ501061",
+      "expected_length": 131526,
+      "genus": "Vequintavirus",
+      "published_name": "Escherichia phage EduardKellenberger",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 66
+    },
+    "Bas60": {
+      "identifier": "Bas60",
+      "accession": "MZ501100",
+      "expected_length": 150425,
+      "genus": "Justusliebigvirus",
+      "published_name": "Escherichia phage PaulScherrer",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 67
+    },
+    "Bas61": {
+      "identifier": "Bas61",
+      "accession": "MZ501063",
+      "expected_length": 146666,
+      "genus": "Justusliebigvirus",
+      "published_name": "Escherichia phage EmilieFrey",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 68
+    },
+    "Bas63": {
+      "identifier": "Bas63",
+      "accession": "MZ501086",
+      "expected_length": 87100,
+      "genus": "Felixounavirus",
+      "published_name": "Escherichia phage JohannRWettstein",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 70
+    },
+    "Bas64": {
+      "identifier": "Bas64",
+      "accession": "MZ501081",
+      "expected_length": 39842,
+      "genus": "Teseptimavirus",
+      "published_name": "Escherichia phage JeanTinguely",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 71
+    },
+    "Bas65": {
+      "identifier": "Bas65",
+      "accession": "MZ501078",
+      "expected_length": 39451,
+      "genus": "Teseptimavirus",
+      "published_name": "Escherichia phage JacobBurckhardt",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 72
+    },
+    "Bas67": {
+      "identifier": "Bas67",
+      "accession": "MZ501064",
+      "expected_length": 39315,
+      "genus": "Berlinvirus",
+      "published_name": "Escherichia phage ErnstBeyeler",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 74
+    },
+    "Bas68": {
+      "identifier": "Bas68",
+      "accession": "MZ501055",
+      "expected_length": 39466,
+      "genus": "Berlinvirus",
+      "published_name": "Escherichia phage CarlSpitteler",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 75
+    },
+    "Bas69": {
+      "identifier": "Bas69",
+      "accession": "MZ501049",
+      "expected_length": 70849,
+      "genus": "Enquatrovirus",
+      "published_name": "Escherichia phage AlfredRasser",
+      "source": "https://doi.org/10.1371/journal.pbio.3003063.s002",
+      "sheet": "list of all phages",
+      "row": 76
+    }
+  },
+  "hosts": {
+    "ECOR12": {
+      "identifier": "ECOR12",
+      "wgs_master": "QOWX00000000",
+      "expected_contigs": 218,
+      "expected_length": 5078970,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR13": {
+      "identifier": "ECOR13",
+      "wgs_master": "QOWY00000000",
+      "expected_contigs": 165,
+      "expected_length": 4619031,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR14": {
+      "identifier": "ECOR14",
+      "wgs_master": "QOWZ00000000",
+      "expected_contigs": 150,
+      "expected_length": 4941866,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR15": {
+      "identifier": "ECOR15",
+      "wgs_master": "QOXA00000000",
+      "expected_contigs": 128,
+      "expected_length": 4911383,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR16": {
+      "identifier": "ECOR16",
+      "wgs_master": "QOXB00000000",
+      "expected_contigs": 126,
+      "expected_length": 4636981,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR17": {
+      "identifier": "ECOR17",
+      "wgs_master": "QOXC00000000",
+      "expected_contigs": 110,
+      "expected_length": 4506698,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR18": {
+      "identifier": "ECOR18",
+      "wgs_master": "QOXD00000000",
+      "expected_contigs": 112,
+      "expected_length": 4634531,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR19": {
+      "identifier": "ECOR19",
+      "wgs_master": "QOXE00000000",
+      "expected_contigs": 164,
+      "expected_length": 4535554,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR20": {
+      "identifier": "ECOR20",
+      "wgs_master": "QOXF00000000",
+      "expected_contigs": 154,
+      "expected_length": 4595721,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR21": {
+      "identifier": "ECOR21",
+      "wgs_master": "QOXG00000000",
+      "expected_contigs": 159,
+      "expected_length": 4568662,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR22": {
+      "identifier": "ECOR22",
+      "wgs_master": "QOXH00000000",
+      "expected_contigs": 84,
+      "expected_length": 4514994,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR23": {
+      "identifier": "ECOR23",
+      "wgs_master": "QOXI00000000",
+      "expected_contigs": 161,
+      "expected_length": 5093876,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR24": {
+      "identifier": "ECOR24",
+      "wgs_master": "QOXJ00000000",
+      "expected_contigs": 146,
+      "expected_length": 5227547,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR25": {
+      "identifier": "ECOR25",
+      "wgs_master": "QOXK00000000",
+      "expected_contigs": 125,
+      "expected_length": 4752894,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR26": {
+      "identifier": "ECOR26",
+      "wgs_master": "QOXL00000000",
+      "expected_contigs": 93,
+      "expected_length": 4678648,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR27": {
+      "identifier": "ECOR27",
+      "wgs_master": "QOXM00000000",
+      "expected_contigs": 109,
+      "expected_length": 4867073,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR28": {
+      "identifier": "ECOR28",
+      "wgs_master": "QOXN00000000",
+      "expected_contigs": 109,
+      "expected_length": 4925046,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR29": {
+      "identifier": "ECOR29",
+      "wgs_master": "QOXO00000000",
+      "expected_contigs": 112,
+      "expected_length": 4928564,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR30": {
+      "identifier": "ECOR30",
+      "wgs_master": "QOXP00000000",
+      "expected_contigs": 120,
+      "expected_length": 4825526,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR31": {
+      "identifier": "ECOR31",
+      "wgs_master": "QOXQ00000000",
+      "expected_contigs": 120,
+      "expected_length": 5302667,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR32": {
+      "identifier": "ECOR32",
+      "wgs_master": "QOXR00000000",
+      "expected_contigs": 129,
+      "expected_length": 4794190,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR33": {
+      "identifier": "ECOR33",
+      "wgs_master": "QOXS00000000",
+      "expected_contigs": 129,
+      "expected_length": 4795454,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR34": {
+      "identifier": "ECOR34",
+      "wgs_master": "QOXT00000000",
+      "expected_contigs": 128,
+      "expected_length": 4908743,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR35": {
+      "identifier": "ECOR35",
+      "wgs_master": "QOXU00000000",
+      "expected_contigs": 220,
+      "expected_length": 5104518,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    },
+    "ECOR38": {
+      "identifier": "ECOR38",
+      "wgs_master": "QOXX00000000",
+      "expected_contigs": 206,
+      "expected_length": 5240321,
+      "source": "https://doi.org/10.1128/MRA.01133-18"
+    }
+  },
+  "sources_sha256": {
+    "pbio.3003063.s002.xlsx": "3db4fd255d99390c86904df1bacfde7b9468b1c736aab9c37dffcd55ce14a91f",
+    "ECOR_Patel_2018.xml": "8de9e64e80050b17b056a00291921441bbaf1f06dc6cb96c05d3a767446d9ad4"
+  }
+}

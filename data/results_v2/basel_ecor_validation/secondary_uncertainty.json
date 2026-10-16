@@ -1,0 +1,59 @@
+{
+  "status": "secondary conditional uncertainty; not a replacement for primary unavailable cluster interval",
+  "definition_lock_sha256": "a9d0b99ea8f918e51c2ef3402a7f4cf8ba5e281021a52bc28120e6ccf99a3a82",
+  "evaluation_sha256": "acdf464c8b7d088bf8a5c0494f08f627f885a356ce5d3301e03f59ebde922193",
+  "results": [
+    {
+      "definition": "host_0.001_phage_0.05",
+      "host_groups": 23,
+      "phage_groups": 31,
+      "ci95": {
+        "method": "two-way sequence-cluster bootstrap",
+        "n_valid": 2000,
+        "roc_auc": {
+          "lo": 0.3335334053980211,
+          "hi": 0.5935821782787464
+        },
+        "pr_auc": {
+          "lo": 0.10422787337931759,
+          "hi": 0.36688591209332944
+        }
+      }
+    },
+    {
+      "definition": "host_0.01_phage_0.05",
+      "host_groups": 7,
+      "phage_groups": 31,
+      "ci95": {
+        "method": "two-way sequence-cluster bootstrap",
+        "n_valid": 2000,
+        "roc_auc": {
+          "lo": 0.2886361360234224,
+          "hi": 0.5955061023959122
+        },
+        "pr_auc": {
+          "lo": 0.0907793621162731,
+          "hi": 0.35420110553432427
+        }
+      }
+    },
+    {
+      "definition": "host_identity_phage_identity",
+      "host_groups": 25,
+      "phage_groups": 52,
+      "ci95": {
+        "method": "two-way sequence-cluster bootstrap",
+        "n_valid": 2000,
+        "roc_auc": {
+          "lo": 0.3642011051873049,
+          "hi": 0.5680739196791476
+        },
+        "pr_auc": {
+          "lo": 0.13860317647565615,
+          "hi": 0.3365853114516263
+        }
+      }
+    }
+  ],
+  "caveat": "These resamplings do not establish transfer beyond the sampled Escherichia source or account for all training uncertainty."
+}

@@ -1,0 +1,12 @@
+{
+  "training_pairs": 1947,
+  "training_positive": 1488,
+  "escherichia_pairs": 222,
+  "escherichia_positive": 196,
+  "escherichia_host_identifiers": [
+    "escherichia coli"
+  ],
+  "new_test_positive_fraction": 0.2435483870967742,
+  "new_test_mean_score": 0.987553022733871,
+  "interpretation": "Coarse host-reference resolution and prevalence differ; not a proven causal decomposition."
+}

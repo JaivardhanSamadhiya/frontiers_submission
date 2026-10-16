@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-10-06T06:38:03.856692+00:00",
+  "host_cluster_counts": {
+    "0.001": 23,
+    "0.01": 7,
+    "0.05": 1
+  },
+  "protocol_sha256": "e59f528a5bd6a4a87c9762075591790f7e741a39aaf734d7792b0536c16a7787",
+  "assignments_sha256": "70ee731223296084369b82f41157c4a4130a159174f011093c28a8ae1b456207",
+  "script_sha256": "003bad0f61fadf8d921403fe9488f4eb4c7f866f25460aa724ad49dec49189a9",
+  "outcomes_read": false
+}

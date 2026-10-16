@@ -1,0 +1,31 @@
+2026-06-13 22:09:51,739 [INFO] precisionphage.data.load - [load] kept 8849/8849 rows from studies ['NCBI_HR', 'NahantCollection', 'StaphStudy']
+2026-06-13 22:09:51,803 [INFO] precisionphage.data.load - [load] canonical pairs=8849 pos=2770 neg=6079 phages=2331 hosts=387 species=380 genera=122 conflicts=0
+2026-06-13 22:09:52,350 [INFO] precisionphage.data.genomes - [genomes] indexed 2184 FASTA files across 1 dir(s)
+2026-06-13 22:09:52,448 [INFO] precisionphage.data.genomes - [genomes] indexed 415 FASTA files across 1 dir(s)
+2026-06-13 22:09:52,729 [INFO] precisionphage.features.assembly - [assembly] covered subset: 1947 pairs (pos=1488 neg=459) over 1418 phages, 323 hosts
+2026-06-13 22:10:08,096 [INFO] precisionphage.features.genomic - [features] node matrix (1418, 212); genomes present for 1418/1418 entities (8 workers)
+2026-06-13 22:12:11,250 [INFO] precisionphage.features.genomic - [features] node matrix (323, 212); genomes present for 323/323 entities (8 workers)
+2026-06-13 22:12:11,365 [INFO] precisionphage.features.assembly - [assembly] merged seq pair features (8 cols) from cache
+2026-06-13 22:12:11,365 [INFO] precisionphage.features.assembly - [assembly] edge dim=16 (['cos_dist', 'l1', 'pearson', 'jaccard', 'k3dist', 'k6dist', 'GCdiff', 'Homology', 'hom_frac_kmers', 'hom_cov_frac', 'hom_log_shared', 'hom_longest_frac', 'crispr_n_spacers', 'crispr_n_hits', 'crispr_best_frac', 'crispr_has_hit'])
+2026-06-13 22:12:11,375 [INFO] significance - [clusters] loaded cached assignments from clusters_k21_d0.05.json
+2026-06-13 22:15:08,269 [INFO] significance - [loso_species] pooled n=1057 (pos=804) collected
+2026-06-13 22:18:05,192 [INFO] significance - [host_cluster] pooled n=1082 (pos=826) collected
+2026-06-13 22:20:46,705 [INFO] significance - [phage_cluster] pooled n=384 (pos=140) collected
+2026-06-13 22:21:49,292 [INFO] significance - [combined_unseen] pooled n=398 (pos=294) collected
+2026-06-13 22:25:22,768 [INFO] significance - SKILL vs CHANCE (AUC CI + permutation, BH-corrected):
+         regime model    auc  auc_lo  auc_hi    ece  perm_p  perm_q_bh  above_chance_fdr05
+   loso_species   GBM 0.9561  0.9415  0.9708 0.0242   0.001      0.001                True
+   loso_species   GNN 0.8937  0.8662  0.9212 0.5785   0.001      0.001                True
+   host_cluster   GBM 0.9451  0.9276  0.9626 0.0571   0.001      0.001                True
+   host_cluster   GNN 0.8919  0.8646  0.9192 0.5846   0.001      0.001                True
+  phage_cluster   GBM 0.8526  0.8138  0.8913 0.4424   0.001      0.001                True
+  phage_cluster   GNN 0.6040  0.5422  0.6658 0.4046   0.001      0.001                True
+combined_unseen   GBM 0.7703  0.7204  0.8202 0.1608   0.001      0.001                True
+combined_unseen   GNN 0.6176  0.5538  0.6814 0.5238   0.001      0.001                True
+2026-06-13 22:25:22,772 [INFO] significance - MODEL COMPARISON GBM vs GNN (DeLong/McNemar, BH-corrected):
+         regime  auc_gbm  auc_gnn  auc_diff  diff_lo  diff_hi  delong_z  delong_p  mcnemar_b  mcnemar_c  mcnemar_p  delong_q_bh  gbm_beats_gnn_fdr05
+   loso_species   0.9561   0.8937    0.0625   0.0420   0.0834    5.8777       0.0        575         38     0.0000          0.0                 True
+   host_cluster   0.9451   0.8919    0.0532   0.0325   0.0742    4.9732       0.0        560         30     0.0000          0.0                 True
+  phage_cluster   0.8526   0.6040    0.2486   0.1891   0.3088    8.0619       0.0         72         87     0.2669          0.0                 True
+combined_unseen   0.7703   0.6176    0.1527   0.0880   0.2181    4.5770       0.0        195         65     0.0000          0.0                 True
+2026-06-13 22:25:22,772 [INFO] significance - Wrote significance_results.json + significance_*.csv

@@ -1,0 +1,633 @@
+dimension,value,covered,pairs,positive,prevalence,phages,host_identifiers,host_species_identifiers
+study,NCBI_HR,False,641,631,0.984399375975039,637,93,93
+study,NCBI_HR,True,1947,1488,0.7642526964560863,1418,323,323
+study,NahantCollection,False,5208,318,0.06105990783410138,248,21,14
+study,StaphStudy,False,1053,333,0.3162393162393162,39,27,27
+host_genus,acholeplasma,True,2,2,1.0,2,1,1
+host_genus,achromobacter,True,8,7,0.875,8,1,1
+host_genus,acidovorax,False,1,1,1.0,1,1,1
+host_genus,acinetobacter,False,17,17,1.0,17,2,2
+host_genus,acinetobacter,True,28,24,0.8571428571428571,28,3,3
+host_genus,actinomyces,True,1,1,1.0,1,1,1
+host_genus,aeromonas,False,1,1,1.0,1,1,1
+host_genus,aeromonas,True,18,14,0.7777777777777778,16,3,3
+host_genus,aggregatibacter,True,1,1,1.0,1,1,1
+host_genus,agrobacterium,False,1,1,1.0,1,1,1
+host_genus,aliivibrio,False,248,0,0.0,248,1,1
+host_genus,alteromonas,True,3,1,0.3333333333333333,2,2,2
+host_genus,anabaena,False,1,0,0.0,1,1,1
+host_genus,anabaena,True,1,1,1.0,1,1,1
+host_genus,azospirillum,True,1,1,1.0,1,1,1
+host_genus,bacillus,False,14,14,1.0,14,4,4
+host_genus,bacillus,True,175,115,0.6571428571428571,111,14,14
+host_genus,bacteroides,True,4,2,0.5,4,1,1
+host_genus,bdellovibrio,True,3,3,1.0,3,1,1
+host_genus,bordetella,True,1,1,1.0,1,1,1
+host_genus,brevibacillus,False,1,1,1.0,1,1,1
+host_genus,brevibacillus,True,8,7,0.875,7,2,2
+host_genus,brochothrix,True,3,3,1.0,3,1,1
+host_genus,brucella,True,13,10,0.7692307692307693,3,11,11
+host_genus,burkholderia,True,29,28,0.9655172413793104,29,6,6
+host_genus,campylobacter,False,2,2,1.0,2,1,1
+host_genus,campylobacter,True,6,4,0.6666666666666666,4,2,2
+host_genus,caulobacter,True,8,8,1.0,8,1,1
+host_genus,cellulophaga,True,18,18,1.0,18,1,1
+host_genus,chlamydia,True,4,3,0.75,3,2,2
+host_genus,chlamydophila,True,2,2,1.0,2,2,2
+host_genus,citrobacter,False,2,2,1.0,2,1,1
+host_genus,citrobacter,True,19,14,0.7368421052631579,19,2,2
+host_genus,clavibacter,True,2,2,1.0,2,1,1
+host_genus,clostridium,False,18,16,0.8888888888888888,18,1,1
+host_genus,clostridium,True,24,22,0.9166666666666666,24,4,4
+host_genus,colwellia,False,1,1,1.0,1,1,1
+host_genus,corynebacterium,False,6,6,1.0,6,2,2
+host_genus,corynebacterium,True,2,1,0.5,2,1,1
+host_genus,croceibacter,True,2,2,1.0,2,1,1
+host_genus,cronobacter,True,27,22,0.8148148148148148,20,5,5
+host_genus,delftia,True,3,2,0.6666666666666666,3,2,2
+host_genus,dickeya,True,6,1,0.16666666666666666,1,6,6
+host_genus,dinoroseobacter,False,1,1,1.0,1,1,1
+host_genus,dinoroseobacter,True,1,1,1.0,1,1,1
+host_genus,edwardsiella,False,1,1,1.0,1,1,1
+host_genus,edwardsiella,True,3,3,1.0,3,1,1
+host_genus,enterobacter,False,3,3,1.0,3,2,2
+host_genus,enterobacter,True,19,7,0.3684210526315789,10,5,5
+host_genus,enterococcus,False,11,11,1.0,11,1,1
+host_genus,enterococcus,True,47,26,0.5531914893617021,45,2,2
+host_genus,enterovibrio,False,248,12,0.04838709677419355,248,1,1
+host_genus,erwinia,False,8,8,1.0,8,1,1
+host_genus,erwinia,True,25,19,0.76,19,4,4
+host_genus,erysipelothrix,True,1,1,1.0,1,1,1
+host_genus,erythrobacter,True,2,0,0.0,1,2,2
+host_genus,escherichia,False,26,26,1.0,26,1,1
+host_genus,escherichia,True,222,196,0.8828828828828829,222,1,1
+host_genus,flavobacterium,False,3,3,1.0,3,2,2
+host_genus,flavobacterium,True,14,14,1.0,14,2,2
+host_genus,fusobacterium,True,1,0,0.0,1,1,1
+host_genus,geobacillus,False,1,1,1.0,1,1,1
+host_genus,geobacillus,True,1,1,1.0,1,1,1
+host_genus,gluconobacter,False,1,1,1.0,1,1,1
+host_genus,gluconobacter,True,1,0,0.0,1,1,1
+host_genus,gordonia,False,9,9,1.0,9,1,1
+host_genus,gordonia,True,64,63,0.984375,64,5,5
+host_genus,haemophilus,True,3,3,1.0,3,2,2
+host_genus,halomonas,True,1,1,1.0,1,1,1
+host_genus,helicobacter,True,4,4,1.0,4,1,1
+host_genus,idiomarina,True,2,0,0.0,1,2,2
+host_genus,janthinobacterium,True,1,0,0.0,1,1,1
+host_genus,klebsiella,False,5,5,1.0,5,1,1
+host_genus,klebsiella,True,39,28,0.717948717948718,36,2,2
+host_genus,kocuria,True,1,0,0.0,1,1,1
+host_genus,lactobacillus,False,6,3,0.5,4,3,3
+host_genus,lactobacillus,True,50,32,0.64,38,18,18
+host_genus,lactococcus,False,7,7,1.0,7,1,1
+host_genus,lactococcus,True,54,49,0.9074074074074074,54,2,2
+host_genus,leptolyngbya,True,1,1,1.0,1,1,1
+host_genus,leuconostoc,True,26,13,0.5,14,5,5
+host_genus,listeria,False,3,3,1.0,3,1,1
+host_genus,listeria,True,50,21,0.42,40,3,3
+host_genus,mannheimia,True,6,6,1.0,6,1,1
+host_genus,mesorhizobium,True,1,1,1.0,1,1,1
+host_genus,microbacterium,False,7,7,1.0,7,1,1
+host_genus,microbacterium,True,1,1,1.0,1,1,1
+host_genus,microcystis,True,1,1,1.0,1,1,1
+host_genus,morganella,True,1,1,1.0,1,1,1
+host_genus,mycobacterium,False,338,338,1.0,338,1,1
+host_genus,mycobacterium,True,10,9,0.9,10,4,4
+host_genus,mycoplasma,False,2,2,1.0,2,2,2
+host_genus,myxococcus,True,1,1,1.0,1,1,1
+host_genus,natrialba,True,1,1,1.0,1,1,1
+host_genus,nocardia,True,3,1,0.3333333333333333,2,2,2
+host_genus,nostoc,True,1,1,1.0,1,1,1
+host_genus,paenibacillus,False,2,2,1.0,2,1,1
+host_genus,paenibacillus,True,26,16,0.6153846153846154,12,16,16
+host_genus,pantoea,False,1,1,1.0,1,1,1
+host_genus,pantoea,True,8,4,0.5,5,2,2
+host_genus,parabacteroides,True,2,2,1.0,2,2,2
+host_genus,paracoccus,True,2,1,0.5,2,2,2
+host_genus,pasteurella,True,1,1,1.0,1,1,1
+host_genus,pectobacterium,False,3,3,1.0,3,2,2
+host_genus,pectobacterium,True,6,6,1.0,6,2,2
+host_genus,pediococcus,False,1,0,0.0,1,1,1
+host_genus,pediococcus,True,1,0,0.0,1,1,1
+host_genus,pedobacter,True,1,0,0.0,1,1,1
+host_genus,phormidium,True,1,1,1.0,1,1,1
+host_genus,photobacterium,True,2,0,0.0,2,1,1
+host_genus,planomicrobium,True,1,0,0.0,1,1,1
+host_genus,porphyromonas,True,1,0,0.0,1,1,1
+host_genus,prochlorococcus,True,6,6,1.0,6,1,1
+host_genus,propionibacterium,False,17,17,1.0,17,2,2
+host_genus,propionibacterium,True,60,60,1.0,60,2,2
+host_genus,proteus,False,2,2,1.0,2,1,1
+host_genus,proteus,True,13,9,0.6923076923076923,11,2,2
+host_genus,providencia,True,1,1,1.0,1,1,1
+host_genus,pseudoalteromonas,True,10,5,0.5,5,6,6
+host_genus,pseudomonas,False,26,26,1.0,26,5,5
+host_genus,pseudomonas,True,178,148,0.8314606741573034,161,15,15
+host_genus,ralstonia,False,1,1,1.0,1,1,1
+host_genus,ralstonia,True,18,17,0.9444444444444444,18,2,2
+host_genus,raoultella,True,4,0,0.0,4,1,1
+host_genus,rhizobium,False,1,1,1.0,1,1,1
+host_genus,rhizobium,True,13,9,0.6923076923076923,8,5,5
+host_genus,rhodobacter,False,2,2,1.0,2,1,1
+host_genus,rhodobacter,True,5,4,0.8,4,2,2
+host_genus,rhodococcus,False,11,10,0.9090909090909091,10,3,3
+host_genus,rhodococcus,True,10,4,0.4,6,5,5
+host_genus,rhodopseudomonas,True,1,0,0.0,1,1,1
+host_genus,rhodospirillum,True,1,0,0.0,1,1,1
+host_genus,rhodothermus,True,1,1,1.0,1,1,1
+host_genus,riemerella,True,1,1,1.0,1,1,1
+host_genus,roseobacter,False,1,1,1.0,1,1,1
+host_genus,roseobacter,True,2,1,0.5,1,2,2
+host_genus,ruegeria,True,2,2,1.0,2,1,1
+host_genus,saccharibacter,True,1,0,0.0,1,1,1
+host_genus,salinibacter,False,5,5,1.0,5,1,1
+host_genus,salinivibrio,True,1,1,1.0,1,1,1
+host_genus,salmonella,False,18,18,1.0,18,4,4
+host_genus,salmonella,True,97,81,0.8350515463917526,97,6,6
+host_genus,serratia,False,2,2,1.0,2,2,2
+host_genus,serratia,True,6,1,0.16666666666666666,6,1,1
+host_genus,shewanella,False,496,9,0.018145161290322582,248,2,1
+host_genus,shewanella,True,1,1,1.0,1,1,1
+host_genus,shigella,False,9,8,0.8888888888888888,9,4,4
+host_genus,shigella,True,45,28,0.6222222222222222,36,3,3
+host_genus,sinorhizobium,False,1,1,1.0,1,1,1
+host_genus,sinorhizobium,True,6,4,0.6666666666666666,6,1,1
+host_genus,sodalis,True,2,2,1.0,2,1,1
+host_genus,sphingomonas,True,1,1,1.0,1,1,1
+host_genus,spiroplasma,False,1,1,1.0,1,1,1
+host_genus,spiroplasma,True,3,3,1.0,3,2,2
+host_genus,staphylococcus,False,1057,336,0.31788079470198677,43,28,28
+host_genus,staphylococcus,True,143,97,0.6783216783216783,119,13,13
+host_genus,streptococcus,False,9,9,1.0,9,2,2
+host_genus,streptococcus,True,36,25,0.6944444444444444,33,13,13
+host_genus,streptomyces,False,15,15,1.0,15,8,8
+host_genus,streptomyces,True,23,22,0.9565217391304348,22,7,7
+host_genus,tetrasphaera,False,1,1,1.0,1,1,1
+host_genus,thermus,True,5,5,1.0,5,1,1
+host_genus,tsukamurella,True,2,2,1.0,2,1,1
+host_genus,vibrio,False,4222,303,0.07176693510184746,254,19,13
+host_genus,vibrio,True,78,61,0.782051282051282,68,13,13
+host_genus,weissella,True,1,1,1.0,1,1,1
+host_genus,xanthomonas,False,3,3,1.0,3,2,2
+host_genus,xanthomonas,True,8,8,1.0,8,4,4
+host_genus,xylella,False,2,2,1.0,2,1,1
+host_genus,xylella,True,3,3,1.0,3,1,1
+host_genus,yersinia,True,26,15,0.5769230769230769,18,10,10
+host_species,acholeplasma laidlawii,True,2,2,1.0,2,1,1
+host_species,achromobacter xylosoxidans,True,8,7,0.875,8,1,1
+host_species,acidovorax citrulli,False,1,1,1.0,1,1,1
+host_species,acinetobacter baumannii,False,15,15,1.0,15,1,1
+host_species,acinetobacter baumannii,True,24,20,0.8333333333333334,24,1,1
+host_species,acinetobacter johnsonii,True,3,3,1.0,3,1,1
+host_species,acinetobacter pittii,False,2,2,1.0,2,1,1
+host_species,acinetobacter soli,True,1,1,1.0,1,1,1
+host_species,actinomyces naeslundii,True,1,1,1.0,1,1,1
+host_species,aeromonas hydrophila,True,5,3,0.6,5,1,1
+host_species,aeromonas media,True,1,1,1.0,1,1,1
+host_species,aeromonas salmonicida,False,1,1,1.0,1,1,1
+host_species,aeromonas salmonicida,True,12,10,0.8333333333333334,12,1,1
+host_species,aggregatibacter actinomycetemcomitans,True,1,1,1.0,1,1,1
+host_species,agrobacterium tumefaciens,False,1,1,1.0,1,1,1
+host_species,aliivibrio fischeri,False,248,0,0.0,248,1,1
+host_species,alteromonas macleodii,True,2,1,0.5,2,1,1
+host_species,alteromonas marina,True,1,0,0.0,1,1,1
+host_species,anabaena spirioides,False,1,0,0.0,1,1,1
+host_species,anabaena variabilis,True,1,1,1.0,1,1,1
+host_species,azospirillum brasilense,True,1,1,1.0,1,1,1
+host_species,bacillus alcalophilus,True,1,1,1.0,1,1,1
+host_species,bacillus anthracis,True,12,10,0.8333333333333334,12,1,1
+host_species,bacillus borstelensis,True,1,0,0.0,1,1,1
+host_species,bacillus cereus,False,2,2,1.0,2,1,1
+host_species,bacillus cereus,True,31,21,0.6774193548387096,31,1,1
+host_species,bacillus clarkii,True,1,1,1.0,1,1,1
+host_species,bacillus halmapalus,True,1,1,1.0,1,1,1
+host_species,bacillus licheniformis,True,5,1,0.2,5,1,1
+host_species,bacillus megaterium,False,1,1,1.0,1,1,1
+host_species,bacillus megaterium,True,24,15,0.625,24,1,1
+host_species,bacillus psychrosaccharolyticus,True,1,1,1.0,1,1,1
+host_species,bacillus pumilus,False,1,1,1.0,1,1,1
+host_species,bacillus pumilus,True,13,9,0.6923076923076923,13,1,1
+host_species,bacillus sphaericus,True,2,0,0.0,2,1,1
+host_species,bacillus subtilis,False,10,10,1.0,10,1,1
+host_species,bacillus subtilis,True,31,11,0.3548387096774194,31,1,1
+host_species,bacillus thuringiensis,True,45,41,0.9111111111111111,45,1,1
+host_species,bacillus weihenstephanensis,True,7,3,0.42857142857142855,7,1,1
+host_species,bacteroides fragilis,True,4,2,0.5,4,1,1
+host_species,bdellovibrio bacteriovorus,True,3,3,1.0,3,1,1
+host_species,bordetella bronchiseptica,True,1,1,1.0,1,1,1
+host_species,brevibacillus brevis,True,1,1,1.0,1,1,1
+host_species,brevibacillus laterosporus,False,1,1,1.0,1,1,1
+host_species,brevibacillus laterosporus,True,7,6,0.8571428571428571,7,1,1
+host_species,brochothrix thermosphacta,True,3,3,1.0,3,1,1
+host_species,brucella abortus,True,2,2,1.0,2,1,1
+host_species,brucella canis,True,1,1,1.0,1,1,1
+host_species,brucella ceti,True,1,0,0.0,1,1,1
+host_species,brucella inopinata,True,1,0,0.0,1,1,1
+host_species,brucella melitensis,True,2,2,1.0,2,1,1
+host_species,brucella microti,True,1,1,1.0,1,1,1
+host_species,brucella neotomae,True,1,1,1.0,1,1,1
+host_species,brucella ovis,True,1,0,0.0,1,1,1
+host_species,brucella pinnipedialis,True,1,1,1.0,1,1,1
+host_species,brucella suis,True,1,1,1.0,1,1,1
+host_species,brucella vulpis,True,1,1,1.0,1,1,1
+host_species,burkholderia ambifaria,True,2,2,1.0,2,1,1
+host_species,burkholderia cenocepacia,True,10,10,1.0,10,1,1
+host_species,burkholderia cepacia,True,8,7,0.875,8,1,1
+host_species,burkholderia pseudomallei,True,5,5,1.0,5,1,1
+host_species,burkholderia pyrrocinia,True,1,1,1.0,1,1,1
+host_species,burkholderia thailandensis,True,3,3,1.0,3,1,1
+host_species,campylobacter coli,True,2,0,0.0,2,1,1
+host_species,campylobacter jejuni,False,2,2,1.0,2,1,1
+host_species,campylobacter jejuni,True,4,4,1.0,4,1,1
+host_species,caulobacter crescentus,True,8,8,1.0,8,1,1
+host_species,cellulophaga baltica,True,18,18,1.0,18,1,1
+host_species,chlamydia psittaci,True,3,3,1.0,3,1,1
+host_species,chlamydia trachomatis,True,1,0,0.0,1,1,1
+host_species,chlamydophila abortus,True,1,1,1.0,1,1,1
+host_species,chlamydophila pneumoniae,True,1,1,1.0,1,1,1
+host_species,citrobacter freundii,False,2,2,1.0,2,1,1
+host_species,citrobacter freundii,True,17,12,0.7058823529411765,17,1,1
+host_species,citrobacter rodentium,True,2,2,1.0,2,1,1
+host_species,clavibacter michiganensis,True,2,2,1.0,2,1,1
+host_species,clostridium botulinum,True,1,1,1.0,1,1,1
+host_species,clostridium difficile,False,18,16,0.8888888888888888,18,1,1
+host_species,clostridium perfringens,True,14,12,0.8571428571428571,14,1,1
+host_species,clostridium sporogenes,True,1,1,1.0,1,1,1
+host_species,clostridium tetani,True,8,8,1.0,8,1,1
+host_species,colwellia psychrerythaea,False,1,1,1.0,1,1,1
+host_species,corynebacterium glutamicum,False,2,2,1.0,2,1,1
+host_species,corynebacterium glutamicum,True,2,1,0.5,2,1,1
+host_species,corynebacterium vitaeruminis,False,4,4,1.0,4,1,1
+host_species,croceibacter atlanticus,True,2,2,1.0,2,1,1
+host_species,cronobacter dublinensis,True,2,2,1.0,2,1,1
+host_species,cronobacter malonaticus,True,3,3,1.0,3,1,1
+host_species,cronobacter sakazakii,True,19,15,0.7894736842105263,19,1,1
+host_species,cronobacter turicensis,True,2,2,1.0,2,1,1
+host_species,cronobacter universalis,True,1,0,0.0,1,1,1
+host_species,delftia acidovorans,True,2,1,0.5,2,1,1
+host_species,delftia tsuruhatensis,True,1,1,1.0,1,1,1
+host_species,dickeya chrysanthemi,True,1,0,0.0,1,1,1
+host_species,dickeya dadantii,True,1,0,0.0,1,1,1
+host_species,dickeya dianthicola,True,1,0,0.0,1,1,1
+host_species,dickeya dieffenbachiae,True,1,0,0.0,1,1,1
+host_species,dickeya solani,True,1,1,1.0,1,1,1
+host_species,dickeya zeae,True,1,0,0.0,1,1,1
+host_species,dinoroseobacter shibae,False,1,1,1.0,1,1,1
+host_species,dinoroseobacter shibae,True,1,1,1.0,1,1,1
+host_species,edwardsiella ictaluri,False,1,1,1.0,1,1,1
+host_species,edwardsiella ictaluri,True,3,3,1.0,3,1,1
+host_species,enterobacter aerogenes,False,2,2,1.0,2,1,1
+host_species,enterobacter aerogenes,True,7,2,0.2857142857142857,7,1,1
+host_species,enterobacter agglomerans,True,1,1,1.0,1,1,1
+host_species,enterobacter cancerogenus,True,1,1,1.0,1,1,1
+host_species,enterobacter cloacae,False,1,1,1.0,1,1,1
+host_species,enterobacter cloacae,True,7,3,0.42857142857142855,7,1,1
+host_species,enterobacter sakazakii,True,3,0,0.0,3,1,1
+host_species,enterococcus faecalis,False,11,11,1.0,11,1,1
+host_species,enterococcus faecalis,True,41,22,0.5365853658536586,41,1,1
+host_species,enterococcus faecium,True,6,4,0.6666666666666666,6,1,1
+host_species,enterovibrio norvegicus,False,248,12,0.04838709677419355,248,1,1
+host_species,erwinia amylovora,False,8,8,1.0,8,1,1
+host_species,erwinia amylovora,True,18,18,1.0,18,1,1
+host_species,erwinia billingiae,True,3,0,0.0,3,1,1
+host_species,erwinia persicina,True,3,0,0.0,3,1,1
+host_species,erwinia pyrifoliae,True,1,1,1.0,1,1,1
+host_species,erysipelothrix rhusiopathiae,True,1,1,1.0,1,1,1
+host_species,erythrobacter litoralis,True,1,0,0.0,1,1,1
+host_species,erythrobacter longus,True,1,0,0.0,1,1,1
+host_species,escherichia coli,False,26,26,1.0,26,1,1
+host_species,escherichia coli,True,222,196,0.8828828828828829,222,1,1
+host_species,flavobacterium columnare,False,1,1,1.0,1,1,1
+host_species,flavobacterium columnare,True,1,1,1.0,1,1,1
+host_species,flavobacterium psychrophilum,False,2,2,1.0,2,1,1
+host_species,flavobacterium psychrophilum,True,13,13,1.0,13,1,1
+host_species,fusobacterium nucleatum,True,1,0,0.0,1,1,1
+host_species,geobacillus kaustophilus,True,1,1,1.0,1,1,1
+host_species,geobacillus stearothermophilus,False,1,1,1.0,1,1,1
+host_species,gluconobacter cerinus,False,1,1,1.0,1,1,1
+host_species,gluconobacter oxydans,True,1,0,0.0,1,1,1
+host_species,gordonia alkanivorans,True,1,1,1.0,1,1,1
+host_species,gordonia malaquae,True,6,6,1.0,6,1,1
+host_species,gordonia neofelifaecis,True,1,1,1.0,1,1,1
+host_species,gordonia sputi,True,1,1,1.0,1,1,1
+host_species,gordonia terrae,False,9,9,1.0,9,1,1
+host_species,gordonia terrae,True,55,54,0.9818181818181818,55,1,1
+host_species,haemophilus influenzae,True,2,2,1.0,2,1,1
+host_species,haemophilus parasuis,True,1,1,1.0,1,1,1
+host_species,halomonas aquamarina,True,1,1,1.0,1,1,1
+host_species,helicobacter pylori,True,4,4,1.0,4,1,1
+host_species,idiomarina fontislapidosi,True,1,0,0.0,1,1,1
+host_species,idiomarina loihiensis,True,1,0,0.0,1,1,1
+host_species,janthinobacterium lividum,True,1,0,0.0,1,1,1
+host_species,klebsiella oxytoca,True,4,3,0.75,4,1,1
+host_species,klebsiella pneumoniae,False,5,5,1.0,5,1,1
+host_species,klebsiella pneumoniae,True,35,25,0.7142857142857143,35,1,1
+host_species,kocuria rosea,True,1,0,0.0,1,1,1
+host_species,lactobacillus brevis,True,2,0,0.0,2,1,1
+host_species,lactobacillus casei,True,8,4,0.5,8,1,1
+host_species,lactobacillus coryniformis,True,1,0,0.0,1,1,1
+host_species,lactobacillus crispatus,True,1,0,0.0,1,1,1
+host_species,lactobacillus curvatus,True,1,0,0.0,1,1,1
+host_species,lactobacillus delbrueckii,True,9,9,1.0,9,1,1
+host_species,lactobacillus fermentum,True,3,3,1.0,3,1,1
+host_species,lactobacillus fructivorans,True,1,0,0.0,1,1,1
+host_species,lactobacillus fructosus,True,1,0,0.0,1,1,1
+host_species,lactobacillus gasseri,True,4,3,0.75,4,1,1
+host_species,lactobacillus hilgardii,False,1,0,0.0,1,1,1
+host_species,lactobacillus jensenii,True,2,1,0.5,2,1,1
+host_species,lactobacillus johnsonii,True,3,3,1.0,3,1,1
+host_species,lactobacillus mali,True,1,0,0.0,1,1,1
+host_species,lactobacillus paracasei,True,8,7,0.875,8,1,1
+host_species,lactobacillus paraplantarum,True,1,0,0.0,1,1,1
+host_species,lactobacillus pentosaceus,False,1,0,0.0,1,1,1
+host_species,lactobacillus plantarum,False,4,3,0.75,4,1,1
+host_species,lactobacillus reuteri,True,1,0,0.0,1,1,1
+host_species,lactobacillus rhamnosus,True,2,2,1.0,2,1,1
+host_species,lactobacillus salivarius,True,1,0,0.0,1,1,1
+host_species,lactococcus garvieae,True,3,3,1.0,3,1,1
+host_species,lactococcus lactis,False,7,7,1.0,7,1,1
+host_species,lactococcus lactis,True,51,46,0.9019607843137255,51,1,1
+host_species,leptolyngbya foveolarum,True,1,1,1.0,1,1,1
+host_species,leuconostoc fallax,True,1,0,0.0,1,1,1
+host_species,leuconostoc lactis,True,1,0,0.0,1,1,1
+host_species,leuconostoc mesenteroides,True,14,8,0.5714285714285714,14,1,1
+host_species,leuconostoc paramesenteroides,True,1,0,0.0,1,1,1
+host_species,leuconostoc pseudomesenteroides,True,9,5,0.5555555555555556,9,1,1
+host_species,listeria innocua,True,3,0,0.0,3,1,1
+host_species,listeria ivanovii,True,7,0,0.0,7,1,1
+host_species,listeria monocytogenes,False,3,3,1.0,3,1,1
+host_species,listeria monocytogenes,True,40,21,0.525,40,1,1
+host_species,mannheimia haemolytica,True,6,6,1.0,6,1,1
+host_species,mesorhizobium loti,True,1,1,1.0,1,1,1
+host_species,microbacterium foliorum,False,7,7,1.0,7,1,1
+host_species,microbacterium oxydans,True,1,1,1.0,1,1,1
+host_species,microcystis aeruginosa,True,1,1,1.0,1,1,1
+host_species,morganella morganii,True,1,1,1.0,1,1,1
+host_species,mycobacterium abscessus,True,1,1,1.0,1,1,1
+host_species,mycobacterium avium,True,2,2,1.0,2,1,1
+host_species,mycobacterium phlei,True,2,1,0.5,2,1,1
+host_species,mycobacterium smegmatis,False,338,338,1.0,338,1,1
+host_species,mycobacterium tuberculosis,True,5,5,1.0,5,1,1
+host_species,mycoplasma arthritidis,False,1,1,1.0,1,1,1
+host_species,mycoplasma pulmonis,False,1,1,1.0,1,1,1
+host_species,myxococcus xanthus,True,1,1,1.0,1,1,1
+host_species,natrialba magadii,True,1,1,1.0,1,1,1
+host_species,nocardia brasiliensis,True,2,1,0.5,2,1,1
+host_species,nocardia otitidiscaviarum,True,1,0,0.0,1,1,1
+host_species,nostoc linckia,True,1,1,1.0,1,1,1
+host_species,paenibacillus alvei,True,1,1,1.0,1,1,1
+host_species,paenibacillus amylolyticus,True,1,0,0.0,1,1,1
+host_species,paenibacillus apiarius,True,1,0,0.0,1,1,1
+host_species,paenibacillus castaneae,True,1,1,1.0,1,1,1
+host_species,paenibacillus elgii,True,1,0,0.0,1,1,1
+host_species,paenibacillus fonticola,True,1,0,0.0,1,1,1
+host_species,paenibacillus glucanolyticus,True,1,1,1.0,1,1,1
+host_species,paenibacillus humicus,True,1,1,1.0,1,1,1
+host_species,paenibacillus lactis,True,1,1,1.0,1,1,1
+host_species,paenibacillus larvae,False,2,2,1.0,2,1,1
+host_species,paenibacillus larvae,True,11,11,1.0,11,1,1
+host_species,paenibacillus lautus,True,1,0,0.0,1,1,1
+host_species,paenibacillus nanensis,True,1,0,0.0,1,1,1
+host_species,paenibacillus pabuli,True,1,0,0.0,1,1,1
+host_species,paenibacillus peoriae,True,1,0,0.0,1,1,1
+host_species,paenibacillus polymyxa,True,1,0,0.0,1,1,1
+host_species,paenibacillus popilliae,True,1,0,0.0,1,1,1
+host_species,pantoea agglomerans,False,1,1,1.0,1,1,1
+host_species,pantoea agglomerans,True,5,3,0.6,5,1,1
+host_species,pantoea ananatis,True,3,1,0.3333333333333333,3,1,1
+host_species,parabacteroides distasonis,True,1,1,1.0,1,1,1
+host_species,parabacteroides merdae,True,1,1,1.0,1,1,1
+host_species,paracoccus denitrificans,True,1,0,0.0,1,1,1
+host_species,paracoccus marcusii,True,1,1,1.0,1,1,1
+host_species,pasteurella multocida,True,1,1,1.0,1,1,1
+host_species,pectobacterium atrosepticum,False,2,2,1.0,2,1,1
+host_species,pectobacterium atrosepticum,True,3,3,1.0,3,1,1
+host_species,pectobacterium carotovorum,False,1,1,1.0,1,1,1
+host_species,pectobacterium carotovorum,True,3,3,1.0,3,1,1
+host_species,pediococcus dextrinicus,False,1,0,0.0,1,1,1
+host_species,pediococcus pentosaceus,True,1,0,0.0,1,1,1
+host_species,pedobacter africanus,True,1,0,0.0,1,1,1
+host_species,phormidium foveolarum,True,1,1,1.0,1,1,1
+host_species,photobacterium damselae,True,2,0,0.0,2,1,1
+host_species,planomicrobium okeanokoites,True,1,0,0.0,1,1,1
+host_species,porphyromonas gingivalis,True,1,0,0.0,1,1,1
+host_species,prochlorococcus marinus,True,6,6,1.0,6,1,1
+host_species,propionibacterium acnes,False,11,11,1.0,11,1,1
+host_species,propionibacterium acnes,True,57,57,1.0,57,1,1
+host_species,propionibacterium freudenreichii,False,6,6,1.0,6,1,1
+host_species,propionibacterium freudenreichii,True,3,3,1.0,3,1,1
+host_species,proteus mirabilis,False,2,2,1.0,2,1,1
+host_species,proteus mirabilis,True,11,9,0.8181818181818182,11,1,1
+host_species,proteus vulgaris,True,2,0,0.0,2,1,1
+host_species,providencia stuartii,True,1,1,1.0,1,1,1
+host_species,pseudoalteromonas arctica,True,1,0,0.0,1,1,1
+host_species,pseudoalteromonas atlantica,True,2,1,0.5,2,1,1
+host_species,pseudoalteromonas marina,True,4,4,1.0,4,1,1
+host_species,pseudoalteromonas nigrifaciens,True,1,0,0.0,1,1,1
+host_species,pseudoalteromonas phenolica,True,1,0,0.0,1,1,1
+host_species,pseudoalteromonas translucida,True,1,0,0.0,1,1,1
+host_species,pseudomonas aeruginosa,False,19,19,1.0,19,1,1
+host_species,pseudomonas aeruginosa,True,124,110,0.8870967741935484,124,1,1
+host_species,pseudomonas agarici,True,1,1,1.0,1,1,1
+host_species,pseudomonas chlororaphis,True,1,1,1.0,1,1,1
+host_species,pseudomonas cichorii,True,1,0,0.0,1,1,1
+host_species,pseudomonas costantinii,True,1,1,1.0,1,1,1
+host_species,pseudomonas fluorescens,False,1,1,1.0,1,1,1
+host_species,pseudomonas fluorescens,True,11,7,0.6363636363636364,11,1,1
+host_species,pseudomonas gingeri,True,2,0,0.0,2,1,1
+host_species,pseudomonas poae,True,1,0,0.0,1,1,1
+host_species,pseudomonas putida,False,2,2,1.0,2,1,1
+host_species,pseudomonas putida,True,9,5,0.5555555555555556,9,1,1
+host_species,pseudomonas putrefaciens,True,1,0,0.0,1,1,1
+host_species,pseudomonas rhizosphaerae,True,1,1,1.0,1,1,1
+host_species,pseudomonas segetis,True,2,0,0.0,2,1,1
+host_species,pseudomonas syringae,False,3,3,1.0,3,1,1
+host_species,pseudomonas syringae,True,21,21,1.0,21,1,1
+host_species,pseudomonas taetrolens,True,1,0,0.0,1,1,1
+host_species,pseudomonas tolaasii,False,1,1,1.0,1,1,1
+host_species,pseudomonas tolaasii,True,1,1,1.0,1,1,1
+host_species,ralstonia pickettii,True,2,1,0.5,2,1,1
+host_species,ralstonia solanacearum,False,1,1,1.0,1,1,1
+host_species,ralstonia solanacearum,True,16,16,1.0,16,1,1
+host_species,raoultella ornithinolytica,True,4,0,0.0,4,1,1
+host_species,rhizobium etli,False,1,1,1.0,1,1,1
+host_species,rhizobium etli,True,4,2,0.5,4,1,1
+host_species,rhizobium gallicum,True,2,1,0.5,2,1,1
+host_species,rhizobium leguminosarum,True,4,3,0.75,4,1,1
+host_species,rhizobium leucaenae,True,1,1,1.0,1,1,1
+host_species,rhizobium radiobacter,True,2,2,1.0,2,1,1
+host_species,rhodobacter capsulatus,False,2,2,1.0,2,1,1
+host_species,rhodobacter capsulatus,True,4,4,1.0,4,1,1
+host_species,rhodobacter sphaeroides,True,1,0,0.0,1,1,1
+host_species,rhodococcus equi,False,8,8,1.0,8,1,1
+host_species,rhodococcus erythropolis,False,2,2,1.0,2,1,1
+host_species,rhodococcus erythropolis,True,4,2,0.5,4,1,1
+host_species,rhodococcus fascians,False,1,0,0.0,1,1,1
+host_species,rhodococcus globerulus,True,2,1,0.5,2,1,1
+host_species,rhodococcus opacus,True,1,0,0.0,1,1,1
+host_species,rhodococcus rhodochrous,True,2,1,0.5,2,1,1
+host_species,rhodococcus ruber,True,1,0,0.0,1,1,1
+host_species,rhodopseudomonas palustris,True,1,0,0.0,1,1,1
+host_species,rhodospirillum centenum,True,1,0,0.0,1,1,1
+host_species,rhodothermus marinus,True,1,1,1.0,1,1,1
+host_species,riemerella anatipestifer,True,1,1,1.0,1,1,1
+host_species,roseobacter denitrificans,False,1,1,1.0,1,1,1
+host_species,roseobacter denitrificans,True,1,1,1.0,1,1,1
+host_species,roseobacter litoralis,True,1,0,0.0,1,1,1
+host_species,ruegeria pomeroyi,True,2,2,1.0,2,1,1
+host_species,saccharibacter floricola,True,1,0,0.0,1,1,1
+host_species,salinibacter ruber,False,5,5,1.0,5,1,1
+host_species,salinivibrio costicola,True,1,1,1.0,1,1,1
+host_species,salmonella,False,2,2,1.0,2,1,1
+host_species,salmonella enterica,False,11,11,1.0,11,1,1
+host_species,salmonella enterica,True,78,62,0.7948717948717948,78,1,1
+host_species,salmonella enteritidis,False,1,1,1.0,1,1,1
+host_species,salmonella enteritidis,True,4,4,1.0,4,1,1
+host_species,salmonella gallinarum,True,2,2,1.0,2,1,1
+host_species,salmonella paratyphi,True,3,3,1.0,3,1,1
+host_species,salmonella typhi,True,1,1,1.0,1,1,1
+host_species,salmonella typhimurium,False,4,4,1.0,4,1,1
+host_species,salmonella typhimurium,True,9,9,1.0,9,1,1
+host_species,serratia marcescens,False,1,1,1.0,1,1,1
+host_species,serratia marcescens,True,6,1,0.16666666666666666,6,1,1
+host_species,serratia rubidaea,False,1,1,1.0,1,1,1
+host_species,shewanella,False,496,9,0.018145161290322582,248,2,1
+host_species,shewanella putrefaciens,True,1,1,1.0,1,1,1
+host_species,shigella boydii,False,1,1,1.0,1,1,1
+host_species,shigella boydii,True,9,2,0.2222222222222222,9,1,1
+host_species,shigella dysentriae,False,2,1,0.5,2,1,1
+host_species,shigella flexneri,False,5,5,1.0,5,1,1
+host_species,shigella flexneri,True,20,15,0.75,20,1,1
+host_species,shigella sonnei,False,1,1,1.0,1,1,1
+host_species,shigella sonnei,True,16,11,0.6875,16,1,1
+host_species,sinorhizobium meliloti,False,1,1,1.0,1,1,1
+host_species,sinorhizobium meliloti,True,6,4,0.6666666666666666,6,1,1
+host_species,sodalis glossinidius,True,2,2,1.0,2,1,1
+host_species,sphingomonas paucimobilis,True,1,1,1.0,1,1,1
+host_species,spiroplasma citri,True,2,2,1.0,2,1,1
+host_species,spiroplasma kunkelii,False,1,1,1.0,1,1,1
+host_species,spiroplasma melliferum,True,1,1,1.0,1,1,1
+host_species,staphylococcus arlettae,False,39,0,0.0,39,1,1
+host_species,staphylococcus aureus,False,40,25,0.625,40,1,1
+host_species,staphylococcus aureus,True,104,81,0.7788461538461539,104,1,1
+host_species,staphylococcus auricularis,False,39,4,0.10256410256410256,39,1,1
+host_species,staphylococcus capitis,False,39,17,0.4358974358974359,39,1,1
+host_species,staphylococcus capitis,True,1,1,1.0,1,1,1
+host_species,staphylococcus caprae,False,39,2,0.05128205128205128,39,1,1
+host_species,staphylococcus carnosus,True,3,0,0.0,3,1,1
+host_species,staphylococcus chromogenes,False,39,20,0.5128205128205128,39,1,1
+host_species,staphylococcus cohnii,False,39,16,0.41025641025641024,39,1,1
+host_species,staphylococcus cohnii,True,1,0,0.0,1,1,1
+host_species,staphylococcus epidermidis,False,40,26,0.65,40,1,1
+host_species,staphylococcus epidermidis,True,19,9,0.47368421052631576,19,1,1
+host_species,staphylococcus equorum,False,39,20,0.5128205128205128,39,1,1
+host_species,staphylococcus fleuretti,False,39,7,0.1794871794871795,39,1,1
+host_species,staphylococcus haemolyticus,False,39,5,0.1282051282051282,39,1,1
+host_species,staphylococcus haemolyticus,True,3,1,0.3333333333333333,3,1,1
+host_species,staphylococcus hominis,False,39,0,0.0,39,1,1
+host_species,staphylococcus hominis,True,2,2,1.0,2,1,1
+host_species,staphylococcus hyicus,False,39,6,0.15384615384615385,39,1,1
+host_species,staphylococcus intermedius,True,2,0,0.0,2,1,1
+host_species,staphylococcus kloosii,False,39,17,0.4358974358974359,39,1,1
+host_species,staphylococcus lentus,False,39,10,0.2564102564102564,39,1,1
+host_species,staphylococcus lugdunensis,False,39,22,0.5641025641025641,39,1,1
+host_species,staphylococcus nepalensis,False,39,0,0.0,39,1,1
+host_species,staphylococcus pasteuri,False,39,2,0.05128205128205128,39,1,1
+host_species,staphylococcus pasteuri,True,2,1,0.5,2,1,1
+host_species,staphylococcus pettenkoferi,False,39,4,0.10256410256410256,39,1,1
+host_species,staphylococcus pseudintermedius,False,39,1,0.02564102564102564,39,1,1
+host_species,staphylococcus saprophyticus,False,39,2,0.05128205128205128,39,1,1
+host_species,staphylococcus saprophyticus,True,1,1,1.0,1,1,1
+host_species,staphylococcus schleiferi,False,39,25,0.6410256410256411,39,1,1
+host_species,staphylococcus sciuri,False,39,25,0.6410256410256411,39,1,1
+host_species,staphylococcus simulans,True,3,0,0.0,3,1,1
+host_species,staphylococcus succinus,False,39,19,0.48717948717948717,39,1,1
+host_species,staphylococcus vitulinus,False,39,29,0.7435897435897436,39,1,1
+host_species,staphylococcus warneri,False,39,4,0.10256410256410256,39,1,1
+host_species,staphylococcus warneri,True,1,0,0.0,1,1,1
+host_species,staphylococcus xylosis,False,2,1,0.5,2,1,1
+host_species,staphylococcus xylosus,False,39,27,0.6923076923076923,39,1,1
+host_species,staphylococcus xylosus,True,1,1,1.0,1,1,1
+host_species,streptococcus dysgalactiae,True,1,1,1.0,1,1,1
+host_species,streptococcus equi,True,1,1,1.0,1,1,1
+host_species,streptococcus gordonii,True,1,1,1.0,1,1,1
+host_species,streptococcus mitis,True,1,1,1.0,1,1,1
+host_species,streptococcus mutans,True,3,2,0.6666666666666666,3,1,1
+host_species,streptococcus oralis,True,1,1,1.0,1,1,1
+host_species,streptococcus parauberis,True,1,1,1.0,1,1,1
+host_species,streptococcus pyogenes,False,6,6,1.0,6,1,1
+host_species,streptococcus pyogenes,True,2,2,1.0,2,1,1
+host_species,streptococcus salivarius,True,6,1,0.16666666666666666,6,1,1
+host_species,streptococcus sobrinus,True,1,0,0.0,1,1,1
+host_species,streptococcus suis,True,4,2,0.5,4,1,1
+host_species,streptococcus thermophilus,False,3,3,1.0,3,1,1
+host_species,streptococcus thermophilus,True,12,12,1.0,12,1,1
+host_species,streptococcus zooepidemicus,True,2,0,0.0,2,1,1
+host_species,streptomyces aureofaciens,False,1,1,1.0,1,1,1
+host_species,streptomyces avermitilis,True,3,3,1.0,3,1,1
+host_species,streptomyces azureus,False,1,1,1.0,1,1,1
+host_species,streptomyces coelicolor,False,1,1,1.0,1,1,1
+host_species,streptomyces coelicolor,True,2,2,1.0,2,1,1
+host_species,streptomyces exfoliatus,True,1,1,1.0,1,1,1
+host_species,streptomyces flavovirens,True,2,2,1.0,2,1,1
+host_species,streptomyces griseus,False,6,6,1.0,6,1,1
+host_species,streptomyces griseus,True,6,5,0.8333333333333334,6,1,1
+host_species,streptomyces lividans,False,2,2,1.0,2,1,1
+host_species,streptomyces lividans,True,5,5,1.0,5,1,1
+host_species,streptomyces scabiei,False,1,1,1.0,1,1,1
+host_species,streptomyces venezuelae,False,1,1,1.0,1,1,1
+host_species,streptomyces venezuelae,True,4,4,1.0,4,1,1
+host_species,streptomyces viridochromogenes,False,2,2,1.0,2,1,1
+host_species,tetrasphaera jenkinsii,False,1,1,1.0,1,1,1
+host_species,thermus thermophilus,True,5,5,1.0,5,1,1
+host_species,tsukamurella paurometabola,True,2,2,1.0,2,1,1
+host_species,vibrio,False,1736,44,0.02534562211981567,248,7,1
+host_species,vibrio alginolyticus,False,249,1,0.004016064257028112,249,1,1
+host_species,vibrio alginolyticus,True,3,3,1.0,3,1,1
+host_species,vibrio anguillarum,False,248,0,0.0,248,1,1
+host_species,vibrio anguillarum,True,3,1,0.3333333333333333,3,1,1
+host_species,vibrio breoganii,False,248,52,0.20967741935483872,248,1,1
+host_species,vibrio cholerae,False,1,1,1.0,1,1,1
+host_species,vibrio cholerae,True,26,26,1.0,26,1,1
+host_species,vibrio cyclitrophicus,False,248,50,0.20161290322580644,248,1,1
+host_species,vibrio fischeri,True,6,1,0.16666666666666666,6,1,1
+host_species,vibrio fluvialis,True,1,0,0.0,1,1,1
+host_species,vibrio furnissii,True,1,0,0.0,1,1,1
+host_species,vibrio harveyi,False,3,3,1.0,3,1,1
+host_species,vibrio harveyi,True,2,2,1.0,2,1,1
+host_species,vibrio kanaloae,False,248,2,0.008064516129032258,248,1,1
+host_species,vibrio lentus,False,248,96,0.3870967741935484,248,1,1
+host_species,vibrio metschnikovii,True,1,1,1.0,1,1,1
+host_species,vibrio mimicus,True,1,1,1.0,1,1,1
+host_species,vibrio natriegens,True,2,2,1.0,2,1,1
+host_species,vibrio parahaemolyticus,False,248,0,0.0,248,1,1
+host_species,vibrio parahaemolyticus,True,26,18,0.6923076923076923,26,1,1
+host_species,vibrio splendidus,False,248,50,0.20161290322580644,248,1,1
+host_species,vibrio splendidus,True,3,3,1.0,3,1,1
+host_species,vibrio tasmaniensis,False,248,3,0.012096774193548387,248,1,1
+host_species,vibrio vulnificus,False,249,1,0.004016064257028112,249,1,1
+host_species,vibrio vulnificus,True,3,3,1.0,3,1,1
+host_species,weissella cibaria,True,1,1,1.0,1,1,1
+host_species,xanthomonas arboricola,False,2,2,1.0,2,1,1
+host_species,xanthomonas campestris,True,3,3,1.0,3,1,1
+host_species,xanthomonas citri,True,2,2,1.0,2,1,1
+host_species,xanthomonas oryzae,False,1,1,1.0,1,1,1
+host_species,xanthomonas oryzae,True,2,2,1.0,2,1,1
+host_species,xanthomonas vesicatoria,True,1,1,1.0,1,1,1
+host_species,xylella fastidiosa,False,2,2,1.0,2,1,1
+host_species,xylella fastidiosa,True,3,3,1.0,3,1,1
+host_species,yersinia aldovae,True,1,0,0.0,1,1,1
+host_species,yersinia bercovieri,True,1,0,0.0,1,1,1
+host_species,yersinia enterocolitica,True,12,9,0.75,12,1,1
+host_species,yersinia frederiksenii,True,1,0,0.0,1,1,1
+host_species,yersinia intermedia,True,1,0,0.0,1,1,1
+host_species,yersinia kristensenii,True,1,0,0.0,1,1,1
+host_species,yersinia pestis,True,6,6,1.0,6,1,1
+host_species,yersinia pseudotuberculosis,True,1,0,0.0,1,1,1
+host_species,yersinia rohdei,True,1,0,0.0,1,1,1
+host_species,yersinia ruckeri,True,1,0,0.0,1,1,1
+label,0,False,5620,0,0.0,295,57,50
+label,0,True,459,0,0.0,76,164,164
+label,1,False,1282,1282,1.0,908,126,119
+label,1,True,1488,1488,1.0,1415,230,230

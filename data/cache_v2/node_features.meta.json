@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "names_sha256": "abd95a8d7b44ac3c79768d0966ff95de34e451e5797640cb35b3fe64ed53be5b",
+  "phage_source_sha256": "b86968127370d31c2a3f2ecef9629421fa4d56b6d6c3e284b0c3e9421391ed98",
+  "host_source_sha256": "171e4748d855ee2026492d06eba5dabdced7a57112d1a50ffdf6d5d7daf633c4",
+  "kmer_k": 4,
+  "use_codon": true,
+  "use_dinuc": true
+}

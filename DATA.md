@@ -1,5 +1,30 @@
 # Data and provenance
 
+## Dated snapshot corrections (2026.10.15)
+
+The dated scientific release preserves original inputs and predictions. New
+retrospective analyses live under
+`data/results_v2/frontiers_revision_2026_10_14` and
+`data/results_v2/frontiers_revision_2026_10_15`. See the root README for the
+current claims and crossed host/composition uncertainty sensitivities.
+
+The NCBI_HR coverage audit is non-neutral: 631 of the 641 excluded records
+(98.4%) are positive, versus 1,488 of 1,947 covered records (76.4%). Genome
+resolution therefore defines a selected cohort, not a representative sample of
+the source. The Nahant audit checked local preserved caches only: no phage and
+five host identifiers resolved, so zero pairs had both genomes. It does not
+establish worldwide public genome unavailability.
+
+The frozen training genome inventory now records versioned header/accession,
+record order, length, sequence hashes and file hashes for all 1,418 phage and
+323 host files. Host files contain 666 ordered records with 656 distinct
+versioned accessions. All original file hashes matched the frozen checksums.
+`scripts/frontiers_revision/recover_training_fastas.py` is opt-in and verifies
+version, length and sequence hash without overwriting existing files. For
+example, `--axis phage --limit 1 --download --report recovery_one_phage.json`
+requests one record; omitting `--download` performs no retrieval. Sequence
+identity and exact original FASTA formatting are distinct checks.
+
 ## Interaction labels
 
 `data/raw/VirusHostInter.csv` is the frozen 8,849-row input distributed with the
@@ -73,8 +98,8 @@ Consequently:
 
 The pinned Gaborieau et al. repository (commit
 `99656d8c020fcd1dbbc30a02ee10274a07655562`) supplies a separate dense
-Escherichia resource: 402 Picard hosts by 96 Guelin phages (38,531 observed of
-38,688 possible pairs) and experimentally tested cocktails for 100 unseen
+Escherichia resource: 402 Picard hosts by 96 Guelin phages (38,435 observed of
+38,592 possible pairs, with 7,976 positive assays) and experimentally tested cocktails for 100 unseen
 ColoColi hosts. It is staged by
 `experiments/fetch_staph_validation_sources.py` and excluded from Git because
 the checkout is approximately 136 MB.
@@ -87,10 +112,17 @@ cocktail score yielded AUROC 0.807 (host-cluster bootstrap 95% CI
 0.693-0.906) and average precision 0.951 (0.904-0.983) across 100 hosts.
 
 The tested cocktails were selected by Gaborieau et al. PrecisionPhage scored
-them but did not choose them, so this is independent fixed-bank validation of
-cocktail prioritization, not external efficacy validation of de novo
-PrecisionPhage selections. Experiments 31 and 32 retain a failed rank-only
-selector and a corrected development-only selector audit, respectively.
+them but did not choose them. Their 100 host-triplet records contain 82 active
+outcomes and 18 distinct compositions; this supports bounded scoring across
+the observed records, not de novo selection or clinical efficacy. MLC > 0 is an
+observed plaque/clearing endpoint, not proof of productive replication. Later
+crossed host-cluster/composition sensitivities widen the AUROC interval to
+0.543–0.965 and AP interval to 0.852–0.998. The two-option policy-gain interval
+includes zero. The source predictor's released decision table supplies 233 of
+300 constituent scores and 64 complete hosts; the full 100-host continuous-score
+comparison remains unavailable after a documented source-resource audit.
+Experiments 31 and 32 retain a failed rank-only selector and a development-only
+selector audit, respectively.
 
 ## Generated and frozen artifacts
 

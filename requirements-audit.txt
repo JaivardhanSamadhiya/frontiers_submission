@@ -1,0 +1,3 @@
+# Additional dependency for the October 2026 canonical-genome sensitivity.
+# Install after the study's requirements-lock.txt environment.
+sourmash==4.9.3

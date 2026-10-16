@@ -1,17 +1,27 @@
 cff-version: 1.2.0
-message: "If you use this software or frozen analysis, please cite the associated manuscript."
-title: "PrecisionPhage: leakage-controlled phage-host interaction prediction"
+message: "If you use this scientific code or analysis snapshot, cite this exact version."
+title: "PrecisionPhage: leakage-controlled phage-host prediction and fixed-bank cocktail scoring"
 type: software
 authors:
   - family-names: "Samadhiya"
     given-names: "Jaivardhan"
-version: 2.0.1
-date-released: 2026-09-06
+    affiliation: "West Valley College"
+version: "2026.10.15"
+date-released: 2026-10-15
 repository-code: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
+url: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
 license: MIT
+abstract: >-
+  Scientific code and compact data for leakage-controlled phage-host prediction,
+  frozen source-transfer tests, and retrospective scoring of published
+  fixed-bank Escherichia cocktail assays. Original frozen results are preserved
+  alongside explicitly retrospective controls, feature ablations and crossed
+  host-cluster/composition uncertainty sensitivities. This research snapshot
+  does not establish clinical efficacy or de novo cocktail-selection benefit.
 keywords:
   - bacteriophage
   - phage-host interaction
   - machine learning
   - data leakage
-  - phage therapy
+  - external validation
+  - reproducibility

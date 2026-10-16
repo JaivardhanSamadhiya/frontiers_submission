@@ -1,5 +1,12 @@
 # PrecisionPhage generalization audit
 
+**Historical report with dated corrections.** The original fixed predictions
+remain unchanged. For the current 2026.10.15 interpretation use the root README
+and release notes: AP is paired with 0.820 prevalence, crossed host/composition
+AUROC sensitivity is 0.543–0.965, complete source scores cover only 64 hosts,
+and the paired policy-gain interval includes zero. No prospective selection
+benefit, portable calibration or clinical usefulness is established.
+
 ## Bottom line
 
 The original frozen NCBI_HR-to-StaphStudy result does not establish portable
@@ -27,7 +34,7 @@ bug.
 | NCBI_HR (sequence-covered model set) | 1,947 | 76.4% | 1,418 | 323 | 0.43% | 1 | 2 |
 | NahantCollection | 5,208 | 6.1% | 248 | 21 | 100% | 21 | 248 |
 | StaphStudy | 1,053 | 31.6% | 39 | 27 | 100% | 27 | 39 |
-| Picard development matrix | 38,688 possible; 38,531 observed | 20.8% of observed | 96 | 402 | 99.6% | approximately 401 | approximately 96 |
+| Picard development matrix | 38,592 possible; 38,435 observed | 20.8% of observed | 96 | 402 | 99.6% | approximately 401 | approximately 96 |
 
 NCBI_HR is a sparse, literature/record-curated collection dominated by
 positives.  A phage usually appears once and a host only twice.  The model can

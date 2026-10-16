@@ -1,0 +1,174 @@
+{
+  "analysis": "Saved-score historical cocktail reporting and controls",
+  "status": "completed retrospective descriptive analysis",
+  "created_utc": "2026-10-14T22:03:58.854586+00:00",
+  "code_sha256": "3baaca0857d8ad5767b268b94583c17e72a5f703bcc61749d976a2766a59bd0b",
+  "seed": 42030,
+  "bootstrap_replicates_per_cohort": 2000,
+  "cohorts": [
+    {
+      "cohort": "historical_100",
+      "n_hosts": 100,
+      "positive": 82,
+      "host_clusters": 81,
+      "valid_replicates": 2000,
+      "attempted_replicates": 2000,
+      "seed": 42030,
+      "confidence_interval": "2.5th and 97.5th percentiles",
+      "constant_score_ap": 0.82,
+      "expected_uniform_random_order_ap": 0.8276134136684358,
+      "expected_random_ap_formula": "(P-1)/(N-1) + (N-P)*H_N/(N*(N-1)) for fixed P positives among N records",
+      "resampling_scope": "Paired resampling of the historical external host clusters at distance 1e-4; all methods use identical multiplicity weights; row-weighted pooled metrics; conditional on the saved model, historical cohort normalization, chosen grouping and fixed phage bank.",
+      "ap_excess_covariance": "Prevalence is recomputed using the same weights within every replicate before subtracting it from AP."
+    },
+    {
+      "cohort": "exclude_AN03_99",
+      "n_hosts": 99,
+      "positive": 81,
+      "host_clusters": 81,
+      "valid_replicates": 2000,
+      "attempted_replicates": 2000,
+      "seed": 42030,
+      "confidence_interval": "2.5th and 97.5th percentiles",
+      "constant_score_ap": 0.8181818181818182,
+      "expected_uniform_random_order_ap": 0.8259320547637099,
+      "expected_random_ap_formula": "(P-1)/(N-1) + (N-P)*H_N/(N*(N-1)) for fixed P positives among N records",
+      "resampling_scope": "Paired resampling of the historical external host clusters at distance 1e-4; all methods use identical multiplicity weights; row-weighted pooled metrics; conditional on the saved model, historical cohort normalization, chosen grouping and fixed phage bank.",
+      "ap_excess_covariance": "Prevalence is recomputed using the same weights within every replicate before subtracting it from AP."
+    }
+  ],
+  "methods": {
+    "historical_product": "Historical product score",
+    "maximum_constituent": "Maximum constituent",
+    "mean_constituent": "Mean constituent",
+    "logistic_component": "Logistic component",
+    "neighbour_component": "Neighbour component",
+    "training_phage_mean": "Training phage susceptibility",
+    "host_phylogroup": "Host phylogroup only"
+  },
+  "training_baselines": {
+    "training_hosts": 402,
+    "bank_phages": 96,
+    "observed_training_individual_assays": 38435,
+    "positive_training_individual_assays": 7976,
+    "global_training_individual_activity": 0.20751918823988552,
+    "phylogroup_fallback_hosts": [],
+    "missing_distance_hosts_given_separate_clusters": [
+      "LM01",
+      "NAN46",
+      "RY11"
+    ],
+    "phylogroup_baseline_rule": "Mean binary individual-assay activity over observed Picard host-phage pairs within the host phylogroup; missing/unseen phylogroups use global observed-training mean. No cocktail labels, tuning, or model fitting."
+  },
+  "historical_composition_shuffle": {
+    "replicates": 1000,
+    "scope": "Historical 100-host cohort only; diagnostic, no p-value",
+    "auroc": {
+      "median": 0.6727642276422764,
+      "diagnostic_95_range": [
+        0.6029810298102981,
+        0.7493224932249322
+      ]
+    },
+    "average_precision": {
+      "median": 0.908342986054955,
+      "diagnostic_95_range": [
+        0.8804086404708694,
+        0.9348110442448492
+      ]
+    }
+  },
+  "checks": {
+    "sklearn_weighted_metric_cases": 240,
+    "constant_score_ap_and_zero_lift": true,
+    "exhaustive_expected_random_recovery_cases": 55,
+    "passed": true,
+    "historical_point_metrics_reproduced": true,
+    "historical_2000_draw_confidence_intervals_reproduced": true,
+    "frozen_prediction_hash_verified": true,
+    "training_prevalences_recomputed": true,
+    "all_source_hashes_unchanged": true,
+    "method_rows": 14,
+    "paired_difference_rows": 42
+  },
+  "limitations": [
+    "These are retrospective controls on already inspected external outcomes, not a new frozen validation or preregistration.",
+    "Historical product, maximum and mean scores inherit normalization across the 100-host external cohort; subgroup sensitivity preserves those original scores rather than renormalizing.",
+    "The outcome is the recorded positive assay of each externally selected historical triple. Naming the source column productive in a legacy CSV does not establish productive replication or clinical efficacy.",
+    "One analyzed triple per host ranks records across the cohort; it does not evaluate alternative cocktails for the same host. Source measured pairs/control triples are handled in the separate source-comparison analysis.",
+    "All uncertainty conditions on fixed scores, bank and historical host grouping; three missing-distance hosts receive singleton groups and the historical AN03 name is ambiguous.",
+    "Seven methods and multiple reporting contrasts are exploratory; no multiplicity-adjusted superiority hypothesis or permutation p-value is asserted.",
+    "Composition shuffle is reused as a diagnostic distribution; exchangeability sufficient for a confirmatory null test has not been established.",
+    "Triage ranks use descending score and ascending exact host identifier to break ties. Results concern the already selected tested cohort, not prospective thresholds, laboratory cost savings or within-host selection.",
+    "Random recovery expectation r*(N+1)/(P+1) is the expected rank of the rth positive record under a uniform permutation of this fixed labelled cohort; it is not a real-world cost estimate."
+  ],
+  "input_hashes": {
+    "cocktails": {
+      "path": "data\\results_v2\\external_cocktail_validation\\heldout_cocktail_predictions_and_outcomes.csv",
+      "sha256": "596b57d9bfa11a42d13efcf20d4f9c054eed32f92e91b10d7bce12cde35bd575"
+    },
+    "constituents": {
+      "path": "data\\results_v2\\external_cocktail_validation\\heldout_selected_pair_predictions_and_outcomes.csv",
+      "sha256": "bf71dc934933667d0abde3db2bffac27736b8e4e43cb57459158fdd75e25f51d"
+    },
+    "all_frozen_pairs": {
+      "path": "data\\results_v2\\external_cocktail_validation\\frozen_pair_predictions.csv",
+      "sha256": "876c97d91b64158b9bda4a6df15cd510f2b1753da80c031a261570247932ef6d"
+    },
+    "historical_summary": {
+      "path": "data\\results_v2\\external_cocktail_validation\\external_cocktail_validation_summary.json",
+      "sha256": "3cab566e00f3cc78e46b21ec920582a4fce8738a8d58b12f25b253e925b11bb9"
+    },
+    "frozen_manifest": {
+      "path": "data\\results_v2\\external_cocktail_validation\\frozen_prediction_manifest.json",
+      "sha256": "fd09c155420b4e9303eb121e6e0aa6a0dfdd6473d07c920e6f72e23b3587ac9a"
+    },
+    "training_matrix": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\data\\interactions\\interaction_matrix.csv",
+      "sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829"
+    },
+    "training_metadata": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\data\\genomics\\bacteria\\picard_collection.csv",
+      "sha256": "e880b60cdc3df6f000b2f0e74985415bd11737d474ab68dd35d0085940cf5b13"
+    },
+    "external_metadata": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\test_collection.csv",
+      "sha256": "fe2cae9992f6932906cd41ef80164c959153722ac098e01a983abcc78198e3b5"
+    },
+    "distances": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\picard+test_collection_phylogenetic_distances.tsv",
+      "sha256": "37ba758a5bb6b2806604652cff1f064b997675322bd707f9937329c46d360e3b"
+    },
+    "host_cluster_definition": {
+      "path": "experiments\\30_evaluate_external_cocktails.py",
+      "sha256": "3cd1df4b72ac8964d075c0b8e25195940907d3fa059225d6fe45f4d61f51b0a1"
+    },
+    "composition_shuffle": {
+      "path": "data\\results_v2\\post_rejection_audit\\composition_shuffle_diagnostic.csv",
+      "sha256": "37abcff69f320a1918ae7d9cf87bd834e2892a5aab1859774bcf3445f728d2f8"
+    }
+  },
+  "outputs": [
+    "host_scores.csv",
+    "training_phylogroup_reference.csv",
+    "method_metrics.csv",
+    "paired_method_differences.csv",
+    "triage_top_k.csv",
+    "triage_recovery.csv",
+    "triage_ranked_records.csv",
+    "cocktail_roc_pr.png",
+    "cocktail_roc_pr.pdf",
+    "cocktail_triage.png",
+    "cocktail_triage.pdf",
+    "bootstrap_historical_100.npz",
+    "bootstrap_exclude_AN03_99.npz"
+  ],
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "scipy": "1.13.1",
+    "scikit_learn": "1.4.2",
+    "matplotlib": "3.8.4"
+  }
+}

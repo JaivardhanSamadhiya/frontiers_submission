@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-15T04:04:16.783803+00:00",
+  "status": "retrospective reviewer sensitivity; not independently frozen validation",
+  "mode": "cutoffs",
+  "script_sha256": "6ee7ac116b32562388077b61288c5f903e2b04d013f1d6357bf5758bfa8c6b6b",
+  "input_sha256": {
+    "data\\results_v2\\canonical_sensitivity\\host_distances_2048.npz": "d5d675ca08e69aa03c28879682351e6ae182b09106ee770943f4fc4d8cd41a0d",
+    "data\\results_v2\\canonical_sensitivity\\phage_distances_2048.npz": "f74d8c7d23c0aa93120032c7677ec604233f7675614ec9eb2d13c3419a7f8998",
+    "data\\results_v2\\canonical_sensitivity\\predictions.csv": "0a0a76307ed9374e402424f88c916411f8f6d9fcf79cf35a55f99d26c1a2dc7c"
+  },
+  "cutoffs": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "seeds": [
+    20261005,
+    20261006,
+    20261007
+  ],
+  "sketch": "canonical sourmash k21, 2048 hashes",
+  "cohort": "same original 398 dual-block test rows; training class counts matched within each cutoff, not across cutoffs",
+  "limitation": "threshold changes grouping and eligible training counts; descriptive, not ANI or a deployment-threshold selection"
+}

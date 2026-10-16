@@ -1,0 +1,234 @@
+{
+  "status": "retrospective diagnostic; external outcomes previously observed",
+  "distance": "published core-genome host distance; not ANI",
+  "identifier_collisions": [
+    {
+      "name": "AN03",
+      "development_genome": "ESCO.0622.00319",
+      "external_genome": "COLO.0423.00289"
+    }
+  ],
+  "external_hosts_without_distance": [
+    "LM01",
+    "NAN46",
+    "RY11"
+  ],
+  "missing_distance_policy": "retain in collision-only analysis as singleton bootstrap units; exclude from distance sensitivity",
+  "collision_policy": "retain historical score; exclude ambiguous identifiers in every new sensitivity",
+  "nearest_distance_quantiles": {
+    "min": 0.0,
+    "q25": 4.023e-05,
+    "median": 0.000201131,
+    "q75": 0.001355857,
+    "max": 0.011827337
+  },
+  "summaries": [
+    {
+      "threshold": 0.0001,
+      "exclusion_rule": "exclude_identifier_collisions_only",
+      "n_hosts": 99,
+      "n_positive": 81,
+      "n_negative": 18,
+      "n_host_groups": 81,
+      "results": {
+        "score_independence": {
+          "auroc": 0.8045267489711934,
+          "average_precision": 0.9496725211420025,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.7003523484452574,
+            0.899470249578008
+          ],
+          "ap_ci": [
+            0.9091753760739567,
+            0.9808492602840981
+          ]
+        },
+        "development_reference_score": {
+          "auroc": 0.7935528120713307,
+          "average_precision": 0.9474426546295807,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6870129870129871,
+            0.8896166333666334
+          ],
+          "ap_ci": [
+            0.904811114202891,
+            0.9794043248498954
+          ]
+        }
+      }
+    },
+    {
+      "threshold": 0.0001,
+      "exclusion_rule": "nearest_distance_greater_than_threshold",
+      "n_hosts": 59,
+      "n_positive": 45,
+      "n_negative": 14,
+      "n_host_groups": 54,
+      "results": {
+        "score_independence": {
+          "auroc": 0.7984126984126985,
+          "average_precision": 0.9222677725923571,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6372489239598278,
+            0.9300064699792959
+          ],
+          "ap_ci": [
+            0.8470264185778125,
+            0.9823261250372127
+          ]
+        },
+        "development_reference_score": {
+          "auroc": 0.780952380952381,
+          "average_precision": 0.9166322553837465,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6127654363180679,
+            0.9161076132580692
+          ],
+          "ap_ci": [
+            0.8393260889252976,
+            0.9785267314790868
+          ]
+        }
+      }
+    },
+    {
+      "threshold": 0.0001,
+      "exclusion_rule": "no_shared_development_component",
+      "n_hosts": 59,
+      "n_positive": 45,
+      "n_negative": 14,
+      "n_host_groups": 54,
+      "results": {
+        "score_independence": {
+          "auroc": 0.7984126984126985,
+          "average_precision": 0.9222677725923571,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6372489239598278,
+            0.9300064699792959
+          ],
+          "ap_ci": [
+            0.8470264185778125,
+            0.9823261250372127
+          ]
+        },
+        "development_reference_score": {
+          "auroc": 0.780952380952381,
+          "average_precision": 0.9166322553837465,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6127654363180679,
+            0.9161076132580692
+          ],
+          "ap_ci": [
+            0.8393260889252976,
+            0.9785267314790868
+          ]
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "exclusion_rule": "nearest_distance_greater_than_threshold",
+      "n_hosts": 31,
+      "n_positive": 24,
+      "n_negative": 7,
+      "n_host_groups": 28,
+      "results": {
+        "score_independence": {
+          "auroc": 0.8511904761904762,
+          "average_precision": 0.9566891642536723,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6666666666666666,
+            0.9758492753623188
+          ],
+          "ap_ci": [
+            0.8754508535523282,
+            0.9949883016071924
+          ]
+        },
+        "development_reference_score": {
+          "auroc": 0.8392857142857143,
+          "average_precision": 0.9525707213043157,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6399375,
+            0.9707810007974481
+          ],
+          "ap_ci": [
+            0.8634925127117463,
+            0.9945132488479262
+          ]
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "exclusion_rule": "no_shared_development_component",
+      "n_hosts": 31,
+      "n_positive": 24,
+      "n_negative": 7,
+      "n_host_groups": 28,
+      "results": {
+        "score_independence": {
+          "auroc": 0.8511904761904762,
+          "average_precision": 0.9566891642536723,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6666666666666666,
+            0.9758492753623188
+          ],
+          "ap_ci": [
+            0.8754508535523282,
+            0.9949883016071924
+          ]
+        },
+        "development_reference_score": {
+          "auroc": 0.8392857142857143,
+          "average_precision": 0.9525707213043157,
+          "valid_bootstrap_replicates": 2000,
+          "auroc_ci": [
+            0.6399375,
+            0.9707810007974481
+          ],
+          "ap_ci": [
+            0.8634925127117463,
+            0.9945132488479262
+          ]
+        }
+      }
+    },
+    {
+      "threshold": 0.01,
+      "exclusion_rule": "nearest_distance_greater_than_threshold",
+      "n_hosts": 4,
+      "n_positive": 4,
+      "n_negative": 0,
+      "n_host_groups": 3,
+      "results": {
+        "status": "not estimable: fewer than two outcome classes"
+      }
+    },
+    {
+      "threshold": 0.01,
+      "exclusion_rule": "no_shared_development_component",
+      "n_hosts": 4,
+      "n_positive": 4,
+      "n_negative": 0,
+      "n_host_groups": 3,
+      "results": {
+        "status": "not estimable: fewer than two outcome classes"
+      }
+    }
+  ],
+  "input_checksums": {
+    "external\\gaborieau_coli_phage_interactions_2023\\data\\interactions\\interaction_matrix.csv": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829",
+    "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\picard+test_collection_phylogenetic_distances.tsv": "37ba758a5bb6b2806604652cff1f064b997675322bd707f9937329c46d360e3b",
+    "data\\results_v2\\post_rejection_audit\\batch_invariant_cocktail_diagnostic.csv": "05122b5ea447ab51742ae5e3df0c6955466dc18e2af6808fd8e8bfa0bbd908aa"
+  }
+}

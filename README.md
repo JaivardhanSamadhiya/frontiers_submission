@@ -1,190 +1,172 @@
 # PrecisionPhage
 
-PrecisionPhage is a computational study of leakage-controlled phage-host
-interaction prediction and bounded fixed-bank cocktail prioritization, with an
-exploratory set-cover analysis and an illustrative resistance sensitivity model.
-The active implementation is the v2 package under `src/precisionphage`;
-top-level v1 scripts and archived v1 outputs are not part of the reported analysis.
+Scientific code and compact data for leakage-controlled phage–host prediction
+and retrospective scoring of published, fixed-bank *Escherichia* cocktail
+assays. This is a research audit, **not a clinical recommender**.
 
-## What the frozen analysis contains
+The dated scientific snapshot is `v2026.10.15`. It extends the existing public
+v2.0.1 history without replacing historical frozen predictions. Source code,
+saved predictions, analysis protocols, accession provenance and verification
+helpers are included. Manuscripts, private peer review, submission materials,
+paper-writing code and large genome files are not part of this release.
 
-- 8,849 experimentally assayed pairs from the VHRnet table distributed with
-  the VHIP publication: 2,770 positive
-  and 6,079 negative, across 2,331 phages and 387 host identifiers.
-- A sequence-covered subset of 1,947 NCBI_HR pairs: 1,488 positive and 459
-  negative, with 1,418 phage and 323 host reference genomes.
-- A locked, retraining-free test of the full sequence pipeline on all 1,053
-  sequence-covered StaphStudy pairs (333 positive and 720 negative).
-- A second, protocol-locked fixed-bank validation trained on the dense Picard
-  matrix (402 hosts by 96 phages) and evaluated on 100 unseen ColoColi hosts
-  with experimentally measured cocktail outcomes.
-- Taxonomic, in-house sequence-cluster, and dual cold-start evaluations.
-- XGBoost, GraphSAGE/edge-decoder, PHIST, and a RaFAH-inspired proxy.
-- Host-cluster-grouped out-of-fold predictions for exploratory set cover.
-- A deterministic ODE sensitivity analysis. It is not wet-lab validation and
-  does not estimate clinical efficacy.
+## What the evidence supports
 
-The three studies are present in the full four-feature baseline. The frozen
-24-feature GBM was subsequently trained on NCBI_HR and applied without
-retraining to StaphStudy: AUROC 0.637 (two-way sequence-cluster bootstrap 95%
-CI 0.498-0.739), AUPRC 0.391, and ECE 0.499. Because the primary AUROC interval
-includes 0.5, cross-source discrimination remains inconclusive. This is
-source-held-out sequence evaluation, but it is not a prospectively blinded or
-independently collected cohort because StaphStudy was already represented in
-VHRnet and in the earlier four-feature audit. GNN, comparator, NCBI_HR set-cover,
-and temporal analyses remain single-source. See `EXTERNAL_VALIDATION_PROTOCOL.md`,
-`data/results_v2/external_staph_validation_summary.csv`, and `DATA.md`.
+| Analysis | Evaluated data | Main finding and boundary |
+| --- | --- | --- |
+| Full interaction-table audit | 8,849 experimentally assayed pairs from three source studies | Cross-source performance depends on source and representation; the four-feature neural baseline is retained alongside the tree baseline. |
+| Within-source sequence evaluation | 1,947 covered NCBI_HR pairs; 1,418 phages and 323 host reference genomes | Saved tree AUROC is 0.959 in eligible species holdouts and 0.785 in five dual-exclusion blocks. Cohorts differ; later matched-cohort and canonical-distance sensitivities are explicitly retrospective. |
+| Frozen NCBI_HR → StaphStudy | 1,053 pairs, positive prevalence 0.316 | Full-input AUROC 0.637, two-way sequence-cluster interval 0.498–0.739; AP 0.391 and ECE 0.499. Broad transfer and portable calibrated probabilities are not established. |
+| Frozen sequence-only → BASEL–ECOR | 1,240 pairs, positive prevalence 0.244 | AUROC 0.470 and AP 0.222. This further public-data transfer result is negative; the full model's four source-supplied columns were unavailable. |
+| Historical fixed-bank cocktail scoring | 100 source-selected host–triplet records, 82 active outcomes, 18 distinct compositions | AUROC 0.807 and AP 0.951 against prevalence 0.820. Source authors chose the triplets; this does not validate de novo cocktail selection. |
 
-The independent fixed-bank analysis addresses a different and more learnable
-question. Predictions were frozen before the ColoColi outcome files were read.
-For the 100 experimentally tested cocktails, the prespecified cocktail ranking
-score achieved AUROC 0.807 (host-cluster bootstrap 95% CI 0.693-0.906) and
-average precision 0.951 (0.904-0.983). The tested compositions were selected by
-Gaborieau et al., not by PrecisionPhage, so this validates cocktail
-**scoring/prioritization** on unseen hosts rather than external wet-lab testing
-of PrecisionPhage-designed cocktails. See `EXTERNAL_COCKTAIL_VALIDATION_PROTOCOL.md`
-and `GENERALIZATION_AUDIT.md`.
+The cocktail point estimates are unchanged. The original host-only AUROC
+interval is 0.693–0.906. A **new retrospective crossed host-cluster × composition
+sensitivity** gives 0.543–0.965, AP interval 0.852–0.998, and AP-minus-prevalence
+0.131 with interval 0.024–0.257. These wider intervals address repeated menus
+under an additional resampling assumption; they do not establish transport to
+new banks, compositions or selection procedures. Distinct menus can also share
+phages, a dependence not fully covered by whole-menu grouping.
 
-## Reproducible setup
+No resolved advantage over simple constituent aggregation or the stronger
+matched controls is claimed. The measured two-option comparison has only 17
+hosts with different binary outcomes. Its historical policy gain over the one
+fixed baseline is 0.050; the new crossed interval is **−0.039–0.194**, leaving
+selection benefit unresolved.
 
-Clone with the PHIST submodule and install the locked environment:
+The original-source comparison is complete for **64 hosts only**. Of 300
+source-selected constituent records, 233 have released numeric decision scores;
+67 rescue-stage values are absent. Inspection of the source release and all 96
+prediction-archive members did not recover authentic external scores or a
+faithfully runnable all-100 predictor. Missing scores were not invented. See
+`data/results_v2/frontiers_revision_2026_10_15/official_gaborieau/` for the public
+feasibility record.
 
-```bash
-git clone --recurse-submodules https://github.com/JaivardhanSamadhiya/frontiers_submission.git
+## Quick start: audit supplied predictions
+
+Use Python 3.11. The historical `requirements-lock.txt` is distinct from the
+actual revision-audit environment in
+`reproducibility/requirements-revision-audit.txt`. The audit requirements include
+sourmash 4.9.3 for canonical-sketch tests and openpyxl 3.1.5 for public
+accession-table preparation. The `audit` package extra also records sourmash.
+
+```powershell
+git clone https://github.com/JaivardhanSamadhiya/frontiers_submission.git
 cd frontiers_submission
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements-lock.txt
-python -m pip install -e . --no-deps
-```
-
-## Data acquisition
-
-Large genome files are intentionally not stored in Git. The compact frozen
-interaction snapshot at `data/raw/VirusHostInter.csv` comes from Supporting
-Table S2 of Bastien et al. (2024):
-
-- Article and data availability: https://doi.org/10.1371/journal.pcbi.1011649
-- S2 interaction/model-input table: https://doi.org/10.1371/journal.pcbi.1011649.s010
-- S5 viral and host accession list: https://doi.org/10.1371/journal.pcbi.1011649.s013
-- VHIP analysis repository: https://github.com/DuhaimeLab/VHIP_analyses_Bastien_et_al_2023
-
-The 1,418 phage and 323 host FASTAs used for the frozen sequence analysis were
-retrieved from NCBI records represented in the VHIP accessions and staged under
-`external/phist_run/phages` and `external/phist_run/hosts`. Those FASTAs are
-excluded from this repository because of their size. The compact staging maps
-remain in `external/phist_run/phage_map.json` and `host_map.json`.
-
-The existing fetch scripts obtain optional Virus-Host DB, PhagesDB, Nahant, and
-host caches. `experiments/fetch_staph_validation_sources.py` stages pinned VHIP
-repositories containing the StaphStudy example genomes and identifier
-crosswalk, plus the pinned Gaborieau et al. repository containing the Picard and
-ColoColi validation data. Experiment 26 creates the 39 StaphStudy analysis
-aliases. The script does **not** recreate the separate NCBI_HR training FASTA
-bundle. A fresh NCBI download should be treated as a new dataset version and
-checksummed.
-
-For a code-only clone without the genome bundle, run:
-
-```bash
-python experiments/00_validate_release.py --allow-missing-genomes
+git checkout v2026.10.15
+python -m venv .venv-audit
+.venv-audit\Scripts\Activate.ps1
+python -m pip install -r reproducibility/requirements-revision-audit.txt
 python -m unittest discover -s tests -v
+$env:PYTHONPATH = "src"
+python -m pytest tests/test_screening_diagnostics.py -q
+python experiments/00_validate_release.py --allow-missing-genomes
+python reproducibility/verify_public_snapshot.py
+python reproducibility/verify_saved_predictions.py
 ```
 
-After staging the exact FASTAs locally, omit `--allow-missing-genomes` to run
-the strict coverage audit.
+Linux/macOS users activate `.venv-audit/bin/activate` and run the separate
+screening function tests with
+`PYTHONPATH=src python -m pytest tests/test_screening_diagnostics.py -q`.
+The suites cover 38 unittest cases plus four screening function tests.
+No GPU or paid service is needed for the saved-score checks. The tests do not replace scientific
+review or certify biological usefulness. The legacy release validator checks
+historical artifacts; the public snapshot inventory checks this dated payload.
 
-Then run numbered experiments in order. Steps 01-14 train models or compute
-analyses; step 16 redraws the primary figures from saved result artifacts.
+## Reproduce revision analyses
 
-```bash
-python experiments/01_build_dataset.py
-python experiments/02_baseline.py
-# continue through experiments/14_external_report.py
-python experiments/16_regenerate_figures.py
-python experiments/fetch_staph_validation_sources.py
-python experiments/25_external_sequence_overlap_audit.py
-python experiments/26_frozen_cross_source_validation.py
-python experiments/29_freeze_external_cocktail_predictions.py
-python experiments/30_evaluate_external_cocktails.py
+The following commands use saved predictions and compact tables. They do not
+refit a predictive model:
+
+```text
+python scripts/frontiers_revision/submission_audit.py
+python scripts/frontiers_revision/cocktail_reporting.py --self-test-only
+python scripts/frontiers_revision/cocktail_reporting.py
+python scripts/frontiers_revision/crossed_cocktail_uncertainty.py
+python scripts/frontiers_revision/crossed_two_options.py
 ```
 
-Experiment 29 is the outcome-blind freezing stage. Do not rerun it after
-opening the ColoColi outcome tables and present the result as newly blinded.
-Experiments 31 and 32 retain, respectively, the failed rank-only selector and a
-development-only selector audit; neither is an external efficacy test.
+Reruns regenerate outputs in their named analysis directories. Run them in a
+separate clone if preserving a byte-identical release checkout is important;
+timestamps and serialized metadata may change. Compare numerical predictions
+and input checksums, not newly generated metadata bytes alone.
 
-The manuscript source and submission package are intentionally not published in
-this code repository. The frozen result files live under `data/results_v2`. Do
-not combine them with `data/archive_results_v1`.
+The exact phage-alias check additionally needs two small public sequence
+records. Fetch only the pinned, checksum-checked sources before rerunning it:
 
-## License and citation
-
-The source code is released under the MIT License; see `LICENSE`. The datasets
-and third-party tools retain their original licenses and citation requirements.
-The publication-facing snapshot is version `v2.0.1`. Use `CITATION.cff` to cite
-this software release, and cite the associated article once its bibliographic
-record is available.
-
-After rerunning the audited analyses, maintainers can create the revised DOCX
-and submission-format figures with:
-
-```bash
-python experiments/17_revise_manuscript.py
-python experiments/18_package_submission.py
-python experiments/33_integrate_external_cocktail_validation.py
-python experiments/19_reference_audit.py
+```text
+python reproducibility/stage_public_sources.py
+python scripts/frontiers_revision/cocktail_source_comparison.py
 ```
 
-These manuscript utilities require the author's local, gitignored source DOCX;
-they are included for auditability but are not part of the code-only CI run.
-Experiment 33 creates the current external-cocktail-validated submission copy;
-experiment 19 verifies bidirectional author-year citation coverage and DOI-string
-uniqueness in that final DOCX.
+The source-predictor feasibility audit is retained as a saved non-success
+record. Rerunning `official_gaborieau_audit.py` requires a full pristine upstream
+Git checkout at its pinned revision, including the released prediction RAR,
+not merely the compact source CSVs supplied here. It performs no model fitting
+and does not fill missing rescue scores. Public summary records omit contact
+drafts, personal commit metadata and private machine-path details.
 
-## Important interpretation limits
+## Files and stage separation
 
-- Host identifiers in the sequence-covered subset are species/taxon labels, not
-  a strain-resolved therapeutic panel.
-- Only experimentally tested pairs are labeled. Missing matrix cells are
-  unobserved, not confirmed negatives.
-- The custom bottom-k MinHash clustering uses a Mash-form distance; it is not a
-  run of Mash and its threshold is not a direct ANI measurement.
-- The fixed XGBoost configuration is the headline baseline. Nested tuning was
-  evaluated separately and was not used for the saved headline estimates.
-- Row-wise DeLong, McNemar, permutation, and bootstrap results are exploratory
-  because observations share phage and host entities.
-- The locked NCBI_HR-to-StaphStudy test has an above-chance point estimate but
-  an interval spanning chance; it does not establish cross-source ranking,
-  portable calibration, or prospective validation.
-- The locked Picard-to-ColoColi result establishes ranking of already proposed,
-  experimentally tested cocktails for unseen Escherichia hosts in a fixed
-  phage bank. It does not establish unseen-phage transfer, Staphylococcus
-  transfer, or wet-lab validation of cocktails selected by this repository.
-- The RaFAH-style result is an in-house protein-feature proxy, not the published
-  pretrained RaFAH model.
-- The temporal model uses unfitted parameters to illustrate complete
-  cross-resistance, partial dependence, and independent resistance. Its grid
-  outputs are conditional equation behavior, not biological prediction or
-  efficacy validation.
+- `src/precisionphage/`: active v2 model, feature, split and evaluation code.
+- `configs/default.yaml`: frozen analysis definitions; not a claim of an
+  optimally selected model. The original GBM selection rationale is incompletely
+  recoverable from surviving development records.
+- `data/results_v2/external_cocktail_validation/`: original staged predictions
+  and evaluation artifacts; historical values remain unchanged.
+- `data/results_v2/frontiers_revision_2026_10_14/`: corrected cohorts, coverage,
+  controls, source-score comparisons, canonical-cutoff/feature ablations,
+  target-label recalibration and genome provenance.
+- `data/results_v2/frontiers_revision_2026_10_15/`: crossed-dependence checks and
+  official-source comparator recovery attempt.
+- `reproducibility/`: source notices, pinned input retrieval, actual audit
+  environment, saved-prediction checks and the public-payload checksum inventory.
+- `DATA.md` and `DESIGN.md`: source provenance and analysis definitions, with
+  dated corrections identifying superseded historical interpretations.
 
-## Layout
+Historical row-independent p-values, RaFAH-inspired proxies, mathematical set
+cover and unfitted resistance outputs may remain in the retained scientific
+history. They are **not evidence for the current contribution**, released-tool
+superiority, calibrated clinical probabilities or resistance suppression.
+Top-level v1 scripts and archived v1 data are not the active analysis.
 
-| Path | Purpose |
-|---|---|
-| `configs/default.yaml` | Frozen v2 paths and parameters |
-| `src/precisionphage/` | Active implementation |
-| `experiments/` | Numbered analysis drivers |
-| `tests/` | Release and leakage-invariant tests |
-| `external/phist_run/` | Compact PHIST staging maps; large FASTAs are local-only |
-| `EXTERNAL_COCKTAIL_VALIDATION_PROTOCOL.md` | Outcome-blind fixed-bank protocol |
-| `GENERALIZATION_AUDIT.md` | Failure diagnosis, claim boundary, and validation summary |
-| `data/interim_v2/` | Canonical cleaned data and feature caches |
-| `data/results_v2/` | Saved tables, compact predictions, and figures |
+## Genomes and raw-data limits
 
-## Hardware
+Large FASTAs are intentionally absent. The frozen NCBI_HR bundle has versioned
+header/accession/order/length/sequence-hash records for all 1,418 phage FASTAs and
+323 host FASTAs (666 ordered host records, 656 distinct accessions). Its original
+file hashes matched the preserved inventory. A fresh download does not
+automatically recreate identical FASTA bytes. Use the opt-in recovery helper
+described in `DATA.md`; it refuses mismatches and does not overwrite originals.
 
-The reported pipeline ran on CPU. A GPU can accelerate GraphSAGE, but it is not
-required. An AMD ROCm environment must be validated against the selected
-PyTorch/PyG wheels before paid use.
+Optional raw MinHash caches are omitted for size; complete cached distance
+matrices and their source parameters remain available. Genome-dependent raw
+feature regeneration and model refitting require the verified original inputs
+or a separately versioned reconstructed sequence release. The Nahant feasibility
+audit is **cache-limited**: zero pairs had both genomes in the checked caches,
+not proof that those genomes are unavailable everywhere.
+
+The full ECOR source-article XML is also not redistributed. Its primary URL and
+historical checksum remain recorded; `prepare_basel_ecor_genomes.py` retrieves
+it if needed. Derived accession mappings are supplied without the article's
+correspondence details.
+
+Historical source/cocktail protocols describe local staged locks. They are not
+independent prospective preregistrations, and public outcomes had been examined
+in other development analyses. Later controls and repairs are retrospective;
+rerunning them cannot recreate original outcome blindness.
+
+## Sources, licensing and citation
+
+Code is MIT licensed. Third-party data and tools retain their own terms; see
+`LICENSE` and `reproducibility/SOURCE_NOTICES.md`. Main data sources are
+[VHIP](https://doi.org/10.1371/journal.pcbi.1011649),
+[Gaborieau et al.](https://doi.org/10.1038/s41564-024-01832-5), and
+[GenoPHI](https://doi.org/10.1038/s41564-026-02482-5). The PHIST submodule remains
+pinned but is not needed for saved-prediction checks. Its source may be obtained
+with `git submodule update --init --recursive` when rebuilding that comparator.
+
+Use `CITATION.cff` and cite the exact tag or commit used. `.zenodo.json` supplies
+archive metadata but **does not itself create a deposit or DOI**. No unissued
+archival identifier is claimed. Scientific snapshot version and historical
+dataset/model version are distinct.

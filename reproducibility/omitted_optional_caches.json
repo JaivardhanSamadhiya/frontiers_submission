@@ -1,0 +1,45 @@
+{
+  "status": "Documented optional cache exclusions only; source files preserved locally",
+  "files": [
+    {
+      "path": "data/results_v2/canonical_sensitivity/host_canonical_2048.npz",
+      "bytes": 4940779,
+      "sha256": "d1d4310fd804c3d2ab100f9df25a5699c49ffcbb1621482b5b76f21965bf2dcc",
+      "reason": "Optional near-incompressible raw MinHash cache; complete cached distances retained",
+      "entities": 323,
+      "entity_order": "sorted unique host identifiers in interactions_modelable.csv",
+      "parameters": {
+        "sourmash_version": "4.9.3",
+        "canonical": true,
+        "ksize": 21,
+        "num": 2048,
+        "seed": 42
+      },
+      "regeneration_source": "experiments/40_canonical_cluster_sensitivity.py; requires original verified FASTAs and also refits models",
+      "retained_distance_paths": [
+        "data/results_v2/canonical_sensitivity/host_distances_256.npz",
+        "data/results_v2/canonical_sensitivity/host_distances_2048.npz"
+      ]
+    },
+    {
+      "path": "data/results_v2/canonical_sensitivity/phage_canonical_2048.npz",
+      "bytes": 23159753,
+      "sha256": "8fdf20fa2bc746c18f037fb2e4b6fdcfa5c37505961c79ad7da615850746c1f0",
+      "reason": "Optional near-incompressible raw MinHash cache; complete cached distances retained",
+      "entities": 1418,
+      "entity_order": "sorted unique phage identifiers in interactions_modelable.csv",
+      "parameters": {
+        "sourmash_version": "4.9.3",
+        "canonical": true,
+        "ksize": 21,
+        "num": 2048,
+        "seed": 42
+      },
+      "regeneration_source": "experiments/40_canonical_cluster_sensitivity.py; requires original verified FASTAs and also refits models",
+      "retained_distance_paths": [
+        "data/results_v2/canonical_sensitivity/phage_distances_256.npz",
+        "data/results_v2/canonical_sensitivity/phage_distances_2048.npz"
+      ]
+    }
+  ]
+}

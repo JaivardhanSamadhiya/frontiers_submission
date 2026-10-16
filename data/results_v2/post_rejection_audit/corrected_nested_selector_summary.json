@@ -1,0 +1,436 @@
+{
+  "status": "retrospective; family chosen after prior development audit",
+  "outcome": "at least one active constituent; no mixture efficacy measured",
+  "settings": [
+    {
+      "threshold": 0.0001,
+      "fold": 0,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8691588785046729,
+          "positive_fraction_lower": 0.6220145379023883
+        },
+        "10": {
+          "lower_coverage": 0.881619937694704,
+          "positive_fraction_lower": 0.6292834890965732
+        },
+        "20": {
+          "lower_coverage": 0.8878504672897196,
+          "positive_fraction_lower": 0.6479750778816199
+        },
+        "40": {
+          "lower_coverage": 0.881619937694704,
+          "positive_fraction_lower": 0.6458982346832814
+        }
+      }
+    },
+    {
+      "threshold": 0.0001,
+      "fold": 1,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.881619937694704,
+          "positive_fraction_lower": 0.6542056074766355
+        },
+        "10": {
+          "lower_coverage": 0.9034267912772586,
+          "positive_fraction_lower": 0.6780893042575286
+        },
+        "20": {
+          "lower_coverage": 0.9127725856697819,
+          "positive_fraction_lower": 0.6915887850467289
+        },
+        "40": {
+          "lower_coverage": 0.8940809968847352,
+          "positive_fraction_lower": 0.6843198338525441
+        }
+      }
+    },
+    {
+      "threshold": 0.0001,
+      "fold": 2,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8819875776397516,
+          "positive_fraction_lower": 0.6407867494824017
+        },
+        "10": {
+          "lower_coverage": 0.8913043478260869,
+          "positive_fraction_lower": 0.6594202898550724
+        },
+        "20": {
+          "lower_coverage": 0.9006211180124224,
+          "positive_fraction_lower": 0.6770186335403726
+        },
+        "40": {
+          "lower_coverage": 0.8913043478260869,
+          "positive_fraction_lower": 0.6780538302277432
+        }
+      }
+    },
+    {
+      "threshold": 0.0001,
+      "fold": 3,
+      "k": 40,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8664596273291926,
+          "positive_fraction_lower": 0.6086956521739131
+        },
+        "10": {
+          "lower_coverage": 0.8819875776397516,
+          "positive_fraction_lower": 0.6273291925465838
+        },
+        "20": {
+          "lower_coverage": 0.8913043478260869,
+          "positive_fraction_lower": 0.6387163561076605
+        },
+        "40": {
+          "lower_coverage": 0.9006211180124224,
+          "positive_fraction_lower": 0.6438923395445134
+        }
+      }
+    },
+    {
+      "threshold": 0.0001,
+      "fold": 4,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8664596273291926,
+          "positive_fraction_lower": 0.6097308488612836
+        },
+        "10": {
+          "lower_coverage": 0.8757763975155279,
+          "positive_fraction_lower": 0.6262939958592133
+        },
+        "20": {
+          "lower_coverage": 0.8975155279503105,
+          "positive_fraction_lower": 0.6563146997929606
+        },
+        "40": {
+          "lower_coverage": 0.8944099378881988,
+          "positive_fraction_lower": 0.6563146997929606
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "fold": 0,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8566978193146417,
+          "positive_fraction_lower": 0.6105919003115264
+        },
+        "10": {
+          "lower_coverage": 0.822429906542056,
+          "positive_fraction_lower": 0.6033229491173416
+        },
+        "20": {
+          "lower_coverage": 0.8847352024922118,
+          "positive_fraction_lower": 0.6531671858774662
+        },
+        "40": {
+          "lower_coverage": 0.8504672897196262,
+          "positive_fraction_lower": 0.636552440290758
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "fold": 1,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8598130841121495,
+          "positive_fraction_lower": 0.612668743509865
+        },
+        "10": {
+          "lower_coverage": 0.8691588785046729,
+          "positive_fraction_lower": 0.6272066458982346
+        },
+        "20": {
+          "lower_coverage": 0.8785046728971962,
+          "positive_fraction_lower": 0.6552440290758047
+        },
+        "40": {
+          "lower_coverage": 0.8566978193146417,
+          "positive_fraction_lower": 0.616822429906542
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "fold": 2,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8198757763975155,
+          "positive_fraction_lower": 0.5890269151138716
+        },
+        "10": {
+          "lower_coverage": 0.8416149068322981,
+          "positive_fraction_lower": 0.6231884057971014
+        },
+        "20": {
+          "lower_coverage": 0.8540372670807453,
+          "positive_fraction_lower": 0.6107660455486541
+        },
+        "40": {
+          "lower_coverage": 0.84472049689441,
+          "positive_fraction_lower": 0.6200828157349896
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "fold": 3,
+      "k": 10,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8198757763975155,
+          "positive_fraction_lower": 0.5828157349896481
+        },
+        "10": {
+          "lower_coverage": 0.8385093167701864,
+          "positive_fraction_lower": 0.6024844720496895
+        },
+        "20": {
+          "lower_coverage": 0.8260869565217391,
+          "positive_fraction_lower": 0.6045548654244307
+        },
+        "40": {
+          "lower_coverage": 0.8229813664596274,
+          "positive_fraction_lower": 0.5890269151138717
+        }
+      }
+    },
+    {
+      "threshold": 0.001,
+      "fold": 4,
+      "k": 5,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8260869565217391,
+          "positive_fraction_lower": 0.5890269151138717
+        },
+        "10": {
+          "lower_coverage": 0.7919254658385093,
+          "positive_fraction_lower": 0.5693581780538302
+        },
+        "20": {
+          "lower_coverage": 0.8043478260869565,
+          "positive_fraction_lower": 0.5859213250517599
+        },
+        "40": {
+          "lower_coverage": 0.8167701863354038,
+          "positive_fraction_lower": 0.5910973084886127
+        }
+      }
+    },
+    {
+      "threshold": 0.01,
+      "fold": 0,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8353909465020576,
+          "positive_fraction_lower": 0.522633744855967
+        },
+        "10": {
+          "lower_coverage": 0.823045267489712,
+          "positive_fraction_lower": 0.5528120713305898
+        },
+        "20": {
+          "lower_coverage": 0.8395061728395061,
+          "positive_fraction_lower": 0.5582990397805212
+        },
+        "40": {
+          "lower_coverage": 0.8106995884773662,
+          "positive_fraction_lower": 0.5404663923182441
+        }
+      }
+    },
+    {
+      "threshold": 0.01,
+      "fold": 1,
+      "k": 5,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.8158844765342961,
+          "positive_fraction_lower": 0.48616125150421174
+        },
+        "10": {
+          "lower_coverage": 0.776173285198556,
+          "positive_fraction_lower": 0.5090252707581228
+        },
+        "20": {
+          "lower_coverage": 0.7653429602888087,
+          "positive_fraction_lower": 0.5078219013237064
+        },
+        "40": {
+          "lower_coverage": 0.7689530685920578,
+          "positive_fraction_lower": 0.4753309265944646
+        }
+      }
+    },
+    {
+      "threshold": 0.01,
+      "fold": 2,
+      "k": 40,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.7762430939226519,
+          "positive_fraction_lower": 0.4429097605893185
+        },
+        "10": {
+          "lower_coverage": 0.7790055248618785,
+          "positive_fraction_lower": 0.5119705340699815
+        },
+        "20": {
+          "lower_coverage": 0.787292817679558,
+          "positive_fraction_lower": 0.5340699815837937
+        },
+        "40": {
+          "lower_coverage": 0.7900552486187845,
+          "positive_fraction_lower": 0.5598526703499079
+        }
+      }
+    },
+    {
+      "threshold": 0.01,
+      "fold": 3,
+      "k": 10,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.7355371900826446,
+          "positive_fraction_lower": 0.4921946740128557
+        },
+        "10": {
+          "lower_coverage": 0.7796143250688705,
+          "positive_fraction_lower": 0.4894398530762168
+        },
+        "20": {
+          "lower_coverage": 0.7465564738292011,
+          "positive_fraction_lower": 0.4977043158861341
+        },
+        "40": {
+          "lower_coverage": 0.7603305785123967,
+          "positive_fraction_lower": 0.512396694214876
+        }
+      }
+    },
+    {
+      "threshold": 0.01,
+      "fold": 4,
+      "k": 20,
+      "inner": {
+        "5": {
+          "lower_coverage": 0.7796143250688705,
+          "positive_fraction_lower": 0.5068870523415978
+        },
+        "10": {
+          "lower_coverage": 0.7933884297520661,
+          "positive_fraction_lower": 0.4921946740128558
+        },
+        "20": {
+          "lower_coverage": 0.8154269972451791,
+          "positive_fraction_lower": 0.54178145087236
+        },
+        "40": {
+          "lower_coverage": 0.8126721763085399,
+          "positive_fraction_lower": 0.5325987144168962
+        }
+      }
+    }
+  ],
+  "summaries": [
+    {
+      "threshold": 0.0001,
+      "n_groups": 302,
+      "n_hosts": 402,
+      "status": "completed exploratory nested evaluation",
+      "design_lower": 0.8930348258706468,
+      "design_upper": 0.8930348258706468,
+      "baseline_lower": 0.8383084577114428,
+      "baseline_upper": 0.8383084577114428,
+      "design_positive_fraction_lower": 0.6882255389718075,
+      "baseline_positive_fraction_lower": 0.5986733001658374,
+      "design_incomplete_n": 0,
+      "baseline_incomplete_n": 1,
+      "paired_bootstrap": {
+        "paired_lower_bound_difference_ci": [
+          0.020592620006984922,
+          0.08937553282182442
+        ],
+        "missingness_robust_difference_interval_with_sampling": [
+          0.020592620006984922,
+          0.08937553282182442
+        ],
+        "replicates": 2000,
+        "unit": "host sequence component; conditional on fixed bank"
+      }
+    },
+    {
+      "threshold": 0.001,
+      "n_groups": 165,
+      "n_hosts": 402,
+      "status": "completed exploratory nested evaluation",
+      "design_lower": 0.8283582089552238,
+      "design_upper": 0.8283582089552238,
+      "baseline_lower": 0.8233830845771144,
+      "baseline_upper": 0.8233830845771144,
+      "design_positive_fraction_lower": 0.631011608623549,
+      "baseline_positive_fraction_lower": 0.5953565505804311,
+      "design_incomplete_n": 1,
+      "baseline_incomplete_n": 1,
+      "paired_bootstrap": {
+        "paired_lower_bound_difference_ci": [
+          -0.03530088604479447,
+          0.05195143398268398
+        ],
+        "missingness_robust_difference_interval_with_sampling": [
+          -0.03530088604479447,
+          0.05195143398268398
+        ],
+        "replicates": 2000,
+        "unit": "host sequence component; conditional on fixed bank"
+      }
+    },
+    {
+      "threshold": 0.01,
+      "n_groups": 40,
+      "n_hosts": 402,
+      "status": "completed exploratory nested evaluation",
+      "design_lower": 0.8159203980099502,
+      "design_upper": 0.818407960199005,
+      "baseline_lower": 0.8308457711442786,
+      "baseline_upper": 0.8308457711442786,
+      "design_positive_fraction_lower": 0.5406301824212272,
+      "baseline_positive_fraction_lower": 0.5754560530679933,
+      "design_incomplete_n": 3,
+      "baseline_incomplete_n": 3,
+      "paired_bootstrap": {
+        "paired_lower_bound_difference_ci": [
+          -0.05892369642369644,
+          0.05052447552447541
+        ],
+        "missingness_robust_difference_interval_with_sampling": [
+          -0.05892369642369644,
+          0.05052447552447541
+        ],
+        "replicates": 2000,
+        "unit": "host sequence component; conditional on fixed bank"
+      }
+    }
+  ],
+  "input_checksums": {
+    "external\\gaborieau_coli_phage_interactions_2023\\data\\interactions\\interaction_matrix.csv": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829",
+    "external\\gaborieau_coli_phage_interactions_2023\\data\\genomics\\phages\\guelin_collection.csv": "c21c2672452609f749b9a6eba3135d1bb814abd8e69e9293971f759711b4f276",
+    "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\picard+test_collection_phylogenetic_distances.tsv": "37ba758a5bb6b2806604652cff1f064b997675322bd707f9937329c46d360e3b"
+  }
+}

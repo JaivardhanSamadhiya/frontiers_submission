@@ -1,0 +1,50 @@
+{
+  "status": "Completed retrospective amendment; historical output preserved",
+  "completed_utc": "2026-10-16T00:54:40.899059+00:00",
+  "protocol_sha256": "b41046de8a4c92d392e5956e7b7fe288651ea5ad9ea10152e0e89d4157e3a3a9",
+  "cohorts": [
+    {
+      "cohort": "historical_100",
+      "attempts": 2004,
+      "valid": 2000,
+      "rejections": {
+        "empty": 0,
+        "no_binary_discordance": 4,
+        "no_ordinal_discordance": 0
+      },
+      "seed": 2026101505
+    },
+    {
+      "cohort": "exclude_AN03_99",
+      "attempts": 2005,
+      "valid": 2000,
+      "rejections": {
+        "empty": 0,
+        "no_binary_discordance": 5,
+        "no_ordinal_discordance": 0
+      },
+      "seed": 2026101506
+    }
+  ],
+  "point_estimates_reproduced_from_historical_summary": 120,
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.0.1",
+    "pandas": "2.2.2"
+  },
+  "input_hashes": {
+    "D:\\full_pipeline\\data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_controls\\paired_selected_baseline_triplets.csv": "c219841ad572b480878e8747f5cc3bd667a6feaf1da116bdbfaafde6c5fd2b5b",
+    "D:\\full_pipeline\\data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_controls\\paired_preference_and_policy_summary.csv": "07c1a1857e503a9ed47c6f789974afbb3ea5f70c664053602eec18012625fc35"
+  },
+  "source_files_unchanged": true,
+  "limits": "Sensitivity to repeated selected menus, conditional on the existing fixed baseline menu, fixed predictions and observed paired assay records. Not a new frozen validation, prospective laboratory policy, selection-mechanism test or composition-population confidence guarantee. Only 17 hosts have discordant binary outcomes. Sparse crossed cells, 18 non-random selected menus and phages shared across distinct menus limit inference. No confirmatory p-value, multiplicity-adjusted superiority claim or therapeutic interpretation.",
+  "output_hashes": {
+    "amendment_protocol.json": "b41046de8a4c92d392e5956e7b7fe288651ea5ad9ea10152e0e89d4157e3a3a9",
+    "bootstrap_historical_100.npz": "2199c56f2c7c42bcb33898849be8c2e24c30a6cc7bbeeedce22f9f1f0a506b47",
+    "bootstrap_exclude_AN03_99.npz": "92af6db155c6ebb38aa4bef5b6fc0b195a485faa691cf925d0515a1cdbfcc364",
+    "crossed_policy_metrics.csv": "afde35f8ef7e7418145178fe54e218d2fbda4219f401a2cac11117652d7523bb",
+    "crossed_policy_paired_differences.csv": "b79598519d30bf23982cb8517354ecf2f6222fd75bb5ae8762695319d41a89c3",
+    "policy_host_values.csv": "3cc820f1fac2e752d8d7bacf64c9aa66e2e823f1b6701d060238a0c580ba0f11",
+    "REPORT.md": "786455a14f749e516ebb3f5e165f27454a8a9eddc862fb160276f4d01209080b"
+  }
+}

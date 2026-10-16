@@ -1,0 +1,6 @@
+regime,folds,pairs,positive,prevalence,phages,host_identifiers,host_species_identifiers,phage_cluster_count,host_cluster_count,not_tested_pairs
+loso_species,28,1057,804,0.760643330179754,789,28,28,465,26,890
+logo_genus,28,1495,1092,0.7304347826086957,1033,189,189,657,168,452
+host_cluster,26,1082,826,0.7634011090573013,808,35,35,474,26,865
+phage_cluster,22,384,140,0.3645833333333333,94,110,110,22,98,1563
+combined_unseen,5,398,294,0.7386934673366834,321,134,134,220,128,1549

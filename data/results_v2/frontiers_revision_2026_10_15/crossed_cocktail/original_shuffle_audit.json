@@ -1,0 +1,45 @@
+{
+  "existing_draws": 1000,
+  "distinct_compositions": 18,
+  "bootstrap_rng_draws_consumed_before_shuffle": 2000,
+  "all_draws_preserve_whole_compositions_and_exact_counts": true,
+  "all_saved_metrics_reproduced_at_absolute_tolerance": 1e-13,
+  "composition_counts": {
+    "409_P5|BDX03_P1|LM40_P2": 3,
+    "412_P2|536_P7|LF82_P9": 2,
+    "416_P4|536_P7|LF82_P9": 1,
+    "423_P1|AN17_P8|LF82_P2": 3,
+    "536_P1|536_P9|LF82_P4": 3,
+    "536_P7|55989_P2|LF82_P8": 1,
+    "536_P7|DIJ07_P2|LF82_P8": 4,
+    "536_P7|DIJ07_P2|LF82_P9": 2,
+    "536_P7|LF82_P8|LF82_P9": 22,
+    "536_P7|LI10_P3|LM33_P1": 2,
+    "536_P9|BCH953_P2|LF82_P9": 1,
+    "55989_P2|DIJ07_P2|LF82_P8": 31,
+    "55989_P2|DIJ07_P2|LF82_P9": 19,
+    "AL505_Ev3|AL505_Sd2|LF82_P4": 2,
+    "DIJ07_P2|LF73_P1|LF82_P9": 1,
+    "DIJ07_P2|LF82_P9|NIC06_P2": 1,
+    "LF82_P8|NAN33_P5|NIC06_P2": 1,
+    "LF82_P8|NIC06_P2|NIC06_P3": 1
+  },
+  "auroc_median": 0.6727642276422764,
+  "auroc_central_95_range": [
+    0.6029810298102981,
+    0.7493224932249323
+  ],
+  "average_precision_median": 0.9083429860549547,
+  "average_precision_central_95_range": [
+    0.8804086404708693,
+    0.9348110442448491
+  ],
+  "formal_permutation_p_value": null,
+  "scope": "Fixed host profiles, original observed labels, fixed bank and observed multiset of complete triplets; changes only which host receives each already observed triplet. Assay outcomes for reassigned compositions are not known; this is a score-association diagnostic, not simulated measured outcomes or a confirmatory exchangeability test.",
+  "sources": {
+    "data\\results_v2\\post_rejection_audit\\composition_shuffle_diagnostic.csv": "37abcff69f320a1918ae7d9cf87bd834e2892a5aab1859774bcf3445f728d2f8",
+    "data\\results_v2\\external_cocktail_validation\\frozen_pair_predictions.csv": "876c97d91b64158b9bda4a6df15cd510f2b1753da80c031a261570247932ef6d",
+    "data\\results_v2\\external_cocktail_validation\\heldout_cocktail_predictions_and_outcomes.csv": "596b57d9bfa11a42d13efcf20d4f9c054eed32f92e91b10d7bce12cde35bd575",
+    "experiments\\34_post_rejection_evidence_audit.py": "d41d428ab6c99880a84d8f4d76fbcec3bb11e332faeb941d263d4dba630c9b95"
+  }
+}

@@ -81,10 +81,11 @@ def main() -> None:
                                                       sp["n_combined_splits"], seed, mpos, mneg)),
     }
 
-    # NOTE: nested grid tuning + class weighting were evaluated (see
-    # fit_predict_gbm_tuned) and did NOT improve AUC over this robust default
-    # (they added selection variance and hurt cold-start), so the default GBM is
-    # used for the headline. Tuning remains available as an ablation.
+    # Historical tuning logs used 20 pair descriptors, not the final 24. They
+    # are not a matched justification for preferring this fixed configuration.
+    # The revision retains it as a reference pipeline, without claiming it is
+    # the best tuned or best-transfer model. See the revision's tuning table
+    # and provenance limitations before interpreting those exploratory runs.
 
     # --- collect pooled predictions per regime/model (aligned samples) ---
     preds = {}

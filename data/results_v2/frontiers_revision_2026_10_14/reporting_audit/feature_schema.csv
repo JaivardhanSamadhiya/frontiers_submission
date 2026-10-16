@@ -1,0 +1,10 @@
+family,per_genome_dimensions,model_input_dimensions,source,calculation
+Canonical nucleotide 4-mers,136.0,272,genomic.kmer_spectrum,"Per-genome frequencies, reverse-complement equivalent"
+Canonical dinucleotides,10.0,20,genomic.kmer_spectrum,Per-genome frequencies
+Codon frequencies,64.0,128,genomic.codon_usage,All three forward frames; no CDS annotation requirement
+GC fraction and log10 length plus one,2.0,4,genomic._node_vector,Per-genome composition and length
+Local composition comparisons,,4,genomic.edge_features_from_spectra,"Cosine distance, L1, Pearson, abundance Jaccard"
+Source supplied VHIP features,,4,VirusHostInter.csv,"k3dist, k6dist, GCdiff, Homology; not recomputed locally"
+Exact nucleotide word proxies,,8,seqmatch.homology_features,Four descriptors at k16 and k20
+CRISPR-like spacer proxies,,4,seqmatch,Heuristic repeat/spacer matches; not verified immunity measurements
+Translated amino-acid word proxies,,4,proteins,Six-frame translation and exact amino-acid word sharing; not protein alignment

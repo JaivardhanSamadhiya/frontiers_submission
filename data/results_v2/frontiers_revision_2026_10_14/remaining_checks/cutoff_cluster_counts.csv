@@ -1,0 +1,7 @@
+cutoff,axis,entities,clusters
+0.025,host,323,300
+0.025,phage,1418,1181
+0.05,host,323,292
+0.05,phage,1418,892
+0.1,host,323,272
+0.1,phage,1418,672

@@ -1,0 +1,328 @@
+regime,fold,method,pairs,auroc,average_precision
+loso_species,acinetobacter baumannii,phage_positive_degree,24,0.0,0.8333333333333334
+loso_species,acinetobacter baumannii,host_positive_degree,24,0.5,0.8333333333333334
+loso_species,acinetobacter baumannii,additive_positive_degree,24,0.0,0.8333333333333334
+loso_species,bacillus subtilis,phage_positive_degree,31,0.0,0.3548387096774194
+loso_species,bacillus subtilis,host_positive_degree,31,0.5,0.3548387096774194
+loso_species,bacillus subtilis,additive_positive_degree,31,0.0,0.3548387096774194
+loso_species,escherichia coli,phage_positive_degree,222,0.019819466248037675,0.8647419102776245
+loso_species,escherichia coli,host_positive_degree,222,0.5,0.8828828828828829
+loso_species,escherichia coli,additive_positive_degree,222,0.019819466248037675,0.8647419102776245
+loso_species,pseudomonas aeruginosa,phage_positive_degree,124,0.0,0.8870967741935484
+loso_species,pseudomonas aeruginosa,host_positive_degree,124,0.5,0.8870967741935484
+loso_species,pseudomonas aeruginosa,additive_positive_degree,124,0.0,0.8870967741935484
+loso_species,enterococcus faecalis,phage_positive_degree,41,0.0,0.5365853658536586
+loso_species,enterococcus faecalis,host_positive_degree,41,0.5,0.5365853658536586
+loso_species,enterococcus faecalis,additive_positive_degree,41,0.0,0.5365853658536586
+loso_species,salmonella enterica,phage_positive_degree,78,0.04788306451612903,0.7452214452214451
+loso_species,salmonella enterica,host_positive_degree,78,0.5,0.7948717948717948
+loso_species,salmonella enterica,additive_positive_degree,78,0.04788306451612903,0.7452214452214451
+loso_species,shigella sonnei,phage_positive_degree,16,0.13636363636363635,0.6793831168831169
+loso_species,shigella sonnei,host_positive_degree,16,0.5,0.6875
+loso_species,shigella sonnei,additive_positive_degree,16,0.13636363636363635,0.6793831168831169
+loso_species,bacillus thuringiensis,phage_positive_degree,45,0.1951219512195122,0.915613925370023
+loso_species,bacillus thuringiensis,host_positive_degree,45,0.5,0.9111111111111111
+loso_species,bacillus thuringiensis,additive_positive_degree,45,0.1951219512195122,0.915613925370023
+loso_species,lactococcus lactis,phage_positive_degree,51,0.09999999999999998,0.9019607843137255
+loso_species,lactococcus lactis,host_positive_degree,51,0.5,0.9019607843137255
+loso_species,lactococcus lactis,additive_positive_degree,51,0.09999999999999998,0.9019607843137255
+loso_species,citrobacter freundii,phage_positive_degree,17,0.075,0.6887254901960784
+loso_species,citrobacter freundii,host_positive_degree,17,0.5,0.7058823529411765
+loso_species,citrobacter freundii,additive_positive_degree,17,0.075,0.6887254901960784
+loso_species,lactobacillus casei,phage_positive_degree,8,0.125,0.5
+loso_species,lactobacillus casei,host_positive_degree,8,0.5,0.5
+loso_species,lactobacillus casei,additive_positive_degree,8,0.125,0.5
+loso_species,staphylococcus aureus,phage_positive_degree,104,0.0029522275899087494,0.7697451725229503
+loso_species,staphylococcus aureus,host_positive_degree,104,0.5,0.7788461538461539
+loso_species,staphylococcus aureus,additive_positive_degree,104,0.0029522275899087494,0.7697451725229503
+loso_species,klebsiella pneumoniae,phage_positive_degree,35,0.055999999999999994,0.6891428571428572
+loso_species,klebsiella pneumoniae,host_positive_degree,35,0.5,0.7142857142857143
+loso_species,klebsiella pneumoniae,additive_positive_degree,35,0.055999999999999994,0.6891428571428572
+loso_species,bacillus cereus,phage_positive_degree,31,0.27380952380952384,0.6318949867336964
+loso_species,bacillus cereus,host_positive_degree,31,0.5,0.6774193548387096
+loso_species,bacillus cereus,additive_positive_degree,31,0.27380952380952384,0.6318949867336964
+loso_species,yersinia enterocolitica,phage_positive_degree,12,0.0,0.75
+loso_species,yersinia enterocolitica,host_positive_degree,12,0.5,0.75
+loso_species,yersinia enterocolitica,additive_positive_degree,12,0.0,0.75
+loso_species,staphylococcus epidermidis,phage_positive_degree,19,0.01666666666666667,0.43115364167995746
+loso_species,staphylococcus epidermidis,host_positive_degree,19,0.5,0.47368421052631576
+loso_species,staphylococcus epidermidis,additive_positive_degree,19,0.01666666666666667,0.43115364167995746
+loso_species,vibrio parahaemolyticus,phage_positive_degree,26,0.0,0.6923076923076923
+loso_species,vibrio parahaemolyticus,host_positive_degree,26,0.5,0.6923076923076923
+loso_species,vibrio parahaemolyticus,additive_positive_degree,26,0.0,0.6923076923076923
+loso_species,pseudomonas putida,phage_positive_degree,9,0.17500000000000002,0.5444444444444445
+loso_species,pseudomonas putida,host_positive_degree,9,0.5,0.5555555555555556
+loso_species,pseudomonas putida,additive_positive_degree,9,0.17500000000000002,0.5444444444444445
+loso_species,bacillus megaterium,phage_positive_degree,24,0.06296296296296296,0.6166666666666667
+loso_species,bacillus megaterium,host_positive_degree,24,0.5,0.625
+loso_species,bacillus megaterium,additive_positive_degree,24,0.06296296296296296,0.6166666666666667
+loso_species,leuconostoc mesenteroides,phage_positive_degree,14,0.08333333333333331,0.5714285714285714
+loso_species,leuconostoc mesenteroides,host_positive_degree,14,0.5,0.5714285714285714
+loso_species,leuconostoc mesenteroides,additive_positive_degree,14,0.08333333333333331,0.5714285714285714
+loso_species,shigella flexneri,phage_positive_degree,20,0.12666666666666668,0.7250000000000001
+loso_species,shigella flexneri,host_positive_degree,20,0.5,0.75
+loso_species,shigella flexneri,additive_positive_degree,20,0.12666666666666668,0.7250000000000001
+loso_species,pseudomonas fluorescens,phage_positive_degree,11,0.08928571428571427,0.5930735930735931
+loso_species,pseudomonas fluorescens,host_positive_degree,11,0.5,0.6363636363636364
+loso_species,pseudomonas fluorescens,additive_positive_degree,11,0.08928571428571427,0.5930735930735931
+loso_species,listeria monocytogenes,phage_positive_degree,40,0.0,0.525
+loso_species,listeria monocytogenes,host_positive_degree,40,0.5,0.525
+loso_species,listeria monocytogenes,additive_positive_degree,40,0.0,0.525
+loso_species,cronobacter sakazakii,phage_positive_degree,19,0.19166666666666665,0.7789473684210526
+loso_species,cronobacter sakazakii,host_positive_degree,19,0.5,0.7894736842105263
+loso_species,cronobacter sakazakii,additive_positive_degree,19,0.19166666666666665,0.7789473684210526
+loso_species,bacillus pumilus,phage_positive_degree,13,0.0,0.6923076923076923
+loso_species,bacillus pumilus,host_positive_degree,13,0.5,0.6923076923076923
+loso_species,bacillus pumilus,additive_positive_degree,13,0.0,0.6923076923076923
+loso_species,bacillus weihenstephanensis,phage_positive_degree,7,0.375,0.5873015873015872
+loso_species,bacillus weihenstephanensis,host_positive_degree,7,0.5,0.42857142857142855
+loso_species,bacillus weihenstephanensis,additive_positive_degree,7,0.375,0.5873015873015872
+loso_species,enterobacter cloacae,phage_positive_degree,7,0.3333333333333333,0.6190476190476191
+loso_species,enterobacter cloacae,host_positive_degree,7,0.5,0.42857142857142855
+loso_species,enterobacter cloacae,additive_positive_degree,7,0.3333333333333333,0.6190476190476191
+loso_species,leuconostoc pseudomesenteroides,phage_positive_degree,9,0.0,0.5555555555555556
+loso_species,leuconostoc pseudomesenteroides,host_positive_degree,9,0.5,0.5555555555555556
+loso_species,leuconostoc pseudomesenteroides,additive_positive_degree,9,0.0,0.5555555555555556
+logo_genus,acinetobacter,phage_positive_degree,28,0.0,0.8571428571428571
+logo_genus,acinetobacter,host_positive_degree,28,0.5,0.8571428571428571
+logo_genus,acinetobacter,additive_positive_degree,28,0.0,0.8571428571428571
+logo_genus,bacillus,phage_positive_degree,175,0.24166666666666664,0.6571428571428571
+logo_genus,bacillus,host_positive_degree,175,0.5,0.6571428571428571
+logo_genus,bacillus,additive_positive_degree,175,0.24166666666666664,0.6571428571428571
+logo_genus,escherichia,phage_positive_degree,222,0.019819466248037675,0.8647419102776245
+logo_genus,escherichia,host_positive_degree,222,0.5,0.8828828828828829
+logo_genus,escherichia,additive_positive_degree,222,0.019819466248037675,0.8647419102776245
+logo_genus,pseudomonas,phage_positive_degree,178,0.033333333333333326,0.8314606741573034
+logo_genus,pseudomonas,host_positive_degree,178,0.5,0.8314606741573034
+logo_genus,pseudomonas,additive_positive_degree,178,0.033333333333333326,0.8314606741573034
+logo_genus,enterococcus,phage_positive_degree,47,0.0,0.5531914893617021
+logo_genus,enterococcus,host_positive_degree,47,0.5,0.5531914893617021
+logo_genus,enterococcus,additive_positive_degree,47,0.0,0.5531914893617021
+logo_genus,salmonella,phage_positive_degree,97,0.03665123456790123,0.7940712971640806
+logo_genus,salmonella,host_positive_degree,97,0.5,0.8350515463917526
+logo_genus,salmonella,additive_positive_degree,97,0.03665123456790123,0.7940712971640806
+logo_genus,shigella,phage_positive_degree,45,0.16911764705882354,0.6129148629148629
+logo_genus,shigella,host_positive_degree,45,0.5,0.6222222222222222
+logo_genus,shigella,additive_positive_degree,45,0.16911764705882354,0.6129148629148629
+logo_genus,lactococcus,phage_positive_degree,54,0.09999999999999998,0.9074074074074074
+logo_genus,lactococcus,host_positive_degree,54,0.5,0.9074074074074074
+logo_genus,lactococcus,additive_positive_degree,54,0.09999999999999998,0.9074074074074074
+logo_genus,citrobacter,phage_positive_degree,19,0.06428571428571428,0.7199248120300752
+logo_genus,citrobacter,host_positive_degree,19,0.5,0.7368421052631579
+logo_genus,citrobacter,additive_positive_degree,19,0.06428571428571428,0.7199248120300752
+logo_genus,erwinia,phage_positive_degree,25,0.35964912280701755,0.7375438596491228
+logo_genus,erwinia,host_positive_degree,25,0.5,0.76
+logo_genus,erwinia,additive_positive_degree,25,0.35964912280701755,0.7375438596491228
+logo_genus,lactobacillus,phage_positive_degree,50,0.3611111111111111,0.64
+logo_genus,lactobacillus,host_positive_degree,50,0.5,0.64
+logo_genus,lactobacillus,additive_positive_degree,50,0.3611111111111111,0.64
+logo_genus,staphylococcus,phage_positive_degree,143,0.09782608695652173,0.6783216783216783
+logo_genus,staphylococcus,host_positive_degree,143,0.5,0.6783216783216783
+logo_genus,staphylococcus,additive_positive_degree,143,0.09782608695652173,0.6783216783216783
+logo_genus,klebsiella,phage_positive_degree,39,0.04545454545454545,0.6534798534798535
+logo_genus,klebsiella,host_positive_degree,39,0.5,0.717948717948718
+logo_genus,klebsiella,additive_positive_degree,39,0.04545454545454545,0.6534798534798535
+logo_genus,yersinia,phage_positive_degree,26,0.36363636363636365,0.5769230769230769
+logo_genus,yersinia,host_positive_degree,26,0.5,0.5769230769230769
+logo_genus,yersinia,additive_positive_degree,26,0.36363636363636365,0.5769230769230769
+logo_genus,pseudoalteromonas,phage_positive_degree,10,0.5,0.5
+logo_genus,pseudoalteromonas,host_positive_degree,10,0.5,0.5
+logo_genus,pseudoalteromonas,additive_positive_degree,10,0.5,0.5
+logo_genus,paenibacillus,phage_positive_degree,26,0.15625,0.5272435897435898
+logo_genus,paenibacillus,host_positive_degree,26,0.5,0.6153846153846154
+logo_genus,paenibacillus,additive_positive_degree,26,0.15625,0.5272435897435898
+logo_genus,vibrio,phage_positive_degree,78,0.08823529411764708,0.782051282051282
+logo_genus,vibrio,host_positive_degree,78,0.5,0.782051282051282
+logo_genus,vibrio,additive_positive_degree,78,0.08823529411764708,0.782051282051282
+logo_genus,leuconostoc,phage_positive_degree,26,0.5,0.5
+logo_genus,leuconostoc,host_positive_degree,26,0.5,0.5
+logo_genus,leuconostoc,additive_positive_degree,26,0.5,0.5
+logo_genus,streptococcus,phage_positive_degree,36,0.04545454545454547,0.6944444444444444
+logo_genus,streptococcus,host_positive_degree,36,0.5,0.6944444444444444
+logo_genus,streptococcus,additive_positive_degree,36,0.04545454545454547,0.6944444444444444
+logo_genus,proteus,phage_positive_degree,13,0.16666666666666666,0.6495726495726496
+logo_genus,proteus,host_positive_degree,13,0.5,0.6923076923076923
+logo_genus,proteus,additive_positive_degree,13,0.16666666666666666,0.6495726495726496
+logo_genus,listeria,phage_positive_degree,50,0.0,0.42
+logo_genus,listeria,host_positive_degree,50,0.5,0.42
+logo_genus,listeria,additive_positive_degree,50,0.0,0.42
+logo_genus,enterobacter,phage_positive_degree,19,0.33333333333333326,0.45363408521303256
+logo_genus,enterobacter,host_positive_degree,19,0.5,0.3684210526315789
+logo_genus,enterobacter,additive_positive_degree,19,0.33333333333333326,0.45363408521303256
+logo_genus,cronobacter,phage_positive_degree,27,0.31818181818181823,0.8094276094276094
+logo_genus,cronobacter,host_positive_degree,27,0.5,0.8148148148148148
+logo_genus,cronobacter,additive_positive_degree,27,0.31818181818181823,0.8094276094276094
+logo_genus,rhodococcus,phage_positive_degree,10,0.33333333333333337,0.4
+logo_genus,rhodococcus,host_positive_degree,10,0.5,0.4
+logo_genus,rhodococcus,additive_positive_degree,10,0.33333333333333337,0.4
+logo_genus,aeromonas,phage_positive_degree,18,0.0,0.7777777777777778
+logo_genus,aeromonas,host_positive_degree,18,0.5,0.7777777777777778
+logo_genus,aeromonas,additive_positive_degree,18,0.0,0.7777777777777778
+logo_genus,rhizobium,phage_positive_degree,13,0.5,0.6923076923076923
+logo_genus,rhizobium,host_positive_degree,13,0.5,0.6923076923076923
+logo_genus,rhizobium,additive_positive_degree,13,0.5,0.6923076923076923
+logo_genus,pantoea,phage_positive_degree,8,0.25,0.41666666666666663
+logo_genus,pantoea,host_positive_degree,8,0.5,0.5
+logo_genus,pantoea,additive_positive_degree,8,0.25,0.41666666666666663
+logo_genus,brucella,phage_positive_degree,13,0.5,0.7692307692307693
+logo_genus,brucella,host_positive_degree,13,0.5,0.7692307692307693
+logo_genus,brucella,additive_positive_degree,13,0.5,0.7692307692307693
+host_cluster,2,phage_positive_degree,24,0.0,0.8333333333333334
+host_cluster,2,host_positive_degree,24,0.5,0.8333333333333334
+host_cluster,2,additive_positive_degree,24,0.0,0.8333333333333334
+host_cluster,25,phage_positive_degree,31,0.0,0.3548387096774194
+host_cluster,25,host_positive_degree,31,0.5,0.3548387096774194
+host_cluster,25,additive_positive_degree,31,0.0,0.3548387096774194
+host_cluster,84,phage_positive_degree,258,0.0643768768768769,0.8353232800907219
+host_cluster,84,host_positive_degree,258,0.5,0.8604651162790697
+host_cluster,84,additive_positive_degree,258,0.0643768768768769,0.8353232800907219
+host_cluster,188,phage_positive_degree,124,0.0,0.8870967741935484
+host_cluster,188,host_positive_degree,124,0.5,0.8870967741935484
+host_cluster,188,additive_positive_degree,124,0.0,0.8870967741935484
+host_cluster,75,phage_positive_degree,41,0.0,0.5365853658536586
+host_cluster,75,host_positive_degree,41,0.5,0.5365853658536586
+host_cluster,75,additive_positive_degree,41,0.0,0.5365853658536586
+host_cluster,227,phage_positive_degree,97,0.03665123456790123,0.7940712971640806
+host_cluster,227,host_positive_degree,97,0.5,0.8350515463917526
+host_cluster,227,additive_positive_degree,97,0.03665123456790123,0.7940712971640806
+host_cluster,26,phage_positive_degree,45,0.1951219512195122,0.915613925370023
+host_cluster,26,host_positive_degree,45,0.5,0.9111111111111111
+host_cluster,26,additive_positive_degree,45,0.1951219512195122,0.915613925370023
+host_cluster,124,phage_positive_degree,51,0.09999999999999998,0.9019607843137255
+host_cluster,124,host_positive_degree,51,0.5,0.9019607843137255
+host_cluster,124,additive_positive_degree,51,0.09999999999999998,0.9019607843137255
+host_cluster,50,phage_positive_degree,17,0.075,0.6887254901960784
+host_cluster,50,host_positive_degree,17,0.5,0.7058823529411765
+host_cluster,50,additive_positive_degree,17,0.075,0.6887254901960784
+host_cluster,106,phage_positive_degree,8,0.125,0.5
+host_cluster,106,host_positive_degree,8,0.5,0.5
+host_cluster,106,additive_positive_degree,8,0.125,0.5
+host_cluster,234,phage_positive_degree,104,0.0029522275899087494,0.7697451725229503
+host_cluster,234,host_positive_degree,104,0.5,0.7788461538461539
+host_cluster,234,additive_positive_degree,104,0.0029522275899087494,0.7697451725229503
+host_cluster,103,phage_positive_degree,35,0.055999999999999994,0.6891428571428572
+host_cluster,103,host_positive_degree,35,0.5,0.7142857142857143
+host_cluster,103,additive_positive_degree,35,0.055999999999999994,0.6891428571428572
+host_cluster,17,phage_positive_degree,31,0.27380952380952384,0.6318949867336964
+host_cluster,17,host_positive_degree,31,0.5,0.6774193548387096
+host_cluster,17,additive_positive_degree,31,0.27380952380952384,0.6318949867336964
+host_cluster,290,phage_positive_degree,12,0.0,0.75
+host_cluster,290,host_positive_degree,12,0.5,0.75
+host_cluster,290,additive_positive_degree,12,0.0,0.75
+host_cluster,238,phage_positive_degree,19,0.01666666666666667,0.43115364167995746
+host_cluster,238,host_positive_degree,19,0.5,0.47368421052631576
+host_cluster,238,additive_positive_degree,19,0.01666666666666667,0.43115364167995746
+host_cluster,279,phage_positive_degree,26,0.0,0.6923076923076923
+host_cluster,279,host_positive_degree,26,0.5,0.6923076923076923
+host_cluster,279,additive_positive_degree,26,0.0,0.6923076923076923
+host_cluster,196,phage_positive_degree,9,0.17500000000000002,0.5444444444444445
+host_cluster,196,host_positive_degree,9,0.5,0.5555555555555556
+host_cluster,196,additive_positive_degree,9,0.17500000000000002,0.5444444444444445
+host_cluster,21,phage_positive_degree,24,0.06296296296296296,0.6166666666666667
+host_cluster,21,host_positive_degree,24,0.5,0.625
+host_cluster,21,additive_positive_degree,24,0.06296296296296296,0.6166666666666667
+host_cluster,128,phage_positive_degree,14,0.08333333333333331,0.5714285714285714
+host_cluster,128,host_positive_degree,14,0.5,0.5714285714285714
+host_cluster,128,additive_positive_degree,14,0.08333333333333331,0.5714285714285714
+host_cluster,193,phage_positive_degree,11,0.08928571428571427,0.5930735930735931
+host_cluster,193,host_positive_degree,11,0.5,0.6363636363636364
+host_cluster,193,additive_positive_degree,11,0.08928571428571427,0.5930735930735931
+host_cluster,133,phage_positive_degree,40,0.0,0.525
+host_cluster,133,host_positive_degree,40,0.5,0.525
+host_cluster,133,additive_positive_degree,40,0.0,0.525
+host_cluster,60,phage_positive_degree,25,0.2896825396825397,0.7276984126984127
+host_cluster,60,host_positive_degree,25,0.5,0.72
+host_cluster,60,additive_positive_degree,25,0.2896825396825397,0.7276984126984127
+host_cluster,23,phage_positive_degree,13,0.0,0.6923076923076923
+host_cluster,23,host_positive_degree,13,0.5,0.6923076923076923
+host_cluster,23,additive_positive_degree,13,0.0,0.6923076923076923
+host_cluster,27,phage_positive_degree,7,0.375,0.5873015873015872
+host_cluster,27,host_positive_degree,7,0.5,0.42857142857142855
+host_cluster,27,additive_positive_degree,7,0.375,0.5873015873015872
+host_cluster,74,phage_positive_degree,7,0.3333333333333333,0.6190476190476191
+host_cluster,74,host_positive_degree,7,0.5,0.42857142857142855
+host_cluster,74,additive_positive_degree,7,0.3333333333333333,0.6190476190476191
+host_cluster,130,phage_positive_degree,9,0.0,0.5555555555555556
+host_cluster,130,host_positive_degree,9,0.5,0.5555555555555556
+host_cluster,130,additive_positive_degree,9,0.0,0.5555555555555556
+phage_cluster,323,phage_positive_degree,8,0.5,0.375
+phage_cluster,323,host_positive_degree,8,0.8,0.75
+phage_cluster,323,additive_positive_degree,8,0.8,0.75
+phage_cluster,518,phage_positive_degree,43,0.5,0.27906976744186046
+phage_cluster,518,host_positive_degree,43,0.553763440860215,0.3885012919896641
+phage_cluster,518,additive_positive_degree,43,0.553763440860215,0.3885012919896641
+phage_cluster,269,phage_positive_degree,11,0.5,0.5454545454545454
+phage_cluster,269,host_positive_degree,11,0.8,0.8571428571428571
+phage_cluster,269,additive_positive_degree,11,0.8,0.8571428571428571
+phage_cluster,315,phage_positive_degree,23,0.5,0.30434782608695654
+phage_cluster,315,host_positive_degree,23,0.9107142857142857,0.8285714285714285
+phage_cluster,315,additive_positive_degree,23,0.9107142857142857,0.8285714285714285
+phage_cluster,148,phage_positive_degree,7,0.5,0.5714285714285714
+phage_cluster,148,host_positive_degree,7,1.0,1.0
+phage_cluster,148,additive_positive_degree,7,1.0,1.0
+phage_cluster,55,phage_positive_degree,46,0.5,0.6086956521739131
+phage_cluster,55,host_positive_degree,46,0.6488095238095238,0.8122168529145274
+phage_cluster,55,additive_positive_degree,46,0.6488095238095238,0.8122168529145274
+phage_cluster,5,phage_positive_degree,14,0.5,0.42857142857142855
+phage_cluster,5,host_positive_degree,14,1.0,1.0
+phage_cluster,5,additive_positive_degree,14,1.0,1.0
+phage_cluster,369,phage_positive_degree,16,0.5,0.1875
+phage_cluster,369,host_positive_degree,16,0.641025641025641,0.3333333333333333
+phage_cluster,369,additive_positive_degree,16,0.641025641025641,0.3333333333333333
+phage_cluster,663,phage_positive_degree,14,0.5,0.2857142857142857
+phage_cluster,663,host_positive_degree,14,0.525,0.3601190476190476
+phage_cluster,663,additive_positive_degree,14,0.525,0.3601190476190476
+phage_cluster,102,phage_positive_degree,15,0.5,0.6666666666666666
+phage_cluster,102,host_positive_degree,15,0.8,0.9090909090909091
+phage_cluster,102,additive_positive_degree,15,0.8,0.9090909090909091
+phage_cluster,29,phage_positive_degree,8,0.5,0.625
+phage_cluster,29,host_positive_degree,8,0.6666666666666667,0.8
+phage_cluster,29,additive_positive_degree,8,0.6666666666666667,0.8
+phage_cluster,352,phage_positive_degree,9,0.5,0.5555555555555556
+phage_cluster,352,host_positive_degree,9,0.1,0.48444444444444446
+phage_cluster,352,additive_positive_degree,9,0.1,0.48444444444444446
+phage_cluster,322,phage_positive_degree,15,0.5,0.2
+phage_cluster,322,host_positive_degree,15,0.48611111111111116,0.23333333333333334
+phage_cluster,322,additive_positive_degree,15,0.48611111111111116,0.23333333333333334
+phage_cluster,546,phage_positive_degree,16,0.5,0.1875
+phage_cluster,546,host_positive_degree,16,0.5256410256410255,0.23333333333333334
+phage_cluster,546,additive_positive_degree,16,0.5256410256410255,0.23333333333333334
+phage_cluster,615,phage_positive_degree,15,0.5,0.2
+phage_cluster,615,host_positive_degree,15,0.48611111111111116,0.23333333333333334
+phage_cluster,615,additive_positive_degree,15,0.48611111111111116,0.23333333333333334
+phage_cluster,602,phage_positive_degree,6,0.5,0.5
+phage_cluster,602,host_positive_degree,6,0.5,0.5
+phage_cluster,602,additive_positive_degree,6,0.5,0.5
+phage_cluster,491,phage_positive_degree,17,0.5,0.35294117647058826
+phage_cluster,491,host_positive_degree,17,0.10606060606060604,0.2584317915200268
+phage_cluster,491,additive_positive_degree,17,0.10606060606060604,0.2584317915200268
+phage_cluster,741,phage_positive_degree,46,0.5,0.1956521739130435
+phage_cluster,741,host_positive_degree,46,0.7702702702702702,0.5232193732193733
+phage_cluster,741,additive_positive_degree,46,0.7702702702702702,0.5232193732193733
+phage_cluster,787,phage_positive_degree,10,0.5,0.6
+phage_cluster,787,host_positive_degree,10,0.6666666666666666,0.8666666666666667
+phage_cluster,787,additive_positive_degree,10,0.6666666666666666,0.8666666666666667
+phage_cluster,920,phage_positive_degree,11,0.5,0.7272727272727273
+phage_cluster,920,host_positive_degree,11,0.625,0.7954545454545454
+phage_cluster,920,additive_positive_degree,11,0.625,0.7954545454545454
+phage_cluster,877,phage_positive_degree,17,0.5,0.17647058823529413
+phage_cluster,877,host_positive_degree,17,0.42857142857142855,0.1958333333333333
+phage_cluster,877,additive_positive_degree,17,0.42857142857142855,0.1958333333333333
+phage_cluster,891,phage_positive_degree,17,0.5,0.17647058823529413
+phage_cluster,891,host_positive_degree,17,0.42857142857142855,0.1958333333333333
+phage_cluster,891,additive_positive_degree,17,0.42857142857142855,0.1958333333333333
+combined_unseen,block0,phage_positive_degree,74,0.5,0.6621621621621622
+combined_unseen,block0,host_positive_degree,74,0.5,0.6621621621621622
+combined_unseen,block0,additive_positive_degree,74,0.5,0.6621621621621622
+combined_unseen,block1,phage_positive_degree,158,0.5,0.7721518987341772
+combined_unseen,block1,host_positive_degree,158,0.5,0.7721518987341772
+combined_unseen,block1,additive_positive_degree,158,0.5,0.7721518987341772
+combined_unseen,block2,phage_positive_degree,50,0.5,0.7
+combined_unseen,block2,host_positive_degree,50,0.5,0.7
+combined_unseen,block2,additive_positive_degree,50,0.5,0.7
+combined_unseen,block3,phage_positive_degree,57,0.5,0.8596491228070176
+combined_unseen,block3,host_positive_degree,57,0.5,0.8596491228070176
+combined_unseen,block3,additive_positive_degree,57,0.5,0.8596491228070176
+combined_unseen,block4,phage_positive_degree,59,0.5,0.6610169491525424
+combined_unseen,block4,host_positive_degree,59,0.5,0.6610169491525424
+combined_unseen,block4,additive_positive_degree,59,0.5,0.6610169491525424

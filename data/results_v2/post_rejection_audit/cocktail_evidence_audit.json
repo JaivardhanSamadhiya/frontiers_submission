@@ -1,0 +1,123 @@
+{
+  "status": "retrospective diagnostic; external outcomes already known",
+  "seed": 20261005,
+  "n_cocktails": 100,
+  "positive_prevalence": 0.82,
+  "n_host_clusters": 81,
+  "bootstrap_replicates": 2000,
+  "bootstrap_scope": "conditional on the fixed bank; paired host-cluster resampling",
+  "average_precision_null_reference": 0.82,
+  "controls": [
+    {
+      "score": "frozen_cocktail",
+      "auroc": 0.8069105691056909,
+      "average_precision": 0.9510445249242861,
+      "auroc_ci_low": 0.7052597840755735,
+      "auroc_ci_high": 0.9020357321339331,
+      "ap_ci_low": 0.9106561038002319,
+      "ap_ci_high": 0.9816641285184554,
+      "frozen_minus_this_auroc": 0.0,
+      "paired_auroc_delta_ci_low": 0.0,
+      "paired_auroc_delta_ci_high": 0.0,
+      "paired_ap_delta_ci_low": 0.0,
+      "paired_ap_delta_ci_high": 0.0
+    },
+    {
+      "score": "max_constituent",
+      "auroc": 0.8004742547425475,
+      "average_precision": 0.9489679702585445,
+      "auroc_ci_low": 0.6898182523182523,
+      "auroc_ci_high": 0.9024690158439227,
+      "ap_ci_low": 0.9072669019044829,
+      "ap_ci_high": 0.9802669525003651,
+      "frozen_minus_this_auroc": 0.006436314363143403,
+      "paired_auroc_delta_ci_low": -0.027154181985294026,
+      "paired_auroc_delta_ci_high": 0.050621037211946156,
+      "paired_ap_delta_ci_low": -0.006639316193572631,
+      "paired_ap_delta_ci_high": 0.013886272050015304
+    },
+    {
+      "score": "training_generalist",
+      "auroc": 0.323509485094851,
+      "average_precision": 0.7793873357319896,
+      "auroc_ci_low": 0.2159452421171171,
+      "auroc_ci_high": 0.43916301169590644,
+      "ap_ci_low": 0.6888371553122026,
+      "ap_ci_high": 0.8719900046180719,
+      "frozen_minus_this_auroc": 0.4834010840108399,
+      "paired_auroc_delta_ci_low": 0.2879982847569407,
+      "paired_auroc_delta_ci_high": 0.6585141711138475,
+      "paired_ap_delta_ci_low": 0.08806682448367213,
+      "paired_ap_delta_ci_high": 0.2545294137497827
+    },
+    {
+      "score": "host_mean_all_96_phages",
+      "auroc": 0.6266937669376694,
+      "average_precision": 0.8973200288544778,
+      "auroc_ci_low": 0.4886541090488459,
+      "auroc_ci_high": 0.7585608959492885,
+      "ap_ci_low": 0.8256965721467776,
+      "ap_ci_high": 0.9551099181484732,
+      "frozen_minus_this_auroc": 0.1802168021680215,
+      "paired_auroc_delta_ci_low": 0.024083023351438155,
+      "paired_auroc_delta_ci_high": 0.34254986085343225,
+      "paired_ap_delta_ci_low": 0.003433225982316934,
+      "paired_ap_delta_ci_high": 0.11346838597044653
+    },
+    {
+      "score": "score_logistic_cocktail",
+      "auroc": 0.7876016260162602,
+      "average_precision": 0.9440739450800044,
+      "auroc_ci_low": 0.6776266718106996,
+      "auroc_ci_high": 0.8905944890673805,
+      "ap_ci_low": 0.8987867649764095,
+      "ap_ci_high": 0.9797963533017358,
+      "frozen_minus_this_auroc": 0.019308943089430763,
+      "paired_auroc_delta_ci_low": -0.046754481967896604,
+      "paired_auroc_delta_ci_high": 0.08356258122157247,
+      "paired_ap_delta_ci_low": -0.010913099101409154,
+      "paired_ap_delta_ci_high": 0.026369595755860693
+    },
+    {
+      "score": "score_knn_cocktail",
+      "auroc": 0.7029132791327912,
+      "average_precision": 0.9206961113960725,
+      "auroc_ci_low": 0.5622917201147918,
+      "auroc_ci_high": 0.8176418847755055,
+      "ap_ci_low": 0.8590002858044381,
+      "ap_ci_high": 0.966820146872039,
+      "frozen_minus_this_auroc": 0.1039972899728997,
+      "paired_auroc_delta_ci_low": 0.0319193745395323,
+      "paired_auroc_delta_ci_high": 0.19083681945178574,
+      "paired_ap_delta_ci_low": 0.00803382460151003,
+      "paired_ap_delta_ci_high": 0.06363138357758179
+    }
+  ],
+  "composition_shuffle": {
+    "auroc": {
+      "median": 0.6727642276422764,
+      "diagnostic_95_range": [
+        0.6029810298102981,
+        0.7493224932249322
+      ]
+    },
+    "average_precision": {
+      "median": 0.908342986054955,
+      "diagnostic_95_range": [
+        0.8804086404708694,
+        0.9348110442448493
+      ]
+    }
+  },
+  "within_host_selected_constituents": {
+    "evaluable_hosts": 58,
+    "macro_auroc": 0.6594827586206896,
+    "interpretation": "restricted to the three published selections; not full-bank or new-cocktail validation"
+  },
+  "deployment_issue": "Per-phage percentile normalization uses the other test hosts. A singleton batch gives each constituent 0.5 and a three-phage score 0.875. The frozen rank score is cohort-dependent, not an individual-host predictor.",
+  "input_checksums": {
+    "frozen_pair_predictions.csv": "876c97d91b64158b9bda4a6df15cd510f2b1753da80c031a261570247932ef6d",
+    "heldout_cocktail_predictions_and_outcomes.csv": "596b57d9bfa11a42d13efcf20d4f9c054eed32f92e91b10d7bce12cde35bd575",
+    "heldout_selected_pair_predictions_and_outcomes.csv": "bf71dc934933667d0abde3db2bffac27736b8e4e43cb57459158fdd75e25f51d"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "retrospective; shared test rows and matched training class counts",
+  "feature_dimension": 448,
+  "seeds": [
+    20261005,
+    20261006,
+    20261007
+  ],
+  "xgboost_trees": 400,
+  "checksums": {
+    "data\\interim_v2\\interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data\\cache_v2\\node_features.npz": "d47bdccb01b5b6219d213275c1a20a0640acc16b111e5f64f7fe0bad9efd1f00",
+    "data\\cache_v2\\node_features.meta.json": "3036b248cdba6e49e06cc2b904badadcb6c71a977ac66fc30395dc9ce4e65ca6",
+    "data\\interim_v2\\seq_pair_features.csv": "86684fb0f753dd1a2bf54de413598554ef328c8242d29990c768167f886f7ab3",
+    "data\\cache_v2\\clusters_k21_d0.05.json": "b1fcc5ad4090dea344acfbe9abfc417e2cab606e1d1fa83eb6b609cb54404e1c",
+    "POST_REJECTION_ANALYSIS_PROTOCOL.md": "6bd63f8b28fe5a04060f27b30c08e82f29e5566cfe680208147904526395efc6"
+  },
+  "limitations": [
+    "five blocks",
+    "seeds are sensitivity runs, not independent samples",
+    "fixed configuration inherited from prior explored analysis",
+    "original forward-strand clusters retained"
+  ]
+}
