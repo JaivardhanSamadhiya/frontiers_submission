@@ -99,9 +99,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 10155,
-      "sha256_exact": "84bd8131505d3be9eec51c42d6931e56f702adf35adf6d8f1f7c5bec88c499cf",
-      "sha256_lf": "84bd8131505d3be9eec51c42d6931e56f702adf35adf6d8f1f7c5bec88c499cf"
+      "bytes": 10334,
+      "sha256_exact": "f3f011ef72ca1f8b720b82f01e575139c1e1f1cacb388bd35a4e25c47ea6404d",
+      "sha256_lf": "f3f011ef72ca1f8b720b82f01e575139c1e1f1cacb388bd35a4e25c47ea6404d"
     },
     {
       "path": "RELEASE_NOTES_2026_10_15.md",
@@ -1903,9 +1903,9 @@
     },
     {
       "path": "reproducibility/requirements-revision-audit.txt",
-      "bytes": 281,
-      "sha256_exact": "2ba0c1ab5fe76a053234609b12d0cdb0c6a9d246bffacc6f735f1816f3b1801e",
-      "sha256_lf": "2ba0c1ab5fe76a053234609b12d0cdb0c6a9d246bffacc6f735f1816f3b1801e"
+      "bytes": 297,
+      "sha256_exact": "f699d6a24bcfe3f21cb61369a720d0f0f75bad2228f3c3a5f8b2020ea249aed7",
+      "sha256_lf": "f699d6a24bcfe3f21cb61369a720d0f0f75bad2228f3c3a5f8b2020ea249aed7"
     },
     {
       "path": "reproducibility/stage_public_sources.py",

@@ -102,7 +102,9 @@ python scripts/frontiers_revision/cocktail_source_comparison.py
 The source-predictor feasibility audit is retained as a saved non-success
 record. Rerunning `official_gaborieau_audit.py` requires a full pristine upstream
 Git checkout at its pinned revision, including the released prediction RAR,
-not merely the compact source CSVs supplied here. It performs no model fitting
+not merely the compact source CSVs supplied here. This optional forensic rerun
+also needs seaborn for the upstream script and a RAR-capable libarchive/bsdtar
+executable available as `tar`; GNU tar alone cannot read that archive. It performs no model fitting
 and does not fill missing rescue scores. Public summary records omit contact
 drafts, personal commit metadata and private machine-path details.
 
