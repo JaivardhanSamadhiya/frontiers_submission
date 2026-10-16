@@ -10,6 +10,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT/'reproducibility/public_payload_sha256.json'
 TEXT = {'.py','.md','.txt','.json','.csv','.tsv','.yaml','.yml','.toml','.cff','.log','.xml'}
+TEXT_NAMES = {'.gitignore', '.gitattributes', '.gitmodules'}
 
 
 def digest(data):
@@ -40,13 +41,19 @@ def build():
         if path==MANIFEST or not path.is_file():
             continue
         content=path.read_bytes()
-        row={'path':name,'bytes':len(content),'sha256_exact':digest(content)}
-        if path.suffix.lower() in TEXT or path.name=='.gitignore':
+        # Git archives contain staged blob bytes, which can differ from a
+        # Windows working tree under autocrlf even for extensionless files.
+        # Record that exact representation rather than broadening text rules.
+        git_blob=subprocess.check_output(['git','-c',f'safe.directory={ROOT.as_posix()}',
+            '-C',str(ROOT),'cat-file','blob',':'+name])
+        row={'path':name,'bytes':len(content),'sha256_exact':digest(content),
+             'git_blob_bytes':len(git_blob),'sha256_git_blob':digest(git_blob)}
+        if path.suffix.lower() in TEXT or path.name in TEXT_NAMES:
             row['sha256_lf']=digest(lf_bytes(content))
         rows.append(row)
-    manifest={'schema':1,'snapshot_version':'2026.10.15',
+    manifest={'schema':2,'snapshot_version':'2026.10.15.1',
         'scope':'Explicit tracked scientific payload; excludes this self-referential inventory and submodule contents.',
-        'text_policy':'Exact bytes preferred; explicitly inventoried text may also match after CRLF/CR-to-LF normalization. No other normalization is accepted.',
+        'text_policy':'Accept the exact recorded working-tree or staged Git-blob SHA-256. Explicitly inventoried text may also match its recorded CRLF/CR-to-LF-normalized SHA-256. No other normalization or unrecorded representation is accepted.',
         'files':rows}
     MANIFEST.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     print(f'Built public inventory for {len(rows)} tracked files')
@@ -54,20 +61,24 @@ def build():
 
 def verify():
     manifest=json.loads(MANIFEST.read_text(encoding='utf-8'))
-    exact=normalized=0
+    exact=git_blob=normalized=0
     for row in manifest['files']:
         path=safe_path(row['path'])
         if not path.is_file():
             raise AssertionError('Missing public payload file: '+row['path'])
         content=path.read_bytes()
-        if digest(content)==row['sha256_exact']:
+        observed=digest(content)
+        if observed==row['sha256_exact']:
             exact+=1
+        elif row.get('sha256_git_blob') and observed==row['sha256_git_blob']:
+            git_blob+=1
         elif row.get('sha256_lf') and digest(lf_bytes(content))==row['sha256_lf']:
             normalized+=1
         else:
             raise AssertionError('Public payload checksum mismatch: '+row['path'])
     print(json.dumps({'status':'passed','files':len(manifest['files']),
-                      'exact_byte_matches':exact,'documented_text_eol_matches':normalized},indent=2))
+                      'exact_byte_matches':exact,'recorded_git_blob_matches':git_blob,
+                      'documented_text_eol_matches':normalized},indent=2))
 
 
 if __name__=='__main__':

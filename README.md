@@ -4,7 +4,7 @@ Scientific code and compact data for leakage-controlled phage–host prediction
 and retrospective scoring of published, fixed-bank *Escherichia* cocktail
 assays. This is a research audit, **not a clinical recommender**.
 
-The dated scientific snapshot is `v2026.10.15`. It extends the existing public
+The dated scientific snapshot is `v2026.10.15.1`. It extends the existing public
 v2.0.1 history without replacing historical frozen predictions. Source code,
 saved predictions, analysis protocols, accession provenance and verification
 helpers are included. Manuscripts, private peer review, submission materials,
@@ -53,7 +53,7 @@ accession-table preparation. The `audit` package extra also records sourmash.
 ```powershell
 git clone https://github.com/JaivardhanSamadhiya/frontiers_submission.git
 cd frontiers_submission
-git checkout v2026.10.15
+git checkout v2026.10.15.1
 python -m venv .venv-audit
 .venv-audit\Scripts\Activate.ps1
 python -m pip install -r reproducibility/requirements-revision-audit.txt
@@ -172,3 +172,7 @@ Use `CITATION.cff` and cite the exact tag or commit used. `.zenodo.json` supplie
 archive metadata but **does not itself create a deposit or DOI**. No unissued
 archival identifier is claimed. Scientific snapshot version and historical
 dataset/model version are distinct.
+
+Patch `v2026.10.15.1` corrects archive portability of the checksum verifier by
+recording exact staged Git-blob hashes alongside working-tree hashes. It does
+not change scientific inputs, predictions or results; `v2026.10.15` is retained.

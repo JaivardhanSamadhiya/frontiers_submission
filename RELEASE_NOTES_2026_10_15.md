@@ -1,4 +1,18 @@
-# Scientific snapshot v2026.10.15
+# Scientific snapshot v2026.10.15.1
+
+## Archive-portability patch
+
+The patch records the exact staged Git-blob SHA-256 of each inventoried file,
+in addition to its working-tree hash and the existing explicit text-EOL policy.
+Git-generated archives can therefore be checked without treating unlisted
+formats as normalized text. The verifier accepts only recorded hashes; it
+does not allow arbitrary file transformations. CI now also runs the public
+payload and saved-prediction verifiers. LF normalization is explicitly recorded
+for the known text configuration names `.gitignore`, `.gitattributes` and
+`.gitmodules`, covering Windows-generated archives without treating binary
+files as text. The original `v2026.10.15` tag remains
+unchanged. Scientific inputs, predictions, bootstrap results and claims are
+unchanged by this packaging correction.
 
 This dated release preserves the v2.0.1 public repository history and original
 frozen predictions while adding retrospective scientific audits. It is not a

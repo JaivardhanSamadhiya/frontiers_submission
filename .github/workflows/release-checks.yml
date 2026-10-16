@@ -24,3 +24,7 @@ jobs:
         run: python -m pytest tests/test_screening_diagnostics.py -q
       - name: Frozen release audit
         run: python experiments/00_validate_release.py --allow-missing-genomes
+      - name: Public payload checksums
+        run: python reproducibility/verify_public_snapshot.py
+      - name: Saved prediction and model checks
+        run: python reproducibility/verify_saved_predictions.py
