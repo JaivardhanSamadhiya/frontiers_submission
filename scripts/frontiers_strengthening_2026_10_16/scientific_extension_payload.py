@@ -30,7 +30,7 @@ PRIOR='7937ee3e705609c2759b37973f9c0d2e97b74f33'
 MAX_FILE=40*1024**2
 MAX_TOTAL=150*1024**2
 CODE=['model_common.py','secondsource_matched.py','model_nested_comparison.py',
-      'model_verify.py','model_report.py','verify_extension_analysis.py','doublet_validation.py','test_doublet_validation.py',
+      'model_verify.py','model_report.py','verify_extension_analysis.py','diagnose_prediction_portability.py','doublet_validation.py','test_doublet_validation.py',
       'verify_strengthening.py','verify_comparator_metrics.py','comparator_public_replay.py','comparator_resume_genophi.py','scientific_extension_payload.py','plot_strengthening_doublets.py',
       'model_mlp_budget_sensitivity.py','model_mlp_budget_before_verifier_repair.py','verify_mlp_budget_sensitivity.py','MLP_BUDGET_AMENDMENT.md',
       'DOUBLET_PROTOCOL.md','comparator_external_cohort_audit.md']

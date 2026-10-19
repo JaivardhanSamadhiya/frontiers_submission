@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "snapshot_version": "2026.10.18.2",
+  "snapshot_version": "2026.10.18.3",
   "scope": "Explicit tracked scientific payload; excludes this self-referential inventory and submodule contents.",
   "text_policy": "Accept the exact recorded working-tree or staged Git-blob SHA-256. Explicitly inventoried text may also match its recorded CRLF/CR-to-LF-normalized SHA-256. No other normalization or unrecorded representation is accepted.",
   "files": [
@@ -14,11 +14,11 @@
     },
     {
       "path": ".github/workflows/release-checks.yml",
-      "bytes": 2023,
-      "sha256_exact": "4c7ad1b03f75280abf967ec4d3eeffcce2b1f7b9e8501cd55813eb1a62b2ce54",
-      "git_blob_bytes": 1981,
-      "sha256_git_blob": "c0d7726b1882be46799af0d6a94e0e969ae72303f83579e43f449cfd4b942a84",
-      "sha256_lf": "c0d7726b1882be46799af0d6a94e0e969ae72303f83579e43f449cfd4b942a84"
+      "bytes": 2212,
+      "sha256_exact": "a5d5304cf75268e4b258eb820be38e18941485b86858067ba31ea55d0706a790",
+      "git_blob_bytes": 2168,
+      "sha256_git_blob": "a198e4159dae52b765f6ddc0bf982f0524bf98430231a4f71012d7ed1005f3a7",
+      "sha256_lf": "a198e4159dae52b765f6ddc0bf982f0524bf98430231a4f71012d7ed1005f3a7"
     },
     {
       "path": ".gitignore",
@@ -55,10 +55,10 @@
     {
       "path": "CITATION.cff",
       "bytes": 1455,
-      "sha256_exact": "50e313d639b1c62eb1eb48b0d9ac5be97e86920e6bf0e49210f26e545da97203",
+      "sha256_exact": "670128dd8d373cc412def89c6e512433c4e16a921bf125a53b063c203a38a401",
       "git_blob_bytes": 1455,
-      "sha256_git_blob": "50e313d639b1c62eb1eb48b0d9ac5be97e86920e6bf0e49210f26e545da97203",
-      "sha256_lf": "50e313d639b1c62eb1eb48b0d9ac5be97e86920e6bf0e49210f26e545da97203"
+      "sha256_git_blob": "670128dd8d373cc412def89c6e512433c4e16a921bf125a53b063c203a38a401",
+      "sha256_lf": "670128dd8d373cc412def89c6e512433c4e16a921bf125a53b063c203a38a401"
     },
     {
       "path": "COMPARATOR_PUBLIC_STATUS.json",
@@ -174,10 +174,10 @@
     {
       "path": "README.md",
       "bytes": 14862,
-      "sha256_exact": "4e6bf8177805d23edfec4243f2788dfca81d3a0ec3397751a0cd6c7bf52da883",
+      "sha256_exact": "669d2b4b9f60aab4dd51c10bc80cf7de165fee4ebab71d5abdc98e835f6306a7",
       "git_blob_bytes": 14862,
-      "sha256_git_blob": "4e6bf8177805d23edfec4243f2788dfca81d3a0ec3397751a0cd6c7bf52da883",
-      "sha256_lf": "4e6bf8177805d23edfec4243f2788dfca81d3a0ec3397751a0cd6c7bf52da883"
+      "sha256_git_blob": "669d2b4b9f60aab4dd51c10bc80cf7de165fee4ebab71d5abdc98e835f6306a7",
+      "sha256_lf": "669d2b4b9f60aab4dd51c10bc80cf7de165fee4ebab71d5abdc98e835f6306a7"
     },
     {
       "path": "RELEASE_NOTES_2026_10_15.md",
@@ -189,11 +189,11 @@
     },
     {
       "path": "RELEASE_NOTES_2026_10_18.md",
-      "bytes": 4639,
-      "sha256_exact": "a087f32b87900bdd37512a71522884e583104f6831d0b24468049fffef6e3a55",
-      "git_blob_bytes": 4639,
-      "sha256_git_blob": "a087f32b87900bdd37512a71522884e583104f6831d0b24468049fffef6e3a55",
-      "sha256_lf": "a087f32b87900bdd37512a71522884e583104f6831d0b24468049fffef6e3a55"
+      "bytes": 4866,
+      "sha256_exact": "3ec127e0ed940070e689306f07e3697fa53fc0c564c009e85d4f098dec071277",
+      "git_blob_bytes": 4866,
+      "sha256_git_blob": "3ec127e0ed940070e689306f07e3697fa53fc0c564c009e85d4f098dec071277",
+      "sha256_lf": "3ec127e0ed940070e689306f07e3697fa53fc0c564c009e85d4f098dec071277"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_ENVIRONMENT.json",
@@ -205,11 +205,11 @@
     },
     {
       "path": "SCIENTIFIC_EXTENSION_MANIFEST.json",
-      "bytes": 997628,
-      "sha256_exact": "45a713ad46d739c7fe016325350814b79b84fccbd56a43612c206192b0b218f6",
-      "git_blob_bytes": 997628,
-      "sha256_git_blob": "45a713ad46d739c7fe016325350814b79b84fccbd56a43612c206192b0b218f6",
-      "sha256_lf": "45a713ad46d739c7fe016325350814b79b84fccbd56a43612c206192b0b218f6"
+      "bytes": 997903,
+      "sha256_exact": "c1326e931eeb167dab3b41405bd288c4deafd5ba63f1f8ec10c1f56b18f09545",
+      "git_blob_bytes": 997903,
+      "sha256_git_blob": "c1326e931eeb167dab3b41405bd288c4deafd5ba63f1f8ec10c1f56b18f09545",
+      "sha256_lf": "c1326e931eeb167dab3b41405bd288c4deafd5ba63f1f8ec10c1f56b18f09545"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_README.md",
@@ -222,10 +222,10 @@
     {
       "path": "SCIENTIFIC_EXTENSION_SCIENTIFIC_CHECKS.json",
       "bytes": 3680,
-      "sha256_exact": "f46965f0f69cb189fc96b2b0393a022e608838908321c73f3b2ecb93505bad23",
+      "sha256_exact": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61",
       "git_blob_bytes": 3680,
-      "sha256_git_blob": "f46965f0f69cb189fc96b2b0393a022e608838908321c73f3b2ecb93505bad23",
-      "sha256_lf": "f46965f0f69cb189fc96b2b0393a022e608838908321c73f3b2ecb93505bad23"
+      "sha256_git_blob": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61",
+      "sha256_lf": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_SOURCE_NOTICES.md",
@@ -246,10 +246,10 @@
     {
       "path": "SCIENTIFIC_EXTENSION_VERIFICATION.json",
       "bytes": 416,
-      "sha256_exact": "cd7546903b4c5b5d9fff451c2399b3d7ff4f5f662a25ee4add32a97693086c57",
+      "sha256_exact": "13815195c613b7de356012fa6a2614df39aaa2388405c05088cf61f27a17a74a",
       "git_blob_bytes": 416,
-      "sha256_git_blob": "cd7546903b4c5b5d9fff451c2399b3d7ff4f5f662a25ee4add32a97693086c57",
-      "sha256_lf": "cd7546903b4c5b5d9fff451c2399b3d7ff4f5f662a25ee4add32a97693086c57"
+      "sha256_git_blob": "13815195c613b7de356012fa6a2614df39aaa2388405c05088cf61f27a17a74a",
+      "sha256_lf": "13815195c613b7de356012fa6a2614df39aaa2388405c05088cf61f27a17a74a"
     },
     {
       "path": "SECOND_BANK_AND_CANONICAL_PROTOCOL.md",
@@ -25546,11 +25546,11 @@
     },
     {
       "path": "reproducibility/verify_public_snapshot.py",
-      "bytes": 3882,
-      "sha256_exact": "889940acf561e1bc996c20425b3d68c4fbe140606be89dd7db0832bb52a0fd90",
-      "git_blob_bytes": 3882,
-      "sha256_git_blob": "889940acf561e1bc996c20425b3d68c4fbe140606be89dd7db0832bb52a0fd90",
-      "sha256_lf": "889940acf561e1bc996c20425b3d68c4fbe140606be89dd7db0832bb52a0fd90"
+      "bytes": 6760,
+      "sha256_exact": "6893d8cd4c80cbfa39f866cf0c8671eec87855df6e1f11eaf0c1197085b5a379",
+      "git_blob_bytes": 6760,
+      "sha256_git_blob": "6893d8cd4c80cbfa39f866cf0c8671eec87855df6e1f11eaf0c1197085b5a379",
+      "sha256_lf": "6893d8cd4c80cbfa39f866cf0c8671eec87855df6e1f11eaf0c1197085b5a379"
     },
     {
       "path": "reproducibility/verify_saved_predictions.py",
@@ -25761,6 +25761,14 @@
       "sha256_lf": "5a1ea3e2b236b6a2ebe36e56cf17a4cb6f9d66822deadce942d059149cae9148"
     },
     {
+      "path": "scripts/frontiers_strengthening_2026_10_16/diagnose_prediction_portability.py",
+      "bytes": 17866,
+      "sha256_exact": "c54291013c0b6811b62e5d4d7e16dfb8b457217497b825a446d2ca0ab35e201e",
+      "git_blob_bytes": 17866,
+      "sha256_git_blob": "c54291013c0b6811b62e5d4d7e16dfb8b457217497b825a446d2ca0ab35e201e",
+      "sha256_lf": "c54291013c0b6811b62e5d4d7e16dfb8b457217497b825a446d2ca0ab35e201e"
+    },
+    {
       "path": "scripts/frontiers_strengthening_2026_10_16/doublet_validation.py",
       "bytes": 23082,
       "sha256_exact": "a6801ce199de8a8f90d4827b0c47cdd1a52b9d49416af369ad0159a0e3692b65",
@@ -25826,11 +25834,11 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py",
-      "bytes": 33139,
-      "sha256_exact": "199c46097539441943d7cde80254dbf8f78ba577dc024224f6e00a777bff4fb5",
-      "git_blob_bytes": 33139,
-      "sha256_git_blob": "199c46097539441943d7cde80254dbf8f78ba577dc024224f6e00a777bff4fb5",
-      "sha256_lf": "199c46097539441943d7cde80254dbf8f78ba577dc024224f6e00a777bff4fb5"
+      "bytes": 33176,
+      "sha256_exact": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf",
+      "git_blob_bytes": 33176,
+      "sha256_git_blob": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf",
+      "sha256_lf": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/secondsource_matched.py",

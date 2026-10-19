@@ -32,6 +32,8 @@ jobs:
         run: python scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py --verify-stage --stage-root . --allow-additional-files
       - name: Measured-menu tests
         run: python -m unittest discover -s scripts/frontiers_strengthening_2026_10_16 -p test_doublet_validation.py -v
+      - name: Cross-platform saved-model numerical diagnostic (not a validation pass)
+        run: python -B scripts/frontiers_strengthening_2026_10_16/diagnose_prediction_portability.py
       - name: Strengthening saved models, grouped selections and independent metrics
         run: python -B scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py
       - name: Synthetic train-only scaler guard

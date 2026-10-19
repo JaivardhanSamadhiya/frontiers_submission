@@ -27,7 +27,7 @@
         "convergence_warning_count": 100
       }
     },
-    "elapsed_seconds": 3.672000000020489,
+    "elapsed_seconds": 9.046999999991385,
     "passed": true,
     "verification_files_written": 0,
     "toy_scaler_guard_fit_executed": false,

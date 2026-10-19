@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-19T00:53:09.118721+00:00",
+  "created_utc": "2026-10-19T04:56:03.793540+00:00",
   "prior_release": "v2026.10.15.2",
   "prior_commit": "7937ee3e705609c2759b37973f9c0d2e97b74f33",
   "prior_doi": "10.5281/zenodo.23426457",
@@ -69,7 +69,7 @@
     {
       "path": "SCIENTIFIC_EXTENSION_SCIENTIFIC_CHECKS.json",
       "bytes": 3680,
-      "sha256": "f46965f0f69cb189fc96b2b0393a022e608838908321c73f3b2ecb93505bad23",
+      "sha256": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61",
       "provenance": "generated scientific packaging metadata"
     },
     {
@@ -17413,6 +17413,12 @@
       "provenance": "byte-identical local scientific source"
     },
     {
+      "path": "scripts/frontiers_strengthening_2026_10_16/diagnose_prediction_portability.py",
+      "bytes": 17866,
+      "sha256": "c54291013c0b6811b62e5d4d7e16dfb8b457217497b825a446d2ca0ab35e201e",
+      "provenance": "byte-identical local scientific source"
+    },
+    {
       "path": "scripts/frontiers_strengthening_2026_10_16/doublet_validation.py",
       "bytes": 23082,
       "sha256": "a6801ce199de8a8f90d4827b0c47cdd1a52b9d49416af369ad0159a0e3692b65",
@@ -17462,8 +17468,8 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py",
-      "bytes": 33139,
-      "sha256": "199c46097539441943d7cde80254dbf8f78ba577dc024224f6e00a777bff4fb5",
+      "bytes": 33176,
+      "sha256": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17719,7 +17725,7 @@
       "provenance": "byte-identical local scientific source"
     }
   ],
-  "total_bytes": 73412028,
+  "total_bytes": 73429931,
   "excluded": [
     "manuscript and reviewer material",
     "writing scripts",

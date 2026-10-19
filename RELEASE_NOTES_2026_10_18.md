@@ -1,4 +1,4 @@
-# Scientific snapshot v2026.10.18.2
+# Scientific snapshot v2026.10.18.3
 
 This release preserves the preceding tags and frozen results while adding
 retrospective scientific analyses. Its exact commit is recorded in the release
@@ -9,7 +9,10 @@ verifier read preserved Windows path separators literally. This repair changes
 only that test consumer, adds two portability/path-safety regression cases and
 regenerates release inventories. Analysis protocols, source inputs, fitted
 models, predictions and numerical results are unchanged. The earlier tag is
-preserved; this release requires its own complete continuous-integration pass.
+preserved. Tag `v2026.10.18.2` then exposed small saved neural-model prediction
+differences on Linux; those require a separate numerical portability audit.
+This snapshot includes a read-only diagnostic and retains the frozen scores.
+It requires its own complete continuous-integration pass before release.
 
 ## Measured decisions and source dependence
 
