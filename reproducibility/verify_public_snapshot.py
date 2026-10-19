@@ -51,7 +51,7 @@ def build():
         if path.suffix.lower() in TEXT or path.name in TEXT_NAMES:
             row['sha256_lf']=digest(lf_bytes(content))
         rows.append(row)
-    manifest={'schema':2,'snapshot_version':'2026.10.18.1',
+    manifest={'schema':2,'snapshot_version':'2026.10.18.2',
         'scope':'Explicit tracked scientific payload; excludes this self-referential inventory and submodule contents.',
         'text_policy':'Accept the exact recorded working-tree or staged Git-blob SHA-256. Explicitly inventoried text may also match its recorded CRLF/CR-to-LF-normalized SHA-256. No other normalization or unrecorded representation is accepted.',
         'files':rows}

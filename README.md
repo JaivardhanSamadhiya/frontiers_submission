@@ -4,7 +4,7 @@ Scientific code and compact data for leakage-controlled phage–host prediction
 and retrospective scoring of published, fixed-bank *Escherichia* cocktail
 assays. This is a research audit, **not a clinical recommender**.
 
-The dated scientific snapshot is `v2026.10.18.1`. It extends the existing public
+The dated scientific snapshot is `v2026.10.18.2`. It extends the existing public
 v2.0.1 history without replacing historical frozen predictions. Source code,
 saved predictions, analysis protocols, accession provenance and verification
 helpers are included. Manuscripts, private peer review, submission materials,
@@ -107,7 +107,7 @@ accession-table preparation. The `audit` package extra also records sourmash.
 ```powershell
 git clone https://github.com/JaivardhanSamadhiya/frontiers_submission.git
 cd frontiers_submission
-git checkout v2026.10.18.1
+git checkout v2026.10.18.2
 python -m venv .venv-audit
 .venv-audit\Scripts\Activate.ps1
 python -m pip install -r reproducibility/requirements-revision-audit.txt

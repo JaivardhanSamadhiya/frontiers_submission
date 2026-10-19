@@ -1,8 +1,15 @@
-# Scientific snapshot v2026.10.18.1
+# Scientific snapshot v2026.10.18.2
 
 This release preserves the preceding tags and frozen results while adding
 retrospective scientific analyses. Its exact commit is recorded in the release
 metadata and verified archive inventory, rather than self-embedded in this file.
+
+The preceding immutable tag `v2026.10.18.1` failed a Linux test because a
+verifier read preserved Windows path separators literally. This repair changes
+only that test consumer, adds two portability/path-safety regression cases and
+regenerates release inventories. Analysis protocols, source inputs, fitted
+models, predictions and numerical results are unchanged. The earlier tag is
+preserved; this release requires its own complete continuous-integration pass.
 
 ## Measured decisions and source dependence
 

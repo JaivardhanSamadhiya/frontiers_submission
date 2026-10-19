@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-18T23:52:49.881943+00:00",
+  "created_utc": "2026-10-19T00:53:09.118721+00:00",
   "prior_release": "v2026.10.15.2",
   "prior_commit": "7937ee3e705609c2759b37973f9c0d2e97b74f33",
   "prior_doi": "10.5281/zenodo.23426457",
@@ -68,8 +68,8 @@
     },
     {
       "path": "SCIENTIFIC_EXTENSION_SCIENTIFIC_CHECKS.json",
-      "bytes": 3679,
-      "sha256": "bb9914ca2744fd5080758ac5761d1d5b8fe2da11051f4a5d1ea4267679830605",
+      "bytes": 3680,
+      "sha256": "f46965f0f69cb189fc96b2b0393a022e608838908321c73f3b2ecb93505bad23",
       "provenance": "generated scientific packaging metadata"
     },
     {
@@ -17474,8 +17474,8 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/test_doublet_validation.py",
-      "bytes": 3589,
-      "sha256": "d15045a09c006886bfd1814a151bf2e4c6c44c90d0a72bc36d77edc1527d6413",
+      "bytes": 4610,
+      "sha256": "39a8e0c879bbdb07d9f9eb3d267b50388571a885149f3fd3e1cf2badf632c7fc",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17719,7 +17719,7 @@
       "provenance": "byte-identical local scientific source"
     }
   ],
-  "total_bytes": 73411006,
+  "total_bytes": 73412028,
   "excluded": [
     "manuscript and reviewer material",
     "writing scripts",

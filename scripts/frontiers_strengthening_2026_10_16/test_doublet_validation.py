@@ -1,5 +1,5 @@
 import importlib.util
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import unittest
 import numpy as np
 import pandas as pd
@@ -9,7 +9,23 @@ from sklearn.metrics import roc_auc_score
 spec=importlib.util.spec_from_file_location('doublets',Path(__file__).with_name('doublet_validation.py'))
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 
+def recorded_relative_path(value):
+    """Interpret preserved Windows/POSIX provenance paths on either platform."""
+    normalized=value.replace('\\','/')
+    path=PurePosixPath(normalized)
+    if path.is_absolute() or PureWindowsPath(value).drive or '..' in path.parts:
+        raise ValueError('Expected a repository-relative provenance path')
+    return Path(*path.parts)
+
 class TestMeasuredMenus(unittest.TestCase):
+    def test_recorded_path_separators_are_portable(self):
+        expected=Path('scripts')/'study'/'protocol.md'
+        self.assertEqual(recorded_relative_path('scripts/study/protocol.md'),expected)
+        self.assertEqual(recorded_relative_path(r'scripts\study\protocol.md'),expected)
+    def test_recorded_path_cannot_escape_repository(self):
+        for value in ['/tmp/input.csv',r'C:\study\input.csv',r'..\input.csv','../input.csv',r'\\server\share\input.csv']:
+            with self.subTest(value=value),self.assertRaises(ValueError):
+                recorded_relative_path(value)
     def test_randomized_ties(self):
         value,ties=m.choose_expected(np.array([[.8,.8,.1],[.2,.2,.2]]),np.array([[0,1,1],[0,1,1]]))
         np.testing.assert_allclose(value,[.5,2/3])
@@ -57,6 +73,6 @@ class TestMeasuredMenus(unittest.TestCase):
         self.assertEqual(report['informative_triplet_compositions'],3)
         self.assertEqual(report['doublet_positive'],224)
         for data in report['inputs'].values():
-            self.assertEqual(data['sha256'],m.sha(m.ROOT/data['path']))
+            self.assertEqual(data['sha256'],m.sha(m.ROOT/recorded_relative_path(data['path'])))
 
 if __name__=='__main__':unittest.main()
