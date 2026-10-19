@@ -1,0 +1,9 @@
+# Retrospective MLP training-budget sensitivity
+
+Recorded 17 October 2026 after the initial 150-epoch comparison and its outer outcomes were inspected. All 100 neural fits exhausted that fixed budget. This amendment addresses an optimization-budget limitation and is not a new untouched validation or an opportunity to choose favorable outer results.
+
+Retain every original fit and result. Use exactly the original 448-feature rows, outer and inner split indices, three candidate architectures/regularizers, seed plus fold index, scaling, optimizer and batch size. Increase only the neural optimization allowance to at most 1,000 epochs, with training-loss tolerance 0.0001 and patience 20 epochs. Disable random-row validation/early stopping. Training-loss stopping uses only the current fitting partition. Candidate selection still uses mean AUROC on the original grouped inner validation folds, with list-order ties. No outcome-based direction reversals, threshold tuning, new candidate search or split changes are allowed.
+
+Reuse the original fully verified GBM scores as the identical comparator. Report all neural candidate scores, actual epochs, warnings, training-loss traces, selected parameters, outer predictions and fitted models. Preserve both the original 150-epoch and this sensitivity result regardless of direction. Reaching a training-loss stopping condition is not proof of global convergence or optimal model-family performance.
+
+Use two CPU threads, no paid compute/GPU. Resume completed paired outer-fold records only after their saved model/prediction hashes validate; otherwise preserve the failure and investigate. Verify scalers on exact inner-training means, outer/inner cluster exclusions, outer model reloads, candidate selection and saved metrics. No independent-row significance tests or new external-generalization claim follow.

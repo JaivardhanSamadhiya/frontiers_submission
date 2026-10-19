@@ -9,3 +9,37 @@ data/external_validation/basel_ecor_2026/** -text
 external/gaborieau_coli_phage_interactions_2023/** -text
 data/cache_v2/node_features.npz -text
 data/cache_v2/node_features.meta.json -text
+
+# New strengthening and adapted GenoPHI inputs are exact audit dependencies.
+scripts/frontiers_strengthening_2026_10_16/** -text
+data/results_v2/frontiers_strengthening_2026_10_16/** -text
+data/results_v2/genophi_comparison/** -text
+data/external_validation/genophi_comparison/official_source/** -text
+reproducibility/strengthening_2026_10_17/** -text
+src/precisionphage/** -text
+experiments/35_matched_cohort_leakage_audit.py -text
+experiments/47_official_genophi_outer_comparison.py -text
+experiments/49_audit_official_genophi_outer.py -text
+scripts/prepare_genophi_comparison.py -text
+scripts/prepare_official_genophi.py -text
+scripts/verify_genophi_preparation.py -text
+scripts/check_genophi_runtime.py -text
+scripts/fetch_additional_bank_inputs.py -text
+scripts/finish_official_genophi_comparison.py -text
+scripts/register_negative_mcc_repair.py -text
+tests/test_genophi_retention.py -text
+requirements-genophi-comparator.txt -text
+GENOPHI*.md -text
+SCIENTIFIC_EXTENSION* -text
+COMPARATOR_PUBLIC_STATUS.json -text
+LICENSE -text
+data/cache_v2/clusters_k21_d0.05.json -text
+data/interim_v2/external_staph_seq_pair_features.csv -text
+data/interim_v2/external_staph_seq_pair_features.meta.json -text
+data/interim_v2/interactions.csv -text
+data/interim_v2/interactions_modelable.csv -text
+data/interim_v2/seq_pair_features.csv -text
+data/results_v2/external_cocktail_validation/frozen_pair_predictions.csv -text
+data/results_v2/external_cocktail_validation/frozen_prediction_manifest.json -text
+data/results_v2/external_staph_predictions.csv -text
+data/results_v2/post_rejection_audit/batch_invariant_cocktail_diagnostic.csv -text

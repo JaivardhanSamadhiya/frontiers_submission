@@ -1,0 +1,120 @@
+{
+  "models": {
+    "unit_tests": 3,
+    "artifact_reload_predictions": 164,
+    "split_checks": 88,
+    "input_hash_checks": 8,
+    "staph_assembly_matches_frozen_prediction_max_error": 2.975769042290466e-08,
+    "secondsource": {
+      "prediction_rows": 16800,
+      "split_records": 48,
+      "completion": {
+        "complete": true,
+        "elapsed_seconds": 180.73500000000058,
+        "protocol_sha256": "a3f42760999b1f5563da6de60307492cc68b9743b3ee5049da100e8b1d928a50",
+        "fits": 144
+      }
+    },
+    "nested_comparison": {
+      "prediction_rows": 4690,
+      "split_records": 10,
+      "completion": {
+        "complete": true,
+        "elapsed_seconds": 1031.7660000000033,
+        "protocol_sha256": "9e2d6b1b0df21bdda4a084008fbc875f13234fff9f04082a139d1d92de6c04c2",
+        "inner_fits": 180,
+        "outer_refits": 20,
+        "convergence_warning_count": 100
+      }
+    },
+    "elapsed_seconds": 4.578000000008615,
+    "passed": true,
+    "verification_files_written": 0,
+    "toy_scaler_guard_fit_executed": false,
+    "analyzed_models_refitted": 0
+  },
+  "doublet_unit_tests": 9,
+  "independent_doublets": {
+    "complete": true,
+    "options_verified": 2400,
+    "unique_measured_doublets": 300,
+    "informative_triplet_compositions": 3,
+    "conditional_host_pairs": 301,
+    "repaired_active_choices": 78,
+    "uniform_activity": 0.7466666666666667
+  },
+  "independent_secondsource": {
+    "complete": true,
+    "checked_split_records": 48,
+    "reloaded_prediction_models": 144,
+    "independently_recalculated_pooled_metrics": 84,
+    "prediction_rows": 16800
+  },
+  "independent_nested": {
+    "complete": true,
+    "checked_split_records": 10,
+    "reloaded_prediction_models": 20,
+    "independently_recalculated_pooled_metrics": 4,
+    "prediction_rows": 4690
+  },
+  "passed": true,
+  "source": "Checks executed from staged code and staged data; no refitting.",
+  "mlp_budget_sensitivity": {
+    "passed": true,
+    "outer_models_reloaded": 10,
+    "inner_score_records_checked": 90,
+    "epochs_min": 64,
+    "epochs_max": 437,
+    "fits_reaching_1000": 0,
+    "source_sha256": "ed32be40fee2ccc8e9c6635ff6ce563673199fa3f09fe989689898c629e01f05",
+    "completion_sha256": "f15470dcd83e1c19c61b1ad871d14c9f8a8fc2c2472ddcdc305a38fbf7586e33",
+    "scope": "Retrospective fixed-fold training-budget sensitivity, not exhaustive family optimization"
+  },
+  "comparator_metrics": {
+    "passed": true,
+    "scope": "Compact metric, paired interval, input-hash and alignment replay; no model reload or protein-representation reconstruction.",
+    "pairs": 437,
+    "hosts": 23,
+    "phages": 19,
+    "host_groups": 17,
+    "prevalence": 0.36155606407322655,
+    "metrics_replayed": 15,
+    "bootstrap_attempts": 2000,
+    "undefined_bootstrap_draws": 0,
+    "development_selection_checks": [
+      {
+        "fold": 0,
+        "chosen_cutoff_recomputed": 12,
+        "eligible_cutoffs": 8,
+        "eight_candidate_searches": 400
+      },
+      {
+        "fold": 1,
+        "chosen_cutoff_recomputed": 7,
+        "eligible_cutoffs": 10,
+        "eight_candidate_searches": 500
+      },
+      {
+        "fold": 2,
+        "chosen_cutoff_recomputed": 9,
+        "eligible_cutoffs": 8,
+        "eight_candidate_searches": 400
+      },
+      {
+        "fold": 3,
+        "chosen_cutoff_recomputed": 10,
+        "eligible_cutoffs": 10,
+        "eight_candidate_searches": 500
+      },
+      {
+        "fold": 4,
+        "chosen_cutoff_recomputed": 9,
+        "eligible_cutoffs": 8,
+        "eight_candidate_searches": 400
+      }
+    ],
+    "predictive_model_fits_started": 0,
+    "files_modified": 0
+  },
+  "negative_mcc_repair_tests_passed": true
+}

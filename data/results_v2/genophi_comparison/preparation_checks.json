@@ -1,0 +1,18 @@
+{
+  "checks_passed": true,
+  "hosts": 23,
+  "phages": 19,
+  "pairs": 437,
+  "positive_pairs": 158,
+  "proteins": 144718,
+  "matched_grouping_regimes": [
+    "0.001",
+    "identity"
+  ],
+  "groups_at_0.001": 17,
+  "fold_assignment_sha256": "5aa57431a06d9774a7dafbafac18abdcfdca281236c72495a0659a28e957b5ce",
+  "original_host_results_sha256": "c6e026dbec01f20d0fe7071ccd9aa6e0e825ac3dee18fb334b1a05cc2f58ea06",
+  "original_pair_predictions_sha256": "2dc3c6f9c3ca1a6620c3d9bdb69603bc6c71270f056c3855b113da50343ca2db",
+  "input_manifest_sha256": "2b5e8aa8c7536344f495524b6902ebfa142b552ed4bbcd812859945557029b78",
+  "stage": "Inputs and matched folds verified; predictive comparison not run."
+}

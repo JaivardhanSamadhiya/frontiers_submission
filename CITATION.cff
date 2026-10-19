@@ -6,8 +6,8 @@ authors:
   - family-names: "Samadhiya"
     given-names: "Jaivardhan"
     affiliation: "West Valley College"
-version: "2026.10.15.2"
-date-released: 2026-10-15
+version: "2026.10.18.1"
+date-released: 2026-10-18
 repository-code: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
 url: "https://github.com/JaivardhanSamadhiya/frontiers_submission"
 license: MIT
@@ -18,7 +18,10 @@ abstract: >-
   alongside explicitly retrospective controls, feature ablations and crossed
   host-cluster/composition uncertainty sensitivities, including denominator-aware
   training-only entity controls and fold-pooling diagnostics. This research snapshot
-  does not establish clinical efficacy or de novo cocktail-selection benefit.
+  adds measured-doublet choices, composition-conditioned diagnostics, matched
+  second-source exclusions, compatible-input grouped model comparisons and an
+  adapted full-budget GenoPHI known-bank comparison. It does not establish
+  clinical efficacy or de novo cocktail-selection benefit.
 keywords:
   - bacteriophage
   - phage-host interaction

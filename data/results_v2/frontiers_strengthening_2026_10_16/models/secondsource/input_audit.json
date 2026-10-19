@@ -1,0 +1,11 @@
+{
+  "rows": 1053,
+  "positives": 333,
+  "phages": 39,
+  "hosts": 27,
+  "phage_clusters": 8,
+  "host_clusters": 26,
+  "eligible_blocks": 4,
+  "test_rows": 200,
+  "complete_matrix": true
+}

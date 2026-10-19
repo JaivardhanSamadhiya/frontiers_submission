@@ -1,0 +1,13 @@
+{
+  "scope": "Packaging/verification runtime; run protocols retain their own settings.",
+  "packages": {
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "scikit-learn": "1.4.2",
+    "xgboost": "2.0.3",
+    "scipy": "1.13.1",
+    "joblib": "1.4.2",
+    "matplotlib": "3.8.4",
+    "sourmash": "4.9.3"
+  }
+}

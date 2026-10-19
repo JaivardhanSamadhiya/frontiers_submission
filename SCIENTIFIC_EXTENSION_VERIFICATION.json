@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "verified_utc": "2026-10-18T23:52:52.538947+00:00",
+  "files": 2950,
+  "bytes": 73411006,
+  "outer_models": 174,
+  "manifest_sha256": "37425aedb8b12fe9bfbf30631c12e8e317c930b40c01e3c52e6db8cd86aff7ce",
+  "comparator_complete": true,
+  "public_write_performed": false,
+  "private_or_unexpected_files_found": false,
+  "additional_files_not_assessed": 0,
+  "scope": "Strict extension-only tree"
+}

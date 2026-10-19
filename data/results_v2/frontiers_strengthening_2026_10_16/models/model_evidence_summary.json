@@ -1,0 +1,349 @@
+{
+  "secondsource": [
+    {
+      "method": "additive_positive_fraction",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "additive_positive_fraction",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.5127527573529412,
+      "auroc_min": 0.5053998161764706,
+      "auroc_max": 0.5232077205882353,
+      "AP_mean": 0.3489434431997103,
+      "macro_fold_auroc_mean": 0.5592602824599878,
+      "within_fold_weighted_auroc_mean": 0.6006641760066418
+    },
+    {
+      "method": "additive_positive_fraction",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.41247319240196073,
+      "auroc_min": 0.3986672794117647,
+      "auroc_max": 0.4229090073529412,
+      "AP_mean": 0.31775354735555605,
+      "macro_fold_auroc_mean": 0.5847278996546444,
+      "within_fold_weighted_auroc_mean": 0.4881174761311748
+    },
+    {
+      "method": "additive_positive_fraction",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.5007659313725491,
+      "auroc_min": 0.479147518382353,
+      "auroc_max": 0.5318244485294117,
+      "AP_mean": 0.341871287008287,
+      "macro_fold_auroc_mean": 0.611794045334877,
+      "within_fold_weighted_auroc_mean": 0.5431195516811955
+    },
+    {
+      "method": "full",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.3763020833333333,
+      "auroc_min": 0.3532858455882353,
+      "auroc_max": 0.3998736213235294,
+      "AP_mean": 0.25337991688335687,
+      "macro_fold_auroc_mean": 0.558346178039149,
+      "within_fold_weighted_auroc_mean": 0.3422581984225819
+    },
+    {
+      "method": "full",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.5443474264705882,
+      "auroc_min": 0.5059742647058824,
+      "auroc_max": 0.6085133272058822,
+      "AP_mean": 0.3632071304897247,
+      "macro_fold_auroc_mean": 0.6213579810103567,
+      "within_fold_weighted_auroc_mean": 0.5527189705271897
+    },
+    {
+      "method": "full",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.617455575980392,
+      "auroc_min": 0.5733570772058822,
+      "auroc_max": 0.6498736213235293,
+      "AP_mean": 0.43704959211547983,
+      "macro_fold_auroc_mean": 0.7159276426866445,
+      "within_fold_weighted_auroc_mean": 0.6439393939393939
+    },
+    {
+      "method": "full",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.6199257046568627,
+      "auroc_min": 0.5512408088235294,
+      "auroc_max": 0.6753791360294117,
+      "AP_mean": 0.4378822286673835,
+      "macro_fold_auroc_mean": 0.6682453661635921,
+      "within_fold_weighted_auroc_mean": 0.5988480697384807
+    },
+    {
+      "method": "host_positive_fraction",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "host_positive_fraction",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "host_positive_fraction",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.472024356617647,
+      "auroc_min": 0.4454273897058823,
+      "auroc_max": 0.4906364889705882,
+      "AP_mean": 0.336114761133385,
+      "macro_fold_auroc_mean": 0.5847278996546444,
+      "within_fold_weighted_auroc_mean": 0.4881174761311748
+    },
+    {
+      "method": "host_positive_fraction",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.40466069240196073,
+      "auroc_min": 0.3877527573529412,
+      "auroc_max": 0.4226792279411764,
+      "AP_mean": 0.3041782004643741,
+      "macro_fold_auroc_mean": 0.5727213994176329,
+      "within_fold_weighted_auroc_mean": 0.43467206309672063
+    },
+    {
+      "method": "pair_only",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.6178193933823529,
+      "auroc_min": 0.6056410845588235,
+      "auroc_max": 0.6366038602941176,
+      "AP_mean": 0.372205244514818,
+      "macro_fold_auroc_mean": 0.6241406953808463,
+      "within_fold_weighted_auroc_mean": 0.5481008717310086
+    },
+    {
+      "method": "pair_only",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.5216184129901961,
+      "auroc_min": 0.3525390625,
+      "auroc_max": 0.6197725183823529,
+      "AP_mean": 0.37546402827961045,
+      "macro_fold_auroc_mean": 0.5732933952573384,
+      "within_fold_weighted_auroc_mean": 0.5858758821087587
+    },
+    {
+      "method": "pair_only",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.6690027573529411,
+      "auroc_min": 0.6581456801470588,
+      "auroc_max": 0.6860064338235294,
+      "AP_mean": 0.45420191952737704,
+      "macro_fold_auroc_mean": 0.7148242797795169,
+      "within_fold_weighted_auroc_mean": 0.6585720215857203
+    },
+    {
+      "method": "pair_only",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.549517463235294,
+      "auroc_min": 0.5255629595588236,
+      "auroc_max": 0.5621553308823529,
+      "AP_mean": 0.34315292609704606,
+      "macro_fold_auroc_mean": 0.635855258380034,
+      "within_fold_weighted_auroc_mean": 0.6005603985056039
+    },
+    {
+      "method": "phage_only",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.6380974264705882,
+      "auroc_min": 0.6002987132352942,
+      "auroc_max": 0.6758386948529411,
+      "AP_mean": 0.43177365827130293,
+      "macro_fold_auroc_mean": 0.4534746834309156,
+      "within_fold_weighted_auroc_mean": 0.5501245330012453
+    },
+    {
+      "method": "phage_only",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.5766314338235294,
+      "auroc_min": 0.5651424632352942,
+      "auroc_max": 0.5860523897058824,
+      "AP_mean": 0.3970261217719122,
+      "macro_fold_auroc_mean": 0.5576923884266759,
+      "within_fold_weighted_auroc_mean": 0.5978621834786219
+    },
+    {
+      "method": "phage_only",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.5033318014705882,
+      "auroc_min": 0.4469209558823529,
+      "auroc_max": 0.5380284926470589,
+      "AP_mean": 0.32920183896950145,
+      "macro_fold_auroc_mean": 0.4379736276756227,
+      "within_fold_weighted_auroc_mean": 0.5199252801992529
+    },
+    {
+      "method": "phage_only",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.5780484068627451,
+      "auroc_min": 0.5411305147058824,
+      "auroc_max": 0.6020220588235294,
+      "AP_mean": 0.386537285898154,
+      "macro_fold_auroc_mean": 0.5997041798686193,
+      "within_fold_weighted_auroc_mean": 0.6010792860107929
+    },
+    {
+      "method": "phage_positive_fraction",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "phage_positive_fraction",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.5797143075980392,
+      "auroc_min": 0.5664062499999999,
+      "auroc_max": 0.5894416360294117,
+      "AP_mean": 0.39557059177266224,
+      "macro_fold_auroc_mean": 0.5592602824599878,
+      "within_fold_weighted_auroc_mean": 0.6006641760066418
+    },
+    {
+      "method": "phage_positive_fraction",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "phage_positive_fraction",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.5763250612745098,
+      "auroc_min": 0.5391199448529412,
+      "auroc_max": 0.5966796875,
+      "AP_mean": 0.3856323848821119,
+      "macro_fold_auroc_mean": 0.5589752546191914,
+      "within_fold_weighted_auroc_mean": 0.5975508509755085
+    },
+    {
+      "method": "training_prior",
+      "regime": "both_clusters_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "training_prior",
+      "regime": "host_cluster_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "training_prior",
+      "regime": "phage_cluster_excluded",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    },
+    {
+      "method": "training_prior",
+      "regime": "shared_entities_allowed",
+      "auroc_mean": 0.3224954044117647,
+      "auroc_min": 0.3224954044117647,
+      "auroc_max": 0.3224954044117647,
+      "AP_mean": 0.2776982668067227,
+      "macro_fold_auroc_mean": 0.5,
+      "within_fold_weighted_auroc_mean": 0.5
+    }
+  ],
+  "nested_comparison": [
+    {
+      "regime": "dual_cluster",
+      "method": "GBM",
+      "n": 398,
+      "positive": 294,
+      "prevalence": 0.7386934673366834,
+      "auroc": 0.7634092098377814,
+      "average_precision": 0.90120667250193,
+      "macro_fold_auroc": 0.7925389505108476,
+      "within_fold_pair_weighted_auroc": 0.7388569866010392
+    },
+    {
+      "regime": "dual_cluster",
+      "method": "MLP",
+      "n": 398,
+      "positive": 294,
+      "prevalence": 0.7386934673366834,
+      "auroc": 0.723116169544741,
+      "average_precision": 0.8759827244827081,
+      "macro_fold_auroc": 0.7707881662963629,
+      "within_fold_pair_weighted_auroc": 0.6646841673502871
+    },
+    {
+      "regime": "host_cluster",
+      "method": "GBM",
+      "n": 1947,
+      "positive": 1488,
+      "prevalence": 0.7642526964560863,
+      "auroc": 0.9351053892285708,
+      "average_precision": 0.9741894301647058,
+      "macro_fold_auroc": 0.9411652942746208,
+      "within_fold_pair_weighted_auroc": 0.9412809953690134
+    },
+    {
+      "regime": "host_cluster",
+      "method": "MLP",
+      "n": 1947,
+      "positive": 1488,
+      "prevalence": 0.7642526964560863,
+      "auroc": 0.8914372349895754,
+      "average_precision": 0.9608256141830328,
+      "macro_fold_auroc": 0.8893526611922246,
+      "within_fold_pair_weighted_auroc": 0.8889405885456357
+    }
+  ],
+  "verified": true,
+  "secondsource_inputs": {
+    "rows": 1053,
+    "positives": 333,
+    "phages": 39,
+    "hosts": 27,
+    "phage_clusters": 8,
+    "host_clusters": 26,
+    "eligible_blocks": 4,
+    "test_rows": 200,
+    "complete_matrix": true
+  },
+  "limits": [
+    "retrospective",
+    "no universal hierarchy",
+    "four second-source blocks",
+    "equal candidate counts not compute budgets",
+    "old tuning unrecoverable"
+  ]
+}

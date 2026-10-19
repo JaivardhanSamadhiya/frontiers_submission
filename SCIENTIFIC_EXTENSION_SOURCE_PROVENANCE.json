@@ -1,0 +1,30 @@
+{
+  "gaborieau_commit": "99656d8c020fcd1dbbc30a02ee10274a07655562",
+  "source_files": [
+    {
+      "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/cml_cocktails.csv",
+      "sha256": "81f916e0daa84c00aa464e48f80a352973fd8d12de5c6347f8946de3647393f5",
+      "git_blob_sha256": "81f916e0daa84c00aa464e48f80a352973fd8d12de5c6347f8946de3647393f5",
+      "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/cml_cocktails.csv"
+    },
+    {
+      "path": "external/gaborieau_coli_phage_interactions_2023/dev/cocktails/data/cocktails_composition.csv",
+      "sha256": "eab44b18fe4caece347795bc205a6882ec8a369f9199dfef13c68e5a36bbbc3d",
+      "git_blob_sha256": "eab44b18fe4caece347795bc205a6882ec8a369f9199dfef13c68e5a36bbbc3d",
+      "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/dev/cocktails/data/cocktails_composition.csv"
+    },
+    {
+      "path": "external/gaborieau_coli_phage_interactions_2023/data/interactions/interaction_matrix.csv",
+      "sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829",
+      "git_blob_sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829",
+      "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/data/interactions/interaction_matrix.csv"
+    },
+    {
+      "path": "external/gaborieau_coli_phage_interactions_2023/README.md",
+      "sha256": "d2fa64b960cb9425493bb44eef6e13ae742fb63eb20723cfacdc175d28358e24",
+      "git_blob_sha256": "06ac45c4f2e2633b8954d8e515d385414dc0da92da89d0ef48dc43f941805a2a",
+      "url": "https://raw.githubusercontent.com/mdmparis/coli_phage_interactions_2023/99656d8c020fcd1dbbc30a02ee10274a07655562/README.md"
+    }
+  ],
+  "genophi_commit": "f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f"
+}

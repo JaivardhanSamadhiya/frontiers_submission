@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-17T06:43:48.893040+00:00",
+  "status": "Retrospective new analysis; StaphStudy outcomes already accessed in frozen transfer evaluation.",
+  "question": "Does within-source dependence on shared entities recur in the dense StaphStudy matrix?",
+  "clustering": "sourmash canonical 21-mer, 2048 bottom hashes, seed42, distance<=0.05 single-linkage; no label-guided cutoff selection",
+  "test_design": "five diagonal dual-axis blocks seed42, eligibility at least3 positives3 negatives; same eligible test rows in every regime",
+  "training_design": "exclude exact test rows; then indicated axes; each fold uses minimum class counts across regimes and three prespecified sampling seeds",
+  "features": {
+    "phage_only": 212,
+    "pair_only": 24,
+    "full": 448
+  },
+  "model": {
+    "n_estimators": 400,
+    "max_depth": 5,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "tree_method": "hist",
+    "n_jobs": 2
+  },
+  "controls": "training-only positive fraction per exact phage/host, their mean, and global training prior; unknown entity uses training prior",
+  "reporting": "all per-fold and pooled AUROC/AP, class prevalence, exposure; no row-wise p-values, seeds not independent replication",
+  "limits": "This is within-source retraining in StaphStudy, not renewed external frozen validation; canonical groups differ from historical forward-strand clusters.",
+  "seeds": [
+    20261016,
+    20261017,
+    20261018
+  ],
+  "inputs": {
+    "data/interim_v2/interactions.csv": "29ad9cd398892a8bb80fe5f16be75cbe0cdb241bb826e32216cbabc2af1822ce",
+    "data/interim_v2/external_staph_seq_pair_features.csv": "7f5f772f7dcedbcba5914be7c637a98fa1fbdb6aff58235bdd131c1d36c41b47",
+    "data/interim_v2/external_staph_seq_pair_features.meta.json": "94acb877725ca4ac7b2d22652763eb4bea2514c1e1c6e8dfb1a6b4ebb4c9900c"
+  }
+}

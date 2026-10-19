@@ -1,0 +1,704 @@
+{
+  "created_utc": "2026-10-05T17:23:21.973835+00:00",
+  "matrix_archive_sha256": "1d98c77fc4068315246a4eb56aa185fc769c06bf70fd20e5090856b25f94a00d",
+  "protocol_sha256": "0979465264d81ee4da84f4a5d7e11ad1e5de0dfe6ee46bca8f948f778bc022a8",
+  "expected_hosts": 23,
+  "expected_phages": 19,
+  "complete": true,
+  "proteomes": [
+    {
+      "kind": "host",
+      "entity": "GCA_000006765",
+      "requested": "GCA_000006765",
+      "resolved_genbank": "GCA_000006765.1",
+      "protein_assembly": "GCA_000006765.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 208964,
+        "organism_name": "Pseudomonas aeruginosa PAO1",
+        "infraspecific_names": {
+          "strain": "PAO1"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_000006765.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_000006765.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 5571,
+      "amino_acids": 1860284,
+      "sha256": "0308c00a5baab14de57598dfb836efb5497c639b7b0ab042d9a1788fb79ec0af",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_000006765.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068835",
+      "requested": "GCA_030068835",
+      "resolved_genbank": "GCA_030068835.1",
+      "protein_assembly": "GCA_030068835.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1464"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068835.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068835.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6191,
+      "amino_acids": 1977554,
+      "sha256": "62e66128a24da54d9b04b71dcda46d947e6c9e90eab1433b28c6797eb5dddc5e",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068835.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068845",
+      "requested": "GCA_030068845",
+      "resolved_genbank": "GCA_030068845.1",
+      "protein_assembly": "GCA_030068845.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1496"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068845.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068845.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6572,
+      "amino_acids": 2056515,
+      "sha256": "72846d2b0374465b6487f1b85fa41ce19a20b9079e10ace6cdea83b062a92a2c",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068845.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068895",
+      "requested": "GCA_030068895",
+      "resolved_genbank": "GCA_030068895.1",
+      "protein_assembly": "GCA_030068895.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1264"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068895.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068895.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6428,
+      "amino_acids": 2052476,
+      "sha256": "e963f2b4a563031566cda453e99efae44e7c88008832022c36dfa4ea5aa1b856",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068895.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068925",
+      "requested": "GCA_030068925",
+      "resolved_genbank": "GCA_030068925.1",
+      "protein_assembly": "GCA_030068925.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1171"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068925.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068925.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 5802,
+      "amino_acids": 1894245,
+      "sha256": "d54e5b21096f316d031c643a13fcc0326612b58d2a173fbdda3c5c516778a742",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068925.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068935",
+      "requested": "GCA_030068935",
+      "resolved_genbank": "GCA_030068935.1",
+      "protein_assembly": "GCA_030068935.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L0872"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068935.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068935.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6640,
+      "amino_acids": 2114431,
+      "sha256": "8725f1330d9ca17fffa1710cfc1680027b11afa4355bc181aafba8375b8b9d2a",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068935.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068955",
+      "requested": "GCA_030068955",
+      "resolved_genbank": "GCA_030068955.1",
+      "protein_assembly": "GCA_030068955.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1150"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068955.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068955.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6184,
+      "amino_acids": 1980733,
+      "sha256": "1f16f763fb90ddb9b2ec369de6d759ce2527b9a36cef8a13835c29de0862b540",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068955.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068965",
+      "requested": "GCA_030068965",
+      "resolved_genbank": "GCA_030068965.1",
+      "protein_assembly": "GCA_030068965.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1262"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068965.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068965.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 5937,
+      "amino_acids": 1920919,
+      "sha256": "baa2d3f997d98e9ee50ec9df21310cf8aeaaab2edaf2b4c51e58edc1f01c52a3",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068965.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030068985",
+      "requested": "GCA_030068985",
+      "resolved_genbank": "GCA_030068985.1",
+      "protein_assembly": "GCA_030068985.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L0862"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030068985.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030068985.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6035,
+      "amino_acids": 1955791,
+      "sha256": "5009d62e5bcbbf5e8924659636e73bce4a7939fc5417dd40dd50801c1adaab6e",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030068985.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069025",
+      "requested": "GCA_030069025",
+      "resolved_genbank": "GCA_030069025.1",
+      "protein_assembly": "GCA_030069025.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L0500"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069025.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069025.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 5981,
+      "amino_acids": 1945755,
+      "sha256": "a4e1a27e6313e6eb583e59f87d780aa33618fb97cf0ea6b6082b2ead6aeb649e",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069025.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069035",
+      "requested": "GCA_030069035",
+      "resolved_genbank": "GCA_030069035.1",
+      "protein_assembly": "GCA_030069035.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L0665"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069035.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069035.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6051,
+      "amino_acids": 1950611,
+      "sha256": "0878a4c33c3aa830cb6285fe7c452d6c78c5d60cf0e18519ea05c13eb9b2b551",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069035.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069065",
+      "requested": "GCA_030069065",
+      "resolved_genbank": "GCA_030069065.1",
+      "protein_assembly": "GCA_030069065.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L0213"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069065.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069065.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 5726,
+      "amino_acids": 1842862,
+      "sha256": "91a2b3f10bd1b14a3149494d338b85677dbbef14a2783e4478e650734f99ed4a",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069065.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069085",
+      "requested": "GCA_030069085",
+      "resolved_genbank": "GCA_030069085.1",
+      "protein_assembly": "GCA_030069085.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_K6156"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069085.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069085.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6168,
+      "amino_acids": 1952915,
+      "sha256": "7f1dd4721e6b0220f3ba4f5e8357c3cacad8bfa78e4cc45fe2843d9dd62d9524",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069085.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069095",
+      "requested": "GCA_030069095",
+      "resolved_genbank": "GCA_030069095.1",
+      "protein_assembly": "GCA_030069095.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_K6141"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069095.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069095.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6216,
+      "amino_acids": 1991365,
+      "sha256": "bd4e077aa96281ee381faafb94abb5e8d96ca8ab51de49148a5414209a85bf9a",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069095.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069125",
+      "requested": "GCA_030069125",
+      "resolved_genbank": "GCA_030069125.1",
+      "protein_assembly": "GCA_030069125.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_K6024"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069125.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069125.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6678,
+      "amino_acids": 2136057,
+      "sha256": "7576366e0d7520e9f796c346341eb5f61aa5ccafa26b74e000600a9bdc4b8d9b",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069125.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030069145",
+      "requested": "GCA_030069145",
+      "resolved_genbank": "GCA_030069145.1",
+      "protein_assembly": "GCA_030069145.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_K5993"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030069145.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030069145.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6341,
+      "amino_acids": 2016655,
+      "sha256": "5e271b2fa7c7ed910a74cd1de79790a2e8b63e6ef55156003bbb36d1221a1e8d",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030069145.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030073425",
+      "requested": "GCA_030073425",
+      "resolved_genbank": "GCA_030073425.1",
+      "protein_assembly": "GCA_030073425.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1361"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030073425.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030073425.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6225,
+      "amino_acids": 1993220,
+      "sha256": "918b724daf5b1806ebb2523664b20565d78d63d96424a7339c7df6020eff05d5",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030073425.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_030073475",
+      "requested": "GCA_030073475",
+      "resolved_genbank": "GCA_030073475.1",
+      "protein_assembly": "GCA_030073475.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "FBPa_L1347"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_030073475.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_030073475.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6391,
+      "amino_acids": 2029604,
+      "sha256": "a7d210293915a7b40698de7acfc4bd19c979bb9e64b14d00b1c630763d01d1fe",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_030073475.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_036903335",
+      "requested": "GCA_036903335",
+      "resolved_genbank": "GCA_036903335.1",
+      "protein_assembly": "GCA_036903335.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "15860"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_036903335.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_036903335.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6682,
+      "amino_acids": 2130655,
+      "sha256": "4923893f36de06ede7788d55bba565868e53ab53001da8a929c989708bcaacc1",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_036903335.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_036903365",
+      "requested": "GCA_036903365",
+      "resolved_genbank": "GCA_036903365.1",
+      "protein_assembly": "GCA_036903365.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "Q0192"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_036903365.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_036903365.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6482,
+      "amino_acids": 2072975,
+      "sha256": "bd72e3904feff1ef67f29577985a1564d08bba9960a15b27c6bc7380d35a4f23",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_036903365.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_036903385",
+      "requested": "GCA_036903385",
+      "resolved_genbank": "GCA_036903385.1",
+      "protein_assembly": "GCA_036903385.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "P4906"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_036903385.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_036903385.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6294,
+      "amino_acids": 2030528,
+      "sha256": "2ae8289ccb919be817912073ec7308524737643f4b331de9fc0f041e8ddcb5d6",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_036903385.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_036903415",
+      "requested": "GCA_036903415",
+      "resolved_genbank": "GCA_036903415.1",
+      "protein_assembly": "GCA_036903415.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "N4469"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_036903415.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_036903415.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6506,
+      "amino_acids": 2063617,
+      "sha256": "14f3c3f570c17ca156e19ce4ea93af28ab62b517e9e215f5a5a56997a47d78f7",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_036903415.faa"
+    },
+    {
+      "kind": "host",
+      "entity": "GCA_036903455",
+      "requested": "GCA_036903455",
+      "resolved_genbank": "GCA_036903455.1",
+      "protein_assembly": "GCA_036903455.1",
+      "used_paired_refseq": false,
+      "organism": {
+        "tax_id": 287,
+        "organism_name": "Pseudomonas aeruginosa",
+        "infraspecific_names": {
+          "strain": "15043"
+        }
+      },
+      "archive_member": "ncbi_dataset/data/GCA_036903455.1/protein.faa",
+      "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_036903455.1/download?include_annotation_type=PROT_FASTA",
+      "proteins": 6110,
+      "amino_acids": 1960199,
+      "sha256": "fa97d43eda1d5a14d1138a7fdf7bf73679aac04b051c721a14f91b898d35f370",
+      "path": "data/external_validation/genophi_comparison/host_proteins/GCA_036903455.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857925",
+      "requested": "ON857925",
+      "resolved_nucleotide": "ON857925.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857925&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 90,
+      "amino_acids": 19904,
+      "sha256": "7b7b95410b3550c15fbb1996947545c7166ee0b8a22add65e82cc87d144135dd",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857925.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857926",
+      "requested": "ON857926",
+      "resolved_nucleotide": "ON857926.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857926&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 56,
+      "amino_acids": 13351,
+      "sha256": "c472be970c3a152c935a538b0b54e5a56c5971a16d31581fc0290bd7ee67df6b",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857926.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857927",
+      "requested": "ON857927",
+      "resolved_nucleotide": "ON857927.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857927&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 68,
+      "amino_acids": 12486,
+      "sha256": "acaaab55be8a7b42e6ea14a341a6d0c9e88592b4633678ce106d8b8680e022b9",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857927.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857928",
+      "requested": "ON857928",
+      "resolved_nucleotide": "ON857928.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857928&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 49,
+      "amino_acids": 12321,
+      "sha256": "89375dd7527051ab381d2fe3dd4dab50940d1ec4712f1f4a9ef36e1bafe2157d",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857928.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857929",
+      "requested": "ON857929",
+      "resolved_nucleotide": "ON857929.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857929&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 92,
+      "amino_acids": 20119,
+      "sha256": "7481c3ee78c9ab10f4df0d804e0d064791452991cd55df3a0631a3a4079c1288",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857929.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857930",
+      "requested": "ON857930",
+      "resolved_nucleotide": "ON857930.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857930&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 94,
+      "amino_acids": 20193,
+      "sha256": "7a930772ab35791eeef834928a64b92b04048ba0d2bac731a82c3674595e477b",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857930.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857931",
+      "requested": "ON857931",
+      "resolved_nucleotide": "ON857931.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857931&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 76,
+      "amino_acids": 12403,
+      "sha256": "a36b8c230d43ca3436f01fbbc23e1a3ab6707e6fe7535ae18d019556c7453c8d",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857931.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857932",
+      "requested": "ON857932",
+      "resolved_nucleotide": "ON857932.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857932&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 64,
+      "amino_acids": 13340,
+      "sha256": "dc524036e447a38e27cec73db9b278e3ff6db468653bc7ff9537bed8950da503",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857932.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857933",
+      "requested": "ON857933",
+      "resolved_nucleotide": "ON857933.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857933&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 70,
+      "amino_acids": 14087,
+      "sha256": "332c59571c64dc5a00313a93869ac5e79b97f424c1cfe07735f181a84e70ae2b",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857933.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857934",
+      "requested": "ON857934",
+      "resolved_nucleotide": "ON857934.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857934&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 98,
+      "amino_acids": 18411,
+      "sha256": "c00617bd1080fa4c8c0352b517e93c7dedb84376ff9fbcc10817ca839682a80d",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857934.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857935",
+      "requested": "ON857935",
+      "resolved_nucleotide": "ON857935.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857935&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 56,
+      "amino_acids": 12837,
+      "sha256": "6fc525c42b6087d75e67702b20ea99742296e8ccc53e1fa5ac0be2b37f23446f",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857935.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857936",
+      "requested": "ON857936",
+      "resolved_nucleotide": "ON857936.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857936&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 73,
+      "amino_acids": 12932,
+      "sha256": "dcb32dfb7293faf25b2e617c65bb1d8e626126e4b4d555959f890d071aab0e1e",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857936.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857937",
+      "requested": "ON857937",
+      "resolved_nucleotide": "ON857937.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857937&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 89,
+      "amino_acids": 19979,
+      "sha256": "63daa5c3f99491a6805f503103edfa4c4d3d665d2e48c7b360bcfdbc087404cf",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857937.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857938",
+      "requested": "ON857938",
+      "resolved_nucleotide": "ON857938.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857938&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 87,
+      "amino_acids": 18830,
+      "sha256": "8e682e6f76e4326a2f25f68d07e119128256256e3673975d498877ec60e523a6",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857938.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857939",
+      "requested": "ON857939",
+      "resolved_nucleotide": "ON857939.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857939&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 128,
+      "amino_acids": 28332,
+      "sha256": "6b812979dd58bff0e2ca8a06f57a577cb3ada5516efab32b24a3b9ce06311860",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857939.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857940",
+      "requested": "ON857940",
+      "resolved_nucleotide": "ON857940.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857940&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 80,
+      "amino_acids": 15114,
+      "sha256": "995a4b3b74874c38aad718906b8716886b6db6f79f173d7061a630a3c539e153",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857940.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857941",
+      "requested": "ON857941",
+      "resolved_nucleotide": "ON857941.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857941&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 51,
+      "amino_acids": 13387,
+      "sha256": "4a73fb461b18506c28116be4d4f9cf902525d64af813c536eaa534c64de12d86",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857941.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857942",
+      "requested": "ON857942",
+      "resolved_nucleotide": "ON857942.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857942&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 95,
+      "amino_acids": 18898,
+      "sha256": "b580a6e13545a1c0e9cff56fcf5fe00ca599b37bc8519b85f4e48fcd25ee3a66",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857942.faa"
+    },
+    {
+      "kind": "phage",
+      "entity": "ON857943",
+      "requested": "ON857943",
+      "resolved_nucleotide": "ON857943.1",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=ON857943&rettype=fasta_cds_aa&retmode=text",
+      "proteins": 91,
+      "amino_acids": 22199,
+      "sha256": "3af8f9e6b4da7cd0b36bfa12647468cc12b4f120da52e9f5da1d7fe76282cb3f",
+      "path": "data/external_validation/genophi_comparison/phage_proteins/ON857943.faa"
+    }
+  ],
+  "failures": [],
+  "stage": "input preparation only; no predictor comparison has been fitted"
+}

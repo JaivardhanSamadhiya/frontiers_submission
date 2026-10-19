@@ -1,0 +1,19 @@
+{
+  "sha256": {
+    "experiments\\47_official_genophi_outer_comparison.py": "e908ff321dd34b8611b5e79080c2c35c3c47be02fd48601bac9c73bfb4e2ec31",
+    "GENOPHI_OFFICIAL_FULL_BUDGET_PROTOCOL.md": "38b0a8ead4d824f10aa96f9a50937af05b911800ef49652aacf3cd471b4a1eb5",
+    "src\\precisionphage\\benchmarks\\genophi.py": "c77da62a40dfc440ed8e2e14819898feec4d19d21b8d024ce829ffd81ff31032",
+    "data\\results_v2\\genophi_comparison\\matched_outer_folds.csv": "5aa57431a06d9774a7dafbafac18abdcfdca281236c72495a0659a28e957b5ce",
+    "data\\results_v2\\genophi_comparison\\official_source_manifest.json": "6c8829d991ba33224b463c737030d5e72049d8cbe60b089750dfa8951cc4af0b"
+  },
+  "packages": {
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "scikit-learn": "1.4.2",
+    "catboost": "1.2.8",
+    "plotnine": "0.13.6",
+    "mizani": "0.11.4",
+    "statsmodels": "0.14.6",
+    "shap": "0.46.0"
+  }
+}

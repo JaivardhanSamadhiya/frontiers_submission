@@ -1,0 +1,23 @@
+# Retrospective measured-doublet and composition-conditioned analysis
+
+Written 2026-10-16 before computing predictive performance for these additions. The source outcomes were already publicly accessible and their completeness and outcome-discordance counts had been inspected. This is a prospective analysis plan for a retrospective, outcome-exposed extension, not preregistration or an untouched validation cohort.
+
+## Measured doublets
+
+Use all 100 existing ColoColi hosts, their externally selected parent triplets, and all three measured two-phage subsets (p1+p2, p1+p3, p2+p3). Join exact host and phage identifiers, retaining the previously documented BCH857 to BCH857-72 host alias. All options have the same number of constituents. Define measured binary activity as the released assay value greater than zero. Preserve the ordinal source values but do not optimize them or assume equal intervals between values.
+
+Primary decision: choose one doublet from the three options already supplied by the external selection process. Primary score is the existing development-reference repaired ensemble aggregated as one minus the product of one minus constituent score. Use the original cohort-normalized ensemble as a historical sensitivity, not as a deployable score. Include repaired max and arithmetic mean, raw logistic and nearest-neighbor products, and training-only per-phage susceptibility mean and product. A host-only phylogroup score is identical across options and is exactly equivalent to random choice for this decision.
+
+Resolve all score ties by equal probability over tied maxima, with absolute tolerance 1e-12 and relative tolerance zero. Report the expected observed activity under this randomized tie policy, the number of ties, uniform choice among three options, and the observed oracle upper bound. Do not choose an arbitrary tie order or use observed outcomes to break ties. Also report conditional within-host discrimination on hosts with both active and inactive doublets, with half credit for score ties. Calculate both equal-host and positive-negative-pair-weighted concordance and identify denominators.
+
+Use 2,000 paired bootstrap replicates with seed 20261016, resampling the previously established host sequence clusters and keeping every option for a host together. Report percentile intervals for absolute activity and paired gain against uniform choice and training susceptibility. Because parent compositions recur, also report crossed host-cluster by parent-composition resampling as a sensitivity, multiplying independently sampled cluster multiplicities. Retain invalid/empty replicate counts. These intervals condition on fixed fitted models and the limited supplied menu. Exclude ambiguous AN03 in a named sensitivity. Do not claim that 300 rows are 300 independent experimental units.
+
+## Host discrimination conditional on a fixed composition
+
+Use the historical 100 selected triplets and the same original and repaired scores plus simple controls. Report each of 18 exact unordered compositions, sample counts and active/inactive counts. Only compositions containing both classes identify within-composition AUROC. Summarize conditional concordance both with equal weight per informative composition and by positive-negative-pair count. A score constant within composition must yield 0.5 when both classes are present.
+
+Use the same paired host-cluster bootstrap and crossed sensitivity for conditional concordance. Report the number of valid replicates, because groups with few inactive observations can disappear. Report pooled discrimination after excluding each composition separately, and after excluding the one and three largest compositions (size determined without outcomes). Include the AN03-excluded sensitivity. Do not fit or calibrate a model on these outcomes, reverse below-chance controls, or treat a composition shuffle as an exchangeability-proven test.
+
+## Provenance, verification and reporting
+
+Hash every source and analysis script before and after. Reconstruct the existing repaired triplet scores and compare with saved values, verify all 100 singleton/batch equivalences, verify training susceptibility directly from the Picard matrix, and require exact three-option completeness. Unit tests cover tied choice, constant-score controls, single-class omission, cluster multiplicity, weighted concordance versus explicit pair enumeration, and known perfect/reverse ordering. Preserve all historical outputs. Report null or adverse findings in full. No selection over new hyperparameters, outcomes, seeds, or alternative score directions is allowed.

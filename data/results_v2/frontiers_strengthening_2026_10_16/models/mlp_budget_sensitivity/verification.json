@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "outer_models_reloaded": 10,
+  "inner_score_records_checked": 90,
+  "epochs_min": 64,
+  "epochs_max": 437,
+  "fits_reaching_1000": 0,
+  "source_sha256": "ed32be40fee2ccc8e9c6635ff6ce563673199fa3f09fe989689898c629e01f05",
+  "completion_sha256": "f15470dcd83e1c19c61b1ad871d14c9f8a8fc2c2472ddcdc305a38fbf7586e33",
+  "scope": "Retrospective fixed-fold training-budget sensitivity, not exhaustive family optimization"
+}

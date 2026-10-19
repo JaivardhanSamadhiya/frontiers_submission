@@ -1,0 +1,175 @@
+{
+  "commit": "f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f",
+  "recorded_utc": "2026-10-06T06:06:38.543647+00:00",
+  "scope": "official software only; no external outcome files or result notebooks",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/LICENSE",
+      "sha256": "1ba59c83aa4af680af03b6a9fba816e24e01d2620f4280311841f9afa518f86a",
+      "bytes": 1251
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/README.md",
+      "sha256": "85efeb093d4a1093688819874aaf2b6d1d67b3081a847a0cebfcd49aa5c5869c",
+      "bytes": 41097
+    },
+    {
+      "path": "genophi/__init__.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/__init__.py",
+      "sha256": "51df65e564d5a2450f4c27c189a017948f65ba98db0310455e0c9d1683e5dfb0",
+      "bytes": 2407
+    },
+    {
+      "path": "genophi/cli.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/cli.py",
+      "sha256": "f702b891d42324febb832c39e50ef6c062a983df0fdeaa51502eb08919266e69",
+      "bytes": 70676
+    },
+    {
+      "path": "genophi/feature_annotations.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/feature_annotations.py",
+      "sha256": "84d529c68569e6487005681ae1cbba35dd147b5cb93102fa89a38dc324f1fd30",
+      "bytes": 24888
+    },
+    {
+      "path": "genophi/feature_selection.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/feature_selection.py",
+      "sha256": "492f6afa281af32ce06aaa1f051fb8f6a56bdf366d2df5caf12254795a49153c",
+      "bytes": 73165
+    },
+    {
+      "path": "genophi/kmer_modeling_analysis.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/kmer_modeling_analysis.py",
+      "sha256": "528473c1780dd33aa66f70e3efeba7857c10754e9601806e230edbc27c09cdd7",
+      "bytes": 14408
+    },
+    {
+      "path": "genophi/mmseqs2_clustering.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/mmseqs2_clustering.py",
+      "sha256": "a4b90612c998e3613dce275d2e5cd1a170a9b1d0fcfd9fccbade2b497ff5a129",
+      "bytes": 49666
+    },
+    {
+      "path": "genophi/select_feature_modeling.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/select_feature_modeling.py",
+      "sha256": "fa685a486fe291789857b4139100be89776dc05d2dbcdf925032d07ed2bed12c",
+      "bytes": 31843
+    },
+    {
+      "path": "genophi/utils.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/utils.py",
+      "sha256": "7a51526cfc7c29cf7aeeb1f65e33f4dff678e781347e2b99b7894a83b6fd3292",
+      "bytes": 7229
+    },
+    {
+      "path": "genophi/workflows/__init__.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/__init__.py",
+      "sha256": "94638e32b0fb0ac6e14c3cef15fb7b327f00077af6f517eab39a79b84049efb4",
+      "bytes": 1354
+    },
+    {
+      "path": "genophi/workflows/assign_features_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/assign_features_workflow.py",
+      "sha256": "eb9cd45e5ae8d5a3182975296fe7e276cf2fbae5dcd7e95c38b40de70bdb5cdb",
+      "bytes": 12951
+    },
+    {
+      "path": "genophi/workflows/assign_predict_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/assign_predict_workflow.py",
+      "sha256": "0f0e14bfdbd3d44d60196c123dc0a3b761efb7b4943ff5e8718a18e37832f196",
+      "bytes": 9729
+    },
+    {
+      "path": "genophi/workflows/feature_annotations_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/feature_annotations_workflow.py",
+      "sha256": "519345374b440138d85218daada126c907403dba629407e3f16b07f79d73e80c",
+      "bytes": 7835
+    },
+    {
+      "path": "genophi/workflows/feature_selection_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/feature_selection_workflow.py",
+      "sha256": "49535df8a1fb098a51b98434f6c3b5a88be7eada8902835cbc286be58cb4f729",
+      "bytes": 10279
+    },
+    {
+      "path": "genophi/workflows/feature_table_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/feature_table_workflow.py",
+      "sha256": "a27e60d23ce0ebdac041779497a49741b4ee16d96200fcbf474e08ab2a317a91",
+      "bytes": 12620
+    },
+    {
+      "path": "genophi/workflows/full_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/full_workflow.py",
+      "sha256": "6d701116278ed7423509f106747378a140083e8dbafc99ee26486064d5309327",
+      "bytes": 24521
+    },
+    {
+      "path": "genophi/workflows/kmer_analysis_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/kmer_analysis_workflow.py",
+      "sha256": "f5c5c082e88a601f511fc75df94f009e21ea68c9fbb61d704e87331c5bce91de",
+      "bytes": 11773
+    },
+    {
+      "path": "genophi/workflows/kmer_assign_features_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/kmer_assign_features_workflow.py",
+      "sha256": "68e6978a617a5cb30907be7ef2c69aa436790a2b4ad0e5b9c550372fb042b994",
+      "bytes": 30494
+    },
+    {
+      "path": "genophi/workflows/kmer_assign_predict_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/kmer_assign_predict_workflow.py",
+      "sha256": "65d8003c706a48cb7d7e16d77980e56d232b8d615f9ba0c5b5f4cc245cfd0943",
+      "bytes": 8208
+    },
+    {
+      "path": "genophi/workflows/kmer_full_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/kmer_full_workflow.py",
+      "sha256": "3e2a9dcbd99ee3e70afa3d5d298f4b2fb3c295577fb595f570942c1397ea9b42",
+      "bytes": 37166
+    },
+    {
+      "path": "genophi/workflows/kmer_table_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/kmer_table_workflow.py",
+      "sha256": "f641520c9ef3b1d9f1fef2ec402e7cf82ced3cc8db0f426054712b8a00a572d6",
+      "bytes": 45136
+    },
+    {
+      "path": "genophi/workflows/modeling_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/modeling_workflow.py",
+      "sha256": "4222134a2737313505fd917b6699938886b73361e069ed20b501943af59ff7d4",
+      "bytes": 6603
+    },
+    {
+      "path": "genophi/workflows/prediction_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/prediction_workflow.py",
+      "sha256": "8c49e13d0cb4e76df4b3ec34a915fc53d0bc748a4593f9a9598f48bddeb0e497",
+      "bytes": 11150
+    },
+    {
+      "path": "genophi/workflows/protein_family_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/protein_family_workflow.py",
+      "sha256": "6931aa4abba7245a6387baea917d0c4a09012452b570ce45f552c6a5ad35492b",
+      "bytes": 35622
+    },
+    {
+      "path": "genophi/workflows/select_and_model_workflow.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/workflows/select_and_model_workflow.py",
+      "sha256": "e82da27fba803949ca2c3a5819ae020f69cd32dd4214fa8c59f21a4bce977f01",
+      "bytes": 19338
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/pyproject.toml",
+      "sha256": "a986d4698eff22bdaae64e79c5819ef6f45dd10f79d388270b1ab43a0d63b4a6",
+      "bytes": 2548
+    },
+    {
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/setup.py",
+      "sha256": "ee076c97bbcbf659e95e5502f1ebcbeca961c4bf1f9366f6a7a34140201311ea",
+      "bytes": 124
+    }
+  ]
+}

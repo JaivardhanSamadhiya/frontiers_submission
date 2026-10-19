@@ -1,0 +1,26 @@
+{
+  "doublets": {
+    "complete": true,
+    "options_verified": 2400,
+    "unique_measured_doublets": 300,
+    "informative_triplet_compositions": 3,
+    "conditional_host_pairs": 301,
+    "repaired_active_choices": 78,
+    "uniform_activity": 0.7466666666666667
+  },
+  "second_source": {
+    "complete": true,
+    "checked_split_records": 48,
+    "reloaded_prediction_models": 144,
+    "independently_recalculated_pooled_metrics": 84,
+    "prediction_rows": 16800
+  },
+  "nested_model_comparison": {
+    "complete": true,
+    "checked_split_records": 10,
+    "reloaded_prediction_models": 20,
+    "independently_recalculated_pooled_metrics": 4,
+    "prediction_rows": 4690
+  },
+  "all_three_complete": true
+}

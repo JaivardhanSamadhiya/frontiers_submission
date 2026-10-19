@@ -1,0 +1,12 @@
+{
+  "state": "completed_and_audited",
+  "full_budget_comparison_complete": true,
+  "audit_sha256": "349c8a9d8d8cd08638948dc72e51a3ca5e228a9fcd477cc9ce3da99e9e612939",
+  "folds": 5,
+  "pairs": 437,
+  "hosts": 23,
+  "phages": 19,
+  "selected_models_verified_locally": 250,
+  "distribution_scope": "Compact predictions, metrics, input tables, source/selection provenance and model hashes. Candidate trees and 250 selected comparator fitted models are not redistributed; included GBM/MLP outer pipelines are enumerated in the extension manifest.",
+  "scope": "Full-budget adapted GenoPHI modeling with negative-MCC retention repair and Windows reference adapter; retrospective matched fixed-bank comparison."
+}

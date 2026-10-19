@@ -1,0 +1,348 @@
+[
+  {
+    "regime": "host_cluster",
+    "fold": 0,
+    "family": "GBM",
+    "chosen": 2,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 5
+    },
+    "mean_inner_aurocs": [
+      0.9191321638081339,
+      0.9210324744977548,
+      0.9225247604748011
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 0,
+    "family": "MLP",
+    "chosen": 0,
+    "parameters": {
+      "hidden_layer_sizes": [
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.8789688840326182,
+      0.8767091239528103,
+      0.870937930947608
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 1,
+    "family": "GBM",
+    "chosen": 2,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 5
+    },
+    "mean_inner_aurocs": [
+      0.9396688850194389,
+      0.9448597248060525,
+      0.9473006890367929
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 1,
+    "family": "MLP",
+    "chosen": 0,
+    "parameters": {
+      "hidden_layer_sizes": [
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.9295618435647356,
+      0.8910419807992292,
+      0.9044798977025114
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 2,
+    "family": "GBM",
+    "chosen": 2,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 5
+    },
+    "mean_inner_aurocs": [
+      0.9072413001456519,
+      0.905447148851064,
+      0.9084063790405716
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 2,
+    "family": "MLP",
+    "chosen": 2,
+    "parameters": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.01
+    },
+    "mean_inner_aurocs": [
+      0.8503379330453603,
+      0.8632183602712221,
+      0.8689354616261351
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 3,
+    "family": "GBM",
+    "chosen": 0,
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": 3
+    },
+    "mean_inner_aurocs": [
+      0.9094374574619161,
+      0.9078518554559123,
+      0.9052957284304383
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 3,
+    "family": "MLP",
+    "chosen": 0,
+    "parameters": {
+      "hidden_layer_sizes": [
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.8507009179126336,
+      0.8461906611027645,
+      0.8367834295157603
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 4,
+    "family": "GBM",
+    "chosen": 1,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 3
+    },
+    "mean_inner_aurocs": [
+      0.9140737202917223,
+      0.9158236149123159,
+      0.9123517040663205
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "host_cluster",
+    "fold": 4,
+    "family": "MLP",
+    "chosen": 1,
+    "parameters": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.8642948798830522,
+      0.8764388434986738,
+      0.8727341187438974
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 0,
+    "family": "GBM",
+    "chosen": 0,
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": 3
+    },
+    "mean_inner_aurocs": [
+      0.5201171040011848,
+      0.5169254299138905,
+      0.514969329754276
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 0,
+    "family": "MLP",
+    "chosen": 1,
+    "parameters": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.5541237970099758,
+      0.5687168760273927,
+      0.5469082552448669
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 1,
+    "family": "GBM",
+    "chosen": 0,
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": 3
+    },
+    "mean_inner_aurocs": [
+      0.7331122298227561,
+      0.7269677012001573,
+      0.7296703448019238
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 1,
+    "family": "MLP",
+    "chosen": 0,
+    "parameters": {
+      "hidden_layer_sizes": [
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.7757079171552855,
+      0.7622322224844155,
+      0.7617671556816293
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 2,
+    "family": "GBM",
+    "chosen": 2,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 5
+    },
+    "mean_inner_aurocs": [
+      0.6394139566395663,
+      0.6274836119057953,
+      0.6402218181762317
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 2,
+    "family": "MLP",
+    "chosen": 1,
+    "parameters": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.001
+    },
+    "mean_inner_aurocs": [
+      0.7133923718128132,
+      0.7169249949302214,
+      0.6904515346624813
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 3,
+    "family": "GBM",
+    "chosen": 1,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 3
+    },
+    "mean_inner_aurocs": [
+      0.7753507937783491,
+      0.7851467431234789,
+      0.7792795453791718
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 3,
+    "family": "MLP",
+    "chosen": 2,
+    "parameters": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.01
+    },
+    "mean_inner_aurocs": [
+      0.7293059414111728,
+      0.7238978241569853,
+      0.7430657002099564
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 4,
+    "family": "GBM",
+    "chosen": 1,
+    "parameters": {
+      "n_estimators": 400,
+      "max_depth": 3
+    },
+    "mean_inner_aurocs": [
+      0.7598355656712675,
+      0.7661109046246857,
+      0.7642493740644564
+    ],
+    "inner_folds": 3
+  },
+  {
+    "regime": "dual_cluster",
+    "fold": 4,
+    "family": "MLP",
+    "chosen": 2,
+    "parameters": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.01
+    },
+    "mean_inner_aurocs": [
+      0.7231646384667026,
+      0.7457827114699601,
+      0.7618091141648561
+    ],
+    "inner_folds": 3
+  }
+]

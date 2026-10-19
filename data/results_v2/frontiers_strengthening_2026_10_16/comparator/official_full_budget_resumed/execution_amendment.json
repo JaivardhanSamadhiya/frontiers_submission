@@ -1,0 +1,8 @@
+{
+  "recorded_utc": "2026-10-06T06:46:00+00:00",
+  "old_driver_sha256": "e908ff321dd34b8611b5e79080c2c35c3c47be02fd48601bac9c73bfb4e2ec31",
+  "new_driver_sha256": "f5335792f2d8d0664b50934a7d03017a4b7fbd3d1ebc0ead0cb73a6a28c5b35b",
+  "reason": "Before the prediction stage was reached, source inspection showed that the official function is named predict_interactions, not predict_with_models. Corrected the driver import and invocation. Added explicit resume verification for this recorded amendment; original manifest and driver snapshot are retained.",
+  "stage_when_discovered": "fold 0 feature selection repetition 4; no full-budget model cutoff or outer prediction had been produced",
+  "unchanged": "Official source, all scientific parameters, feature construction, training inputs, selection logic, fitting and ensemble definition."
+}

@@ -1,0 +1,11 @@
+{
+  "regime": "dual_cluster",
+  "fold": 1,
+  "epochs": 95,
+  "warnings": "",
+  "n": 158,
+  "positive": 122,
+  "prevalence": 0.7721518987341772,
+  "auroc": 0.6123633879781422,
+  "average_precision": 0.8163808551515089
+}

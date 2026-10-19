@@ -28,3 +28,15 @@ jobs:
         run: python reproducibility/verify_public_snapshot.py
       - name: Saved prediction and model checks
         run: python reproducibility/verify_saved_predictions.py
+      - name: Strengthening extension exact payload hashes
+        run: python scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py --verify-stage --stage-root . --allow-additional-files
+      - name: Measured-menu tests
+        run: python -m unittest discover -s scripts/frontiers_strengthening_2026_10_16 -p test_doublet_validation.py -v
+      - name: Strengthening saved models, grouped selections and independent metrics
+        run: python -B scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py
+      - name: Synthetic train-only scaler guard
+        run: python -B scripts/frontiers_strengthening_2026_10_16/model_verify.py --read-only
+      - name: Negative-MCC retention repair cases
+        run: python -B -m pytest tests/test_genophi_retention.py -q -p no:cacheprovider
+      - name: Full-budget comparator compact metric replay
+        run: python scripts/frontiers_strengthening_2026_10_16/verify_comparator_metrics.py

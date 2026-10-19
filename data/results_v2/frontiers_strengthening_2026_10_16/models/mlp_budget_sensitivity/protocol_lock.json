@@ -1,0 +1,39 @@
+{
+  "amendment_sha256": "3c6fb25048f377deb1c067fc7cf243f735ec1674bed7592466f8ca233d4a9394",
+  "script_sha256": "c3bc6db6ae51d4541c5ef9c07c9c819efaaf1a92279f05231a903af9b80bee73",
+  "inputs_sha256": {
+    "input_rows.csv": "42ded958c81deaafbcf96ccb6ad0d9ad289a2b31065136058564d244eac68142",
+    "input_features.npz": "87f2f484eae8fff3d2a2bd719e5deb6abe1901bac61d7c109034c545858b909b",
+    "splits.json": "39a745166f2b0df2f65a8a5558c204ce02850f796f802f20031ddd98eb4a896c",
+    "pooled_metrics.csv": "a90b40411d18837d5fd2360c164d5c2229c764bfefd0cc3a73143ae0297a91b7",
+    "retrospective_protocol.json": "9e2d6b1b0df21bdda4a084008fbc875f13234fff9f04082a139d1d92de6c04c2"
+  },
+  "created_utc": "2026-10-17T21:35:38.781310+00:00",
+  "max_iter": 1000,
+  "training_loss_tol": 0.0001,
+  "training_loss_patience": 20,
+  "early_stopping": false,
+  "candidates": [
+    {
+      "hidden_layer_sizes": [
+        64
+      ],
+      "alpha": 0.001
+    },
+    {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.001
+    },
+    {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "alpha": 0.01
+    }
+  ],
+  "status": "retrospective outcome-exposed sensitivity"
+}

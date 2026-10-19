@@ -1,0 +1,15 @@
+{
+  "source": "https://zenodo.org/api/records/21696332",
+  "record_url": "https://zenodo.org/records/21696332",
+  "doi": "10.5281/zenodo.21696332",
+  "title": "Data for: Phylogeny-agnostic strain-level prediction of phage–host interactions from genomes using machine learning",
+  "publication_date": "2026-07-30",
+  "license": "cc-by-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "file": "GenoPHI_processed_data.zip",
+  "bytes": 656165,
+  "source_md5": "157de25b9c075a93b94781db04182d7b",
+  "previously_pinned_sha256": "1d98c77fc4068315246a4eb56aa185fc769c06bf70fd20e5090856b25f94a00d",
+  "verification_date": "2026-10-17",
+  "scope": "Read-only check against the original Zenodo record API. Original attribution and license remain in force; no private correspondence is included."
+}

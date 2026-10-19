@@ -1,0 +1,37 @@
+[
+  {
+    "assigned_block": 0,
+    "n": 70,
+    "positive": 11,
+    "negative": 59,
+    "eligible": true
+  },
+  {
+    "assigned_block": 1,
+    "n": 15,
+    "positive": 3,
+    "negative": 12,
+    "eligible": true
+  },
+  {
+    "assigned_block": 2,
+    "n": 100,
+    "positive": 47,
+    "negative": 53,
+    "eligible": true
+  },
+  {
+    "assigned_block": 3,
+    "n": 15,
+    "positive": 3,
+    "negative": 12,
+    "eligible": true
+  },
+  {
+    "assigned_block": 4,
+    "n": 15,
+    "positive": 1,
+    "negative": 14,
+    "eligible": false
+  }
+]

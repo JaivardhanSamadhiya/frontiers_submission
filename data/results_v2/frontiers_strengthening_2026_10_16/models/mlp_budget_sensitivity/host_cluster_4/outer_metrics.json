@@ -1,0 +1,11 @@
+{
+  "regime": "host_cluster",
+  "fold": 4,
+  "epochs": 123,
+  "warnings": "",
+  "n": 389,
+  "positive": 293,
+  "prevalence": 0.7532133676092545,
+  "auroc": 0.9430460750853242,
+  "average_precision": 0.9735732643554289
+}

@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-10-18T20:27:37.458973+00:00",
+  "fold": 4,
+  "chosen_cutoff": "9",
+  "selection_repetitions": 25,
+  "ensemble_models": 50,
+  "prediction_sha256": "5e35c83f54735062976c88b52c34f8dded38832e96c763052b8a12c25fdaa5a5",
+  "outer_outcomes_evaluated": false
+}

@@ -1,0 +1,187 @@
+{
+  "status": "completed retrospective extension; no predictor refitted",
+  "hosts": 100,
+  "host_clusters": 81,
+  "doublets": 300,
+  "doublet_positive": 224,
+  "doublet_prevalence": 0.7466666666666667,
+  "binary_discordant_hosts": 26,
+  "ordinal_discordant_hosts": 69,
+  "parent_compositions": 18,
+  "informative_triplet_compositions": 3,
+  "uniform_choice_activity": 0.7466666666666666,
+  "oracle_activity": 0.84,
+  "ties": {
+    "repaired_product": 0,
+    "repaired_max": 100,
+    "repaired_mean": 0,
+    "historical_product": 1,
+    "raw_logistic_product": 0,
+    "raw_knn_product": 5,
+    "training_prevalence_mean": 0,
+    "training_prevalence_product": 0
+  },
+  "primary_decision": [
+    {
+      "method": "repaired_product",
+      "resampling": "host_cluster",
+      "metric": "activity",
+      "estimate": 0.78,
+      "ci_low": 0.6808400965123931,
+      "ci_high": 0.8695853462157809,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "resampling": "host_cluster",
+      "metric": "gain_vs_uniform",
+      "estimate": 0.03333333333333335,
+      "ci_low": -0.02972492203348774,
+      "ci_high": 0.08571919489445261,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "resampling": "host_cluster",
+      "metric": "gain_vs_training_mean",
+      "estimate": 0.03,
+      "ci_low": -0.06796116504854369,
+      "ci_high": 0.11764705882352941,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "resampling": "crossed",
+      "metric": "activity",
+      "estimate": 0.78,
+      "ci_low": 0.6285675253708041,
+      "ci_high": 0.9661016949152542,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "resampling": "crossed",
+      "metric": "gain_vs_uniform",
+      "estimate": 0.03333333333333335,
+      "ci_low": -0.04511490590883988,
+      "ci_high": 0.10897727272727274,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "resampling": "crossed",
+      "metric": "gain_vs_training_mean",
+      "estimate": 0.03,
+      "ci_low": -0.11765532055518836,
+      "ci_high": 0.18471510661866516,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    }
+  ],
+  "primary_conditional_triplet": [
+    {
+      "method": "repaired_product",
+      "metric": "pair_weighted_conditional_auroc",
+      "resampling": "host_cluster",
+      "estimate": 0.7209302325581395,
+      "ci_low": 0.5229138559093361,
+      "ci_high": 0.875,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "metric": "composition_mean_auroc",
+      "resampling": "host_cluster",
+      "estimate": 0.688888888888889,
+      "ci_low": 0.46407571415929705,
+      "ci_high": 0.8510102461395563,
+      "valid_replicates": 2000,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "metric": "pair_weighted_conditional_auroc",
+      "resampling": "crossed",
+      "estimate": 0.7209302325581395,
+      "ci_low": 0.25,
+      "ci_high": 0.94,
+      "valid_replicates": 1863,
+      "total_replicates": 2000
+    },
+    {
+      "method": "repaired_product",
+      "metric": "composition_mean_auroc",
+      "resampling": "crossed",
+      "estimate": 0.688888888888889,
+      "ci_low": 0.2631578947368421,
+      "ci_high": 0.9411764705882353,
+      "valid_replicates": 1863,
+      "total_replicates": 2000
+    }
+  ],
+  "upstream_commit": "99656d8c020fcd1dbbc30a02ee10274a07655562",
+  "scope": "Retrospective prioritization among three measured two-phage subsets of externally selected triplets. No arbitrary cocktail design, unseen cohort, new organism or therapeutic efficacy validated.",
+  "interval_scope": "Fixed models and supplied compositions; host-cluster primary and crossed parent-composition sensitivity; paired contrasts. Historical labels and scores were already accessible.",
+  "shared_phage_limitation": "Options share constituents within hosts and phages recur across different compositions. Keeping each host menu intact and crossing parent compositions does not create independent phage banks or resample phage identities. Inference is conditional on this fixed phage bank; the intervals do not establish transfer to new phages or banks.",
+  "singleton_batch_exact_hosts": 100,
+  "reconstructed_historical_and_repaired_triplet_scores": true,
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.0.1",
+    "pandas": "2.2.2",
+    "sklearn": "1.4.2"
+  },
+  "inputs": {
+    "protocol": {
+      "path": "scripts\\frontiers_strengthening_2026_10_16\\DOUBLET_PROTOCOL.md",
+      "sha256": "162a5e61000de711f33d68941d793d0a8cb5b7597c095a8582d9fc2ea7863396"
+    },
+    "script": {
+      "path": "scripts\\frontiers_strengthening_2026_10_16\\doublet_validation.py",
+      "sha256": "a6801ce199de8a8f90d4827b0c47cdd1a52b9d49416af369ad0159a0e3692b65"
+    },
+    "compositions": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cocktails_composition.csv",
+      "sha256": "eab44b18fe4caece347795bc205a6882ec8a369f9199dfef13c68e5a36bbbc3d"
+    },
+    "outcomes": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\dev\\cocktails\\data\\cml_cocktails.csv",
+      "sha256": "81f916e0daa84c00aa464e48f80a352973fd8d12de5c6347f8946de3647393f5"
+    },
+    "pairs": {
+      "path": "data\\results_v2\\external_cocktail_validation\\frozen_pair_predictions.csv",
+      "sha256": "876c97d91b64158b9bda4a6df15cd510f2b1753da80c031a261570247932ef6d"
+    },
+    "manifest": {
+      "path": "data\\results_v2\\external_cocktail_validation\\frozen_prediction_manifest.json",
+      "sha256": "fd09c155420b4e9303eb121e6e0aa6a0dfdd6473d07c920e6f72e23b3587ac9a"
+    },
+    "reference": {
+      "path": "data\\results_v2\\post_rejection_audit\\development_rank_reference.npz",
+      "sha256": "3c09dcfaef434bfc20f2cf5643d9c86b6cb3e12f05aacdf7be4794b6196fa094"
+    },
+    "repaired_saved": {
+      "path": "data\\results_v2\\post_rejection_audit\\batch_invariant_cocktail_diagnostic.csv",
+      "sha256": "05122b5ea447ab51742ae5e3df0c6955466dc18e2af6808fd8e8bfa0bbd908aa"
+    },
+    "training_matrix": {
+      "path": "external\\gaborieau_coli_phage_interactions_2023\\data\\interactions\\interaction_matrix.csv",
+      "sha256": "ec0aa5553a726e2161ea15d687a677ee2ed623873fb2a897432d0777582ad829"
+    },
+    "groups": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_controls\\host_group_assignments.csv",
+      "sha256": "bc353b332bd40b9b34b4fb58a5139e527a5c4db1cfa662f29da5c087f9c49f72"
+    },
+    "selected_triplets": {
+      "path": "data\\results_v2\\frontiers_revision_2026_10_14\\cocktail_controls\\selected_triplet_scores.csv",
+      "sha256": "88f261c8f86637b2eaed84c2f54e744b234682db69073a9fefe28476f3658e26"
+    }
+  },
+  "input_hashes_unchanged": true
+}

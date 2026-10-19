@@ -1,0 +1,8 @@
+{
+  "complete": true,
+  "elapsed_seconds": 1031.7660000000033,
+  "protocol_sha256": "9e2d6b1b0df21bdda4a084008fbc875f13234fff9f04082a139d1d92de6c04c2",
+  "inner_fits": 180,
+  "outer_refits": 20,
+  "convergence_warning_count": 100
+}

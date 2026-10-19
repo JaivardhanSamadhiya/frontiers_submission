@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genophi"
+version = "1.0.3"
+description = "Whole-genome genotype-to-phenotype modeling with focus on phage-host interaction prediction"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Avery Noonan", email = "anoonan@lbl.gov"}
+]
+keywords = ["bioinformatics", "phage", "machine-learning", "genomics", "host-prediction"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+dependencies = [
+    "pandas>=2.0.0,<3.0",
+    "biopython>=1.78",
+    "scikit-learn>=1.0.0",
+    "catboost>=1.0.0",
+    "matplotlib>=3.3.0",
+    "seaborn>=0.11.0",
+    "numpy>=1.20.0",
+    "tqdm>=4.60.0",
+    "joblib>=1.0.0",
+    "plotnine>=0.8.0",
+    "shap>=0.40.0",
+    "psutil>=5.8.0",
+    "scipy>=1.7.0",
+    "hdbscan>=0.8.27",
+]
+
+[project.urls]
+Homepage = "https://github.com/Noonanav/GenoPHI"
+Documentation = "https://github.com/Noonanav/GenoPHI#readme"
+Repository = "https://github.com/Noonanav/GenoPHI"
+Issues = "https://github.com/Noonanav/GenoPHI/issues"
+
+[project.scripts]
+# Main unified CLI entry point
+genophi = "genophi.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.12",
+    "black>=21.0",
+    "flake8>=3.9",
+    "mypy>=0.900",
+    "ipython>=7.0",
+]
+
+[tool.setuptools]
+packages = ["genophi", "genophi.workflows"]
+
+[tool.pytest.ini_options]
+# Test markers for organizing test runs
+markers = [
+    "smoke: Quick smoke tests for package installation verification (<5 seconds)",
+    "unit: Unit tests for individual functions (seconds)",
+    "integration: Integration tests for module-to-module interactions (~30-45 min)",
+    "e2e: End-to-end tests for complete workflows (~60-90 min)",
+    "slow: Slow-running tests (may take >30 minutes)",
+    "full: Full regression tests with production parameters (~2-3 hours)",
+    "requires_mmseqs2: Tests that require MMSeqs2 to be installed",
+]
+
+# Test paths
+testpaths = ["tests"]
+
+# Warnings to ignore
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]

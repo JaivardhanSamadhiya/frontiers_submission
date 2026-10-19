@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-10-17T07:23:37.767836+00:00",
+  "status": "Retrospective fresh model-family comparison; original held-out outcomes already known. Does not reconstruct lost historical tuning or justify a historical model selection.",
+  "input": "NCBI_HR original 1947 rows and compatible full448 columns (424node+24pair), preserved historical forward-strand .05 groups",
+  "outer": "Five group-size-balanced host-cluster folds; five original diagonal dual-exclusion blocks seed42. Host and dual regimes have different held-out cohorts; compare families only within a regime.",
+  "inner": "Three grouped folds of outer training only, matching host-only or dual exclusion; no row-stratified fallback; ineligible one-class folds reported and omitted; require>=2 inner folds.",
+  "preprocessing": "StandardScaler separately fitted inside each inner train and outer refit; no outcome-based feature selection, calibration, or random row early stopping.",
+  "selection": "Mean inner-fold AUROC; exact tie resolved by candidate list order; outer outcomes never select a model.",
+  "budgets": "Three predeclared candidates per family evaluated on identical inner folds. Equal candidate/split budget, not equal wall-clock or parameter count. MLP150 full epochs no early stop; GBM200/400 trees fixed.",
+  "candidates": {
+    "GBM": [
+      {
+        "n_estimators": 200,
+        "max_depth": 3
+      },
+      {
+        "n_estimators": 400,
+        "max_depth": 3
+      },
+      {
+        "n_estimators": 400,
+        "max_depth": 5
+      }
+    ],
+    "MLP": [
+      {
+        "hidden_layer_sizes": [
+          64
+        ],
+        "alpha": 0.001
+      },
+      {
+        "hidden_layer_sizes": [
+          128,
+          64
+        ],
+        "alpha": 0.001
+      },
+      {
+        "hidden_layer_sizes": [
+          128,
+          64
+        ],
+        "alpha": 0.01
+      }
+    ]
+  },
+  "seed": 20261016,
+  "reporting": "All predictions, train/test indices, inner metrics, chosen candidates, scalers/models, warnings and timing retained. Pooled and macro-fold AUROC/AP descriptive; no independent-row significance tests.",
+  "inputs": {
+    "data/interim_v2/interactions_modelable.csv": "2ed31926059cfc32a315063e0b59b541efe280a8761dad01a0ae3e8779b0fde2",
+    "data/cache_v2/node_features.npz": "d47bdccb01b5b6219d213275c1a20a0640acc16b111e5f64f7fe0bad9efd1f00",
+    "data/cache_v2/node_features.meta.json": "3036b248cdba6e49e06cc2b904badadcb6c71a977ac66fc30395dc9ce4e65ca6",
+    "data/interim_v2/seq_pair_features.csv": "86684fb0f753dd1a2bf54de413598554ef328c8242d29990c768167f886f7ab3",
+    "data/cache_v2/clusters_k21_d0.05.json": "b1fcc5ad4090dea344acfbe9abfc417e2cab606e1d1fa83eb6b609cb54404e1c"
+  },
+  "versions": {
+    "sklearn": "1.4.2",
+    "xgboost": "2.0.3"
+  }
+}

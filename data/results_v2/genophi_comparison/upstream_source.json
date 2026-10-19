@@ -1,0 +1,15 @@
+{
+  "commit": "f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f",
+  "files": [
+    {
+      "member": "genophi/feature_selection.py",
+      "sha256": "492f6afa281af32ce06aaa1f051fb8f6a56bdf366d2df5caf12254795a49153c",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/genophi/feature_selection.py"
+    },
+    {
+      "member": "LICENSE",
+      "sha256": "1ba59c83aa4af680af03b6a9fba816e24e01d2620f4280311841f9afa518f86a",
+      "url": "https://raw.githubusercontent.com/Noonanav/GenoPHI/f7e30abc1b0bbba1ae76b8f58a3363bbbc5cd54f/LICENSE"
+    }
+  ]
+}

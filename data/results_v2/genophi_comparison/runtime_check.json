@@ -1,0 +1,64 @@
+{
+  "complete": true,
+  "scope": "ten-protein software smoke test only",
+  "archive_sha256": "56da93db8a645482aeba42b8b8ed892dc5571f37f20c38b84d5c86b6d9e7b8d4",
+  "executable_sha256": "4d0d4072a564f21f26494e98ca1f315958eafd9c254e62e7f22f6c52dbb16b38",
+  "source": "https://github.com/soedinglab/MMseqs2/releases/download/15-6f452/mmseqs-win64.zip",
+  "runs": [
+    {
+      "arguments": [
+        "version"
+      ],
+      "returncode": 0,
+      "stdout": "6f45232ac8daca14e354ae320a4359056ec524c2\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "createdb",
+        "sample.faa",
+        "sample_db",
+        "-v",
+        "1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "cluster",
+        "sample_db",
+        "clusters",
+        "tmp",
+        "--min-seq-id",
+        "0.4",
+        "-c",
+        "0.8",
+        "-s",
+        "7.5",
+        "--threads",
+        "2",
+        "-v",
+        "1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "createtsv",
+        "sample_db",
+        "sample_db",
+        "clusters",
+        "clusters.tsv",
+        "-v",
+        "1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

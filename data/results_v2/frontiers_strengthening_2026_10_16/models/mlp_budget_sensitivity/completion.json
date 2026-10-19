@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "outer_folds": 10,
+  "outer_models_reloaded": 10,
+  "inner_fits": 90,
+  "elapsed_seconds_this_resume": 211.39100000000326,
+  "amendment_sha256": "3c6fb25048f377deb1c067fc7cf243f735ec1674bed7592466f8ca233d4a9394",
+  "protocol_lock_sha256": "a334af67461e495ac054e1788f6af91521fb0071a2cd3b1aeae796618cbd9076",
+  "executed_script_sha256": "ed32be40fee2ccc8e9c6635ff6ce563673199fa3f09fe989689898c629e01f05",
+  "max_epoch_warnings": 0,
+  "scope": "Retrospective training-budget sensitivity; all prior 150-epoch results retained",
+  "outputs_sha256": {
+    "protocol_lock.json": "a334af67461e495ac054e1788f6af91521fb0071a2cd3b1aeae796618cbd9076",
+    "technical_verifier_repair.json": "1c6c41fcc8ccef47647ce9d71795a21b71b0727b4217d94faed826d81f265743",
+    "predictions.csv": "f27b994243f439068122fcd11a2eb511e6e66acb8ac72e7f0c4d951e2f43aedc",
+    "inner_metrics.csv": "ddd68e6d6e7269a0fa940e1d9dbff1657e8facd199843837dbc3c3dce8899fdc",
+    "outer_metrics.csv": "23b6320bec6d827017c6ecae05ee1337c5b82484b69b3b75a91df9a9e2221722",
+    "selections.json": "e56d927882713458e0ec3cc43cbdb62f7ec63d51f2257c551d4564cc100630a5",
+    "pooled_metrics.csv": "e394aeb085ac600be906793ef9b8b4622187733d9f8782f9fdfc728e8eabbb54"
+  }
+}

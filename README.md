@@ -4,7 +4,7 @@ Scientific code and compact data for leakage-controlled phage–host prediction
 and retrospective scoring of published, fixed-bank *Escherichia* cocktail
 assays. This is a research audit, **not a clinical recommender**.
 
-The dated scientific snapshot is `v2026.10.15.2`. It extends the existing public
+The dated scientific snapshot is `v2026.10.18.1`. It extends the existing public
 v2.0.1 history without replacing historical frozen predictions. Source code,
 saved predictions, analysis protocols, accession provenance and verification
 helpers are included. Manuscripts, private peer review, submission materials,
@@ -19,6 +19,41 @@ paper-writing code and large genome files are not part of this release.
 | Frozen NCBI_HR → StaphStudy | 1,053 pairs, positive prevalence 0.316 | Full-input AUROC 0.637, two-way sequence-cluster interval 0.498–0.739; AP 0.391 and ECE 0.499. Broad transfer and portable calibrated probabilities are not established. |
 | Frozen sequence-only → BASEL–ECOR | 1,240 pairs, positive prevalence 0.244 | AUROC 0.470 and AP 0.222. This further public-data transfer result is negative; the full model's four source-supplied columns were unavailable. |
 | Historical fixed-bank cocktail scoring | 100 source-selected host–triplet records, 82 active outcomes, 18 distinct compositions | AUROC 0.807 and AP 0.951 against prevalence 0.820. Source authors chose the triplets; this does not validate de novo cocktail selection. |
+
+## October 18 strengthening analyses
+
+The new retrospective analyses are documented in
+[`SCIENTIFIC_EXTENSION_README.md`](SCIENTIFIC_EXTENSION_README.md), with exact
+inputs, split indices, candidate selections, predictions, 174 fitted outer
+pipelines and SHA-256 manifests. They retain unfavorable and unresolved results:
+
+- Among three measured doublets per host, repaired scoring selected an active
+  option for 78 of 100 hosts, versus 74.67 expected under uniform choice.
+  Paired host and crossed intervals include zero gain.
+- Only three triplet compositions contain both outcome classes. Conditional
+  concordance is 0.721, but its crossed interval is 0.250–0.940.
+- Matched StaphStudy exclusion comparisons show source dependence and a
+  disagreement between pooled and within-fold metrics, not a universal hierarchy.
+- Fresh compatible-input nested GBM/MLP fits and one disclosed MLP optimization
+  sensitivity retain exact grouped development records. They are bounded
+  retrospective comparisons, not exhaustive model-family optimization.
+- The reference-adapted full-budget GenoPHI comparator completes five held-out
+  host folds on 437 Pseudomonas pairs (23 hosts, 19 fixed-bank phages; prevalence
+  0.362). Its AUROC is 0.691 versus 0.509 for nearest neighbour and 0.577 for
+  training phage breadth. Its top-three union-hit estimate is 0.652 versus
+  0.739 for both baselines; no screening advantage is established. Individual
+  activity unions are not measured cocktail efficacy. All 2,200 retained
+  eight-candidate searches and 250 selected ensemble models passed local replay.
+
+The core contains compact comparator input/selection/metric evidence. The larger
+fitted-model and cached-representation companion is distributed separately when
+identified in the release/archival file inventory; do not infer its availability
+from code alone. Its read-only replay does not reconstruct raw-proteome
+annotation, alignment or clustering, or certify private execution transcripts.
+No added cohort is presented as untouched or as new frozen cross-source transfer.
+The authentic all-100 Gaborieau comparator still lacks 67 released rescue scores.
+The preceding snapshot remains separately archived at
+https://doi.org/10.5281/zenodo.23426457; that DOI does not cover this extension.
 
 The cocktail point estimates are unchanged. The original host-only AUROC
 interval is 0.693–0.906. A **new retrospective crossed host-cluster × composition
@@ -72,7 +107,7 @@ accession-table preparation. The `audit` package extra also records sourmash.
 ```powershell
 git clone https://github.com/JaivardhanSamadhiya/frontiers_submission.git
 cd frontiers_submission
-git checkout v2026.10.15.2
+git checkout v2026.10.18.1
 python -m venv .venv-audit
 .venv-audit\Scripts\Activate.ps1
 python -m pip install -r reproducibility/requirements-revision-audit.txt
