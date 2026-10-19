@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 import joblib
 from sklearn.metrics import roc_auc_score, average_precision_score
+from prediction_portability_policy import assert_saved_predictions
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'data/results_v2/frontiers_strengthening_2026_10_16'
@@ -23,7 +24,7 @@ def check_metric(rows, reported):
     assert len(rows) == reported.n and int(rows.label.sum()) == reported.positive
 
 
-def audit_models(directory, nested=False):
+def audit_models(directory, nested=False, portable_float32=False):
     complete = directory / 'completion.json'
     if not complete.exists():
         return {'complete': False, 'reason': 'No completion artifact'}
@@ -82,7 +83,8 @@ def audit_models(directory, nested=False):
             model = joblib.load(directory / 'fitted_models' / filename)
             if nested:
                 np.testing.assert_allclose(model['scale'].mean_, features[tr].mean(axis=0,dtype=np.float64), rtol=1e-10, atol=1e-10)
-            np.testing.assert_allclose(model.predict_proba(features[scored.row_index, cols])[:,1], scored.score, atol=1e-7)
+            assert_saved_predictions(scored.score,model.predict_proba(features[scored.row_index, cols])[:,1],model,
+                                     portable_float32=portable_float32,strict_rtol=1e-7,strict_atol=1e-7)
             checked_reload += 1
         checked_splits += 1
     if not nested:

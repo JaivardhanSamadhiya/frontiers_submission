@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-19T04:56:03.793540+00:00",
+  "created_utc": "2026-10-19T05:10:09.590310+00:00",
   "prior_release": "v2026.10.15.2",
   "prior_commit": "7937ee3e705609c2759b37973f9c0d2e97b74f33",
   "prior_doi": "10.5281/zenodo.23426457",
@@ -62,14 +62,14 @@
     },
     {
       "path": "SCIENTIFIC_EXTENSION_README.md",
-      "bytes": 10565,
-      "sha256": "cc49f72e5d0e3e11581bc1f3c90a8367ab99276944f9e66430e8503a57f59f31",
+      "bytes": 11748,
+      "sha256": "6df174ee83ad3de2d9ca3b7698e73edf275d7a8fb6fb44481b96f6844beacae9",
       "provenance": "generated scientific packaging metadata"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_SCIENTIFIC_CHECKS.json",
-      "bytes": 3680,
-      "sha256": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61",
+      "bytes": 3731,
+      "sha256": "588fce61637c6026ea3f2ad7baa46f29e20d417e3f6103975c7ed15f1d70aa6a",
       "provenance": "generated scientific packaging metadata"
     },
     {
@@ -17456,8 +17456,8 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/model_verify.py",
-      "bytes": 9762,
-      "sha256": "d5bec61ad5c5c345a85c50857a7894e379643ecccca8d057184afbd004872046",
+      "bytes": 10455,
+      "sha256": "a978685872f6d1e2c8ca9b48d3288180a28ee9a94ca1eb697287a8759428e231",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17467,9 +17467,15 @@
       "provenance": "byte-identical local scientific source"
     },
     {
+      "path": "scripts/frontiers_strengthening_2026_10_16/prediction_portability_policy.py",
+      "bytes": 14696,
+      "sha256": "a173c0af9b5a79d81a7445fbfc4b27402675547c05a18d43bc11c64857bc16bc",
+      "provenance": "byte-identical local scientific source"
+    },
+    {
       "path": "scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py",
-      "bytes": 33176,
-      "sha256": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf",
+      "bytes": 34441,
+      "sha256": "3b103264b97982d8f5d256151f967eefcfaa3a4102af4ff248456fc0c9288447",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17485,6 +17491,12 @@
       "provenance": "byte-identical local scientific source"
     },
     {
+      "path": "scripts/frontiers_strengthening_2026_10_16/test_prediction_portability_policy.py",
+      "bytes": 10663,
+      "sha256": "52dbe23085a7078670f17dc55820e0a08f7a57e6fee98f616e2976a5a0e85439",
+      "provenance": "byte-identical local scientific source"
+    },
+    {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_comparator_metrics.py",
       "bytes": 8941,
       "sha256": "ca43c38eb2b6acec7ea34eb8c7ab453b308bf131a646d62a0e0fbb59924592a5",
@@ -17492,20 +17504,20 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py",
-      "bytes": 2249,
-      "sha256": "e606bacdea2fcbb5cfdfa70abaa5dbdfb8a8dc3af7a80fe122fcd7374fb156ca",
+      "bytes": 3543,
+      "sha256": "88e041bd508c5e99a638df0e99d547d24722abd9c9f911677ffa8033b8b62914",
       "provenance": "byte-identical local scientific source"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_mlp_budget_sensitivity.py",
-      "bytes": 4632,
-      "sha256": "ac790f10c474e0a334404892deccd013b539ee0dd2e5ce19595e72dfa1fb65ad",
+      "bytes": 4853,
+      "sha256": "cc1c59923de604c34e7927b13a923e51fca75d806d6aef5b1dbdbbeeb4a01b5c",
       "provenance": "byte-identical local scientific source"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_strengthening.py",
-      "bytes": 8928,
-      "sha256": "9eee948367442bb3e90cf0be7aaea48d4642f14f3b0d4015fa690e4f941e998c",
+      "bytes": 9117,
+      "sha256": "a41a73d6daab2acbbe4f1682e41fc60f39d4d8d4b1cf557ffd6e0dee4ee7259f",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17725,7 +17737,7 @@
       "provenance": "byte-identical local scientific source"
     }
   ],
-  "total_bytes": 73429931,
+  "total_bytes": 73460186,
   "excluded": [
     "manuscript and reviewer material",
     "writing scripts",

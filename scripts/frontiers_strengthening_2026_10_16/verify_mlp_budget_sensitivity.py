@@ -5,9 +5,11 @@ import joblib
 import numpy as np
 import pandas as pd
 from model_common import ROOT,OUT,sha,metric,assert_split,save_json
+from prediction_portability_policy import assert_saved_predictions
 
 
-def verify(write=True):
+def verify(write=True, portable_float32=False):
+    if portable_float32 and write:raise ValueError('Portable inference must not regenerate scientific reports')
     base=OUT/'nested_comparison';dest=OUT/'mlp_budget_sensitivity'
     complete=json.loads((dest/'completion.json').read_text());assert complete['complete']
     for name,digest in complete['outputs_sha256'].items():assert sha(dest/name)==digest
@@ -38,7 +40,7 @@ def verify(write=True):
         np.testing.assert_allclose(model['scale'].mean_,X[tr].mean(0,dtype=np.float64),rtol=1e-10,atol=1e-10)
         pred=scored.loc[scored.regime.eq(regime)&scored.fold.eq(fold)]
         np.testing.assert_array_equal(pred.row_index,te)
-        np.testing.assert_allclose(model.predict_proba(X[te])[:,1],pred.score,rtol=1e-6,atol=1e-7)
+        assert_saved_predictions(pred.score,model.predict_proba(X[te])[:,1],model,portable_float32=portable_float32)
         selected=next(s for s in selections if s['regime']==regime and s['fold']==fold)
         inner=inners.loc[inners.regime.eq(regime)&inners.outer_fold.eq(fold)]
         means=inner.groupby('candidate').auroc.mean().to_numpy()

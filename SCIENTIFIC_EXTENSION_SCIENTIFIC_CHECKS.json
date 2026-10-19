@@ -27,11 +27,12 @@
         "convergence_warning_count": 100
       }
     },
-    "elapsed_seconds": 9.046999999991385,
+    "elapsed_seconds": 8.421999999991385,
     "passed": true,
     "verification_files_written": 0,
     "toy_scaler_guard_fit_executed": false,
-    "analyzed_models_refitted": 0
+    "analyzed_models_refitted": 0,
+    "portable_float32_inference_requested": false
   },
   "doublet_unit_tests": 11,
   "independent_doublets": {

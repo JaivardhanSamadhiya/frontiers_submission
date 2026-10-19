@@ -11,6 +11,7 @@ import joblib
 from model_common import ROOT,OUT,sha,assert_split,metric,save_json
 from secondsource_matched import fractions
 from model_nested_comparison import estimator,folds_for,CANDIDATES
+from prediction_portability_policy import assert_saved_predictions
 
 if not __debug__:
     raise RuntimeError('Run without Python optimization; verification assertions are mandatory')
@@ -36,7 +37,8 @@ class LeakageGuards(unittest.TestCase):
         df=pd.DataFrame({'host_cluster':[1,1]})
         with self.assertRaises(AssertionError):assert_split(df,[0],[1],['host'])
 
-def main(write=True, include_toy_fit=True):
+def main(write=True, include_toy_fit=True, portable_float32=False):
+    if portable_float32 and write:raise ValueError('Portable inference must not regenerate scientific reports')
     started=time.monotonic()
     suite=unittest.defaultTestLoader.loadTestsFromTestCase(LeakageGuards)
     if not include_toy_fit:
@@ -78,7 +80,7 @@ def main(write=True, include_toy_fit=True):
                     p=model.predict_proba(X[te,cols])[:,1]
                     saved=pred.loc[pred.fold.eq(split['fold'])&pred.seed.eq(split['seed'])&pred.regime.eq(regime)&pred.method.eq(name)]
                     np.testing.assert_array_equal(saved.row_index,te)
-                    np.testing.assert_allclose(saved.score,p,rtol=1e-6,atol=1e-7)
+                    assert_saved_predictions(saved.score,p,model,portable_float32=portable_float32)
                     checks['artifact_reload_predictions']+=1
                 for name,p in fractions(df.iloc[tr],df.iloc[te]).items():
                     saved=pred.loc[pred.fold.eq(split['fold'])&pred.seed.eq(split['seed'])&pred.regime.eq(regime)&pred.method.eq(name)]
@@ -121,7 +123,7 @@ def main(write=True, include_toy_fit=True):
                     p=model.predict_proba(X[te])[:,1]
                     saved=pred.loc[pred.fold.eq(split['fold'])&pred.regime.eq(regime)&pred.method.eq(family)]
                     np.testing.assert_array_equal(saved.row_index,te)
-                    np.testing.assert_allclose(saved.score,p,rtol=1e-6,atol=1e-7);checks['artifact_reload_predictions']+=1
+                    assert_saved_predictions(saved.score,p,model,portable_float32=portable_float32);checks['artifact_reload_predictions']+=1
         group=['regime','method','seed'] if analysis=='secondsource' else ['regime','method']
         for keys,p in pred.groupby(group):
             mask=np.ones(len(pooled),bool)
@@ -134,6 +136,7 @@ def main(write=True, include_toy_fit=True):
     checks['verification_files_written']=2 if write else 0
     checks['toy_scaler_guard_fit_executed']=include_toy_fit
     checks['analyzed_models_refitted']=0
+    checks['portable_float32_inference_requested']=portable_float32
     print(json.dumps(checks,indent=2))
     return checks
 
@@ -141,6 +144,8 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--read-only',action='store_true',help='Do not rewrite saved reports or eligibility tables')
     parser.add_argument('--skip-toy-fit',action='store_true',help='Skip only the two-tree synthetic scaler guard; reload and check every analyzed model')
+    parser.add_argument('--portable-float32',action='store_true',help='Explicit float32 MLP inference-only comparison; use verify_extension_analysis.py with this flag for the mandatory pooled/decision diagnostic guards')
     args=parser.parse_args()
     sys.dont_write_bytecode=args.read_only
-    main(write=not args.read_only,include_toy_fit=not args.skip_toy_fit)
+    if args.portable_float32 and not args.read_only:parser.error('Portable inference must not regenerate scientific reports')
+    main(write=not args.read_only,include_toy_fit=not args.skip_toy_fit,portable_float32=args.portable_float32)

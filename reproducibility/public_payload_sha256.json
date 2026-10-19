@@ -14,11 +14,11 @@
     },
     {
       "path": ".github/workflows/release-checks.yml",
-      "bytes": 2212,
-      "sha256_exact": "a5d5304cf75268e4b258eb820be38e18941485b86858067ba31ea55d0706a790",
-      "git_blob_bytes": 2168,
-      "sha256_git_blob": "a198e4159dae52b765f6ddc0bf982f0524bf98430231a4f71012d7ed1005f3a7",
-      "sha256_lf": "a198e4159dae52b765f6ddc0bf982f0524bf98430231a4f71012d7ed1005f3a7"
+      "bytes": 2447,
+      "sha256_exact": "449b6c683bfdbfbc9a9701b540eac1fba17ed89e952ea8cafa55d9ca3fe1cbcd",
+      "git_blob_bytes": 2401,
+      "sha256_git_blob": "7201ee6d0439422a1914b0765e549384746fc02623144488c4923ceb41ec132d",
+      "sha256_lf": "7201ee6d0439422a1914b0765e549384746fc02623144488c4923ceb41ec132d"
     },
     {
       "path": ".gitignore",
@@ -173,11 +173,11 @@
     },
     {
       "path": "README.md",
-      "bytes": 14862,
-      "sha256_exact": "669d2b4b9f60aab4dd51c10bc80cf7de165fee4ebab71d5abdc98e835f6306a7",
-      "git_blob_bytes": 14862,
-      "sha256_git_blob": "669d2b4b9f60aab4dd51c10bc80cf7de165fee4ebab71d5abdc98e835f6306a7",
-      "sha256_lf": "669d2b4b9f60aab4dd51c10bc80cf7de165fee4ebab71d5abdc98e835f6306a7"
+      "bytes": 16380,
+      "sha256_exact": "692d58f31922c7231935048760eab9dafb85abec90496392286bd9a8887841fd",
+      "git_blob_bytes": 16380,
+      "sha256_git_blob": "692d58f31922c7231935048760eab9dafb85abec90496392286bd9a8887841fd",
+      "sha256_lf": "692d58f31922c7231935048760eab9dafb85abec90496392286bd9a8887841fd"
     },
     {
       "path": "RELEASE_NOTES_2026_10_15.md",
@@ -189,11 +189,11 @@
     },
     {
       "path": "RELEASE_NOTES_2026_10_18.md",
-      "bytes": 4866,
-      "sha256_exact": "3ec127e0ed940070e689306f07e3697fa53fc0c564c009e85d4f098dec071277",
-      "git_blob_bytes": 4866,
-      "sha256_git_blob": "3ec127e0ed940070e689306f07e3697fa53fc0c564c009e85d4f098dec071277",
-      "sha256_lf": "3ec127e0ed940070e689306f07e3697fa53fc0c564c009e85d4f098dec071277"
+      "bytes": 5249,
+      "sha256_exact": "2e911b2e848d5330f5b24b2ef8e6675bf0ffc1aec66b7c3945b1790f4ebebf40",
+      "git_blob_bytes": 5249,
+      "sha256_git_blob": "2e911b2e848d5330f5b24b2ef8e6675bf0ffc1aec66b7c3945b1790f4ebebf40",
+      "sha256_lf": "2e911b2e848d5330f5b24b2ef8e6675bf0ffc1aec66b7c3945b1790f4ebebf40"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_ENVIRONMENT.json",
@@ -205,27 +205,27 @@
     },
     {
       "path": "SCIENTIFIC_EXTENSION_MANIFEST.json",
-      "bytes": 997903,
-      "sha256_exact": "c1326e931eeb167dab3b41405bd288c4deafd5ba63f1f8ec10c1f56b18f09545",
-      "git_blob_bytes": 997903,
-      "sha256_git_blob": "c1326e931eeb167dab3b41405bd288c4deafd5ba63f1f8ec10c1f56b18f09545",
-      "sha256_lf": "c1326e931eeb167dab3b41405bd288c4deafd5ba63f1f8ec10c1f56b18f09545"
+      "bytes": 998455,
+      "sha256_exact": "72bcb0a67a0c19913918501f870a3d8a6d50f2e68c0786fbb850a1cf797a6067",
+      "git_blob_bytes": 998455,
+      "sha256_git_blob": "72bcb0a67a0c19913918501f870a3d8a6d50f2e68c0786fbb850a1cf797a6067",
+      "sha256_lf": "72bcb0a67a0c19913918501f870a3d8a6d50f2e68c0786fbb850a1cf797a6067"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_README.md",
-      "bytes": 10565,
-      "sha256_exact": "cc49f72e5d0e3e11581bc1f3c90a8367ab99276944f9e66430e8503a57f59f31",
-      "git_blob_bytes": 10565,
-      "sha256_git_blob": "cc49f72e5d0e3e11581bc1f3c90a8367ab99276944f9e66430e8503a57f59f31",
-      "sha256_lf": "cc49f72e5d0e3e11581bc1f3c90a8367ab99276944f9e66430e8503a57f59f31"
+      "bytes": 11748,
+      "sha256_exact": "6df174ee83ad3de2d9ca3b7698e73edf275d7a8fb6fb44481b96f6844beacae9",
+      "git_blob_bytes": 11748,
+      "sha256_git_blob": "6df174ee83ad3de2d9ca3b7698e73edf275d7a8fb6fb44481b96f6844beacae9",
+      "sha256_lf": "6df174ee83ad3de2d9ca3b7698e73edf275d7a8fb6fb44481b96f6844beacae9"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_SCIENTIFIC_CHECKS.json",
-      "bytes": 3680,
-      "sha256_exact": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61",
-      "git_blob_bytes": 3680,
-      "sha256_git_blob": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61",
-      "sha256_lf": "05637b20432542656e15f5768981bd60bb7f1ea34535b05b7fad9a280105ef61"
+      "bytes": 3731,
+      "sha256_exact": "588fce61637c6026ea3f2ad7baa46f29e20d417e3f6103975c7ed15f1d70aa6a",
+      "git_blob_bytes": 3731,
+      "sha256_git_blob": "588fce61637c6026ea3f2ad7baa46f29e20d417e3f6103975c7ed15f1d70aa6a",
+      "sha256_lf": "588fce61637c6026ea3f2ad7baa46f29e20d417e3f6103975c7ed15f1d70aa6a"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_SOURCE_NOTICES.md",
@@ -246,10 +246,10 @@
     {
       "path": "SCIENTIFIC_EXTENSION_VERIFICATION.json",
       "bytes": 416,
-      "sha256_exact": "13815195c613b7de356012fa6a2614df39aaa2388405c05088cf61f27a17a74a",
+      "sha256_exact": "4ddc4c2df8caad5e924efaacaa767b161a91d784b93e457e11fa0d7c6d71b51a",
       "git_blob_bytes": 416,
-      "sha256_git_blob": "13815195c613b7de356012fa6a2614df39aaa2388405c05088cf61f27a17a74a",
-      "sha256_lf": "13815195c613b7de356012fa6a2614df39aaa2388405c05088cf61f27a17a74a"
+      "sha256_git_blob": "4ddc4c2df8caad5e924efaacaa767b161a91d784b93e457e11fa0d7c6d71b51a",
+      "sha256_lf": "4ddc4c2df8caad5e924efaacaa767b161a91d784b93e457e11fa0d7c6d71b51a"
     },
     {
       "path": "SECOND_BANK_AND_CANONICAL_PROTOCOL.md",
@@ -25818,11 +25818,11 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/model_verify.py",
-      "bytes": 9762,
-      "sha256_exact": "d5bec61ad5c5c345a85c50857a7894e379643ecccca8d057184afbd004872046",
-      "git_blob_bytes": 9762,
-      "sha256_git_blob": "d5bec61ad5c5c345a85c50857a7894e379643ecccca8d057184afbd004872046",
-      "sha256_lf": "d5bec61ad5c5c345a85c50857a7894e379643ecccca8d057184afbd004872046"
+      "bytes": 10455,
+      "sha256_exact": "a978685872f6d1e2c8ca9b48d3288180a28ee9a94ca1eb697287a8759428e231",
+      "git_blob_bytes": 10455,
+      "sha256_git_blob": "a978685872f6d1e2c8ca9b48d3288180a28ee9a94ca1eb697287a8759428e231",
+      "sha256_lf": "a978685872f6d1e2c8ca9b48d3288180a28ee9a94ca1eb697287a8759428e231"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/plot_strengthening_doublets.py",
@@ -25833,12 +25833,20 @@
       "sha256_lf": "c58e3cca1e261a66ae43ab1da7500095a3f6f61e221fa4b5e1ae49c068e34240"
     },
     {
+      "path": "scripts/frontiers_strengthening_2026_10_16/prediction_portability_policy.py",
+      "bytes": 14696,
+      "sha256_exact": "a173c0af9b5a79d81a7445fbfc4b27402675547c05a18d43bc11c64857bc16bc",
+      "git_blob_bytes": 14696,
+      "sha256_git_blob": "a173c0af9b5a79d81a7445fbfc4b27402675547c05a18d43bc11c64857bc16bc",
+      "sha256_lf": "a173c0af9b5a79d81a7445fbfc4b27402675547c05a18d43bc11c64857bc16bc"
+    },
+    {
       "path": "scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py",
-      "bytes": 33176,
-      "sha256_exact": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf",
-      "git_blob_bytes": 33176,
-      "sha256_git_blob": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf",
-      "sha256_lf": "594392fbf7b80611fa36879ff8fe6036c5a1a6d3a5455e5cb77e5cea2e2414cf"
+      "bytes": 34441,
+      "sha256_exact": "3b103264b97982d8f5d256151f967eefcfaa3a4102af4ff248456fc0c9288447",
+      "git_blob_bytes": 34441,
+      "sha256_git_blob": "3b103264b97982d8f5d256151f967eefcfaa3a4102af4ff248456fc0c9288447",
+      "sha256_lf": "3b103264b97982d8f5d256151f967eefcfaa3a4102af4ff248456fc0c9288447"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/secondsource_matched.py",
@@ -25857,6 +25865,14 @@
       "sha256_lf": "39a8e0c879bbdb07d9f9eb3d267b50388571a885149f3fd3e1cf2badf632c7fc"
     },
     {
+      "path": "scripts/frontiers_strengthening_2026_10_16/test_prediction_portability_policy.py",
+      "bytes": 10663,
+      "sha256_exact": "52dbe23085a7078670f17dc55820e0a08f7a57e6fee98f616e2976a5a0e85439",
+      "git_blob_bytes": 10663,
+      "sha256_git_blob": "52dbe23085a7078670f17dc55820e0a08f7a57e6fee98f616e2976a5a0e85439",
+      "sha256_lf": "52dbe23085a7078670f17dc55820e0a08f7a57e6fee98f616e2976a5a0e85439"
+    },
+    {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_comparator_metrics.py",
       "bytes": 8941,
       "sha256_exact": "ca43c38eb2b6acec7ea34eb8c7ab453b308bf131a646d62a0e0fbb59924592a5",
@@ -25866,27 +25882,27 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py",
-      "bytes": 2249,
-      "sha256_exact": "e606bacdea2fcbb5cfdfa70abaa5dbdfb8a8dc3af7a80fe122fcd7374fb156ca",
-      "git_blob_bytes": 2249,
-      "sha256_git_blob": "e606bacdea2fcbb5cfdfa70abaa5dbdfb8a8dc3af7a80fe122fcd7374fb156ca",
-      "sha256_lf": "e606bacdea2fcbb5cfdfa70abaa5dbdfb8a8dc3af7a80fe122fcd7374fb156ca"
+      "bytes": 3543,
+      "sha256_exact": "88e041bd508c5e99a638df0e99d547d24722abd9c9f911677ffa8033b8b62914",
+      "git_blob_bytes": 3543,
+      "sha256_git_blob": "88e041bd508c5e99a638df0e99d547d24722abd9c9f911677ffa8033b8b62914",
+      "sha256_lf": "88e041bd508c5e99a638df0e99d547d24722abd9c9f911677ffa8033b8b62914"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_mlp_budget_sensitivity.py",
-      "bytes": 4632,
-      "sha256_exact": "ac790f10c474e0a334404892deccd013b539ee0dd2e5ce19595e72dfa1fb65ad",
-      "git_blob_bytes": 4632,
-      "sha256_git_blob": "ac790f10c474e0a334404892deccd013b539ee0dd2e5ce19595e72dfa1fb65ad",
-      "sha256_lf": "ac790f10c474e0a334404892deccd013b539ee0dd2e5ce19595e72dfa1fb65ad"
+      "bytes": 4853,
+      "sha256_exact": "cc1c59923de604c34e7927b13a923e51fca75d806d6aef5b1dbdbbeeb4a01b5c",
+      "git_blob_bytes": 4853,
+      "sha256_git_blob": "cc1c59923de604c34e7927b13a923e51fca75d806d6aef5b1dbdbbeeb4a01b5c",
+      "sha256_lf": "cc1c59923de604c34e7927b13a923e51fca75d806d6aef5b1dbdbbeeb4a01b5c"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/verify_strengthening.py",
-      "bytes": 8928,
-      "sha256_exact": "9eee948367442bb3e90cf0be7aaea48d4642f14f3b0d4015fa690e4f941e998c",
-      "git_blob_bytes": 8928,
-      "sha256_git_blob": "9eee948367442bb3e90cf0be7aaea48d4642f14f3b0d4015fa690e4f941e998c",
-      "sha256_lf": "9eee948367442bb3e90cf0be7aaea48d4642f14f3b0d4015fa690e4f941e998c"
+      "bytes": 9117,
+      "sha256_exact": "a41a73d6daab2acbbe4f1682e41fc60f39d4d8d4b1cf557ffd6e0dee4ee7259f",
+      "git_blob_bytes": 9117,
+      "sha256_git_blob": "a41a73d6daab2acbbe4f1682e41fc60f39d4d8d4b1cf557ffd6e0dee4ee7259f",
+      "sha256_lf": "a41a73d6daab2acbbe4f1682e41fc60f39d4d8d4b1cf557ffd6e0dee4ee7259f"
     },
     {
       "path": "scripts/prepare_basel_ecor_genomes.py",

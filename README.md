@@ -127,6 +127,33 @@ No GPU or paid service is needed for the saved-score checks. The tests do not re
 review or certify biological usefulness. The legacy release validator checks
 historical artifacts; the public snapshot inventory checks this dated payload.
 
+### Float32 neural inference across platforms
+
+The default saved-model replay retains its original strict tolerances. A separate
+Windows/Linux diagnostic on the identical 174 fitted artifacts found a maximum
+probability difference of 0.000002036, no AUROC or 0.5-decision changes, and a
+maximum pooled average-precision change of 0.000000026. One same-label pooled
+tie changed; no positive-negative ordering changed. These are observed runtime
+differences, not a change to any archived prediction or a claim that their cause
+has been isolated to one library or processor.
+
+For cross-platform float32 neural inference, run:
+
+```text
+python -B scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py --portable-float32
+```
+
+This explicit mode permits at most 32 float32 machine epsilons of absolute
+probability difference for float32 multilayer-perceptron inference only. This
+post-diagnostic engineering threshold is not a formal roundoff bound or a new
+statistical test. It also checks every fold and pooled group: AUROC within
+1e-12, average precision within 1e-7, Brier score and calibration error within
+32 epsilons, unchanged 0.5 decisions, unchanged positive-negative order/ties and
+unchanged audited top-k sets. Tree predictions, scalers, source/data/model hashes,
+split indices and training-only controls retain their original strict checks.
+Published statistics are recomputed from exact archived CSV scores, not
+substituted cross-platform scores. The raw diagnostic is not a validation pass.
+
 ## Reproduce revision analyses
 
 The following commands use saved predictions and compact tables. They do not

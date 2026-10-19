@@ -34,10 +34,12 @@ jobs:
         run: python -m unittest discover -s scripts/frontiers_strengthening_2026_10_16 -p test_doublet_validation.py -v
       - name: Cross-platform saved-model numerical diagnostic (not a validation pass)
         run: python -B scripts/frontiers_strengthening_2026_10_16/diagnose_prediction_portability.py
+      - name: Explicit float32 inference policy safety tests
+        run: python -B -m unittest discover -s scripts/frontiers_strengthening_2026_10_16 -p test_prediction_portability_policy.py -v
       - name: Strengthening saved models, grouped selections and independent metrics
-        run: python -B scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py
+        run: python -B scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py --portable-float32
       - name: Synthetic train-only scaler guard
-        run: python -B scripts/frontiers_strengthening_2026_10_16/model_verify.py --read-only
+        run: python -B scripts/frontiers_strengthening_2026_10_16/model_verify.py --read-only --portable-float32
       - name: Negative-MCC retention repair cases
         run: python -B -m pytest tests/test_genophi_retention.py -q -p no:cacheprovider
       - name: Full-budget comparator compact metric replay

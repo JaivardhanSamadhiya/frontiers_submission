@@ -30,7 +30,8 @@ PRIOR='7937ee3e705609c2759b37973f9c0d2e97b74f33'
 MAX_FILE=40*1024**2
 MAX_TOTAL=150*1024**2
 CODE=['model_common.py','secondsource_matched.py','model_nested_comparison.py',
-      'model_verify.py','model_report.py','verify_extension_analysis.py','diagnose_prediction_portability.py','doublet_validation.py','test_doublet_validation.py',
+      'model_verify.py','model_report.py','verify_extension_analysis.py','diagnose_prediction_portability.py',
+      'prediction_portability_policy.py','test_prediction_portability_policy.py','doublet_validation.py','test_doublet_validation.py',
       'verify_strengthening.py','verify_comparator_metrics.py','comparator_public_replay.py','comparator_resume_genophi.py','scientific_extension_payload.py','plot_strengthening_doublets.py',
       'model_mlp_budget_sensitivity.py','model_mlp_budget_before_verifier_repair.py','verify_mlp_budget_sensitivity.py','MLP_BUDGET_AMENDMENT.md',
       'DOUBLET_PROTOCOL.md','comparator_external_cohort_audit.md']
@@ -212,6 +213,10 @@ For the full-budget comparator, read `GENOPHI_COMPARISON_PROTOCOL.md`, `GENOPHI_
 When the comparator is marked complete, `python scripts/frontiers_strengthening_2026_10_16/verify_comparator_metrics.py` replays its compact saved metrics and paired host-group intervals, checks input-table hashes and prediction alignment, and starts no model fits. The per-fold merged development matrices, feature-occurrence/importance tables, eligible cutoff tables and every completed eight-candidate search table accompany that completed result. This metric-only replay is separate from the full local 250-model reload and protein-representation audit; the latter still requires the deliberately omitted large caches and fitted comparator models.
 
 If a separately identified fitted-audit companion is supplied with the archived release, extract it into the same core directory and use the comparator environment to run `python scripts/frontiers_strengthening_2026_10_16/comparator_public_replay.py`. Its default requires all five completed folds. It verifies retained search models, selected-ensemble predictions, source hashes, development cutoff selection and cached protein-family representations without fitting. Historical forest paths are resolved to byte-identical resumed copies; path-separator normalization is explicit. This narrower public scientific replay intentionally does not certify private execution-log history or reconstruct raw-proteome annotation/alignment/clustering. Explicit `--folds` arguments certify only those partial folds, never the complete comparison. Do not infer that a companion has been published merely because its replay code is present; check the release file inventory and verification record.
+
+## Float32 inference portability
+
+The default saved-model replay retains the original strict tolerances. The explicit command `python -B scripts/frontiers_strengthening_2026_10_16/verify_extension_analysis.py --portable-float32` additionally supports float32 MLP inference across platforms. After a complete 174-model/42-pooled-group Windows/Linux diagnostic, an empirical engineering cap of 32 float32 machine epsilons was adopted for neural probabilities only; this is not a formal roundoff bound or a statistical test. All fold/pooled AUROCs must agree within 1e-12, AP within 1e-7, Brier/ECE within 32 epsilons, with unchanged 0.5 decisions, positive-negative order/ties and audited top-k sets. Source/model/data hashes, tree predictions, scalers, split and entity-control checks remain strict. The observed Linux maximum score difference was 0.000002036; maximum pooled AP difference was 0.000000026, from one same-label tie. No AUROC or 0.5 decision changed. Original CSV scores and reported scientific results remain unchanged. Runtime-factor causation was not isolated. Use the diagnostic command separately to inspect differences; a diagnostic report is not itself a pass.
 
 ## Source and limits
 
