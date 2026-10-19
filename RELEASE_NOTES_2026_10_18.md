@@ -11,9 +11,10 @@ regenerates release inventories. Analysis protocols, source inputs, fitted
 models, predictions and numerical results are unchanged. The earlier tag is
 preserved. Tag `v2026.10.18.2` then exposed small saved neural-model prediction
 differences on Linux; those require a separate numerical portability audit.
-The full 174-model/42-pooled diagnostic found maximum probability error
-0.000002036, unchanged AUROC and 0.5 decisions, and one same-label pooled tie
-with average-precision difference 0.000000026. An explicit float32-MLP-only
+Complete 174-model/42-pooled diagnostics found probability errors up to
+0.00000230, unchanged AUROC and 0.5 decisions, and isolated same-label pooled
+tie/order changes; average-precision differences were at most 0.000000026.
+An explicit float32-MLP-only
 portable mode uses a documented post-diagnostic engineering cap and additional
 metric, ordering and decision guards. The original strict default, tree/scaler
 and exact artifact checks remain intact; archived scientific results are not

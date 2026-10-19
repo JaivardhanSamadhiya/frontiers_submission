@@ -173,6 +173,25 @@ class PredictionPolicyTests(unittest.TestCase):
         self.assertEqual(len(checked['same_label_pooled_tie_changes']), 1)
         self.assertEqual(checked['same_label_pooled_tie_changes'][0]['ties_created'], 1)
 
+    def test_same_label_pooled_reversal_disclosed(self):
+        report = diagnostic()
+        pool = next(row for row in report['pooled'] if row['method']=='MLP_extended' and row['regime']=='host_cluster')
+        model = next(row for row in report['models'] if row['method']=='MLP_extended' and row['regime']=='host_cluster')
+        model['max_absolute_error'] = pool['max_absolute_error'] = 1e-6
+        model['different_numeric_values'] = pool['different_numeric_values'] = 2
+        pool['pairwise'].update(order_reversals=1, changed_pairwise_relations=1)
+        refresh_summary(report)
+        checked = p.validate_portable_diagnostic(report)
+        self.assertEqual(checked['same_label_pooled_order_and_tie_changes'][0]['reversals'], 1)
+        self.assertEqual(checked['same_label_pooled_tie_changes'], [])
+
+    def test_opposite_label_pooled_reversal_rejected(self):
+        report = diagnostic()
+        pool = next(row for row in report['pooled'] if row['method']=='MLP_extended' and row['regime']=='host_cluster')
+        pool['pairwise'].update(order_reversals=1, changed_pairwise_relations=1, positive_negative_order_reversals=1)
+        with self.assertRaisesRegex(AssertionError, 'opposite-label'):
+            p.validate_portable_diagnostic(report)
+
     def test_summary_and_pooled_count_tampering(self):
         report = diagnostic()
         report['summary']['max_absolute_score_error'] = 1e-7

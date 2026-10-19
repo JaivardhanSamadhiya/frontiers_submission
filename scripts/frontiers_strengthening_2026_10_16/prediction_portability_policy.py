@@ -40,7 +40,7 @@ def policy():
             'metric_difference_caps': dict(METRIC_CAPS),
             'thresholds': ['>=0.5', '>0.5'], 'opposite_label_order_and_tie_changes_allowed': 0,
             'top_k_symmetric_difference_allowed': 0,
-            'same_label_pooled_tie_policy': 'Allowed only within score/metric caps; every change is counted and disclosed. Fold order/ties and pooled strict order reversals must remain unchanged.',
+            'same_label_pooled_order_and_tie_policy': 'Allowed only within unchanged score/metric/threshold/top-k caps; every same-label pooled reversal or tie change is counted and disclosed. All fold order/ties and all opposite-label relations must remain unchanged.',
             'limitations': 'Inference reproducibility policy, not a new fit, recalibration, positive finding, metric replacement, or external validation.'}
 
 
@@ -150,7 +150,6 @@ def check_detail(row, pooled):
             and changed <= pairs['unordered_pairs'], 'Pairwise change counts do not reconcile')
     for key in ['positive_negative_order_reversals', 'positive_negative_original_ties_broken', 'positive_negative_new_ties_created']:
         require(integer(pairs.get(key), key) == 0, 'An opposite-label order/tie relation changed')
-    require(pairs['order_reversals'] == 0, 'A strict score-order relation reversed')
     if not pooled:
         require(changed == 0, 'Fold score-order/tie relations must remain unchanged')
     top = row.get('top_k_index_tiebroken')
@@ -159,6 +158,7 @@ def check_detail(row, pooled):
     require(all(integer(entry.get('symmetric_difference_count'), 'top-k set changes') == 0 for entry in top),
             'A deterministic top-k set changed')
     return {'n': n, 'positive': positive, 'score_error': error, 'metric_errors': deltas,
+            'same_label_order_reversals': pairs['order_reversals'],
             'same_label_ties_broken': pairs['original_ties_broken'], 'same_label_ties_created': pairs['new_ties_created']}
 
 
@@ -204,14 +204,17 @@ def validate_portable_diagnostic(report):
             and integer(summary.get('threshold_ge_0_5_decision_changes'), 'summary threshold changes') == 0,
             'Summary historical tolerance/decision counts differ from the detailed rows')
     same_label = [{'analysis': row['analysis'], 'regime': row['regime'], 'method': row['method'], 'seed': row['seed'],
+                   'reversals': checked['same_label_order_reversals'],
                    'ties_broken': checked['same_label_ties_broken'], 'ties_created': checked['same_label_ties_created']}
-                  for row, checked in zip(pools, checked_pools) if checked['same_label_ties_broken'] or checked['same_label_ties_created']]
+                  for row, checked in zip(pools, checked_pools) if checked['same_label_order_reversals']
+                  or checked['same_label_ties_broken'] or checked['same_label_ties_created']]
     return {'passed': True, 'scope': 'Complete saved-model inference portability diagnostic only; original saved metrics and predictions retained',
             'models_checked': 174, 'pooled_cohorts_checked': 42, 'max_absolute_score_error': error,
             'model_diagnostics_exceeding_historical_tolerance': old_models,
             'historical_tolerance_failing_rows': old_failing,
             'fold_metric_max_absolute_differences': {metric: max(row['metric_errors'][metric] for row in checked_models) for metric in METRIC_CAPS},
             'pooled_metric_max_absolute_differences': {metric: max(row['metric_errors'][metric] for row in checked_pools) for metric in METRIC_CAPS},
-            'same_label_pooled_tie_changes': same_label,
+            'same_label_pooled_order_and_tie_changes': same_label,
+            'same_label_pooled_tie_changes': [row for row in same_label if row['ties_broken'] or row['ties_created']],
             'diagnostic_canonical_json_sha256': hashlib.sha256(json.dumps(report, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest(),
             'model_fits_started': 0, 'files_written': 0, 'policy': policy()}

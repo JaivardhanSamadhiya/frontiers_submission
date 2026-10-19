@@ -129,11 +129,12 @@ historical artifacts; the public snapshot inventory checks this dated payload.
 
 ### Float32 neural inference across platforms
 
-The default saved-model replay retains its original strict tolerances. A separate
-Windows/Linux diagnostic on the identical 174 fitted artifacts found a maximum
-probability difference of 0.000002036, no AUROC or 0.5-decision changes, and a
-maximum pooled average-precision change of 0.000000026. One same-label pooled
-tie changed; no positive-negative ordering changed. These are observed runtime
+The default saved-model replay retains its original strict tolerances. Complete
+Windows/Linux diagnostics on the identical 174 fitted artifacts found probability
+differences up to 0.00000230, no AUROC or 0.5-decision changes, and a maximum
+pooled average-precision change of 0.000000026. One same-label pooled tie or
+order reversal occurred in separate Linux runs; no positive-negative ordering
+changed. These are observed runtime
 differences, not a change to any archived prediction or a claim that their cause
 has been isolated to one library or processor.
 

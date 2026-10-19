@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-19T05:10:09.590310+00:00",
+  "created_utc": "2026-10-19T05:18:39.463151+00:00",
   "prior_release": "v2026.10.15.2",
   "prior_commit": "7937ee3e705609c2759b37973f9c0d2e97b74f33",
   "prior_doi": "10.5281/zenodo.23426457",
@@ -62,14 +62,14 @@
     },
     {
       "path": "SCIENTIFIC_EXTENSION_README.md",
-      "bytes": 11748,
-      "sha256": "6df174ee83ad3de2d9ca3b7698e73edf275d7a8fb6fb44481b96f6844beacae9",
+      "bytes": 11841,
+      "sha256": "b6e5d941787bc3e249a0440d807045f8867c45edc11d5804426182a10b9abe08",
       "provenance": "generated scientific packaging metadata"
     },
     {
       "path": "SCIENTIFIC_EXTENSION_SCIENTIFIC_CHECKS.json",
       "bytes": 3731,
-      "sha256": "588fce61637c6026ea3f2ad7baa46f29e20d417e3f6103975c7ed15f1d70aa6a",
+      "sha256": "40f3294a385b5785894ac0738898efd6c40260952c5e17e749bec85c25b5d39c",
       "provenance": "generated scientific packaging metadata"
     },
     {
@@ -17468,14 +17468,14 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/prediction_portability_policy.py",
-      "bytes": 14696,
-      "sha256": "a173c0af9b5a79d81a7445fbfc4b27402675547c05a18d43bc11c64857bc16bc",
+      "bytes": 15011,
+      "sha256": "4d14cc42c883ca39a79d677938bdcdbcf80f7e654721e823b9925e53c092c05e",
       "provenance": "byte-identical local scientific source"
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/scientific_extension_payload.py",
-      "bytes": 34441,
-      "sha256": "3b103264b97982d8f5d256151f967eefcfaa3a4102af4ff248456fc0c9288447",
+      "bytes": 34534,
+      "sha256": "02865ac8d88c4307ddbabd4dc0c18674bcd2dc946d42148ef54d0ff93102ce54",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17492,8 +17492,8 @@
     },
     {
       "path": "scripts/frontiers_strengthening_2026_10_16/test_prediction_portability_policy.py",
-      "bytes": 10663,
-      "sha256": "52dbe23085a7078670f17dc55820e0a08f7a57e6fee98f616e2976a5a0e85439",
+      "bytes": 11933,
+      "sha256": "a94184a8afe3c592c070e26d7b84a7037a5a5d588f00a7383a73e6d8c00b7dfb",
       "provenance": "byte-identical local scientific source"
     },
     {
@@ -17737,7 +17737,7 @@
       "provenance": "byte-identical local scientific source"
     }
   ],
-  "total_bytes": 73460186,
+  "total_bytes": 73461957,
   "excluded": [
     "manuscript and reviewer material",
     "writing scripts",
