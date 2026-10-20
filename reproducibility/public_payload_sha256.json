@@ -173,11 +173,11 @@
     },
     {
       "path": "README.md",
-      "bytes": 16414,
-      "sha256_exact": "a296dc0bde11a2762ecf4684d53dcfa3c9c1d005adc5f72cd28186aacc9d4ceb",
-      "git_blob_bytes": 16414,
-      "sha256_git_blob": "a296dc0bde11a2762ecf4684d53dcfa3c9c1d005adc5f72cd28186aacc9d4ceb",
-      "sha256_lf": "a296dc0bde11a2762ecf4684d53dcfa3c9c1d005adc5f72cd28186aacc9d4ceb"
+      "bytes": 17914,
+      "sha256_exact": "95fcabae758863cc3f0811dff8c9fbddaadfe85c0b36830636ae6028b50f4cd1",
+      "git_blob_bytes": 17914,
+      "sha256_git_blob": "95fcabae758863cc3f0811dff8c9fbddaadfe85c0b36830636ae6028b50f4cd1",
+      "sha256_lf": "95fcabae758863cc3f0811dff8c9fbddaadfe85c0b36830636ae6028b50f4cd1"
     },
     {
       "path": "RELEASE_NOTES_2026_10_15.md",

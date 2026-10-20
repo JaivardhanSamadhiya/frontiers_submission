@@ -10,6 +10,14 @@ saved predictions, analysis protocols, accession provenance and verification
 helpers are included. Manuscripts, private peer review, submission materials,
 paper-writing code and large genome files are not part of this release.
 
+The immutable [tag `v2026.10.18.3`](https://github.com/JaivardhanSamadhiya/frontiers_submission/releases/tag/v2026.10.18.3),
+commit `f8c1f8222411c18519e26b537d1a17fa4fcc13df`, and its separately packaged
+fitted-model companion are archived at [DOI 10.5281/zenodo.23442604](https://doi.org/10.5281/zenodo.23442604).
+That scientific snapshot predates this documentation-only clarification of the
+intentionally unscored rescue stage; its archived README retains the earlier
+terminology. This later documentation update changes no archived code, data,
+predictions, models, tag or ZIP bytes.
+
 ## What the evidence supports
 
 | Analysis | Evaluated data | Main finding and boundary |
@@ -51,7 +59,9 @@ identified in the release/archival file inventory; do not infer its availability
 from code alone. Its read-only replay does not reconstruct raw-proteome
 annotation, alignment or clustering, or certify private execution transcripts.
 No added cohort is presented as untouched or as new frozen cross-source transfer.
-The authentic all-100 Gaborieau comparator still lacks 67 released rescue scores.
+The Gaborieau rescue stage intentionally generates no host-specific probabilities
+for 67 selections, so an all-100 continuous original-source score is undefined,
+not a missing output to recover or impute.
 The preceding snapshot remains separately archived at
 https://doi.org/10.5281/zenodo.23426457; that DOI does not cover this extension.
 
@@ -69,11 +79,22 @@ hosts with different binary outcomes. Its historical policy gain over the one
 fixed baseline is 0.050; the new crossed interval is **−0.039–0.194**, leaving
 selection benefit unresolved.
 
-The original-source comparison is complete for **64 hosts only**. Of 300
+The development-reference repaired policy chose between the two externally
+supplied, experimentally measured triplets for each host, with 84% observed
+activity versus 82% for always using the source-selected triplet. Its paired
+crossed gain was 2.0 percentage points (95% interval −14.3 to 13.8), so this
+retrospective measured-menu comparison does not establish an advantage over
+the original selection strategy or validate newly designed cocktails.
+
+The secondary source-score comparison uses **64 pre-rescue hosts only**. Of 300
 source-selected constituent records, 233 have released numeric decision scores;
-67 rescue-stage values are absent. Inspection of the source release and all 96
-prediction-archive members did not recover authentic external scores or a
-faithfully runnable all-100 predictor. Missing scores were not invented. See
+67 rescue selections instead use generalist coverage from Picard experiments.
+An imposed product of the available scores is not the original four-stage
+cocktail-selection algorithm or a calibrated cocktail probability. The earlier
+resource-recovery audit is retained as provenance; it did not recover a
+faithfully runnable official predictor. Historical hypothetical score-completion
+outputs are preserved but are not bounds on the intentionally unscored
+selection algorithm. No rescue probabilities were invented. See
 `data/results_v2/frontiers_revision_2026_10_15/official_gaborieau/` for the public
 feasibility record.
 
@@ -189,7 +210,7 @@ Git checkout at its pinned revision, including the released prediction RAR,
 not merely the compact source CSVs supplied here. This optional forensic rerun
 also needs seaborn for the upstream script and a RAR-capable libarchive/bsdtar
 executable available as `tar`; GNU tar alone cannot read that archive. It performs no model fitting
-and does not fill missing rescue scores. Public summary records omit contact
+and does not invent probabilities for intentionally unscored rescue selections. Public summary records omit contact
 drafts, personal commit metadata and private machine-path details.
 
 ## Files and stage separation
